@@ -1,23 +1,25 @@
 #pragma once
-#include "transport_catalogue.h"
 #include <algorithm>
 #include <iostream>
 #include <string_view>
 #include <vector>
 
+#include "transport_catalogue.h"
+
 template <typename OutputStream> class StatReader {
 public:
-  StatReader(TransportCatalogue &source, OutputStream &output)
-      : storage_{source}, outstream_{output} {};
+  StatReader(TransportCatalogue &source, OutputStream &output,
+             QTypes &known_types)
+      : storage_{source}, outstream_{output}, known_types_{known_types} {};
 
-  template <class HandlerType>
-  void ParseCommand(HandlerType type, std::string_view object_name);
+  void ParseCommand(std::string_view request);
 
   void PrintAllStats();
 
 private:
   TransportCatalogue &storage_;
   OutputStream &outstream_;
+  QTypes &known_types_;
 
   struct RequestTypes {
     struct BusStatsPrint {
@@ -30,8 +32,8 @@ private:
 
   struct StatQueue {
     enum ActiveType {
-      bus_stats_print,
-      stop_stats_print,
+      BusStatsPrint = 0,
+      StopStatsPrint,
     } active_type;
     union Request {
       typename RequestTypes::BusStatsPrint bus_stats_print;
@@ -39,7 +41,7 @@ private:
     } data;
   };
 
-  std::vector<StatQueue> stat_queue;
+  std::vector<StatQueue> stat_queue_;
 
   using ParseHandler = void (StatReader::*)(std::string_view);
   const std::unordered_map<QTypes::QTypeId, ParseHandler> parse_handlers_{
@@ -50,9 +52,8 @@ private:
   using PrintHandler = void (StatReader::*)(const StatQueue &);
   const std::unordered_map<typename StatQueue::ActiveType, PrintHandler>
       print_handlers_{
-          {StatQueue::ActiveType::bus_stats_print, &StatReader::PrintBusQuery},
-          {StatQueue::ActiveType::stop_stats_print,
-           &StatReader::PrintStopQuery},
+          {StatQueue::BusStatsPrint, &StatReader::PrintBusQuery},
+          {StatQueue::StopStatsPrint, &StatReader::PrintStopQuery},
       };
 
   void ParseBusQuery(std::string_view bus_name);
@@ -67,16 +68,17 @@ private:
 };
 
 template <typename OutputStream>
-template <class HandlerType>
-void StatReader<OutputStream>::ParseCommand(HandlerType type,
-                                            std::string_view object_name) {
-  auto handler = parse_handlers_.at(type);
+void StatReader<OutputStream>::ParseCommand(std::string_view request) {
+  auto delim_pos = request.find_first_of(' ');
+  auto command_name = request.substr(0, delim_pos);
+  auto object_name = request.substr(delim_pos + 1);
+  auto handler = parse_handlers_.at(known_types_.NameToId(command_name));
   (*this.*handler)(object_name);
 }
 
 template <typename OutputStream>
 void StatReader<OutputStream>::PrintAllStats() {
-  for (const auto &elem : stat_queue) {
+  for (const auto &elem : stat_queue_) {
     auto handler = print_handlers_.at(elem.active_type);
     (*this.*handler)(elem);
   }
@@ -87,7 +89,7 @@ template <typename OutputStream>
 void StatReader<OutputStream>::ParseBusQuery(std::string_view bus_name) {
   typename StatQueue::Request data{};
   data.bus_stats_print.bus_name = bus_name;
-  stat_queue.push_back({StatQueue::bus_stats_print, data});
+  stat_queue_.push_back({StatQueue::BusStatsPrint, data});
 }
 
 template <typename OutputStream>
@@ -111,7 +113,7 @@ template <typename OutputStream>
 void StatReader<OutputStream>::ParseStopQuery(std::string_view stop_name) {
   typename StatQueue::Request data{};
   data.stop_stats_print.stop_name = stop_name;
-  stat_queue.push_back({StatQueue::stop_stats_print, data});
+  stat_queue_.push_back({StatQueue::StopStatsPrint, data});
 }
 
 template <typename OutputStream>
@@ -140,5 +142,5 @@ void StatReader<OutputStream>::PrintStopQuery(
 
 template <typename OutputStream>
 void StatReader<OutputStream>::FlushSavedDate() {
-  stat_queue.clear();
+  stat_queue_.clear();
 }

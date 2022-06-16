@@ -19,6 +19,7 @@ void InputReader::ParseStopInfo(std::string_view object_name,
   InputQueue::Request request{};
   std::string_view stop_name;
   size_t delim_pos{data.find_first_of(',')}, cycles_counter{0};
+  const size_t LongitudeIteration{1};
   double real_dist;
   for (; delim_pos != data.npos; data = data.substr(delim_pos + 2),
                                  delim_pos = data.find_first_of(','),
@@ -40,7 +41,7 @@ void InputReader::ParseStopInfo(std::string_view object_name,
     }
   }
 
-  if (cycles_counter == 1) {
+  if (cycles_counter == LongitudeIteration) {
     new_stop.longitude = std::stod(std::string{data.substr(0, delim_pos)});
   } else {
     real_dist = std::stod(std::string{data.substr(0, data.find_first_of('m'))});
@@ -49,10 +50,10 @@ void InputReader::ParseStopInfo(std::string_view object_name,
   }
 
   request.stop_input.stop_ptr = &stops_input_queue_.emplace_back(new_stop);
-  input_queue_.push_back({InputQueue::stop_insert, request});
+  input_queue_.push_back({InputQueue::StopInsert, request});
   request.stoplink_input.stoplink_ptr =
       &stoplinks_input_queue_.emplace_back(new_stoplink);
-  input_queue_.push_back({InputQueue::slink_insert, request});
+  input_queue_.push_back({InputQueue::SLinkInsert, request});
 }
 
 void InputReader::InsertStop(const InputQueue &stop) {
@@ -77,7 +78,7 @@ void InputReader::ParseBusInfo(std::string_view object_name,
   new_bus.stops.push_back(data);
 
   info.bus_input.bus_ptr = &buses_input_queue_.emplace_back(std::move(new_bus));
-  input_queue_.push_back({InputQueue::bus_insert, info});
+  input_queue_.push_back({InputQueue::BusInsert, info});
 }
 
 void InputReader::InsertBus(const InputQueue &bus) {

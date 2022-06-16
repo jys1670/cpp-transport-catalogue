@@ -28,6 +28,9 @@ void TransportCatalogue::AddBus(const InputInfo::Bus &new_bus) {
     double direct_dist = ComputeStopsDirectDist(prev_stop, curr_stop);
     double real_dist = GetStopsRealDist(prev_stop, curr_stop);
 
+    direct_distances_[{prev_stop.stop_ptr, curr_stop.stop_ptr}] = direct_dist;
+    direct_distances_[{curr_stop.stop_ptr, prev_stop.stop_ptr}] = direct_dist;
+
     bus.stops.emplace_back(curr_stop.stop_ptr); // insert second, third, .. stop
     uniq_stops.insert(curr_stop.stop_ptr);
     curr_stop.linked_buses.insert(&bus);

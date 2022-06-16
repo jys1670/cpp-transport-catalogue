@@ -1,4 +1,5 @@
 #pragma once
+
 #include <algorithm>
 #include <cassert>
 #include <charconv>
@@ -14,12 +15,17 @@
 
 class InputReader {
 public:
-  InputReader(TransportCatalogue &into) : storage_{into} {};
+  InputReader(TransportCatalogue &into, QTypes &known_types)
+      : storage_{into}, known_types_{known_types} {};
 
-  template <class HandlerType>
-  void ParseCommand(HandlerType type, std::string_view object_name,
-                    std::string_view data) {
-    auto handler = parse_handlers_.at(type);
+  void ParseCommand(std::string_view request) {
+    size_t colon_pos = request.find_first_of(':');
+    size_t space_pos = request.find_first_of(' ');
+    std::string_view command_name = request.substr(0, space_pos);
+    std::string_view object_name =
+        request.substr(space_pos + 1, colon_pos - space_pos - 1);
+    std::string_view data = request.substr(colon_pos + 2);
+    auto handler = parse_handlers_.at(known_types_.NameToId(command_name));
     (*this.*handler)(object_name, data);
   }
 
@@ -27,6 +33,7 @@ public:
 
 private:
   TransportCatalogue &storage_;
+  QTypes &known_types_;
 
   struct RequestTypes {
     struct StopInsert {
@@ -42,9 +49,9 @@ private:
 
   struct InputQueue {
     enum ActiveType {
-      stop_insert,
-      slink_insert,
-      bus_insert,
+      StopInsert,
+      SLinkInsert,
+      BusInsert,
     } active_type;
     union Request {
       RequestTypes::StopInsert stop_input;
@@ -68,9 +75,9 @@ private:
   using InsertHandler = void (InputReader::*)(const InputQueue &);
   const std::unordered_map<InputQueue::ActiveType, InsertHandler>
       insert_handlers_{
-          {InputQueue::ActiveType::stop_insert, &InputReader::InsertStop},
-          {InputQueue::ActiveType::slink_insert, &InputReader::InsertStopLinks},
-          {InputQueue::ActiveType::bus_insert, &InputReader::InsertBus},
+          {InputQueue::StopInsert, &InputReader::InsertStop},
+          {InputQueue::SLinkInsert, &InputReader::InsertStopLinks},
+          {InputQueue::BusInsert, &InputReader::InsertBus},
       };
 
   void ParseStopInfo(std::string_view object_name, std::string_view data);
