@@ -12,7 +12,10 @@
 
 class QTypes {
 public:
-  enum class QTypeId { Stop, Bus };
+  enum class QTypeId {
+    Stop,
+    Bus,
+  };
   struct QTypeInfo {
     std::string name;
     QTypeId id;
@@ -37,8 +40,7 @@ private:
 namespace InputInfo {
 struct Stop {
   std::string_view name;
-  double latitude;
-  double longitude;
+  Coordinates pos;
 };
 
 struct StopLink {
@@ -53,75 +55,71 @@ struct Bus {
 };
 } // namespace InputInfo
 
+namespace DataStorage {
+struct Stop {
+  std::string name;
+  Coordinates pos;
+};
+
+struct Bus {
+  std::string name;
+  std::vector<Stop *> stops;
+  bool is_circular;
+};
+
+struct StopStats {
+  Stop *stop_ptr;
+  std::unordered_set<Bus *> linked_buses;
+  std::unordered_map<Stop *, double> linked_stops;
+};
+
+struct BusStats {
+  Bus *bus_ptr;
+  size_t total_stops;
+  std::unordered_set<Stop *> unique_stops;
+  double direct_lenght;
+  double real_length;
+};
+} // namespace DataStorage
+
 class TransportCatalogue {
 public:
-  struct Stop {
-    std::string name;
-    double latitude;
-    double longitude;
-  };
-
-  struct Bus {
-    std::string name;
-    std::vector<Stop *> stops;
-    bool is_circular;
-  };
-
-  struct StopStats {
-    Stop *stop_ptr;
-    std::unordered_set<Bus *> linked_buses;
-    std::unordered_map<Stop *, double> linked_stops;
-  };
-
-  struct BusStats {
-    Bus *bus_ptr;
-    size_t total_stops;
-    std::unordered_set<Stop *> unique_stops;
-    double direct_lenght;
-    double real_length;
-  };
-
   void AddStop(const InputInfo::Stop &new_stop);
 
   void AddStopLinks(const InputInfo::StopLink &new_links);
 
   void AddBus(const InputInfo::Bus &new_bus);
 
-  const BusStats *GetBusInfo(std::string_view bus_name) const;
+  const DataStorage::BusStats *GetBusInfo(std::string_view bus_name) const;
 
-  const StopStats *GetStopInfo(std::string_view stop_name) const;
+  const DataStorage::StopStats *GetStopInfo(std::string_view stop_name) const;
 
-  double GetStopsDirectDistance(std::string_view from_stop_name1,
-                                std::string_view to_stop_name2) {
-    if (stopname_to_stop_stats_.count(from_stop_name1) &&
-        stopname_to_stop_stats_.count(to_stop_name2)) {
-      StopStats &stop1 = stopname_to_stop_stats_.at(from_stop_name1);
-      StopStats &stop2 = stopname_to_stop_stats_.at(to_stop_name2);
-      return direct_distances_.at({stop1.stop_ptr, stop2.stop_ptr});
-    }
-    return -1; // makes no sense, error case
-  }
+  double GetStopsDirectDistance(std::string_view from, std::string_view to);
 
 private:
-  std::deque<Stop> stops_;
-  std::deque<Bus> buses_;
-  std::unordered_map<std::string_view, BusStats> busname_to_bus_stats_;
-  std::unordered_map<std::string_view, StopStats> stopname_to_stop_stats_;
+  std::deque<DataStorage::Stop> stops_;
+  std::deque<DataStorage::Bus> buses_;
+  std::unordered_map<std::string_view, DataStorage::BusStats>
+      busname_to_bus_stats_;
+  std::unordered_map<std::string_view, DataStorage::StopStats>
+      stopname_to_stop_stats_;
 
   struct StopsStatsHasher {
-    size_t operator()(const std::pair<Stop *, Stop *> object) const {
+    size_t operator()(const std::pair<DataStorage::Stop *, DataStorage::Stop *>
+                          object) const {
       return (size_t)object.first + (size_t)object.second * 37;
     }
   };
 
-  std::unordered_map<std::pair<Stop *, Stop *>, double, StopsStatsHasher>
+  std::unordered_map<std::pair<DataStorage::Stop *, DataStorage::Stop *>,
+                     double, StopsStatsHasher>
       direct_distances_;
 
-  static double ComputeStopsDirectDist(const StopStats &first,
-                                       const StopStats &second);
+  static double ComputeStopsDirectDist(const DataStorage::StopStats &from,
+                                       const DataStorage::StopStats &to);
 
-  static double GetStopsRealDist(const StopStats &first,
-                                 const StopStats &second);
+  static double GetStopsRealDist(const DataStorage::StopStats &from,
+                                 const DataStorage::StopStats &to);
 
-  static size_t GetBusTotalStopsAmount(const Bus &bus);
+  static size_t GetBusTotalStopsAmount(const DataStorage::Bus &bus);
 };

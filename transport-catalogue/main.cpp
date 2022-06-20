@@ -42,7 +42,7 @@ public:
                          raw_queries_.end());
       init.storage_inserter.InsertAllIntoStorage();
       init.storage_reader.PrintAllStats();
-      FlushSavedData();
+      Clear();
     }
   }
 
@@ -62,11 +62,12 @@ private:
     }
   }
 
-  void FlushSavedData() { raw_queries_.clear(); }
+  void Clear() { raw_queries_.clear(); }
 };
 
 int main() {
   TestBasicInputOutput();
+  /* Аргументировал в slack */
   GenericParserInit<std::istream, std::ostream> parser_input{std::cin,
                                                              std::cout};
   GenericParser<std::istream, std::ostream> parser{parser_input};

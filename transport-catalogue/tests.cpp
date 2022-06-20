@@ -43,7 +43,7 @@ public:
                          raw_queries_.end());
       init.storage_inserter.InsertAllIntoStorage();
       init.storage_reader.PrintAllStats();
-      FlushSavedData();
+      Clear();
     }
   }
 
@@ -63,7 +63,7 @@ private:
     }
   }
 
-  void FlushSavedData() { raw_queries_.clear(); }
+  void Clear() { raw_queries_.clear(); }
 };
 
 void TestBasicInputOutput() {

@@ -9,12 +9,14 @@ void InputReader::InsertAllIntoStorage() {
     auto handler = insert_handlers_.at(elem.active_type);
     (*this.*handler)(elem);
   }
-  FlushSavedDate();
+  Clear();
 }
 
 void InputReader::ParseStopInfo(std::string_view object_name,
                                 std::string_view data) {
-  InputInfo::Stop new_stop = {object_name, {}, {}};
+  // Only object name is know right now, coordinates must be parsed from data
+  InputInfo::Stop new_stop = {object_name, {}};
+  // Neighbours must be parsed from data
   InputInfo::StopLink new_stoplink = {object_name, {}};
   InputQueue::Request request{};
   std::string_view stop_name;
@@ -26,10 +28,10 @@ void InputReader::ParseStopInfo(std::string_view object_name,
                                  ++cycles_counter) {
     switch (cycles_counter) {
     case 0:
-      new_stop.latitude = std::stod(std::string{data.substr(0, delim_pos)});
+      new_stop.pos.lat = std::stod(std::string{data.substr(0, delim_pos)});
       break;
     case 1:
-      new_stop.longitude = std::stod(std::string{data.substr(0, delim_pos)});
+      new_stop.pos.lng = std::stod(std::string{data.substr(0, delim_pos)});
       break;
     default:
       std::string_view link = data.substr(0, delim_pos);
@@ -42,7 +44,7 @@ void InputReader::ParseStopInfo(std::string_view object_name,
   }
 
   if (cycles_counter == LongitudeIteration) {
-    new_stop.longitude = std::stod(std::string{data.substr(0, delim_pos)});
+    new_stop.pos.lng = std::stod(std::string{data.substr(0, delim_pos)});
   } else {
     real_dist = std::stod(std::string{data.substr(0, data.find_first_of('m'))});
     stop_name = data.substr(data.find("to") + 3);
@@ -85,7 +87,7 @@ void InputReader::InsertBus(const InputQueue &bus) {
   storage_.AddBus(*bus.data.bus_input.bus_ptr);
 }
 
-void InputReader::FlushSavedDate() {
+void InputReader::Clear() {
   input_queue_.clear();
   stops_input_queue_.clear();
   stoplinks_input_queue_.clear();

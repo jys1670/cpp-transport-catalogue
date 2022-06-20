@@ -64,7 +64,7 @@ private:
 
   void PrintStopQuery(const StatQueue &elem);
 
-  void FlushSavedDate();
+  void Clear();
 };
 
 template <typename OutputStream>
@@ -82,7 +82,7 @@ void StatReader<OutputStream>::PrintAllStats() {
     auto handler = print_handlers_.at(elem.active_type);
     (*this.*handler)(elem);
   }
-  FlushSavedDate();
+  Clear();
 }
 
 template <typename OutputStream>
@@ -125,8 +125,8 @@ void StatReader<OutputStream>::PrintStopQuery(
     if (stop_info->linked_buses.empty()) {
       outstream_ << "Stop " << stop_name << ": no buses" << std::endl;
     } else {
-      std::vector<TransportCatalogue::Bus *> tmp(
-          stop_info->linked_buses.begin(), stop_info->linked_buses.end());
+      std::vector<DataStorage::Bus *> tmp(stop_info->linked_buses.begin(),
+                                          stop_info->linked_buses.end());
       std::sort(tmp.begin(), tmp.end(),
                 [](auto lhs, auto rhs) { return lhs->name < rhs->name; });
       outstream_ << "Stop " << stop_name << ": buses";
@@ -140,7 +140,6 @@ void StatReader<OutputStream>::PrintStopQuery(
   }
 }
 
-template <typename OutputStream>
-void StatReader<OutputStream>::FlushSavedDate() {
+template <typename OutputStream> void StatReader<OutputStream>::Clear() {
   stat_queue_.clear();
 }

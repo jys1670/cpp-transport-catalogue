@@ -90,5 +90,5 @@ private:
 
   void InsertBus(const InputQueue &bus);
 
-  void FlushSavedDate();
+  void Clear();
 };

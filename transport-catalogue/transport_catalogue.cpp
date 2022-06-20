@@ -2,29 +2,32 @@
 
 void TransportCatalogue::AddStop(const InputInfo::Stop &new_stop) {
   auto &stop = stops_.emplace_back(
-      Stop{std::string{new_stop.name}, new_stop.latitude, new_stop.longitude});
+      DataStorage::Stop{std::string{new_stop.name}, new_stop.pos});
+  // Linked buses and linked stops are initialized empty, since not every stop
+  // was added to storage at this point of time, can't generate pointers to structures
   stopname_to_stop_stats_[stop.name] = {&stop, {}, {}};
 }
 
 void TransportCatalogue::AddBus(const InputInfo::Bus &new_bus) {
   double total_dir_dist{}, total_real_dist{};
-  std::unordered_set<Stop *> uniq_stops;
+  std::unordered_set<DataStorage::Stop *> uniq_stops;
 
   auto &bus = buses_.emplace_back(
-      Bus{std::string{new_bus.name}, {}, new_bus.is_circular});
+      DataStorage::Bus{std::string{new_bus.name}, {}, new_bus.is_circular});
 
   // Insert first stop, cycle over pairs (first, second) , (second, third) etc
   auto first_stop_name = new_bus.stops.front();
   stopname_to_stop_stats_.at(first_stop_name).linked_buses.insert(&bus);
 
-  Stop *first_stop_ptr = stopname_to_stop_stats_.at(first_stop_name).stop_ptr;
+  DataStorage::Stop *first_stop_ptr =
+      stopname_to_stop_stats_.at(first_stop_name).stop_ptr;
   bus.stops.emplace_back(first_stop_ptr);
   uniq_stops.insert(first_stop_ptr);
 
   for (auto it = new_bus.stops.begin() + 1, end = new_bus.stops.end();
        it != end; ++it) {
-    StopStats &prev_stop = stopname_to_stop_stats_.at(*(it - 1));
-    StopStats &curr_stop = stopname_to_stop_stats_.at(*it);
+    DataStorage::StopStats &prev_stop = stopname_to_stop_stats_.at(*(it - 1));
+    DataStorage::StopStats &curr_stop = stopname_to_stop_stats_.at(*it);
     double direct_dist = ComputeStopsDirectDist(prev_stop, curr_stop);
     double real_dist = GetStopsRealDist(prev_stop, curr_stop);
 
@@ -43,7 +46,7 @@ void TransportCatalogue::AddBus(const InputInfo::Bus &new_bus) {
     total_real_dist += real_dist;
   }
 
-  busname_to_bus_stats_[bus.name] = BusStats{
+  busname_to_bus_stats_[bus.name] = DataStorage::BusStats{
       &bus,
       GetBusTotalStopsAmount(bus),
       std::move(uniq_stops),
@@ -55,12 +58,13 @@ void TransportCatalogue::AddBus(const InputInfo::Bus &new_bus) {
 void TransportCatalogue::AddStopLinks(const InputInfo::StopLink &new_links) {
   auto &main_stop = stopname_to_stop_stats_.at(new_links.stop_name);
   for (auto [stop_name, dist] : new_links.neighbours) {
-    Stop *curr_stop_ptr = stopname_to_stop_stats_.at(stop_name).stop_ptr;
+    DataStorage::Stop *curr_stop_ptr =
+        stopname_to_stop_stats_.at(stop_name).stop_ptr;
     main_stop.linked_stops[curr_stop_ptr] = dist;
   }
 }
 
-const TransportCatalogue::BusStats *
+const DataStorage::BusStats *
 TransportCatalogue::GetBusInfo(std::string_view bus_name) const {
   if (busname_to_bus_stats_.count(bus_name)) {
     return &busname_to_bus_stats_.at(bus_name);
@@ -68,7 +72,7 @@ TransportCatalogue::GetBusInfo(std::string_view bus_name) const {
   return nullptr;
 }
 
-const TransportCatalogue::StopStats *
+const DataStorage::StopStats *
 TransportCatalogue::GetStopInfo(std::string_view stop_name) const {
   if (stopname_to_stop_stats_.count(stop_name)) {
     return &stopname_to_stop_stats_.at(stop_name);
@@ -76,21 +80,31 @@ TransportCatalogue::GetStopInfo(std::string_view stop_name) const {
   return nullptr;
 }
 
-double TransportCatalogue::ComputeStopsDirectDist(const StopStats &first,
-                                                  const StopStats &second) {
-  return ComputeDistance(
-      {first.stop_ptr->latitude, first.stop_ptr->longitude},
-      {second.stop_ptr->latitude, second.stop_ptr->longitude});
+double
+TransportCatalogue::ComputeStopsDirectDist(const DataStorage::StopStats &from,
+                                           const DataStorage::StopStats &to) {
+  return ComputeDistance(from.stop_ptr->pos, to.stop_ptr->pos);
 }
 
-double TransportCatalogue::GetStopsRealDist(const StopStats &first,
-                                            const StopStats &second) {
-  if (first.linked_stops.count(second.stop_ptr)) {
-    return first.linked_stops.at(second.stop_ptr);
+double TransportCatalogue::GetStopsRealDist(const DataStorage::StopStats &from,
+                                            const DataStorage::StopStats &to) {
+  if (from.linked_stops.count(to.stop_ptr)) {
+    return from.linked_stops.at(to.stop_ptr);
   }
-  return second.linked_stops.at(first.stop_ptr);
+  return to.linked_stops.at(from.stop_ptr);
 }
 
-size_t TransportCatalogue::GetBusTotalStopsAmount(const Bus &bus) {
+size_t TransportCatalogue::GetBusTotalStopsAmount(const DataStorage::Bus &bus) {
   return bus.is_circular ? bus.stops.size() : bus.stops.size() * 2 - 1;
+}
+
+double TransportCatalogue::GetStopsDirectDistance(std::string_view from,
+                                                  std::string_view to) {
+  if (stopname_to_stop_stats_.count(from) &&
+      stopname_to_stop_stats_.count(to)) {
+    DataStorage::StopStats &stop1 = stopname_to_stop_stats_.at(from);
+    DataStorage::StopStats &stop2 = stopname_to_stop_stats_.at(to);
+    return direct_distances_.at({stop1.stop_ptr, stop2.stop_ptr});
+  }
+  return -1; // makes no sense, error case
 }
