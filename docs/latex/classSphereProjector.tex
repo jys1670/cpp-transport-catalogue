@@ -1,0 +1,55 @@
+\hypertarget{classSphereProjector}{}\doxysection{Sphere\+Projector Class Reference}
+\label{classSphereProjector}\index{SphereProjector@{SphereProjector}}
+
+
+Functor for mapping physical to screen coordinates.  
+
+
+
+
+{\ttfamily \#include $<$map\+\_\+renderer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Point\+Input\+It $>$ }\\\mbox{\hyperlink{classSphereProjector_ab2b8be7ced9482358a6e79e19e2be0de}{Sphere\+Projector}} (Point\+Input\+It points\+\_\+begin, Point\+Input\+It points\+\_\+end, double max\+\_\+width, double max\+\_\+height, double padding)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSphereProjector_a01cb41446f50ac0e44e7dc29630bdf0b}\label{classSphereProjector_a01cb41446f50ac0e44e7dc29630bdf0b}} 
+\mbox{\hyperlink{structsvg_1_1Point}{svg\+::\+Point}} {\bfseries operator()} (\mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} coords) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functor for mapping physical to screen coordinates. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSphereProjector_ab2b8be7ced9482358a6e79e19e2be0de}\label{classSphereProjector_ab2b8be7ced9482358a6e79e19e2be0de}} 
+\index{SphereProjector@{SphereProjector}!SphereProjector@{SphereProjector}}
+\index{SphereProjector@{SphereProjector}!SphereProjector@{SphereProjector}}
+\doxysubsubsection{\texorpdfstring{SphereProjector()}{SphereProjector()}}
+{\footnotesize\ttfamily template$<$typename Point\+Input\+It $>$ \\
+Sphere\+Projector\+::\+Sphere\+Projector (\begin{DoxyParamCaption}\item[{Point\+Input\+It}]{points\+\_\+begin,  }\item[{Point\+Input\+It}]{points\+\_\+end,  }\item[{double}]{max\+\_\+width,  }\item[{double}]{max\+\_\+height,  }\item[{double}]{padding }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em points\+\_\+begin} & iterator pointing to \mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} container begin \\
+\hline
+\mbox{\texttt{ in}}  & {\em points\+\_\+end} & iterator pointing to \mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} container end \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+\_\+width} & pixel width of \char`\"{}project to\char`\"{} area \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+\_\+height} & pixel height of \char`\"{}project to\char`\"{} area \\
+\hline
+\mbox{\texttt{ in}}  & {\em padding} & \char`\"{}project to\char`\"{} area padding size in pixels \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+transport-\/catalogue/map\+\_\+renderer.\+h\item 
+transport-\/catalogue/map\+\_\+renderer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,35 @@
+\hypertarget{json__reader_8h_source}{}\doxysection{json\+\_\+reader.\+h}
+\label{json__reader_8h_source}\index{transport-\/catalogue/json\_reader.h@{transport-\/catalogue/json\_reader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{domain_8h}{domain.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{json_8h}{json.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}map\_renderer.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}request\_handler.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{struct }\mbox{\hyperlink{structGenericReaderInit}{GenericReaderInit}} \{}
+\DoxyCodeLine{11   \mbox{\hyperlink{structGenericReaderInit}{GenericReaderInit}}(std::istream \&input, std::ostream \&output)}
+\DoxyCodeLine{12       : source\{input\}, outstream\{output\} \{\};}
+\DoxyCodeLine{13   std::istream \&source;}
+\DoxyCodeLine{14   std::ostream \&outstream;}
+\DoxyCodeLine{15   \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} storage\{\};}
+\DoxyCodeLine{16   \mbox{\hyperlink{classMapRenderer}{MapRenderer}} renderer\{\};}
+\DoxyCodeLine{17   \mbox{\hyperlink{classInputReader}{InputReader}} inputr\{storage\};}
+\DoxyCodeLine{18   \mbox{\hyperlink{classStatReader}{StatReader}} statr\{storage, outstream, renderer\};}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classJsonReader}{JsonReader}} \{}
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23   \textcolor{keyword}{explicit} \mbox{\hyperlink{classJsonReader}{JsonReader}}(\mbox{\hyperlink{structGenericReaderInit}{GenericReaderInit}} \&input) : init\{input\} \{\};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   \textcolor{keywordtype}{void} ProcessInput(\mbox{\hyperlink{structOutputFormat_1_1Json}{OutputFormat::Json}});}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{private}:}
+\DoxyCodeLine{28   \mbox{\hyperlink{structGenericReaderInit}{GenericReaderInit}} \&init;}
+\DoxyCodeLine{29 \};}
+
+\end{DoxyCode}

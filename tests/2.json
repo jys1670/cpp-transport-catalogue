@@ -1,0 +1,32 @@
+{
+    "render_settings":
+    {
+    "width": 800.0,
+    "height": 800.0,
+    "padding": 50.0,
+    "stop_radius": 8.0,
+    "line_width": 1.0,
+    "stop_label_font_size": 10,
+    "stop_label_offset": [10.0, 10.0],
+    "underlayer_color": [155, 255, 255],
+    "underlayer_width": 2.0,
+    "color_palette": ["red", "blue", "limegreen"],
+    "bus_label_font_size": 15,
+    "bus_label_offset": [10.0, -10.0]
+    },
+    "base_requests":
+    [
+    {"type": "Stop", "name": "Stop A", "latitude": 0.0001, "longitude": 0.0001, "road_distances": {"Stop B": 500, "Stop C":700}},
+    {"type": "Stop", "name": "Stop B", "latitude": 0.0001, "longitude": 0.0002, "road_distances": {"Stop A": 500, "Stop C": 500}},
+    {"type": "Stop", "name": "Stop C", "latitude": 0.0002, "longitude": 0.0001, "road_distances": {"Stop D": 500, "Stop E": 600}},
+    {"type": "Stop", "name": "Stop D", "latitude": 0.0003, "longitude": 0.0003, "road_distances": {"Stop E": 300}},
+    {"type": "Stop", "name": "Stop E", "latitude": 0.0001, "longitude": 0.0003, "road_distances": {"Stop A": 600}},
+    {"type": "Bus", "name": "Route ABC", "stops": ["Stop A", "Stop B", "Stop C"], "is_roundtrip": false},
+    {"type": "Bus", "name": "Route DCAED", "stops": ["Stop D",  "Stop C", "Stop A", "Stop E", "Stop D"], "is_roundtrip": true},
+    {"type": "Bus", "name": "Route ECE", "stops": ["Stop E", "Stop C", "Stop E" ], "is_roundtrip": true}
+    ],
+    "stat_requests":
+    [
+    {"id": 2, "type": "Map"}
+    ]
+}

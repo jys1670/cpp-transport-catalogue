@@ -1,0 +1,101 @@
+\hypertarget{domain_8h_source}{}\doxysection{domain.\+h}
+\label{domain_8h_source}\index{transport-\/catalogue/domain.h@{transport-\/catalogue/domain.h}}
+\mbox{\hyperlink{domain_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string\_view>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <unordered\_set>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}geo.h"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{21 \textcolor{keyword}{struct }\mbox{\hyperlink{structOutputFormat}{OutputFormat}} \{}
+\DoxyCodeLine{22   \textcolor{keyword}{struct }\mbox{\hyperlink{structOutputFormat_1_1Json}{Json}} \{\};}
+\DoxyCodeLine{23   \textcolor{keyword}{struct }\mbox{\hyperlink{structOutputFormat_1_1Xml}{Xml}} \{\};}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{27 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceInputInfo}{InputInfo}} \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{30 \textcolor{keyword}{struct }\mbox{\hyperlink{structInputInfo_1_1Stop}{Stop}} \{}
+\DoxyCodeLine{31   std::string\_view name;}
+\DoxyCodeLine{32   \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} pos;}
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{36 \textcolor{keyword}{struct }\mbox{\hyperlink{structInputInfo_1_1StopLink}{StopLink}} \{}
+\DoxyCodeLine{37   std::string\_view \mbox{\hyperlink{structInputInfo_1_1StopLink_a650518531c058f2cbc811e3e72c9bedd}{stop\_name}}; }
+\DoxyCodeLine{38   std::vector<std::pair<std::string\_view, double>>}
+\DoxyCodeLine{39       \mbox{\hyperlink{structInputInfo_1_1StopLink_a8b64d9a9dc52e5d9f8f081575fb4e73f}{neighbours}}; }
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{43 \textcolor{keyword}{struct }\mbox{\hyperlink{structInputInfo_1_1Bus}{Bus}} \{}
+\DoxyCodeLine{44   std::string\_view name;}
+\DoxyCodeLine{45   std::vector<std::string\_view> stops;}
+\DoxyCodeLine{46   \textcolor{keywordtype}{bool} is\_circular;}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 \} \textcolor{comment}{// namespace InputInfo}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{51 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceDataStorage}{DataStorage}} \{}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54 \textcolor{keyword}{struct }\mbox{\hyperlink{structDataStorage_1_1Stop}{Stop}} \{}
+\DoxyCodeLine{55   std::string name;}
+\DoxyCodeLine{56   \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} pos;}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{60 \textcolor{keyword}{struct }\mbox{\hyperlink{structDataStorage_1_1Bus}{Bus}} \{}
+\DoxyCodeLine{61   std::string name;}
+\DoxyCodeLine{62   std::vector<Stop *> stops;}
+\DoxyCodeLine{63   \textcolor{keywordtype}{bool} is\_circular;}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{67 \textcolor{keyword}{struct }\mbox{\hyperlink{structDataStorage_1_1StopStats}{StopStats}} \{}
+\DoxyCodeLine{68   \mbox{\hyperlink{structDataStorage_1_1Stop}{Stop}} *stop\_ptr;}
+\DoxyCodeLine{69   std::unordered\_set<Bus *> linked\_buses;}
+\DoxyCodeLine{70   std::unordered\_map<Stop *, double> linked\_stops;}
+\DoxyCodeLine{71 \};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{74 \textcolor{keyword}{struct }\mbox{\hyperlink{structDataStorage_1_1BusStats}{BusStats}} \{}
+\DoxyCodeLine{75   \mbox{\hyperlink{structDataStorage_1_1Bus}{Bus}} *bus\_ptr;}
+\DoxyCodeLine{76   \textcolor{keywordtype}{size\_t} total\_stops;}
+\DoxyCodeLine{77   std::unordered\_set<Stop *> unique\_stops;}
+\DoxyCodeLine{78   \textcolor{keywordtype}{double} direct\_lenght;}
+\DoxyCodeLine{79   \textcolor{keywordtype}{double} real\_length;}
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{keyword}{using} BusStorage = std::unordered\_map<std::string\_view, BusStats>;}
+\DoxyCodeLine{83 \textcolor{keyword}{using} StopStorage = std::unordered\_map<std::string\_view, StopStats>;}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{87 \textcolor{keyword}{class }\mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}} \{}
+\DoxyCodeLine{88 \textcolor{keyword}{public}:}
+\DoxyCodeLine{89   \textcolor{keyword}{using} iterator\_category = std::random\_access\_iterator\_tag;}
+\DoxyCodeLine{90   \textcolor{keyword}{using} difference\_type = std::ptrdiff\_t;}
+\DoxyCodeLine{91   \textcolor{keyword}{using} \mbox{\hyperlink{structgeo_1_1Coordinates}{value\_type}} = \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}};}
+\DoxyCodeLine{92   \textcolor{keyword}{using} \mbox{\hyperlink{structgeo_1_1Coordinates}{pointer}} = \textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} *;}
+\DoxyCodeLine{93   \textcolor{keyword}{using} \mbox{\hyperlink{structgeo_1_1Coordinates}{reference}} = \textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} \&;}
+\DoxyCodeLine{94   \textcolor{keyword}{using} wrapped\_iterator = std::vector<const Stop *>::const\_iterator;}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96   \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{97   \textcolor{keyword}{explicit} \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}}(wrapped\_iterator wrapped) : wrapped\_(wrapped) \{\}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99   \mbox{\hyperlink{structgeo_1_1Coordinates}{reference}} operator*() \textcolor{keyword}{const};}
+\DoxyCodeLine{100   \mbox{\hyperlink{structgeo_1_1Coordinates}{pointer}} operator-\/>() \textcolor{keyword}{const};}
+\DoxyCodeLine{101   \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}} \&other) \textcolor{keyword}{const};}
+\DoxyCodeLine{102   \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}} \&other) \textcolor{keyword}{const};}
+\DoxyCodeLine{103   \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}} operator++(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{104   \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}} \&operator++();}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{private}:}
+\DoxyCodeLine{107   wrapped\_iterator wrapped\_\{\};}
+\DoxyCodeLine{108 \};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{111 \textcolor{keyword}{struct }\mbox{\hyperlink{structDataStorage_1_1RoutesData}{RoutesData}} \{}
+\DoxyCodeLine{112   std::vector<const Stop *> routes\_stops;}
+\DoxyCodeLine{113   std::vector<const BusStats *> bus\_stats;}
+\DoxyCodeLine{114 \};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \} \textcolor{comment}{// namespace DataStorage}}
+
+\end{DoxyCode}

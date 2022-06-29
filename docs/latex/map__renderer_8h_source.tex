@@ -1,0 +1,115 @@
+\hypertarget{map__renderer_8h_source}{}\doxysection{map\+\_\+renderer.\+h}
+\label{map__renderer_8h_source}\index{transport-\/catalogue/map\_renderer.h@{transport-\/catalogue/map\_renderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{domain_8h}{domain.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}geo.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{json_8h}{json.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{svg_8h}{svg.h}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{double} EPSILON = 1e-\/6;}
+\DoxyCodeLine{16 \textcolor{keywordtype}{bool} IsZero(\textcolor{keywordtype}{double} value);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classSphereProjector}{SphereProjector}} \{}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29   \textcolor{keyword}{template} <\textcolor{keyword}{typename} Po\textcolor{keywordtype}{int}InputIt>}
+\DoxyCodeLine{30   \mbox{\hyperlink{classSphereProjector_ab2b8be7ced9482358a6e79e19e2be0de}{SphereProjector}}(PointInputIt points\_begin, PointInputIt points\_end,}
+\DoxyCodeLine{31                   \textcolor{keywordtype}{double} max\_width, \textcolor{keywordtype}{double} max\_height, \textcolor{keywordtype}{double} padding);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33   \mbox{\hyperlink{structsvg_1_1Point}{svg::Point}} operator()(\mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} coords) \textcolor{keyword}{const};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{private}:}
+\DoxyCodeLine{36   \textcolor{keywordtype}{double} padding\_;}
+\DoxyCodeLine{37   \textcolor{keywordtype}{double} min\_lon\_ = 0;}
+\DoxyCodeLine{38   \textcolor{keywordtype}{double} max\_lat\_ = 0;}
+\DoxyCodeLine{39   \textcolor{keywordtype}{double} zoom\_coeff\_ = 0;}
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{class }\mbox{\hyperlink{classMapRenderer}{MapRenderer}} \{}
+\DoxyCodeLine{43 \textcolor{keyword}{public}:}
+\DoxyCodeLine{44   std::string RenderMap(\mbox{\hyperlink{structDataStorage_1_1RoutesData}{DataStorage::RoutesData}} data);}
+\DoxyCodeLine{45   \textcolor{keywordtype}{void} LoadSettings(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{private}:}
+\DoxyCodeLine{48   \textcolor{keyword}{struct }RenderSettings \{}
+\DoxyCodeLine{49     \textcolor{keywordtype}{double} width;}
+\DoxyCodeLine{50     \textcolor{keywordtype}{double} height;}
+\DoxyCodeLine{51     \textcolor{keywordtype}{double} padding;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{double} line\_width;}
+\DoxyCodeLine{53     \textcolor{keywordtype}{double} stop\_radius;}
+\DoxyCodeLine{54     \textcolor{keywordtype}{int} bus\_label\_font\_size;}
+\DoxyCodeLine{55     \mbox{\hyperlink{structsvg_1_1Point}{svg::Point}} bus\_label\_offset;}
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} stop\_label\_font\_size;}
+\DoxyCodeLine{57     \mbox{\hyperlink{structsvg_1_1Point}{svg::Point}} stop\_label\_offset;}
+\DoxyCodeLine{58     svg::Color underlayer\_color;}
+\DoxyCodeLine{59     \textcolor{keywordtype}{double} underlayer\_width;}
+\DoxyCodeLine{60     std::vector<svg::Color> color\_palette;}
+\DoxyCodeLine{61   \} settings\_;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63   \textcolor{keyword}{static} svg::Color ParseColor(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65   \textcolor{keywordtype}{void} DrawRoutes(\mbox{\hyperlink{structDataStorage_1_1RoutesData}{DataStorage::RoutesData}} \&data, \mbox{\hyperlink{classSphereProjector}{SphereProjector}} \&projector,}
+\DoxyCodeLine{66                   \mbox{\hyperlink{classsvg_1_1Document}{svg::Document}} \&doc);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68   \textcolor{keywordtype}{void} DrawRouteNames(\mbox{\hyperlink{structDataStorage_1_1RoutesData}{DataStorage::RoutesData}} \&data, \mbox{\hyperlink{classSphereProjector}{SphereProjector}} \&projector,}
+\DoxyCodeLine{69                       \mbox{\hyperlink{classsvg_1_1Document}{svg::Document}} \&doc);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71   \textcolor{keywordtype}{void} DrawStopSymbols(\mbox{\hyperlink{structDataStorage_1_1RoutesData}{DataStorage::RoutesData}} \&data,}
+\DoxyCodeLine{72                        \mbox{\hyperlink{classSphereProjector}{SphereProjector}} \&projector, \mbox{\hyperlink{classsvg_1_1Document}{svg::Document}} \&doc);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74   \textcolor{keywordtype}{void} DrawStopNames(\mbox{\hyperlink{structDataStorage_1_1RoutesData}{DataStorage::RoutesData}} \&data, \mbox{\hyperlink{classSphereProjector}{SphereProjector}} \&projector,}
+\DoxyCodeLine{75                      \mbox{\hyperlink{classsvg_1_1Document}{svg::Document}} \&doc);}
+\DoxyCodeLine{76 \};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Po\textcolor{keywordtype}{int}InputIt>}
+\DoxyCodeLine{79 \mbox{\hyperlink{classSphereProjector_ab2b8be7ced9482358a6e79e19e2be0de}{SphereProjector::SphereProjector}}(PointInputIt points\_begin,}
+\DoxyCodeLine{80                                  PointInputIt points\_end, \textcolor{keywordtype}{double} max\_width,}
+\DoxyCodeLine{81                                  \textcolor{keywordtype}{double} max\_height, \textcolor{keywordtype}{double} padding)}
+\DoxyCodeLine{82     : padding\_(padding) \textcolor{comment}{//}}
+\DoxyCodeLine{83 \{}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{keywordflow}{if} (points\_begin == points\_end) \{}
+\DoxyCodeLine{86     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{87   \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89   \textcolor{keyword}{const} \textcolor{keyword}{auto} [left\_it, right\_it] =}
+\DoxyCodeLine{90       std::minmax\_element(points\_begin, points\_end,}
+\DoxyCodeLine{91                           [](\textcolor{keyword}{auto} lhs, \textcolor{keyword}{auto} rhs) \{ \textcolor{keywordflow}{return} lhs.lng < rhs.lng; \});}
+\DoxyCodeLine{92   min\_lon\_ = left\_it-\/>lng;}
+\DoxyCodeLine{93   \textcolor{keyword}{const} \textcolor{keywordtype}{double} max\_lon = right\_it-\/>lng;}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95   \textcolor{keyword}{const} \textcolor{keyword}{auto} [bottom\_it, top\_it] =}
+\DoxyCodeLine{96       std::minmax\_element(points\_begin, points\_end,}
+\DoxyCodeLine{97                           [](\textcolor{keyword}{auto} lhs, \textcolor{keyword}{auto} rhs) \{ \textcolor{keywordflow}{return} lhs.lat < rhs.lat; \});}
+\DoxyCodeLine{98   \textcolor{keyword}{const} \textcolor{keywordtype}{double} min\_lat = bottom\_it-\/>lat;}
+\DoxyCodeLine{99   max\_lat\_ = top\_it-\/>lat;}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101   std::optional<double> width\_zoom;}
+\DoxyCodeLine{102   \textcolor{keywordflow}{if} (!IsZero(max\_lon -\/ min\_lon\_)) \{}
+\DoxyCodeLine{103     width\_zoom = (max\_width -\/ 2 * padding) / (max\_lon -\/ min\_lon\_);}
+\DoxyCodeLine{104   \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106   std::optional<double> height\_zoom;}
+\DoxyCodeLine{107   \textcolor{keywordflow}{if} (!IsZero(max\_lat\_ -\/ min\_lat)) \{}
+\DoxyCodeLine{108     height\_zoom = (max\_height -\/ 2 * padding) / (max\_lat\_ -\/ min\_lat);}
+\DoxyCodeLine{109   \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111   \textcolor{keywordflow}{if} (width\_zoom \&\& height\_zoom) \{}
+\DoxyCodeLine{112     zoom\_coeff\_ = std::min(*width\_zoom, *height\_zoom);}
+\DoxyCodeLine{113   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (width\_zoom) \{}
+\DoxyCodeLine{114     zoom\_coeff\_ = *width\_zoom;}
+\DoxyCodeLine{115   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (height\_zoom) \{}
+\DoxyCodeLine{116     zoom\_coeff\_ = *height\_zoom;}
+\DoxyCodeLine{117   \}}
+\DoxyCodeLine{118 \}}
+
+\end{DoxyCode}

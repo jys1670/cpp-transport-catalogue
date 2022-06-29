@@ -1,0 +1,62 @@
+\hypertarget{domain_8h}{}\doxysection{transport-\/catalogue/domain.h File Reference}
+\label{domain_8h}\index{transport-\/catalogue/domain.h@{transport-\/catalogue/domain.h}}
+
+
+Header file with widely used objects.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}geo.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structOutputFormat}{Output\+Format}}
+\begin{DoxyCompactList}\small\item\em Dummy type used to specify program output format. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structOutputFormat_1_1Json}{Output\+Format\+::\+Json}}
+\item 
+struct \mbox{\hyperlink{structOutputFormat_1_1Xml}{Output\+Format\+::\+Xml}}
+\item 
+struct \mbox{\hyperlink{structInputInfo_1_1Stop}{Input\+Info\+::\+Stop}}
+\begin{DoxyCompactList}\small\item\em Stop name and position (transfer) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structInputInfo_1_1StopLink}{Input\+Info\+::\+Stop\+Link}}
+\begin{DoxyCompactList}\small\item\em For a given \mbox{\hyperlink{structInputInfo_1_1Stop}{Stop}} contains other (connected by path, linked) stops distances. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structInputInfo_1_1Bus}{Input\+Info\+::\+Bus}}
+\begin{DoxyCompactList}\small\item\em Route name and stops (transfer) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}}
+\begin{DoxyCompactList}\small\item\em Stop name and position (storage) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structDataStorage_1_1Bus}{Data\+Storage\+::\+Bus}}
+\begin{DoxyCompactList}\small\item\em Route name and stops (storage) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structDataStorage_1_1StopStats}{Data\+Storage\+::\+Stop\+Stats}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structDataStorage_1_1Stop}{Stop}}, used to painlessly add extra information about stop. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structDataStorage_1_1BusStats}{Data\+Storage\+::\+Bus\+Stats}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structDataStorage_1_1Bus}{Bus}}, used to painlessly add extra information about route. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{Data\+Storage\+::\+Stop\+Coords\+Iterator}}
+\item 
+struct \mbox{\hyperlink{structDataStorage_1_1RoutesData}{Data\+Storage\+::\+Routes\+Data}}
+\begin{DoxyCompactList}\small\item\em Stores somehow connected routes and stops, used in \mbox{\hyperlink{classMapRenderer}{Map\+Renderer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceInputInfo}{Input\+Info}}
+\begin{DoxyCompactList}\small\item\em Cheap to copy objects used for information transfer to \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}}. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceDataStorage}{Data\+Storage}}
+\begin{DoxyCompactList}\small\item\em Objects solely used for information storage (mainly in \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceDataStorage_a103a8bd2df9d3bba821c89056a8f3f22}\label{namespaceDataStorage_a103a8bd2df9d3bba821c89056a8f3f22}} 
+using {\bfseries Data\+Storage\+::\+Bus\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Bus\+Stats $>$
+\item 
+\mbox{\Hypertarget{namespaceDataStorage_a5903a75ff675e73238d6a188cd5bfc4f}\label{namespaceDataStorage_a5903a75ff675e73238d6a188cd5bfc4f}} 
+using {\bfseries Data\+Storage\+::\+Stop\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Stop\+Stats $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file with widely used objects. 
+
+Contains declarations and definitions of all kinds of types, that are used in composition with other parts of project\+: structures to transfer information between different modules, iterators over these structures elements and so on 

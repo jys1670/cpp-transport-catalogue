@@ -1,0 +1,35 @@
+\hypertarget{namespaceDataStorage}{}\doxysection{Data\+Storage Namespace Reference}
+\label{namespaceDataStorage}\index{DataStorage@{DataStorage}}
+
+
+Objects solely used for information storage (mainly in \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}})  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDataStorage_1_1Bus}{Bus}}
+\begin{DoxyCompactList}\small\item\em Route name and stops (storage) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structDataStorage_1_1BusStats}{Bus\+Stats}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structDataStorage_1_1Bus}{Bus}}, used to painlessly add extra information about route. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structDataStorage_1_1RoutesData}{Routes\+Data}}
+\begin{DoxyCompactList}\small\item\em Stores somehow connected routes and stops, used in \mbox{\hyperlink{classMapRenderer}{Map\+Renderer}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structDataStorage_1_1Stop}{Stop}}
+\begin{DoxyCompactList}\small\item\em Stop name and position (storage) \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{Stop\+Coords\+Iterator}}
+\item 
+struct \mbox{\hyperlink{structDataStorage_1_1StopStats}{Stop\+Stats}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structDataStorage_1_1Stop}{Stop}}, used to painlessly add extra information about stop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceDataStorage_a103a8bd2df9d3bba821c89056a8f3f22}\label{namespaceDataStorage_a103a8bd2df9d3bba821c89056a8f3f22}} 
+using {\bfseries Bus\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, \mbox{\hyperlink{structDataStorage_1_1BusStats}{Bus\+Stats}} $>$
+\item 
+\mbox{\Hypertarget{namespaceDataStorage_a5903a75ff675e73238d6a188cd5bfc4f}\label{namespaceDataStorage_a5903a75ff675e73238d6a188cd5bfc4f}} 
+using {\bfseries Stop\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, \mbox{\hyperlink{structDataStorage_1_1StopStats}{Stop\+Stats}} $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Objects solely used for information storage (mainly in \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}}) 

@@ -1,6 +1,6 @@
 #pragma once
-#include "input_reader.h"
-#include "stat_reader.h"
+
 #include "transport_catalogue.h"
+#include "json_reader.h"
 
 void TestBasicInputOutput();

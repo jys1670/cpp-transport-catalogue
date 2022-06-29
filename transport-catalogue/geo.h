@@ -2,13 +2,13 @@
 
 #include <cmath>
 
+namespace geo {
+
 struct Coordinates {
   double lat;
   double lng;
-  bool operator==(const Coordinates &other) const {
-    return lat == other.lat && lng == other.lng;
-  }
-  bool operator!=(const Coordinates &other) const { return !(*this == other); }
+  bool operator==(const Coordinates &other) const;
+  bool operator!=(const Coordinates &other) const;
 };
 
 inline double ComputeDistance(Coordinates from, Coordinates to) {
@@ -22,3 +22,5 @@ inline double ComputeDistance(Coordinates from, Coordinates to) {
                   cos(abs(from.lng - to.lng) * dr)) *
          6371000;
 }
+
+} // namespace geo

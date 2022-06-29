@@ -1,0 +1,102 @@
+\hypertarget{json_8h}{}\doxysection{transport-\/catalogue/json.h File Reference}
+\label{json_8h}\index{transport-\/catalogue/json.h@{transport-\/catalogue/json.h}}
+
+
+JSON read/write library.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classjson_1_1ParsingError}{json\+::\+Parsing\+Error}}
+\item 
+struct \mbox{\hyperlink{structjson_1_1PrintContext}{json\+::\+Print\+Context}}
+\item 
+class \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}}
+\item 
+class \mbox{\hyperlink{classjson_1_1Document}{json\+::\+Document}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{json_8h_a14165bfd985e982794b3697b71cc4a01}\label{json_8h_a14165bfd985e982794b3697b71cc4a01}} 
+using {\bfseries json\+::\+Dict} = std\+::map$<$ std\+::string, Node $>$
+\item 
+\mbox{\Hypertarget{json_8h_a6c59938d3ef1f93389894312d5d89048}\label{json_8h_a6c59938d3ef1f93389894312d5d89048}} 
+using {\bfseries json\+::\+Array} = std\+::vector$<$ Node $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{json_8cpp_a4ddabf729cf1f9fefa1351a3c5dd88c8}\label{json_8cpp_a4ddabf729cf1f9fefa1351a3c5dd88c8}} 
+bool {\bfseries json\+::operator==} (const Node \&lhs, const Node \&rhs)
+\item 
+\mbox{\Hypertarget{json_8cpp_a029efd43b21c24249da1c60fc4a36144}\label{json_8cpp_a029efd43b21c24249da1c60fc4a36144}} 
+bool {\bfseries json\+::operator!=} (const Node \&lhs, const Node \&rhs)
+\item 
+\mbox{\Hypertarget{json_8h_a5b2f118e6166beaf0ffb216b55f9e615}\label{json_8h_a5b2f118e6166beaf0ffb216b55f9e615}} 
+Document {\bfseries json\+::\+Load} (std\+::istream \&input)
+\item 
+\mbox{\Hypertarget{json_8h_aa64923257caeb2b12914d9705b1781f0}\label{json_8h_aa64923257caeb2b12914d9705b1781f0}} 
+{\footnotesize template$<$typename Value $>$ }\\void {\bfseries json\+::\+Print\+Value} (const Value \&value, const Print\+Context \&ctx)
+\item 
+\mbox{\Hypertarget{json_8cpp_a48b99c1e9eac31bd6bdea2fc43784a72}\label{json_8cpp_a48b99c1e9eac31bd6bdea2fc43784a72}} 
+void {\bfseries json\+::\+Print\+Value} (std\+::nullptr\+\_\+t, const Print\+Context \&ctx)
+\item 
+\mbox{\Hypertarget{json_8cpp_a7cd73ca59374031ff21de4b627681cfc}\label{json_8cpp_a7cd73ca59374031ff21de4b627681cfc}} 
+void {\bfseries json\+::\+Print\+Value} (const Array \&arr, const Print\+Context \&ctx)
+\item 
+\mbox{\Hypertarget{json_8cpp_aa6d96f9c910a9df120d8b6a04a7d6d86}\label{json_8cpp_aa6d96f9c910a9df120d8b6a04a7d6d86}} 
+void {\bfseries json\+::\+Print\+Value} (const Dict \&dict, const Print\+Context \&ctx)
+\item 
+\mbox{\Hypertarget{json_8cpp_a864be03ac2692ea95acac809b7de107f}\label{json_8cpp_a864be03ac2692ea95acac809b7de107f}} 
+void {\bfseries json\+::\+Print\+Value} (const std\+::string \&str, const Print\+Context \&ctx)
+\item 
+\mbox{\Hypertarget{json_8cpp_afefffdc83e33fea9bdb1768773e67bab}\label{json_8cpp_afefffdc83e33fea9bdb1768773e67bab}} 
+void {\bfseries json\+::\+Print\+Value} (const bool \&val, const Print\+Context \&ctx)
+\item 
+\mbox{\Hypertarget{json_8cpp_a70b9e7f4f2cae2a274020487a32f7a9e}\label{json_8cpp_a70b9e7f4f2cae2a274020487a32f7a9e}} 
+void {\bfseries json\+::\+Print\+Node} (const Node \&node, const Print\+Context \&ctx)
+\item 
+\mbox{\Hypertarget{json_8cpp_a6221e4636b39e358b3d05b3a29f206c8}\label{json_8cpp_a6221e4636b39e358b3d05b3a29f206c8}} 
+void {\bfseries json\+::\+Print} (const Document \&doc, std\+::ostream \&output)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{json_8h_a7dfa1293b4f94c01b01bb22e3933d3e4}\label{json_8h_a7dfa1293b4f94c01b01bb22e3933d3e4}} 
+const std\+::unordered\+\_\+set$<$ char $>$ {\bfseries json\+::\+Delimiters} = \{\textquotesingle{} \textquotesingle{}, \textquotesingle{}\textbackslash{}n\textquotesingle{}, \textquotesingle{}\textbackslash{}t\textquotesingle{}, \textquotesingle{}\textbackslash{}r\textquotesingle{}\}
+\item 
+const std\+::unordered\+\_\+map$<$ char, std\+::string $>$ \mbox{\hyperlink{json_8h_aae71aa8a3e2998dcb82942a1ec5874e6}{json\+::\+Chars\+To\+Replace}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+JSON read/write library. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{json_8h_aae71aa8a3e2998dcb82942a1ec5874e6}\label{json_8h_aae71aa8a3e2998dcb82942a1ec5874e6}} 
+\index{json.h@{json.h}!CharsToReplace@{CharsToReplace}}
+\index{CharsToReplace@{CharsToReplace}!json.h@{json.h}}
+\doxysubsubsection{\texorpdfstring{CharsToReplace}{CharsToReplace}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$char, std\+::string$>$ json\+::\+Chars\+To\+Replace}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{\textcolor{charliteral}{'\(\backslash\)n'}, R\textcolor{stringliteral}{"{}(\(\backslash\)n)"{}\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)r'}, R\textcolor{stringliteral}{"{}(\(\backslash\)r)"{}\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)"{}'}, R\textcolor{stringliteral}{"{}(\(\backslash\)"{})"{}\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}, R\textcolor{stringliteral}{"{}(\(\backslash\)\(\backslash\))"{}\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\}}}
+
+\end{DoxyCode}
