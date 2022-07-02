@@ -1,0 +1,54 @@
+\hypertarget{structMapRenderer_1_1RenderSettings}{}\doxysection{Map\+Renderer\+::Render\+Settings Struct Reference}
+\label{structMapRenderer_1_1RenderSettings}\index{MapRenderer::RenderSettings@{MapRenderer::RenderSettings}}
+
+
+\mbox{\hyperlink{classMapRenderer}{Map\+Renderer}} settings storage.  
+
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_ac70991540b8d6c0623853bdf06bd4fb5}\label{structMapRenderer_1_1RenderSettings_ac70991540b8d6c0623853bdf06bd4fb5}} 
+double {\bfseries width} \{\}
+\begin{DoxyCompactList}\small\item\em Map width (in pixels) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a6d0d281a932b937f9e279a8d2888ac52}\label{structMapRenderer_1_1RenderSettings_a6d0d281a932b937f9e279a8d2888ac52}} 
+double {\bfseries height} \{\}
+\begin{DoxyCompactList}\small\item\em Map height (in pixels) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a3f1fb9498c35094bf7112292fdf0e9d5}\label{structMapRenderer_1_1RenderSettings_a3f1fb9498c35094bf7112292fdf0e9d5}} 
+double {\bfseries padding} \{\}
+\begin{DoxyCompactList}\small\item\em Map padding (in pixels) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a3d4ab2a5b6ff2fcae3f43379e0c5ebd1}\label{structMapRenderer_1_1RenderSettings_a3d4ab2a5b6ff2fcae3f43379e0c5ebd1}} 
+double {\bfseries line\+\_\+width} \{\}
+\begin{DoxyCompactList}\small\item\em Route lines \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width}{\texttt{ stroke-\/width}} attribute (in pixels) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a4197d285a739794c2f27fe5031f30ce1}\label{structMapRenderer_1_1RenderSettings_a4197d285a739794c2f27fe5031f30ce1}} 
+double {\bfseries stop\+\_\+radius} \{\}
+\begin{DoxyCompactList}\small\item\em Stops are drawn as white circles with this radius (in pixels) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a65e045dcc4dc505f79e02e498ab8b62e}\label{structMapRenderer_1_1RenderSettings_a65e045dcc4dc505f79e02e498ab8b62e}} 
+int {\bfseries bus\+\_\+label\+\_\+font\+\_\+size} \{\}
+\begin{DoxyCompactList}\small\item\em Route names font size (in pixels) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a1759154c1c974a0084e30787d6d43a79}\label{structMapRenderer_1_1RenderSettings_a1759154c1c974a0084e30787d6d43a79}} 
+\mbox{\hyperlink{structsvg_1_1Point}{svg\+::\+Point}} {\bfseries bus\+\_\+label\+\_\+offset} \{\}
+\begin{DoxyCompactList}\small\item\em Route names position \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dx}{\texttt{ dx}} and \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy}{\texttt{ dy}} (in pixels) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a4363c6884b0579fcfb0b5a837bf3833b}\label{structMapRenderer_1_1RenderSettings_a4363c6884b0579fcfb0b5a837bf3833b}} 
+int {\bfseries stop\+\_\+label\+\_\+font\+\_\+size} \{\}
+\begin{DoxyCompactList}\small\item\em Stop names font size (in pixels) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_ab01b361d053655bb4349164003dc6be4}\label{structMapRenderer_1_1RenderSettings_ab01b361d053655bb4349164003dc6be4}} 
+\mbox{\hyperlink{structsvg_1_1Point}{svg\+::\+Point}} {\bfseries stop\+\_\+label\+\_\+offset} \{\}
+\begin{DoxyCompactList}\small\item\em Stop names position \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dx}{\texttt{ dx}} and \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy}{\texttt{ dy}} (in pixels) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a2a660722f549c38035bfeae3c65ee77b}\label{structMapRenderer_1_1RenderSettings_a2a660722f549c38035bfeae3c65ee77b}} 
+svg\+::\+Color {\bfseries underlayer\+\_\+color} \{\}
+\begin{DoxyCompactList}\small\item\em Stops and routes background font (stroke effect) color. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a8215ec7e392afa90ab50896c11b9a812}\label{structMapRenderer_1_1RenderSettings_a8215ec7e392afa90ab50896c11b9a812}} 
+double {\bfseries underlayer\+\_\+width} \{\}
+\begin{DoxyCompactList}\small\item\em Stops and routes background font (stroke effect) \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width}{\texttt{ stroke-\/width}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMapRenderer_1_1RenderSettings_a1d73cfe0edc3cb6a9b064904aac9cf2a}\label{structMapRenderer_1_1RenderSettings_a1d73cfe0edc3cb6a9b064904aac9cf2a}} 
+std\+::vector$<$ svg\+::\+Color $>$ {\bfseries color\+\_\+palette} \{\}
+\begin{DoxyCompactList}\small\item\em Cyclically used colors for stops and routes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classMapRenderer}{Map\+Renderer}} settings storage. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+transport-\/catalogue/\mbox{\hyperlink{map__renderer_8h}{map\+\_\+renderer.\+h}}\end{DoxyCompactItemize}

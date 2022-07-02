@@ -1,0 +1,41 @@
+\hypertarget{json__reader_8h}{}\doxysection{transport-\/catalogue/json\+\_\+reader.h File Reference}
+\label{json__reader_8h}\index{transport-\/catalogue/json\_reader.h@{transport-\/catalogue/json\_reader.h}}
+
+
+Stuff to parse, save and delegate processing of JSON routes \& stops input data.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}domain.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}json.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map\+\_\+renderer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}request\+\_\+handler.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classJsonReader}{Json\+Reader}}
+\begin{DoxyCompactList}\small\item\em Responsible for reading JSON input. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structJsonReader_1_1RequestTypes}{Json\+Reader\+::\+Request\+Types}}
+\begin{DoxyCompactList}\small\item\em Known types of database state-\/changing requests. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1StopInsert}{Json\+Reader\+::\+Request\+Types\+::\+Stop\+Insert}}
+\item 
+struct \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1StopLinkInsert}{Json\+Reader\+::\+Request\+Types\+::\+Stop\+Link\+Insert}}
+\item 
+struct \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1BusInsert}{Json\+Reader\+::\+Request\+Types\+::\+Bus\+Insert}}
+\item 
+struct \mbox{\hyperlink{structJsonReader_1_1JsonInputParse}{Json\+Reader\+::\+Json\+Input\+Parse}}
+\begin{DoxyCompactList}\small\item\em Functor used to parse and enqueue \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} state-\/changing requests. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structJsonReader_1_1JsonPrintParse}{Json\+Reader\+::\+Json\+Print\+Parse}}
+\begin{DoxyCompactList}\small\item\em Functor used to parse and enqueue \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} NON-\/state-\/changing requests. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structJsonReader_1_1CatalogueInserter}{Json\+Reader\+::\+Catalogue\+Inserter}}
+\begin{DoxyCompactList}\small\item\em Functor used to process elements of \mbox{\hyperlink{classJsonReader_a4128cb3e724a1d295b64da9e4824d3d0}{Json\+Reader\+::input\+\_\+queue\+\_\+}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stuff to parse, save and delegate processing of JSON routes \& stops input data. 
+

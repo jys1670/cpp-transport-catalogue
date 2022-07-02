@@ -1,0 +1,144 @@
+\hypertarget{namespacejson}{}\doxysection{json Namespace Reference}
+\label{namespacejson}\index{json@{json}}
+
+
+The main and only JSON read/write library namespace.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classjson_1_1Document}{Document}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{classjson_1_1Node}{Node}}, which stores \mbox{\hyperlink{classjson_1_1Node}{Node}} containing entire input data. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classjson_1_1Node}{Node}}
+\begin{DoxyCompactList}\small\item\em Runtime polymorphic type representing \href{https://en.wikipedia.org/wiki/JSON\#Data_types}{\texttt{ JSON basic data types}} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classjson_1_1ParsingError}{Parsing\+Error}}
+\item 
+struct \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}}
+\begin{DoxyCompactList}\small\item\em Used to store and print indentation in recursive print calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{Dict}} = std\+::map$<$ std\+::string, \mbox{\hyperlink{classjson_1_1Node}{Node}} $>$
+\item 
+\mbox{\Hypertarget{namespacejson_a6c59938d3ef1f93389894312d5d89048}\label{namespacejson_a6c59938d3ef1f93389894312d5d89048}} 
+using {\bfseries Array} = std\+::vector$<$ \mbox{\hyperlink{classjson_1_1Node}{Node}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacejson_a4ddabf729cf1f9fefa1351a3c5dd88c8}\label{namespacejson_a4ddabf729cf1f9fefa1351a3c5dd88c8}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classjson_1_1Node}{Node}} \&lhs, const \mbox{\hyperlink{classjson_1_1Node}{Node}} \&rhs)
+\item 
+\mbox{\Hypertarget{namespacejson_a029efd43b21c24249da1c60fc4a36144}\label{namespacejson_a029efd43b21c24249da1c60fc4a36144}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classjson_1_1Node}{Node}} \&lhs, const \mbox{\hyperlink{classjson_1_1Node}{Node}} \&rhs)
+\item 
+\mbox{\Hypertarget{namespacejson_a5b2f118e6166beaf0ffb216b55f9e615}\label{namespacejson_a5b2f118e6166beaf0ffb216b55f9e615}} 
+\mbox{\hyperlink{classjson_1_1Document}{Document}} {\bfseries Load} (std\+::istream \&input)
+\item 
+\mbox{\Hypertarget{namespacejson_a6221e4636b39e358b3d05b3a29f206c8}\label{namespacejson_a6221e4636b39e358b3d05b3a29f206c8}} 
+void {\bfseries Print} (const \mbox{\hyperlink{classjson_1_1Document}{Document}} \&doc, std\+::ostream \&output)
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{namespacejson_a70b9e7f4f2cae2a274020487a32f7a9e}{Print\+Node()}} that works with \mbox{\hyperlink{classjson_1_1Document}{Document}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}{Print\+Value}} (std\+::nullptr\+\_\+t, const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&ctx)
+\item 
+void \mbox{\hyperlink{namespacejson_a864be03ac2692ea95acac809b7de107f}{Print\+Value}} (const std\+::string \&str, const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&ctx)
+\item 
+void \mbox{\hyperlink{namespacejson_a873ad6f22ea31e87d0e86e34bc2a76d7}{Print\+Value}} (const bool \&bl, const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&ctx)
+\item 
+void \mbox{\hyperlink{namespacejson_a70b9e7f4f2cae2a274020487a32f7a9e}{Print\+Node}} (const \mbox{\hyperlink{classjson_1_1Node}{Node}} \&node, const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&ctx)
+\item 
+void \mbox{\hyperlink{namespacejson_a7cd73ca59374031ff21de4b627681cfc}{Print\+Value}} (const Array \&arr, const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&ctx)
+\item 
+void \mbox{\hyperlink{namespacejson_aa6d96f9c910a9df120d8b6a04a7d6d86}{Print\+Value}} (const \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{Dict}} \&dict, const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&ctx)
+\item 
+{\footnotesize template$<$typename Value $>$ }\\void \mbox{\hyperlink{namespacejson_a4a28c99f359169d36504c2ad54326fbe}{Print\+Value}} (const Value \&value, const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&ctx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacejson_a7dfa1293b4f94c01b01bb22e3933d3e4}\label{namespacejson_a7dfa1293b4f94c01b01bb22e3933d3e4}} 
+const std\+::unordered\+\_\+set$<$ char $>$ {\bfseries Delimiters} = \{\textquotesingle{} \textquotesingle{}, \textquotesingle{}\textbackslash{}n\textquotesingle{}, \textquotesingle{}\textbackslash{}t\textquotesingle{}, \textquotesingle{}\textbackslash{}r\textquotesingle{}\}
+\begin{DoxyCompactList}\small\item\em Characters treated as delimiters when reading from input stream. \end{DoxyCompactList}\item 
+const std\+::unordered\+\_\+map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespacejson_aae71aa8a3e2998dcb82942a1ec5874e6}{Chars\+To\+Replace}}
+\begin{DoxyCompactList}\small\item\em Characters replaced by \mbox{\hyperlink{namespacejson_a864be03ac2692ea95acac809b7de107f}{Print\+Value(const std\+::string \&str, const Print\+Context \&ctx)}} during printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main and only JSON read/write library namespace. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespacejson_a14165bfd985e982794b3697b71cc4a01}\label{namespacejson_a14165bfd985e982794b3697b71cc4a01}} 
+\index{json@{json}!Dict@{Dict}}
+\index{Dict@{Dict}!json@{json}}
+\doxysubsubsection{\texorpdfstring{Dict}{Dict}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{json\+::\+Dict}} = typedef std\+::map$<$std\+::string, \mbox{\hyperlink{classjson_1_1Node}{Node}}$>$}
+
+Type that is widely used to define various settings, with option names (strings) stored as dictionary keys 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacejson_a70b9e7f4f2cae2a274020487a32f7a9e}\label{namespacejson_a70b9e7f4f2cae2a274020487a32f7a9e}} 
+\index{json@{json}!PrintNode@{PrintNode}}
+\index{PrintNode@{PrintNode}!json@{json}}
+\doxysubsubsection{\texorpdfstring{PrintNode()}{PrintNode()}}
+{\footnotesize\ttfamily void json\+::\+Print\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjson_1_1Node}{Node}} \&}]{node,  }\item[{const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&}]{ctx }\end{DoxyParamCaption})}
+
+Detects value type of node and calls appropriate print functions, could be recursive \mbox{\Hypertarget{namespacejson_a7cd73ca59374031ff21de4b627681cfc}\label{namespacejson_a7cd73ca59374031ff21de4b627681cfc}} 
+\index{json@{json}!PrintValue@{PrintValue}}
+\index{PrintValue@{PrintValue}!json@{json}}
+\doxysubsubsection{\texorpdfstring{PrintValue()}{PrintValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily void json\+::\+Print\+Value (\begin{DoxyParamCaption}\item[{const Array \&}]{arr,  }\item[{const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&}]{ctx }\end{DoxyParamCaption})}
+
+Calls \mbox{\hyperlink{namespacejson_a70b9e7f4f2cae2a274020487a32f7a9e}{Print\+Node()}} for array elements \mbox{\Hypertarget{namespacejson_a873ad6f22ea31e87d0e86e34bc2a76d7}\label{namespacejson_a873ad6f22ea31e87d0e86e34bc2a76d7}} 
+\index{json@{json}!PrintValue@{PrintValue}}
+\index{PrintValue@{PrintValue}!json@{json}}
+\doxysubsubsection{\texorpdfstring{PrintValue()}{PrintValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily void json\+::\+Print\+Value (\begin{DoxyParamCaption}\item[{const bool \&}]{bl,  }\item[{const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&}]{ctx }\end{DoxyParamCaption})}
+
+Prints \char`\"{}true\char`\"{} or \char`\"{}false\char`\"{} to ctx.\+out \mbox{\Hypertarget{namespacejson_aa6d96f9c910a9df120d8b6a04a7d6d86}\label{namespacejson_aa6d96f9c910a9df120d8b6a04a7d6d86}} 
+\index{json@{json}!PrintValue@{PrintValue}}
+\index{PrintValue@{PrintValue}!json@{json}}
+\doxysubsubsection{\texorpdfstring{PrintValue()}{PrintValue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily void json\+::\+Print\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{Dict}} \&}]{dict,  }\item[{const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&}]{ctx }\end{DoxyParamCaption})}
+
+Prints dictionary keys and calls \mbox{\hyperlink{namespacejson_a70b9e7f4f2cae2a274020487a32f7a9e}{Print\+Node()}} for values \mbox{\Hypertarget{namespacejson_a864be03ac2692ea95acac809b7de107f}\label{namespacejson_a864be03ac2692ea95acac809b7de107f}} 
+\index{json@{json}!PrintValue@{PrintValue}}
+\index{PrintValue@{PrintValue}!json@{json}}
+\doxysubsubsection{\texorpdfstring{PrintValue()}{PrintValue()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily void json\+::\+Print\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str,  }\item[{const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&}]{ctx }\end{DoxyParamCaption})}
+
+Prints given string to ctx.\+out \mbox{\Hypertarget{namespacejson_a4a28c99f359169d36504c2ad54326fbe}\label{namespacejson_a4a28c99f359169d36504c2ad54326fbe}} 
+\index{json@{json}!PrintValue@{PrintValue}}
+\index{PrintValue@{PrintValue}!json@{json}}
+\doxysubsubsection{\texorpdfstring{PrintValue()}{PrintValue()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+json\+::\+Print\+Value (\begin{DoxyParamCaption}\item[{const Value \&}]{value,  }\item[{const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&}]{ctx }\end{DoxyParamCaption})}
+
+Prints whatever type with defined operator$<$$<$(std\+::basic\+\_\+ostream) to ctx.\+out \mbox{\Hypertarget{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}\label{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}} 
+\index{json@{json}!PrintValue@{PrintValue}}
+\index{PrintValue@{PrintValue}!json@{json}}
+\doxysubsubsection{\texorpdfstring{PrintValue()}{PrintValue()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily void json\+::\+Print\+Value (\begin{DoxyParamCaption}\item[{std\+::nullptr\+\_\+t}]{,  }\item[{const \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}} \&}]{ctx }\end{DoxyParamCaption})}
+
+Prints \char`\"{}null\char`\"{} (string) to ctx.\+out 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacejson_aae71aa8a3e2998dcb82942a1ec5874e6}\label{namespacejson_aae71aa8a3e2998dcb82942a1ec5874e6}} 
+\index{json@{json}!CharsToReplace@{CharsToReplace}}
+\index{CharsToReplace@{CharsToReplace}!json@{json}}
+\doxysubsubsection{\texorpdfstring{CharsToReplace}{CharsToReplace}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$char, std\+::string$>$ json\+::\+Chars\+To\+Replace}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{\textcolor{charliteral}{'\(\backslash\)n'}, R\textcolor{stringliteral}{"{}(\(\backslash\)n)"{}\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)r'}, R\textcolor{stringliteral}{"{}(\(\backslash\)r)"{}\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)"{}'}, R\textcolor{stringliteral}{"{}(\(\backslash\)"{})"{}\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}, R\textcolor{stringliteral}{"{}(\(\backslash\)\(\backslash\))"{}\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\}}}
+
+\end{DoxyCode}
+
+
+Characters replaced by \mbox{\hyperlink{namespacejson_a864be03ac2692ea95acac809b7de107f}{Print\+Value(const std\+::string \&str, const Print\+Context \&ctx)}} during printing. 
+

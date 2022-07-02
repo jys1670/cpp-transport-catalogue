@@ -1,0 +1,39 @@
+\hypertarget{request__handler_8h}{}\doxysection{transport-\/catalogue/request\+\_\+handler.h File Reference}
+\label{request__handler_8h}\index{transport-\/catalogue/request\_handler.h@{transport-\/catalogue/request\_handler.h}}
+
+
+Things to query and print \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} information.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}domain.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}json.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map\+\_\+renderer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}transport\+\_\+catalogue.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classRequestHandler}{Request\+Handler}}
+\begin{DoxyCompactList}\small\item\em Responsible for querying database (\mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}}) and outputting information in various formats. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{Request\+Handler\+::\+Request\+Types}}
+\begin{DoxyCompactList}\small\item\em Known types of database query (NON-\/state-\/changing) requests. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintBusStats}{Request\+Handler\+::\+Request\+Types\+::\+Print\+Bus\+Stats}}
+\item 
+struct \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintStopStats}{Request\+Handler\+::\+Request\+Types\+::\+Print\+Stop\+Stats}}
+\item 
+struct \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{Request\+Handler\+::\+Request\+Types\+::\+Update\+Map\+Render\+Settings}}
+\item 
+struct \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintMap}{Request\+Handler\+::\+Request\+Types\+::\+Print\+Map}}
+\item 
+struct \mbox{\hyperlink{structRequestHandler_1_1JsonPrint}{Request\+Handler\+::\+Json\+Print}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Things to query and print \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} information. 
+

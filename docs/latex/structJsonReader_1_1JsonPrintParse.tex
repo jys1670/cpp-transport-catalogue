@@ -1,0 +1,78 @@
+\hypertarget{structJsonReader_1_1JsonPrintParse}{}\doxysection{Json\+Reader\+::Json\+Print\+Parse Struct Reference}
+\label{structJsonReader_1_1JsonPrintParse}\index{JsonReader::JsonPrintParse@{JsonReader::JsonPrintParse}}
+
+
+Functor used to parse and enqueue \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} NON-\/state-\/changing requests.  
+
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structJsonReader_1_1JsonPrintParse_aede726caaac44c37d200bb0d22b85b8b}\label{structJsonReader_1_1JsonPrintParse_aede726caaac44c37d200bb0d22b85b8b}} 
+using {\bfseries Request\+Types} = \mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{Request\+Handler\+::\+Request\+Types}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structJsonReader_1_1JsonPrintParse_a17086b4b9175357f7536db8e7eb0de2c}\label{structJsonReader_1_1JsonPrintParse_a17086b4b9175357f7536db8e7eb0de2c}} 
+{\bfseries Json\+Print\+Parse} (\mbox{\hyperlink{classRequestHandler}{Request\+Handler}} \&parent)
+\item 
+\mbox{\Hypertarget{structJsonReader_1_1JsonPrintParse_a660e479925eb4576d0b22fd624c70e4c}\label{structJsonReader_1_1JsonPrintParse_a660e479925eb4576d0b22fd624c70e4c}} 
+void {\bfseries operator()} (std\+::string\+\_\+view type, const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structJsonReader_1_1JsonPrintParse_a2ab44eb2d1954a03f1edda585ff4170b}\label{structJsonReader_1_1JsonPrintParse_a2ab44eb2d1954a03f1edda585ff4170b}} 
+using {\bfseries Function\+Ptr} = void(Json\+Print\+Parse\+::$\ast$)(const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structJsonReader_1_1JsonPrintParse_a9db23e3dcfae1c4cb75f6b9fc4024e2c}\label{structJsonReader_1_1JsonPrintParse_a9db23e3dcfae1c4cb75f6b9fc4024e2c}} 
+void {\bfseries Enqueue\+Bus} (const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&node)
+\item 
+\mbox{\Hypertarget{structJsonReader_1_1JsonPrintParse_ac5076c44f6be6c84f4021bbbf2264dc9}\label{structJsonReader_1_1JsonPrintParse_ac5076c44f6be6c84f4021bbbf2264dc9}} 
+void {\bfseries Enqueue\+Stop} (const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&node)
+\item 
+\mbox{\Hypertarget{structJsonReader_1_1JsonPrintParse_a626170ebca5368e6281ff478718e37c7}\label{structJsonReader_1_1JsonPrintParse_a626170ebca5368e6281ff478718e37c7}} 
+void {\bfseries Enqueue\+Map\+Draw} (const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structJsonReader_1_1JsonPrintParse_aaca7bab1769fa5276d566659e0517bdf}\label{structJsonReader_1_1JsonPrintParse_aaca7bab1769fa5276d566659e0517bdf}} 
+\mbox{\hyperlink{classRequestHandler}{Request\+Handler}} \& {\bfseries parent\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Function\+Ptr $>$ \mbox{\hyperlink{structJsonReader_1_1JsonPrintParse_a62ad45b25097ab27b239887fdc3c80c8}{handlers\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functor used to parse and enqueue \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} NON-\/state-\/changing requests. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structJsonReader_1_1JsonPrintParse_a62ad45b25097ab27b239887fdc3c80c8}\label{structJsonReader_1_1JsonPrintParse_a62ad45b25097ab27b239887fdc3c80c8}} 
+\index{JsonReader::JsonPrintParse@{JsonReader::JsonPrintParse}!handlers\_@{handlers\_}}
+\index{handlers\_@{handlers\_}!JsonReader::JsonPrintParse@{JsonReader::JsonPrintParse}}
+\doxysubsubsection{\texorpdfstring{handlers\_}{handlers\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Json\+Reader\+::\+Json\+Print\+Parse\+::\+Function\+Ptr $>$ Json\+Reader\+::\+Json\+Print\+Parse\+::handlers\+\_\+\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{        \{\textcolor{stringliteral}{"{}Bus"{}}, \&JsonReader::JsonPrintParse::EnqueueBus\},}
+\DoxyCodeLine{        \{\textcolor{stringliteral}{"{}Stop"{}}, \&JsonReader::JsonPrintParse::EnqueueStop\},}
+\DoxyCodeLine{        \{\textcolor{stringliteral}{"{}Map"{}}, \&JsonReader::JsonPrintParse::EnqueueMapDraw\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+transport-\/catalogue/\mbox{\hyperlink{json__reader_8h}{json\+\_\+reader.\+h}}\item 
+transport-\/catalogue/json\+\_\+reader.\+cpp\end{DoxyCompactItemize}
