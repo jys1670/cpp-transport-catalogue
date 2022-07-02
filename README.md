@@ -3,7 +3,7 @@
 This repository is a simple implementation of information storage, which can potentially be used in some kind of routing process.
 As of now, there is only JSON interface capable of printing/visualizing stops and routes information:
 
-<img src="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/example_map.svg?sanitize=true" width="650" height="600" alt="example-map">
+<img src="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/example_map.svg" width="650" height="600" alt="example-map">
 
 ### Documentation
 - **Is in a work-in-progress state**
