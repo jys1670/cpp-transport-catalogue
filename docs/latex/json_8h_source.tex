@@ -13,90 +13,99 @@
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#include <variant>}}
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{14 }
-\DoxyCodeLine{15 \textcolor{keyword}{namespace }json \{}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{class }Node;}
-\DoxyCodeLine{18 \textcolor{keyword}{class }Document;}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classjson_1_1ParsingError}{ParsingError}} : \textcolor{keyword}{public} std::runtime\_error \{}
-\DoxyCodeLine{21 \textcolor{keyword}{public}:}
-\DoxyCodeLine{22   \textcolor{keyword}{using} runtime\_error::runtime\_error;}
-\DoxyCodeLine{23 \};}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25 \textcolor{keyword}{struct }\mbox{\hyperlink{structjson_1_1PrintContext}{PrintContext}} \{}
-\DoxyCodeLine{26   std::ostream \&out;}
-\DoxyCodeLine{27   \textcolor{keywordtype}{int} indent\_step = 4;}
-\DoxyCodeLine{28   \textcolor{keywordtype}{int} indent = 0;}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30   \textcolor{keywordtype}{void} PrintIndent() \textcolor{keyword}{const};}
-\DoxyCodeLine{31   \mbox{\hyperlink{structjson_1_1PrintContext}{PrintContext}} Indented() \textcolor{keyword}{const};}
-\DoxyCodeLine{32 \};}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34 \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&rhs);}
-\DoxyCodeLine{35 \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&rhs);}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37 \textcolor{keyword}{using} Dict = std::map<std::string, Node>;}
-\DoxyCodeLine{38 \textcolor{keyword}{using} Array = std::vector<Node>;}
-\DoxyCodeLine{39 \textcolor{keyword}{const} std::unordered\_set<char> Delimiters = \{\textcolor{charliteral}{' '}, \textcolor{charliteral}{'\(\backslash\)n'}, \textcolor{charliteral}{'\(\backslash\)t'}, \textcolor{charliteral}{'\(\backslash\)r'}\};}
-\DoxyCodeLine{40 \textcolor{keyword}{const} std::unordered\_map<char, std::string> CharsToReplace = \{}
-\DoxyCodeLine{41     \{\textcolor{charliteral}{'\(\backslash\)n'}, R\textcolor{stringliteral}{"{}(\(\backslash\)n)"{}\},}}
-\DoxyCodeLine{42 \textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)r'}, R\textcolor{stringliteral}{"{}(\(\backslash\)r)"{}\},}}
-\DoxyCodeLine{43 \textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)"{}'}, R\textcolor{stringliteral}{"{}(\(\backslash\)"{})"{}\},}}
-\DoxyCodeLine{44 \textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}, R\textcolor{stringliteral}{"{}(\(\backslash\)\(\backslash\))"{}\},}}
-\DoxyCodeLine{45 \textcolor{stringliteral}{\};}}
-\DoxyCodeLine{46 \textcolor{stringliteral}{}}
-\DoxyCodeLine{47 \textcolor{stringliteral}{Document Load(std::istream \&input);}}
-\DoxyCodeLine{48 \textcolor{stringliteral}{}}
-\DoxyCodeLine{49 \textcolor{stringliteral}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} Value>}
-\DoxyCodeLine{50 \textcolor{keywordtype}{void} PrintValue(\textcolor{keyword}{const} Value \&value, \textcolor{keyword}{const} PrintContext \&ctx) \{}
-\DoxyCodeLine{51   ctx.out << value;}
-\DoxyCodeLine{52 \}}
-\DoxyCodeLine{53 \textcolor{keywordtype}{void} PrintValue(std::nullptr\_t, \textcolor{keyword}{const} PrintContext \&ctx);}
-\DoxyCodeLine{54 \textcolor{keywordtype}{void} PrintValue(\textcolor{keyword}{const} Array \&arr, \textcolor{keyword}{const} PrintContext \&ctx);}
-\DoxyCodeLine{55 \textcolor{keywordtype}{void} PrintValue(\textcolor{keyword}{const} Dict \&dict, \textcolor{keyword}{const} PrintContext \&ctx);}
-\DoxyCodeLine{56 \textcolor{keywordtype}{void} PrintValue(\textcolor{keyword}{const} std::string \&str, \textcolor{keyword}{const} PrintContext \&ctx);}
-\DoxyCodeLine{57 \textcolor{keywordtype}{void} PrintValue(\textcolor{keyword}{const} \textcolor{keywordtype}{bool} \&val, \textcolor{keyword}{const} PrintContext \&ctx);}
-\DoxyCodeLine{58 \textcolor{keywordtype}{void} PrintNode(\textcolor{keyword}{const} Node \&node, \textcolor{keyword}{const} PrintContext \&ctx);}
-\DoxyCodeLine{59 \textcolor{keywordtype}{void} Print(\textcolor{keyword}{const} Document \&doc, std::ostream \&output);}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61 \textcolor{keyword}{class }\mbox{\hyperlink{classjson_1_1Node}{Node}} final : \textcolor{keyword}{private} std::variant<std::nullptr\_t, Array, Dict, bool, int,}
-\DoxyCodeLine{62                                         double, std::string> \{}
-\DoxyCodeLine{63 \textcolor{keyword}{public}:}
-\DoxyCodeLine{64   \textcolor{keyword}{using} Value =}
-\DoxyCodeLine{65       std::variant<std::nullptr\_t, Array, Dict, bool, int, double, std::string>;}
-\DoxyCodeLine{66   \textcolor{keyword}{using} variant::variant;}
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacejson}{json}} \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }Node;}
+\DoxyCodeLine{19 \textcolor{keyword}{class }Document;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classjson_1_1ParsingError}{ParsingError}} : \textcolor{keyword}{public} std::runtime\_error \{}
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23   \textcolor{keyword}{using} runtime\_error::runtime\_error;}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{27 \textcolor{keyword}{struct }\mbox{\hyperlink{structjson_1_1PrintContext}{PrintContext}} \{}
+\DoxyCodeLine{28   std::ostream \&out;}
+\DoxyCodeLine{29   \textcolor{keywordtype}{int} indent\_step = 4;}
+\DoxyCodeLine{30   \textcolor{keywordtype}{int} indent = 0;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32   \textcolor{keywordtype}{void} PrintIndent() \textcolor{keyword}{const};}
+\DoxyCodeLine{33   \mbox{\hyperlink{structjson_1_1PrintContext}{PrintContext}} Indented() \textcolor{keyword}{const};}
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&rhs);}
+\DoxyCodeLine{37 \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&rhs);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{43 \textcolor{keyword}{using} \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{Dict}} = std::map<std::string, Node>;}
+\DoxyCodeLine{44 \textcolor{keyword}{using} Array = std::vector<Node>;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{47 \textcolor{keyword}{const} std::unordered\_set<char> \mbox{\hyperlink{namespacejson_a7dfa1293b4f94c01b01bb22e3933d3e4}{Delimiters}} = \{\textcolor{charliteral}{' '}, \textcolor{charliteral}{'\(\backslash\)n'}, \textcolor{charliteral}{'\(\backslash\)t'}, \textcolor{charliteral}{'\(\backslash\)r'}\};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{50 \textcolor{keyword}{const} std::unordered\_map<char, std::string> \mbox{\hyperlink{namespacejson_aae71aa8a3e2998dcb82942a1ec5874e6}{CharsToReplace}} = \{}
+\DoxyCodeLine{51     \{\textcolor{charliteral}{'\(\backslash\)n'}, R\textcolor{stringliteral}{"{}(\(\backslash\)n)"{}\},}}
+\DoxyCodeLine{52 \textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)r'}, R\textcolor{stringliteral}{"{}(\(\backslash\)r)"{}\},}}
+\DoxyCodeLine{53 \textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)"{}'}, R\textcolor{stringliteral}{"{}(\(\backslash\)"{})"{}\},}}
+\DoxyCodeLine{54 \textcolor{stringliteral}{    \{}\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}, R\textcolor{stringliteral}{"{}(\(\backslash\)\(\backslash\))"{}\},}}
+\DoxyCodeLine{55 \textcolor{stringliteral}{\};}}
+\DoxyCodeLine{56 \textcolor{stringliteral}{}}
+\DoxyCodeLine{57 \textcolor{stringliteral}{Document Load(std::istream \&input);}}
+\DoxyCodeLine{58 \textcolor{stringliteral}{}}
+\DoxyCodeLine{63 \textcolor{stringliteral}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} Value>}
+\DoxyCodeLine{64 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}{PrintValue}}(\textcolor{keyword}{const} Value \&value, \textcolor{keyword}{const} \mbox{\hyperlink{structjson_1_1PrintContext}{PrintContext}} \&ctx) \{}
+\DoxyCodeLine{65   ctx.out << value;}
+\DoxyCodeLine{66 \}}
 \DoxyCodeLine{67 }
-\DoxyCodeLine{68   \mbox{\hyperlink{classjson_1_1Node}{Node}}(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Document}{Document}} \&doc);}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{70   \textcolor{keywordtype}{bool} IsInt() \textcolor{keyword}{const};}
-\DoxyCodeLine{71   \textcolor{keywordtype}{bool} IsDouble() \textcolor{keyword}{const};}
-\DoxyCodeLine{72   \textcolor{keywordtype}{bool} IsPureDouble() \textcolor{keyword}{const};}
-\DoxyCodeLine{73   \textcolor{keywordtype}{bool} IsBool() \textcolor{keyword}{const};}
-\DoxyCodeLine{74   \textcolor{keywordtype}{bool} IsString() \textcolor{keyword}{const};}
-\DoxyCodeLine{75   \textcolor{keywordtype}{bool} IsNull() \textcolor{keyword}{const};}
-\DoxyCodeLine{76   \textcolor{keywordtype}{bool} IsArray() \textcolor{keyword}{const};}
-\DoxyCodeLine{77   \textcolor{keywordtype}{bool} IsMap() \textcolor{keyword}{const};}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{79   \textcolor{keywordtype}{int} AsInt() \textcolor{keyword}{const};}
-\DoxyCodeLine{80   \textcolor{keywordtype}{bool} AsBool() \textcolor{keyword}{const};}
-\DoxyCodeLine{81   \textcolor{keywordtype}{double} AsDouble() \textcolor{keyword}{const};}
-\DoxyCodeLine{82   \textcolor{keyword}{const} std::string \&AsString() \textcolor{keyword}{const};}
-\DoxyCodeLine{83   \textcolor{keyword}{const} Array \&AsArray() \textcolor{keyword}{const};}
-\DoxyCodeLine{84   \textcolor{keyword}{const} Dict \&AsMap() \textcolor{keyword}{const};}
+\DoxyCodeLine{72 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}{PrintValue}}(std::nullptr\_t, \textcolor{keyword}{const} PrintContext \&ctx);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{78 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}{PrintValue}}(\textcolor{keyword}{const} Array \&arr, \textcolor{keyword}{const} PrintContext \&ctx);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{84 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}{PrintValue}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{Dict}} \&dict, \textcolor{keyword}{const} PrintContext \&ctx);}
 \DoxyCodeLine{85 }
-\DoxyCodeLine{86   \textcolor{keyword}{const} Value \&GetValue() \textcolor{keyword}{const};}
-\DoxyCodeLine{87 \};}
-\DoxyCodeLine{88 }
-\DoxyCodeLine{89 \textcolor{keyword}{class }\mbox{\hyperlink{classjson_1_1Document}{Document}} \{}
-\DoxyCodeLine{90 \textcolor{keyword}{public}:}
-\DoxyCodeLine{91   \textcolor{keyword}{explicit} \mbox{\hyperlink{classjson_1_1Document}{Document}}(\mbox{\hyperlink{classjson_1_1Node}{Node}} root);}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{93   \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&GetRoot() \textcolor{keyword}{const};}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95 \textcolor{keyword}{private}:}
-\DoxyCodeLine{96   \mbox{\hyperlink{classjson_1_1Node}{Node}} root\_;}
-\DoxyCodeLine{97 \};}
-\DoxyCodeLine{98 }
-\DoxyCodeLine{99 \} \textcolor{comment}{// namespace json}}
+\DoxyCodeLine{90 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}{PrintValue}}(\textcolor{keyword}{const} std::string \&str, \textcolor{keyword}{const} PrintContext \&ctx);}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{96 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}{PrintValue}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool} \&bl, \textcolor{keyword}{const} PrintContext \&ctx);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{99 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacejson_a70b9e7f4f2cae2a274020487a32f7a9e}{PrintNode}}(\textcolor{keyword}{const} Node \&node, \textcolor{keyword}{const} PrintContext \&ctx);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{102 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacejson_a6221e4636b39e358b3d05b3a29f206c8}{Print}}(\textcolor{keyword}{const} Document \&doc, std::ostream \&output);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{105 \textcolor{keyword}{class }\mbox{\hyperlink{classjson_1_1Node}{Node}} final : \textcolor{keyword}{private} std::variant<std::nullptr\_t, Array, Dict, bool, int,}
+\DoxyCodeLine{106                                         double, std::string> \{}
+\DoxyCodeLine{107 \textcolor{keyword}{public}:}
+\DoxyCodeLine{108   \textcolor{keyword}{using} Value =}
+\DoxyCodeLine{109       std::variant<std::nullptr\_t, Array, Dict, bool, int, double, std::string>;}
+\DoxyCodeLine{110   \textcolor{keyword}{using} variant::variant;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112   \mbox{\hyperlink{classjson_1_1Node}{Node}}(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Document}{Document}} \&doc);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114   \textcolor{keywordtype}{bool} IsInt() \textcolor{keyword}{const};}
+\DoxyCodeLine{115   \textcolor{keywordtype}{bool} IsDouble() \textcolor{keyword}{const};}
+\DoxyCodeLine{116   \textcolor{keywordtype}{bool} IsPureDouble() \textcolor{keyword}{const};}
+\DoxyCodeLine{117   \textcolor{keywordtype}{bool} IsBool() \textcolor{keyword}{const};}
+\DoxyCodeLine{118   \textcolor{keywordtype}{bool} IsString() \textcolor{keyword}{const};}
+\DoxyCodeLine{119   \textcolor{keywordtype}{bool} IsNull() \textcolor{keyword}{const};}
+\DoxyCodeLine{120   \textcolor{keywordtype}{bool} IsArray() \textcolor{keyword}{const};}
+\DoxyCodeLine{121   \textcolor{keywordtype}{bool} IsMap() \textcolor{keyword}{const};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123   \textcolor{keywordtype}{int} AsInt() \textcolor{keyword}{const};}
+\DoxyCodeLine{124   \textcolor{keywordtype}{bool} AsBool() \textcolor{keyword}{const};}
+\DoxyCodeLine{125   \textcolor{keywordtype}{double} AsDouble() \textcolor{keyword}{const};}
+\DoxyCodeLine{126   \textcolor{keyword}{const} std::string \&AsString() \textcolor{keyword}{const};}
+\DoxyCodeLine{127   \textcolor{keyword}{const} Array \&AsArray() \textcolor{keyword}{const};}
+\DoxyCodeLine{128   \textcolor{keyword}{const} \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{Dict}} \&AsMap() \textcolor{keyword}{const};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130   \textcolor{keyword}{const} Value \&GetValue() \textcolor{keyword}{const};}
+\DoxyCodeLine{131 \};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{134 \textcolor{keyword}{class }\mbox{\hyperlink{classjson_1_1Document}{Document}} \{}
+\DoxyCodeLine{135 \textcolor{keyword}{public}:}
+\DoxyCodeLine{136   \textcolor{keyword}{explicit} \mbox{\hyperlink{classjson_1_1Document}{Document}}(\mbox{\hyperlink{classjson_1_1Node}{Node}} root);}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138   \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{Node}} \&GetRoot() \textcolor{keyword}{const};}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{keyword}{private}:}
+\DoxyCodeLine{141   \mbox{\hyperlink{classjson_1_1Node}{Node}} root\_;}
+\DoxyCodeLine{142 \};}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \} \textcolor{comment}{// namespace json}}
 
 \end{DoxyCode}

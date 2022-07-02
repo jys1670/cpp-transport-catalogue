@@ -1,32 +1,33 @@
 \hypertarget{geo_8h_source}{}\doxysection{geo.\+h}
 \label{geo_8h_source}\index{transport-\/catalogue/geo.h@{transport-\/catalogue/geo.h}}
-
+\mbox{\hyperlink{geo_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <cmath>}}
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{keyword}{namespace }geo \{}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{struct }\mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} \{}
-\DoxyCodeLine{8   \textcolor{keywordtype}{double} lat;}
-\DoxyCodeLine{9   \textcolor{keywordtype}{double} lng;}
-\DoxyCodeLine{10   \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} \&other) \textcolor{keyword}{const};}
-\DoxyCodeLine{11   \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} \&other) \textcolor{keyword}{const};}
-\DoxyCodeLine{12 \};}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} ComputeDistance(\mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} from, \mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} to) \{}
-\DoxyCodeLine{15   \textcolor{keyword}{using namespace }std;}
-\DoxyCodeLine{16   \textcolor{keywordflow}{if} (from == to) \{}
-\DoxyCodeLine{17     \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{18   \}}
-\DoxyCodeLine{19   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} dr = 3.1415926535 / 180.;}
-\DoxyCodeLine{20   \textcolor{keywordflow}{return} acos(sin(from.lat * dr) * sin(to.lat * dr) +}
-\DoxyCodeLine{21               cos(from.lat * dr) * cos(to.lat * dr) *}
-\DoxyCodeLine{22                   cos(abs(from.lng -\/ to.lng) * dr)) *}
-\DoxyCodeLine{23          6371000;}
-\DoxyCodeLine{24 \}}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26 \} \textcolor{comment}{// namespace geo}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacegeo}{geo}} \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{13 \textcolor{keyword}{struct }\mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} \{}
+\DoxyCodeLine{14   \textcolor{keywordtype}{double} \mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}}; }
+\DoxyCodeLine{15   \textcolor{keywordtype}{double} \mbox{\hyperlink{structgeo_1_1Coordinates_a17ff395a0366cf612809c2eea18308c6}{lng}}; }
+\DoxyCodeLine{16   \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} \&other) \textcolor{keyword}{const};}
+\DoxyCodeLine{17   \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} \&other) \textcolor{keyword}{const};}
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{21 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacegeo_a23151a9f4e0f37c384dd4ae5005acb14}{ComputeDistance}}(\mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} from, \mbox{\hyperlink{structgeo_1_1Coordinates}{Coordinates}} to) \{}
+\DoxyCodeLine{22   \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{23   \textcolor{keywordflow}{if} (from == to) \{}
+\DoxyCodeLine{24     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{25   \}}
+\DoxyCodeLine{26   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} dr = 3.1415926535 / 180.;}
+\DoxyCodeLine{27   \textcolor{keywordflow}{return} acos(sin(from.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) * sin(to.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) +}
+\DoxyCodeLine{28               cos(from.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) * cos(to.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) *}
+\DoxyCodeLine{29                   cos(abs(from.\mbox{\hyperlink{structgeo_1_1Coordinates_a17ff395a0366cf612809c2eea18308c6}{lng}} -\/ to.\mbox{\hyperlink{structgeo_1_1Coordinates_a17ff395a0366cf612809c2eea18308c6}{lng}}) * dr)) *}
+\DoxyCodeLine{30          6371000;}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \} \textcolor{comment}{// namespace geo}}
 
 \end{DoxyCode}

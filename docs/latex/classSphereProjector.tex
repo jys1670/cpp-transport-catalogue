@@ -2,7 +2,7 @@
 \label{classSphereProjector}\index{SphereProjector@{SphereProjector}}
 
 
-Functor for mapping physical to screen coordinates.  
+Functor used to map between physical and screen coordinates.  
 
 
 
@@ -17,10 +17,25 @@ Functor for mapping physical to screen coordinates.
 \mbox{\Hypertarget{classSphereProjector_a01cb41446f50ac0e44e7dc29630bdf0b}\label{classSphereProjector_a01cb41446f50ac0e44e7dc29630bdf0b}} 
 \mbox{\hyperlink{structsvg_1_1Point}{svg\+::\+Point}} {\bfseries operator()} (\mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} coords) const
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSphereProjector_a783f6ff62e5d7b14f64be3e23f0d2cc3}\label{classSphereProjector_a783f6ff62e5d7b14f64be3e23f0d2cc3}} 
+double {\bfseries padding\+\_\+}
+\item 
+\mbox{\Hypertarget{classSphereProjector_adc11131ea5d9ec16814b5a18c67a92c8}\label{classSphereProjector_adc11131ea5d9ec16814b5a18c67a92c8}} 
+double {\bfseries min\+\_\+lon\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classSphereProjector_adce464aade9af5f66430be1ece930598}\label{classSphereProjector_adce464aade9af5f66430be1ece930598}} 
+double {\bfseries max\+\_\+lat\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classSphereProjector_a7a547532afd87aef2265e1fa14f9a865}\label{classSphereProjector_a7a547532afd87aef2265e1fa14f9a865}} 
+double {\bfseries zoom\+\_\+coeff\+\_\+} = 0
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Functor for mapping physical to screen coordinates. 
+Functor used to map between physical and screen coordinates. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classSphereProjector_ab2b8be7ced9482358a6e79e19e2be0de}\label{classSphereProjector_ab2b8be7ced9482358a6e79e19e2be0de}} 
@@ -40,9 +55,9 @@ Constructor for the class.
 \hline
 \mbox{\texttt{ in}}  & {\em points\+\_\+end} & iterator pointing to \mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} container end \\
 \hline
-\mbox{\texttt{ in}}  & {\em max\+\_\+width} & pixel width of \char`\"{}project to\char`\"{} area \\
+\mbox{\texttt{ in}}  & {\em max\+\_\+width} & pixel width of \char`\"{}project to\char`\"{} area\\
 \hline
-\mbox{\texttt{ in}}  & {\em max\+\_\+height} & pixel height of \char`\"{}project to\char`\"{} area \\
+\mbox{\texttt{ in}}  & {\em max\+\_\+height} & pixel height of \char`\"{}project to\char`\"{} area\\
 \hline
 \mbox{\texttt{ in}}  & {\em padding} & \char`\"{}project to\char`\"{} area padding size in pixels \\
 \hline
@@ -51,5 +66,5 @@ Constructor for the class.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-transport-\/catalogue/map\+\_\+renderer.\+h\item 
+transport-\/catalogue/\mbox{\hyperlink{map__renderer_8h}{map\+\_\+renderer.\+h}}\item 
 transport-\/catalogue/map\+\_\+renderer.\+cpp\end{DoxyCompactItemize}

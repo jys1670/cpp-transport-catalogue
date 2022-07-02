@@ -1,16 +1,23 @@
+/*!
+\file geo.h
+ \brief Geographic coordinates related elements
+*/
 #pragma once
 
 #include <cmath>
 
+//! Geographic coordinates related elements
 namespace geo {
 
+//! Point in geographic coordinate system (GCS)
 struct Coordinates {
-  double lat;
-  double lng;
+  double lat; //!< latitude
+  double lng; //!< longitude
   bool operator==(const Coordinates &other) const;
   bool operator!=(const Coordinates &other) const;
 };
 
+//! Assuming Earth is ideal sphere, computes great-circle distance
 inline double ComputeDistance(Coordinates from, Coordinates to) {
   using namespace std;
   if (from == to) {

@@ -68,6 +68,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsvg_1_1Text-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">svg::Text Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -124,6 +126,32 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Render</b> (c
 <a class="el" href="classsvg_1_1Text.html">Text</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetStrokeLineJoin</b> (StrokeLineJoin line_join)</td></tr>
 <tr class="separator:aaee06c835dfe7819acae8e9455ebf6f6 inherit pub_methods_classsvg_1_1PathProps"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae7e6fd7ccc1c37b0200d34e1796dec7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsvg_1_1Text.html#ae7e6fd7ccc1c37b0200d34e1796dec7c">RenderObject</a> (const <a class="el" href="structsvg_1_1RenderContext.html">RenderContext</a> &amp;context) const override</td></tr>
+<tr class="separator:ae7e6fd7ccc1c37b0200d34e1796dec7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8d4de794e4b821d7612242e951f234f7"><td class="memItemLeft" align="right" valign="top"><a id="a8d4de794e4b821d7612242e951f234f7" name="a8d4de794e4b821d7612242e951f234f7"></a>
+<a class="el" href="structsvg_1_1Point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>position_</b> {0, 0}</td></tr>
+<tr class="separator:a8d4de794e4b821d7612242e951f234f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62e8f333a3cef78ec1d0b2fbfc1c3a74"><td class="memItemLeft" align="right" valign="top"><a id="a62e8f333a3cef78ec1d0b2fbfc1c3a74" name="a62e8f333a3cef78ec1d0b2fbfc1c3a74"></a>
+<a class="el" href="structsvg_1_1Point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>displacement_</b> {0, 0}</td></tr>
+<tr class="separator:a62e8f333a3cef78ec1d0b2fbfc1c3a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a89d239aa2a4530cbef691f8a5ab221"><td class="memItemLeft" align="right" valign="top"><a id="a0a89d239aa2a4530cbef691f8a5ab221" name="a0a89d239aa2a4530cbef691f8a5ab221"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>font_size_</b> {1}</td></tr>
+<tr class="separator:a0a89d239aa2a4530cbef691f8a5ab221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae989c9cef43dbeed7fec68bce40a94fe"><td class="memItemLeft" align="right" valign="top"><a id="ae989c9cef43dbeed7fec68bce40a94fe" name="ae989c9cef43dbeed7fec68bce40a94fe"></a>
+std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>font_family_</b> {}</td></tr>
+<tr class="separator:ae989c9cef43dbeed7fec68bce40a94fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f4048839bc468498f79eae1a8603e40"><td class="memItemLeft" align="right" valign="top"><a id="a0f4048839bc468498f79eae1a8603e40" name="a0f4048839bc468498f79eae1a8603e40"></a>
+std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>font_weight_</b> {}</td></tr>
+<tr class="separator:a0f4048839bc468498f79eae1a8603e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22ff6ade59548c3f719b7b134244860c"><td class="memItemLeft" align="right" valign="top"><a id="a22ff6ade59548c3f719b7b134244860c" name="a22ff6ade59548c3f719b7b134244860c"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>data_</b> {}</td></tr>
+<tr class="separator:a22ff6ade59548c3f719b7b134244860c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classsvg_1_1PathProps"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classsvg_1_1PathProps')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classsvg_1_1PathProps.html">svg::PathProps&lt; Text &gt;</a></td></tr>
@@ -131,6 +159,35 @@ Additional Inherited Members</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>RenderAttrs</b> (std::ostream &amp;out) const</td></tr>
 <tr class="separator:a0eed50a9c1a26f62dc158983748a9e0a inherit pro_methods_classsvg_1_1PathProps"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae7e6fd7ccc1c37b0200d34e1796dec7c" name="ae7e6fd7ccc1c37b0200d34e1796dec7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7e6fd7ccc1c37b0200d34e1796dec7c">&#9670;&nbsp;</a></span>RenderObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void svg::Text::RenderObject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsvg_1_1RenderContext.html">RenderContext</a> &amp;&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsvg_1_1Object.html">svg::Object</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>transport-catalogue/<a class="el" href="svg_8h_source.html">svg.h</a></li>
 <li>transport-catalogue/svg.cpp</li>

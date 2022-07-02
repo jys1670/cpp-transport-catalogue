@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-<polyline points="50,750 400,750 50,400 400,750 50,750" fill="none" stroke="red" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-<polyline points="750,50 50,400 50,750 750,750 750,50" fill="none" stroke="blue" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-<polyline points="750,750 50,400 750,750" fill="none" stroke="limegreen" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="50" y="750" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Route ABC</text>
-<text x="50" y="750" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="red">Route ABC</text>
-<text x="50" y="400" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Route ABC</text>
-<text x="50" y="400" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="red">Route ABC</text>
-<text x="750" y="50" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Route DCAED</text>
-<text x="750" y="50" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="blue">Route DCAED</text>
-<text x="750" y="750" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Route ECE</text>
-<text x="750" y="750" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="limegreen">Route ECE</text>
-<circle cx="50" cy="750" r="8" fill="white"/>
-<circle cx="400" cy="750" r="8" fill="white"/>
-<circle cx="50" cy="400" r="8" fill="white"/>
-<circle cx="750" cy="50" r="8" fill="white"/>
-<circle cx="750" cy="750" r="8" fill="white"/>
-<text x="50" y="750" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop A</text>
-<text x="50" y="750" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop A</text>
-<text x="400" y="750" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop B</text>
-<text x="400" y="750" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop B</text>
-<text x="50" y="400" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop C</text>
-<text x="50" y="400" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop C</text>
-<text x="750" y="50" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop D</text>
-<text x="750" y="50" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop D</text>
-<text x="750" y="750" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop E</text>
-<text x="750" y="750" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop E</text>
+<polyline points="100,500 300,500 100,300 300,500 100,500" fill="none" stroke="red" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="500,100 100,300 100,500 500,500 500,100" fill="none" stroke="blue" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="500,500 100,300 500,500" fill="none" stroke="limegreen" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="100" y="500" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Route ABC</text>
+<text x="100" y="500" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="red">Route ABC</text>
+<text x="100" y="300" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Route ABC</text>
+<text x="100" y="300" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="red">Route ABC</text>
+<text x="500" y="100" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Route DCAED</text>
+<text x="500" y="100" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="blue">Route DCAED</text>
+<text x="500" y="500" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Route ECE</text>
+<text x="500" y="500" dx="10" dy="-10" font-size="15" font-family="Verdana" font-weight="bold" fill="limegreen">Route ECE</text>
+<circle cx="100" cy="500" r="8" fill="white"/>
+<circle cx="300" cy="500" r="8" fill="white"/>
+<circle cx="100" cy="300" r="8" fill="white"/>
+<circle cx="500" cy="100" r="8" fill="white"/>
+<circle cx="500" cy="500" r="8" fill="white"/>
+<text x="100" y="500" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop A</text>
+<text x="100" y="500" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop A</text>
+<text x="300" y="500" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop B</text>
+<text x="300" y="500" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop B</text>
+<text x="100" y="300" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop C</text>
+<text x="100" y="300" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop C</text>
+<text x="500" y="100" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop D</text>
+<text x="500" y="100" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop D</text>
+<text x="500" y="500" dx="10" dy="10" font-size="10" font-family="Verdana" fill="rgb(155,255,255)" stroke="rgb(155,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Stop E</text>
+<text x="500" y="500" dx="10" dy="10" font-size="10" font-family="Verdana" fill="black">Stop E</text>
 </svg>

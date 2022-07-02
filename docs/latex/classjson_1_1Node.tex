@@ -1,5 +1,14 @@
 \hypertarget{classjson_1_1Node}{}\doxysection{json\+::Node Class Reference}
 \label{classjson_1_1Node}\index{json::Node@{json::Node}}
+
+
+Runtime polymorphic type representing \href{https://en.wikipedia.org/wiki/JSON\#Data_types}{\texttt{ JSON basic data types}}  
+
+
+
+
+{\ttfamily \#include $<$json.\+h$>$}
+
 Inheritance diagram for json\+::Node\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,7 +19,7 @@ Inheritance diagram for json\+::Node\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classjson_1_1Node_abf459fe18f5ba3e9aa3997a12ab7223c}\label{classjson_1_1Node_abf459fe18f5ba3e9aa3997a12ab7223c}} 
-using {\bfseries Value} = std\+::variant$<$ std\+::nullptr\+\_\+t, Array, Dict, bool, int, double, std\+::string $>$
+using {\bfseries Value} = std\+::variant$<$ std\+::nullptr\+\_\+t, Array, \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{Dict}}, bool, int, double, std\+::string $>$
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -58,12 +67,15 @@ const std\+::string \& {\bfseries As\+String} () const
 const Array \& {\bfseries As\+Array} () const
 \item 
 \mbox{\Hypertarget{classjson_1_1Node_ae19da2defe217dd20a2ca32595f9d135}\label{classjson_1_1Node_ae19da2defe217dd20a2ca32595f9d135}} 
-const Dict \& {\bfseries As\+Map} () const
+const \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{Dict}} \& {\bfseries As\+Map} () const
 \item 
 \mbox{\Hypertarget{classjson_1_1Node_a7201377a4d60b8a2b93193693c6349ab}\label{classjson_1_1Node_a7201377a4d60b8a2b93193693c6349ab}} 
 const Value \& {\bfseries Get\+Value} () const
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Runtime polymorphic type representing \href{https://en.wikipedia.org/wiki/JSON\#Data_types}{\texttt{ JSON basic data types}} 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

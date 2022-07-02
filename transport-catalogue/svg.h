@@ -1,7 +1,7 @@
 /*!
-\file svg.h
- \brief Scalable Vector Graphics (SVG) generation library
-*/
+ * \file svg.h
+ * \brief Scalable Vector Graphics (SVG) generation library
+ */
 #pragma once
 
 #include <cstdint>

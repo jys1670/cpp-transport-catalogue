@@ -2,7 +2,7 @@
 \label{domain_8h}\index{transport-\/catalogue/domain.h@{transport-\/catalogue/domain.h}}
 
 
-Header file with widely used objects.  
+Header file with widely used independent types.  
 
 
 {\ttfamily \#include $<$string$>$}\newline
@@ -23,7 +23,7 @@ struct \mbox{\hyperlink{structOutputFormat_1_1Xml}{Output\+Format\+::\+Xml}}
 struct \mbox{\hyperlink{structInputInfo_1_1Stop}{Input\+Info\+::\+Stop}}
 \begin{DoxyCompactList}\small\item\em Stop name and position (transfer) \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structInputInfo_1_1StopLink}{Input\+Info\+::\+Stop\+Link}}
-\begin{DoxyCompactList}\small\item\em For a given \mbox{\hyperlink{structInputInfo_1_1Stop}{Stop}} contains other (connected by path, linked) stops distances. \end{DoxyCompactList}\item 
+\item 
 struct \mbox{\hyperlink{structInputInfo_1_1Bus}{Input\+Info\+::\+Bus}}
 \begin{DoxyCompactList}\small\item\em Route name and stops (transfer) \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}}
@@ -37,7 +37,7 @@ struct \mbox{\hyperlink{structDataStorage_1_1BusStats}{Data\+Storage\+::\+Bus\+S
 class \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{Data\+Storage\+::\+Stop\+Coords\+Iterator}}
 \item 
 struct \mbox{\hyperlink{structDataStorage_1_1RoutesData}{Data\+Storage\+::\+Routes\+Data}}
-\begin{DoxyCompactList}\small\item\em Stores somehow connected routes and stops, used in \mbox{\hyperlink{classMapRenderer}{Map\+Renderer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stores somehow logically connected routes and stops (used in \mbox{\hyperlink{classMapRenderer}{Map\+Renderer}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -57,6 +57,6 @@ using {\bfseries Data\+Storage\+::\+Stop\+Storage} = std\+::unordered\+\_\+map$<
 
 
 \doxysubsection{Detailed Description}
-Header file with widely used objects. 
+Header file with widely used independent types. 
 
 Contains declarations and definitions of all kinds of types, that are used in composition with other parts of project\+: structures to transfer information between different modules, iterators over these structures elements and so on 

@@ -3,9 +3,10 @@
 void TransportCatalogue::AddStop(const InputInfo::Stop &new_stop) {
   auto &stop = stops_.emplace_back(
       DataStorage::Stop{std::string{new_stop.name}, new_stop.pos});
-  /*   Linked buses and linked stops are initialized empty, since not every stop
-   was added to storage at this point of time, can't generate pointers to
-   structures */
+  /* Linked buses and stops are initialized empty, since not every stop
+   * was added to storage at this point of time, can't generate pointers to
+   * structures
+   */
   stopname_to_stop_stats_[stop.name] = {&stop, {}, {}};
 }
 

@@ -69,124 +69,140 @@ $(function() {
   <div class="headertitle"><div class="title">map_renderer.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="domain_8h.html">domain.h</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;geo.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="json_8h.html">json.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="svg_8h.html">svg.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span> EPSILON = 1e-6;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">bool</span> IsZero(<span class="keywordtype">double</span> value);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classSphereProjector.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Po<span class="keywordtype">int</span>InputIt&gt;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <a class="code hl_function" href="classSphereProjector.html#ab2b8be7ced9482358a6e79e19e2be0de">SphereProjector</a>(PointInputIt points_begin, PointInputIt points_end,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                  <span class="keywordtype">double</span> max_width, <span class="keywordtype">double</span> max_height, <span class="keywordtype">double</span> padding);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_struct" href="structsvg_1_1Point.html">svg::Point</a> operator()(<a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a> coords) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordtype">double</span> padding_;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keywordtype">double</span> min_lon_ = 0;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keywordtype">double</span> max_lat_ = 0;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordtype">double</span> zoom_coeff_ = 0;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classMapRenderer.html">   42</a></span><span class="keyword">class </span><a class="code hl_class" href="classMapRenderer.html">MapRenderer</a> {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  std::string RenderMap(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> data);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keywordtype">void</span> LoadSettings(<span class="keyword">const</span> <a class="code hl_class" href="classjson_1_1Node.html">json::Node</a> &amp;node);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keyword">struct </span>RenderSettings {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">double</span> width;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">double</span> height;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">double</span> padding;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">double</span> line_width;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">double</span> stop_radius;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> bus_label_font_size;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_struct" href="structsvg_1_1Point.html">svg::Point</a> bus_label_offset;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span> stop_label_font_size;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_struct" href="structsvg_1_1Point.html">svg::Point</a> stop_label_offset;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    svg::Color underlayer_color;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">double</span> underlayer_width;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::vector&lt;svg::Color&gt; color_palette;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  } settings_;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keyword">static</span> svg::Color ParseColor(<span class="keyword">const</span> <a class="code hl_class" href="classjson_1_1Node.html">json::Node</a> &amp;node);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keywordtype">void</span> DrawRoutes(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> &amp;data, <a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> &amp;projector,</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                  <a class="code hl_class" href="classsvg_1_1Document.html">svg::Document</a> &amp;doc);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <span class="keywordtype">void</span> DrawRouteNames(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> &amp;data, <a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> &amp;projector,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                      <a class="code hl_class" href="classsvg_1_1Document.html">svg::Document</a> &amp;doc);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="keywordtype">void</span> DrawStopSymbols(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> &amp;data,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                       <a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> &amp;projector, <a class="code hl_class" href="classsvg_1_1Document.html">svg::Document</a> &amp;doc);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="keywordtype">void</span> DrawStopNames(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> &amp;data, <a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> &amp;projector,</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                     <a class="code hl_class" href="classsvg_1_1Document.html">svg::Document</a> &amp;doc);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Po<span class="keywordtype">int</span>InputIt&gt;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classSphereProjector.html#ab2b8be7ced9482358a6e79e19e2be0de">   79</a></span><a class="code hl_function" href="classSphereProjector.html#ab2b8be7ced9482358a6e79e19e2be0de">SphereProjector::SphereProjector</a>(PointInputIt points_begin,</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                                 PointInputIt points_end, <span class="keywordtype">double</span> max_width,</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                                 <span class="keywordtype">double</span> max_height, <span class="keywordtype">double</span> padding)</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    : padding_(padding) <span class="comment">//</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>{</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordflow">if</span> (points_begin == points_end) {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <span class="keyword">const</span> <span class="keyword">auto</span> [left_it, right_it] =</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      std::minmax_element(points_begin, points_end,</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                          [](<span class="keyword">auto</span> lhs, <span class="keyword">auto</span> rhs) { <span class="keywordflow">return</span> lhs.lng &lt; rhs.lng; });</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  min_lon_ = left_it-&gt;lng;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keyword">const</span> <span class="keywordtype">double</span> max_lon = right_it-&gt;lng;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <span class="keyword">const</span> <span class="keyword">auto</span> [bottom_it, top_it] =</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      std::minmax_element(points_begin, points_end,</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                          [](<span class="keyword">auto</span> lhs, <span class="keyword">auto</span> rhs) { <span class="keywordflow">return</span> lhs.lat &lt; rhs.lat; });</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  <span class="keyword">const</span> <span class="keywordtype">double</span> min_lat = bottom_it-&gt;lat;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  max_lat_ = top_it-&gt;lat;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  std::optional&lt;double&gt; width_zoom;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <span class="keywordflow">if</span> (!IsZero(max_lon - min_lon_)) {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    width_zoom = (max_width - 2 * padding) / (max_lon - min_lon_);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  }</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  std::optional&lt;double&gt; height_zoom;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  <span class="keywordflow">if</span> (!IsZero(max_lat_ - min_lat)) {</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    height_zoom = (max_height - 2 * padding) / (max_lat_ - min_lat);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  }</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <span class="keywordflow">if</span> (width_zoom &amp;&amp; height_zoom) {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    zoom_coeff_ = std::min(*width_zoom, *height_zoom);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (width_zoom) {</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    zoom_coeff_ = *width_zoom;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (height_zoom) {</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    zoom_coeff_ = *height_zoom;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  }</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
-<div class="ttc" id="aclassMapRenderer_html"><div class="ttname"><a href="classMapRenderer.html">MapRenderer</a></div><div class="ttdef"><b>Definition:</b> map_renderer.h:42</div></div>
-<div class="ttc" id="aclassSphereProjector_html"><div class="ttname"><a href="classSphereProjector.html">SphereProjector</a></div><div class="ttdoc">Functor for mapping physical to screen coordinates.</div><div class="ttdef"><b>Definition:</b> map_renderer.h:19</div></div>
-<div class="ttc" id="aclassSphereProjector_html_ab2b8be7ced9482358a6e79e19e2be0de"><div class="ttname"><a href="classSphereProjector.html#ab2b8be7ced9482358a6e79e19e2be0de">SphereProjector::SphereProjector</a></div><div class="ttdeci">SphereProjector(PointInputIt points_begin, PointInputIt points_end, double max_width, double max_height, double padding)</div><div class="ttdoc">Constructor for the class.</div><div class="ttdef"><b>Definition:</b> map_renderer.h:79</div></div>
-<div class="ttc" id="aclassjson_1_1Node_html"><div class="ttname"><a href="classjson_1_1Node.html">json::Node</a></div><div class="ttdef"><b>Definition:</b> json.h:62</div></div>
+<a href="map__renderer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="domain_8h.html">domain.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="geo_8h.html">geo.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="json_8h.html">json.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="svg_8h.html">svg.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span> EPSILON = 1e-6;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">bool</span> IsZero(<span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classSphereProjector.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Po<span class="keywordtype">int</span>InputIt&gt;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <a class="code hl_function" href="classSphereProjector.html#ab2b8be7ced9482358a6e79e19e2be0de">SphereProjector</a>(PointInputIt points_begin, PointInputIt points_end,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                  <span class="keywordtype">double</span> max_width, <span class="keywordtype">double</span> max_height, <span class="keywordtype">double</span> padding);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <a class="code hl_struct" href="structsvg_1_1Point.html">svg::Point</a> operator()(<a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a> coords) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordtype">double</span> padding_;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="keywordtype">double</span> min_lon_ = 0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keywordtype">double</span> max_lat_ = 0;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keywordtype">double</span> zoom_coeff_ = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classMapRenderer.html">   48</a></span><span class="keyword">class </span><a class="code hl_class" href="classMapRenderer.html">MapRenderer</a> {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  std::string <a class="code hl_function" href="classMapRenderer.html#a9eeb8627741e312fde59c0bd435953e9">RenderMap</a>(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> data);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classMapRenderer.html#ac6d6b6446d6e56d30dbab39858045891">LoadSettings</a>(<span class="keyword">const</span> <a class="code hl_class" href="classjson_1_1Node.html">json::Node</a> &amp;node);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html">   64</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structMapRenderer_1_1RenderSettings.html">RenderSettings</a> {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#ac70991540b8d6c0623853bdf06bd4fb5">   66</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#ac70991540b8d6c0623853bdf06bd4fb5">width</a>{};</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a6d0d281a932b937f9e279a8d2888ac52">   68</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a6d0d281a932b937f9e279a8d2888ac52">height</a>{};</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a3f1fb9498c35094bf7112292fdf0e9d5">   70</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a3f1fb9498c35094bf7112292fdf0e9d5">padding</a>{};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a3d4ab2a5b6ff2fcae3f43379e0c5ebd1">   76</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a3d4ab2a5b6ff2fcae3f43379e0c5ebd1">line_width</a>{};</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a4197d285a739794c2f27fe5031f30ce1">   78</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a4197d285a739794c2f27fe5031f30ce1">stop_radius</a>{};</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a65e045dcc4dc505f79e02e498ab8b62e">   80</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a65e045dcc4dc505f79e02e498ab8b62e">bus_label_font_size</a>{};</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a1759154c1c974a0084e30787d6d43a79">   88</a></span>    <a class="code hl_struct" href="structsvg_1_1Point.html">svg::Point</a> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a1759154c1c974a0084e30787d6d43a79">bus_label_offset</a>{};</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a4363c6884b0579fcfb0b5a837bf3833b">   90</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a4363c6884b0579fcfb0b5a837bf3833b">stop_label_font_size</a>{};</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#ab01b361d053655bb4349164003dc6be4">   98</a></span>    <a class="code hl_struct" href="structsvg_1_1Point.html">svg::Point</a> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#ab01b361d053655bb4349164003dc6be4">stop_label_offset</a>{};</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a2a660722f549c38035bfeae3c65ee77b">  100</a></span>    svg::Color <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a2a660722f549c38035bfeae3c65ee77b">underlayer_color</a>{};</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a8215ec7e392afa90ab50896c11b9a812">  105</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a8215ec7e392afa90ab50896c11b9a812">underlayer_width</a>{};</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="structMapRenderer_1_1RenderSettings.html#a1d73cfe0edc3cb6a9b064904aac9cf2a">  107</a></span>    std::vector&lt;svg::Color&gt; <a class="code hl_variable" href="structMapRenderer_1_1RenderSettings.html#a1d73cfe0edc3cb6a9b064904aac9cf2a">color_palette</a>{};</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  } settings_;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="keyword">static</span> svg::Color ParseColor(<span class="keyword">const</span> <a class="code hl_class" href="classjson_1_1Node.html">json::Node</a> &amp;node);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  <span class="keywordtype">void</span> DrawRoutes(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> &amp;data, <a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> &amp;projector,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                  <a class="code hl_class" href="classsvg_1_1Document.html">svg::Document</a> &amp;doc);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <span class="keywordtype">void</span> DrawRouteNames(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> &amp;data, <a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> &amp;projector,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                      <a class="code hl_class" href="classsvg_1_1Document.html">svg::Document</a> &amp;doc);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="keywordtype">void</span> DrawStopSymbols(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> &amp;data,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                       <a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> &amp;projector, <a class="code hl_class" href="classsvg_1_1Document.html">svg::Document</a> &amp;doc);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <span class="keywordtype">void</span> DrawStopNames(<a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a> &amp;data, <a class="code hl_class" href="classSphereProjector.html">SphereProjector</a> &amp;projector,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                     <a class="code hl_class" href="classsvg_1_1Document.html">svg::Document</a> &amp;doc);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>};</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Po<span class="keywordtype">int</span>InputIt&gt;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classSphereProjector.html#ab2b8be7ced9482358a6e79e19e2be0de">  126</a></span><a class="code hl_function" href="classSphereProjector.html#ab2b8be7ced9482358a6e79e19e2be0de">SphereProjector::SphereProjector</a>(PointInputIt points_begin,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                                 PointInputIt points_end, <span class="keywordtype">double</span> max_width,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                                 <span class="keywordtype">double</span> max_height, <span class="keywordtype">double</span> padding)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    : padding_(padding) {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  <span class="keywordflow">if</span> (points_begin == points_end) {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  <span class="keyword">const</span> <span class="keyword">auto</span> [left_it, right_it] =</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>      std::minmax_element(points_begin, points_end,</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                          [](<span class="keyword">auto</span> lhs, <span class="keyword">auto</span> rhs) { <span class="keywordflow">return</span> lhs.lng &lt; rhs.lng; });</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  min_lon_ = left_it-&gt;lng;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>  <span class="keyword">const</span> <span class="keywordtype">double</span> max_lon = right_it-&gt;lng;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  <span class="keyword">const</span> <span class="keyword">auto</span> [bottom_it, top_it] =</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>      std::minmax_element(points_begin, points_end,</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                          [](<span class="keyword">auto</span> lhs, <span class="keyword">auto</span> rhs) { <span class="keywordflow">return</span> lhs.lat &lt; rhs.lat; });</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  <span class="keyword">const</span> <span class="keywordtype">double</span> min_lat = bottom_it-&gt;lat;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  max_lat_ = top_it-&gt;lat;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>  std::optional&lt;double&gt; width_zoom;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>  <span class="keywordflow">if</span> (!IsZero(max_lon - min_lon_)) {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    width_zoom = (max_width - 2 * padding) / (max_lon - min_lon_);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  }</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  std::optional&lt;double&gt; height_zoom;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>  <span class="keywordflow">if</span> (!IsZero(max_lat_ - min_lat)) {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    height_zoom = (max_height - 2 * padding) / (max_lat_ - min_lat);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  <span class="keywordflow">if</span> (width_zoom &amp;&amp; height_zoom) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    zoom_coeff_ = std::min(*width_zoom, *height_zoom);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (width_zoom) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    zoom_coeff_ = *width_zoom;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (height_zoom) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    zoom_coeff_ = *height_zoom;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>  }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>}</div>
+<div class="ttc" id="aclassMapRenderer_html"><div class="ttname"><a href="classMapRenderer.html">MapRenderer</a></div><div class="ttdef"><b>Definition:</b> map_renderer.h:48</div></div>
+<div class="ttc" id="aclassMapRenderer_html_a9eeb8627741e312fde59c0bd435953e9"><div class="ttname"><a href="classMapRenderer.html#a9eeb8627741e312fde59c0bd435953e9">MapRenderer::RenderMap</a></div><div class="ttdeci">std::string RenderMap(DataStorage::RoutesData data)</div><div class="ttdoc">Constructs map image.</div><div class="ttdef"><b>Definition:</b> map_renderer.cpp:10</div></div>
+<div class="ttc" id="aclassMapRenderer_html_ac6d6b6446d6e56d30dbab39858045891"><div class="ttname"><a href="classMapRenderer.html#ac6d6b6446d6e56d30dbab39858045891">MapRenderer::LoadSettings</a></div><div class="ttdeci">void LoadSettings(const json::Node &amp;node)</div><div class="ttdoc">Updates image generation settings.</div><div class="ttdef"><b>Definition:</b> map_renderer.cpp:35</div></div>
+<div class="ttc" id="aclassSphereProjector_html"><div class="ttname"><a href="classSphereProjector.html">SphereProjector</a></div><div class="ttdoc">Functor used to map between physical and screen coordinates.</div><div class="ttdef"><b>Definition:</b> map_renderer.h:23</div></div>
+<div class="ttc" id="aclassSphereProjector_html_ab2b8be7ced9482358a6e79e19e2be0de"><div class="ttname"><a href="classSphereProjector.html#ab2b8be7ced9482358a6e79e19e2be0de">SphereProjector::SphereProjector</a></div><div class="ttdeci">SphereProjector(PointInputIt points_begin, PointInputIt points_end, double max_width, double max_height, double padding)</div><div class="ttdoc">Constructor for the class.</div><div class="ttdef"><b>Definition:</b> map_renderer.h:126</div></div>
+<div class="ttc" id="aclassjson_1_1Node_html"><div class="ttname"><a href="classjson_1_1Node.html">json::Node</a></div><div class="ttdoc">Runtime polymorphic type representing JSON basic data types</div><div class="ttdef"><b>Definition:</b> json.h:106</div></div>
 <div class="ttc" id="aclasssvg_1_1Document_html"><div class="ttname"><a href="classsvg_1_1Document.html">svg::Document</a></div><div class="ttdef"><b>Definition:</b> svg.h:198</div></div>
-<div class="ttc" id="adomain_8h_html"><div class="ttname"><a href="domain_8h.html">domain.h</a></div><div class="ttdoc">Header file with widely used objects.</div></div>
+<div class="ttc" id="adomain_8h_html"><div class="ttname"><a href="domain_8h.html">domain.h</a></div><div class="ttdoc">Header file with widely used independent types.</div></div>
+<div class="ttc" id="ageo_8h_html"><div class="ttname"><a href="geo_8h.html">geo.h</a></div><div class="ttdoc">Geographic coordinates related elements.</div></div>
 <div class="ttc" id="ajson_8h_html"><div class="ttname"><a href="json_8h.html">json.h</a></div><div class="ttdoc">JSON read/write library.</div></div>
-<div class="ttc" id="astructDataStorage_1_1RoutesData_html"><div class="ttname"><a href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a></div><div class="ttdoc">Stores somehow connected routes and stops, used in MapRenderer.</div><div class="ttdef"><b>Definition:</b> domain.h:111</div></div>
-<div class="ttc" id="astructgeo_1_1Coordinates_html"><div class="ttname"><a href="structgeo_1_1Coordinates.html">geo::Coordinates</a></div><div class="ttdef"><b>Definition:</b> geo.h:7</div></div>
+<div class="ttc" id="astructDataStorage_1_1RoutesData_html"><div class="ttname"><a href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a></div><div class="ttdoc">Stores somehow logically connected routes and stops (used in MapRenderer)</div><div class="ttdef"><b>Definition:</b> domain.h:112</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html">MapRenderer::RenderSettings</a></div><div class="ttdoc">MapRenderer settings storage.</div><div class="ttdef"><b>Definition:</b> map_renderer.h:64</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a1759154c1c974a0084e30787d6d43a79"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a1759154c1c974a0084e30787d6d43a79">MapRenderer::RenderSettings::bus_label_offset</a></div><div class="ttdeci">svg::Point bus_label_offset</div><div class="ttdoc">Route names position dx and dy (in pixels)</div><div class="ttdef"><b>Definition:</b> map_renderer.h:88</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a1d73cfe0edc3cb6a9b064904aac9cf2a"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a1d73cfe0edc3cb6a9b064904aac9cf2a">MapRenderer::RenderSettings::color_palette</a></div><div class="ttdeci">std::vector&lt; svg::Color &gt; color_palette</div><div class="ttdoc">Cyclically used colors for stops and routes.</div><div class="ttdef"><b>Definition:</b> map_renderer.h:107</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a2a660722f549c38035bfeae3c65ee77b"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a2a660722f549c38035bfeae3c65ee77b">MapRenderer::RenderSettings::underlayer_color</a></div><div class="ttdeci">svg::Color underlayer_color</div><div class="ttdoc">Stops and routes background font (stroke effect) color.</div><div class="ttdef"><b>Definition:</b> map_renderer.h:100</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a3d4ab2a5b6ff2fcae3f43379e0c5ebd1"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a3d4ab2a5b6ff2fcae3f43379e0c5ebd1">MapRenderer::RenderSettings::line_width</a></div><div class="ttdeci">double line_width</div><div class="ttdoc">Route lines stroke-width attribute (in pixels)</div><div class="ttdef"><b>Definition:</b> map_renderer.h:76</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a3f1fb9498c35094bf7112292fdf0e9d5"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a3f1fb9498c35094bf7112292fdf0e9d5">MapRenderer::RenderSettings::padding</a></div><div class="ttdeci">double padding</div><div class="ttdoc">Map padding (in pixels)</div><div class="ttdef"><b>Definition:</b> map_renderer.h:70</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a4197d285a739794c2f27fe5031f30ce1"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a4197d285a739794c2f27fe5031f30ce1">MapRenderer::RenderSettings::stop_radius</a></div><div class="ttdeci">double stop_radius</div><div class="ttdoc">Stops are drawn as white circles with this radius (in pixels)</div><div class="ttdef"><b>Definition:</b> map_renderer.h:78</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a4363c6884b0579fcfb0b5a837bf3833b"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a4363c6884b0579fcfb0b5a837bf3833b">MapRenderer::RenderSettings::stop_label_font_size</a></div><div class="ttdeci">int stop_label_font_size</div><div class="ttdoc">Stop names font size (in pixels)</div><div class="ttdef"><b>Definition:</b> map_renderer.h:90</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a65e045dcc4dc505f79e02e498ab8b62e"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a65e045dcc4dc505f79e02e498ab8b62e">MapRenderer::RenderSettings::bus_label_font_size</a></div><div class="ttdeci">int bus_label_font_size</div><div class="ttdoc">Route names font size (in pixels)</div><div class="ttdef"><b>Definition:</b> map_renderer.h:80</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a6d0d281a932b937f9e279a8d2888ac52"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a6d0d281a932b937f9e279a8d2888ac52">MapRenderer::RenderSettings::height</a></div><div class="ttdeci">double height</div><div class="ttdoc">Map height (in pixels)</div><div class="ttdef"><b>Definition:</b> map_renderer.h:68</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_a8215ec7e392afa90ab50896c11b9a812"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#a8215ec7e392afa90ab50896c11b9a812">MapRenderer::RenderSettings::underlayer_width</a></div><div class="ttdeci">double underlayer_width</div><div class="ttdoc">Stops and routes background font (stroke effect) stroke-width</div><div class="ttdef"><b>Definition:</b> map_renderer.h:105</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_ab01b361d053655bb4349164003dc6be4"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#ab01b361d053655bb4349164003dc6be4">MapRenderer::RenderSettings::stop_label_offset</a></div><div class="ttdeci">svg::Point stop_label_offset</div><div class="ttdoc">Stop names position dx and dy (in pixels)</div><div class="ttdef"><b>Definition:</b> map_renderer.h:98</div></div>
+<div class="ttc" id="astructMapRenderer_1_1RenderSettings_html_ac70991540b8d6c0623853bdf06bd4fb5"><div class="ttname"><a href="structMapRenderer_1_1RenderSettings.html#ac70991540b8d6c0623853bdf06bd4fb5">MapRenderer::RenderSettings::width</a></div><div class="ttdeci">double width</div><div class="ttdoc">Map width (in pixels)</div><div class="ttdef"><b>Definition:</b> map_renderer.h:66</div></div>
+<div class="ttc" id="astructgeo_1_1Coordinates_html"><div class="ttname"><a href="structgeo_1_1Coordinates.html">geo::Coordinates</a></div><div class="ttdoc">Point in geographic coordinate system (GCS)</div><div class="ttdef"><b>Definition:</b> geo.h:13</div></div>
 <div class="ttc" id="astructsvg_1_1Point_html"><div class="ttname"><a href="structsvg_1_1Point.html">svg::Point</a></div><div class="ttdef"><b>Definition:</b> svg.h:18</div></div>
 <div class="ttc" id="asvg_8h_html"><div class="ttname"><a href="svg_8h.html">svg.h</a></div><div class="ttdoc">Scalable Vector Graphics (SVG) generation library.</div></div>
 </div><!-- fragment --></div><!-- contents -->

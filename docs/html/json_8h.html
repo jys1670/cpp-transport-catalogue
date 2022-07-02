@@ -68,6 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -92,16 +93,24 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjson_1_1ParsingError.html">json::ParsingError</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjson_1_1PrintContext.html">json::PrintContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to store and print indentation in recursive print calls.  <a href="structjson_1_1PrintContext.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjson_1_1Node.html">json::Node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime polymorphic type representing <a href="https://en.wikipedia.org/wiki/JSON#Data_types">JSON basic data types</a>  <a href="classjson_1_1Node.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjson_1_1Document.html">json::Document</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="classjson_1_1Node.html" title="Runtime polymorphic type representing JSON basic data types">Node</a>, which stores <a class="el" href="classjson_1_1Node.html" title="Runtime polymorphic type representing JSON basic data types">Node</a> containing entire input data.  <a href="classjson_1_1Document.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacejson"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejson.html">json</a></td></tr>
+<tr class="memdesc:namespacejson"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main and only JSON read/write library namespace. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a14165bfd985e982794b3697b71cc4a01"><td class="memItemLeft" align="right" valign="top"><a id="a14165bfd985e982794b3697b71cc4a01" name="a14165bfd985e982794b3697b71cc4a01"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>json::Dict</b> = std::map&lt; std::string, Node &gt;</td></tr>
+<tr class="memitem:a14165bfd985e982794b3697b71cc4a01"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejson.html#a14165bfd985e982794b3697b71cc4a01">json::Dict</a> = std::map&lt; std::string, Node &gt;</td></tr>
 <tr class="separator:a14165bfd985e982794b3697b71cc4a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c59938d3ef1f93389894312d5d89048"><td class="memItemLeft" align="right" valign="top"><a id="a6c59938d3ef1f93389894312d5d89048" name="a6c59938d3ef1f93389894312d5d89048"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>json::Array</b> = std::vector&lt; Node &gt;</td></tr>
@@ -118,64 +127,39 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>json::operator!=</b> 
 <tr class="memitem:a5b2f118e6166beaf0ffb216b55f9e615"><td class="memItemLeft" align="right" valign="top"><a id="a5b2f118e6166beaf0ffb216b55f9e615" name="a5b2f118e6166beaf0ffb216b55f9e615"></a>
 Document&#160;</td><td class="memItemRight" valign="bottom"><b>json::Load</b> (std::istream &amp;input)</td></tr>
 <tr class="separator:a5b2f118e6166beaf0ffb216b55f9e615"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa64923257caeb2b12914d9705b1781f0"><td class="memTemplParams" colspan="2"><a id="aa64923257caeb2b12914d9705b1781f0" name="aa64923257caeb2b12914d9705b1781f0"></a>
-template&lt;typename Value &gt; </td></tr>
-<tr class="memitem:aa64923257caeb2b12914d9705b1781f0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>json::PrintValue</b> (const Value &amp;value, const PrintContext &amp;ctx)</td></tr>
-<tr class="separator:aa64923257caeb2b12914d9705b1781f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48b99c1e9eac31bd6bdea2fc43784a72"><td class="memItemLeft" align="right" valign="top"><a id="a48b99c1e9eac31bd6bdea2fc43784a72" name="a48b99c1e9eac31bd6bdea2fc43784a72"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>json::PrintValue</b> (std::nullptr_t, const PrintContext &amp;ctx)</td></tr>
+<tr class="memitem:a4a28c99f359169d36504c2ad54326fbe"><td class="memTemplParams" colspan="2">template&lt;typename Value &gt; </td></tr>
+<tr class="memitem:a4a28c99f359169d36504c2ad54326fbe"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejson.html#a4a28c99f359169d36504c2ad54326fbe">json::PrintValue</a> (const Value &amp;value, const PrintContext &amp;ctx)</td></tr>
+<tr class="separator:a4a28c99f359169d36504c2ad54326fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48b99c1e9eac31bd6bdea2fc43784a72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejson.html#a48b99c1e9eac31bd6bdea2fc43784a72">json::PrintValue</a> (std::nullptr_t, const PrintContext &amp;ctx)</td></tr>
 <tr class="separator:a48b99c1e9eac31bd6bdea2fc43784a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cd73ca59374031ff21de4b627681cfc"><td class="memItemLeft" align="right" valign="top"><a id="a7cd73ca59374031ff21de4b627681cfc" name="a7cd73ca59374031ff21de4b627681cfc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>json::PrintValue</b> (const Array &amp;arr, const PrintContext &amp;ctx)</td></tr>
+<tr class="memitem:a7cd73ca59374031ff21de4b627681cfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejson.html#a7cd73ca59374031ff21de4b627681cfc">json::PrintValue</a> (const Array &amp;arr, const PrintContext &amp;ctx)</td></tr>
 <tr class="separator:a7cd73ca59374031ff21de4b627681cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6d96f9c910a9df120d8b6a04a7d6d86"><td class="memItemLeft" align="right" valign="top"><a id="aa6d96f9c910a9df120d8b6a04a7d6d86" name="aa6d96f9c910a9df120d8b6a04a7d6d86"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>json::PrintValue</b> (const Dict &amp;dict, const PrintContext &amp;ctx)</td></tr>
+<tr class="memitem:aa6d96f9c910a9df120d8b6a04a7d6d86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejson.html#aa6d96f9c910a9df120d8b6a04a7d6d86">json::PrintValue</a> (const Dict &amp;dict, const PrintContext &amp;ctx)</td></tr>
 <tr class="separator:aa6d96f9c910a9df120d8b6a04a7d6d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a864be03ac2692ea95acac809b7de107f"><td class="memItemLeft" align="right" valign="top"><a id="a864be03ac2692ea95acac809b7de107f" name="a864be03ac2692ea95acac809b7de107f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>json::PrintValue</b> (const std::string &amp;str, const PrintContext &amp;ctx)</td></tr>
+<tr class="memitem:a864be03ac2692ea95acac809b7de107f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejson.html#a864be03ac2692ea95acac809b7de107f">json::PrintValue</a> (const std::string &amp;str, const PrintContext &amp;ctx)</td></tr>
 <tr class="separator:a864be03ac2692ea95acac809b7de107f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afefffdc83e33fea9bdb1768773e67bab"><td class="memItemLeft" align="right" valign="top"><a id="afefffdc83e33fea9bdb1768773e67bab" name="afefffdc83e33fea9bdb1768773e67bab"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>json::PrintValue</b> (const bool &amp;val, const PrintContext &amp;ctx)</td></tr>
-<tr class="separator:afefffdc83e33fea9bdb1768773e67bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b9e7f4f2cae2a274020487a32f7a9e"><td class="memItemLeft" align="right" valign="top"><a id="a70b9e7f4f2cae2a274020487a32f7a9e" name="a70b9e7f4f2cae2a274020487a32f7a9e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>json::PrintNode</b> (const Node &amp;node, const PrintContext &amp;ctx)</td></tr>
+<tr class="memitem:a873ad6f22ea31e87d0e86e34bc2a76d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejson.html#a873ad6f22ea31e87d0e86e34bc2a76d7">json::PrintValue</a> (const bool &amp;bl, const PrintContext &amp;ctx)</td></tr>
+<tr class="separator:a873ad6f22ea31e87d0e86e34bc2a76d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70b9e7f4f2cae2a274020487a32f7a9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejson.html#a70b9e7f4f2cae2a274020487a32f7a9e">json::PrintNode</a> (const Node &amp;node, const PrintContext &amp;ctx)</td></tr>
 <tr class="separator:a70b9e7f4f2cae2a274020487a32f7a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6221e4636b39e358b3d05b3a29f206c8"><td class="memItemLeft" align="right" valign="top"><a id="a6221e4636b39e358b3d05b3a29f206c8" name="a6221e4636b39e358b3d05b3a29f206c8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>json::Print</b> (const Document &amp;doc, std::ostream &amp;output)</td></tr>
+<tr class="memdesc:a6221e4636b39e358b3d05b3a29f206c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacejson.html#a70b9e7f4f2cae2a274020487a32f7a9e">PrintNode()</a> that works with <a class="el" href="classjson_1_1Document.html" title="Wrapper for Node, which stores Node containing entire input data.">Document</a>. <br /></td></tr>
 <tr class="separator:a6221e4636b39e358b3d05b3a29f206c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a7dfa1293b4f94c01b01bb22e3933d3e4"><td class="memItemLeft" align="right" valign="top"><a id="a7dfa1293b4f94c01b01bb22e3933d3e4" name="a7dfa1293b4f94c01b01bb22e3933d3e4"></a>
 const std::unordered_set&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>json::Delimiters</b> = {' ', '\n', '\t', '\r'}</td></tr>
+<tr class="memdesc:a7dfa1293b4f94c01b01bb22e3933d3e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Characters treated as delimiters when reading from input stream. <br /></td></tr>
 <tr class="separator:a7dfa1293b4f94c01b01bb22e3933d3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae71aa8a3e2998dcb82942a1ec5874e6"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; char, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#aae71aa8a3e2998dcb82942a1ec5874e6">json::CharsToReplace</a></td></tr>
+<tr class="memitem:aae71aa8a3e2998dcb82942a1ec5874e6"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; char, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejson.html#aae71aa8a3e2998dcb82942a1ec5874e6">json::CharsToReplace</a></td></tr>
+<tr class="memdesc:aae71aa8a3e2998dcb82942a1ec5874e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Characters replaced by <a class="el" href="namespacejson.html#a864be03ac2692ea95acac809b7de107f">PrintValue(const std::string &amp;str, const PrintContext &amp;ctx)</a> during printing.  <a href="namespacejson.html#aae71aa8a3e2998dcb82942a1ec5874e6">More...</a><br /></td></tr>
 <tr class="separator:aae71aa8a3e2998dcb82942a1ec5874e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >JSON read/write library. </p>
-</div><h2 class="groupheader">Variable Documentation</h2>
-<a id="aae71aa8a3e2998dcb82942a1ec5874e6" name="aae71aa8a3e2998dcb82942a1ec5874e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae71aa8a3e2998dcb82942a1ec5874e6">&#9670;&nbsp;</a></span>CharsToReplace</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::unordered_map&lt;char, std::string&gt; json::CharsToReplace</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">    {<span class="charliteral">&#39;\n&#39;</span>, R<span class="stringliteral">&quot;(\n)&quot;},</span></div>
-<div class="line"><span class="stringliteral">    {</span><span class="charliteral">&#39;\r&#39;</span>, R<span class="stringliteral">&quot;(\r)&quot;},</span></div>
-<div class="line"><span class="stringliteral">    {</span><span class="charliteral">&#39;\&quot;&#39;</span>, R<span class="stringliteral">&quot;(\&quot;)&quot;},</span></div>
-<div class="line"><span class="stringliteral">    {</span><span class="charliteral">&#39;\\&#39;</span>, R<span class="stringliteral">&quot;(\\)&quot;},</span></div>
-<div class="line"><span class="stringliteral">}</span></div>
-</div><!-- fragment -->
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3

@@ -74,14 +74,14 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Header file with widely used objects.  
+<p>Header file with widely used independent types.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;unordered_set&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;geo.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="geo_8h_source.html">geo.h</a>&quot;</code><br />
 </div>
 <p><a href="domain_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -98,7 +98,6 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop name and position (transfer)  <a href="structInputInfo_1_1Stop.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputInfo_1_1StopLink.html">InputInfo::StopLink</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For a given <a class="el" href="structInputInfo_1_1Stop.html" title="Stop name and position (transfer)">Stop</a> contains other (connected by path, linked) stops distances.  <a href="structInputInfo_1_1StopLink.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputInfo_1_1Bus.html">InputInfo::Bus</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Route name and stops (transfer)  <a href="structInputInfo_1_1Bus.html#details">More...</a><br /></td></tr>
@@ -118,7 +117,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStorage_1_1StopCoordsIterator.html">DataStorage::StopCoordsIterator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores somehow connected routes and stops, used in <a class="el" href="classMapRenderer.html">MapRenderer</a>.  <a href="structDataStorage_1_1RoutesData.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores somehow logically connected routes and stops (used in <a class="el" href="classMapRenderer.html">MapRenderer</a>)  <a href="structDataStorage_1_1RoutesData.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -140,7 +139,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>DataStorage::StopSto
 <tr class="separator:a5903a75ff675e73238d6a188cd5bfc4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Header file with widely used objects. </p>
+<div class="textblock"><p >Header file with widely used independent types. </p>
 <p >Contains declarations and definitions of all kinds of types, that are used in composition with other parts of project: structures to transfer information between different modules, iterators over these structures elements and so on </p>
 </div></div><!-- contents -->
 <!-- start footer part -->

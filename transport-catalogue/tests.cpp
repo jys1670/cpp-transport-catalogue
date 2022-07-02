@@ -15,9 +15,9 @@ void CheckTwoNodes(const json::Node &n1, const json::Node &n2,
       throw std::runtime_error("Maps have different size");
     for (auto it1 = n1map.begin(), it2 = n2map.begin(); it1 != n1map.end();
          ++it1, ++it2) {
-      CheckTwoNodes(it1->first, it2->first, "Map keys mismatch");
+      CheckTwoNodes(it1->first, it2->first, "EnqueueMapDraw keys mismatch");
       if (it1->first != "map") {
-        CheckTwoNodes(it1->second, it2->second, "Map values mismatch");
+        CheckTwoNodes(it1->second, it2->second, "EnqueueMapDraw values mismatch");
       } else {
 
 //        std::ofstream my_map ("../tests/my_map.svg"),
@@ -55,9 +55,13 @@ void TestBasicInputOutput() {
   // Awful, but whatever
   input.open("../tests/1.json");
   ostr.open("../tests/1a.json");
-  GenericReaderInit tmp{input, output};
-  JsonReader test{tmp};
-  test.ProcessInput(OutputFormat::Json{});
+
+  TransportCatalogue database {};
+  MapRenderer renderer {};
+  RequestHandler req_handler {output, database, renderer};
+  JsonReader json_file_reader {input, database, req_handler};
+
+  json_file_reader.ProcessInput(OutputFormat::Json{});
   std::istringstream input1{output.str()};
   const auto out_correct = json::Load(ostr);
   const auto out_question = json::Load(input1);

@@ -6,7 +6,9 @@
 int main() {
     TestBasicInputOutput();
 
-    GenericReaderInit reader_input{std::cin, std::cout};
-    JsonReader reader{reader_input};
-    reader.ProcessInput(OutputFormat::Json {});
+    TransportCatalogue database {};
+    MapRenderer renderer {};
+    RequestHandler req_handler {std::cout, database, renderer};
+    JsonReader json_reader {std::cin, database, req_handler};
+    json_reader.ProcessInput(OutputFormat::Json{});
 }

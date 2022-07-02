@@ -78,7 +78,7 @@ $(function() {
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;geo.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="geo_8h.html">geo.h</a>&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structOutputFormat.html">   21</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structOutputFormat.html">OutputFormat</a> {</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structOutputFormat_1_1Json.html">   22</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structOutputFormat_1_1Json.html">Json</a> {};</div>
@@ -92,95 +92,96 @@ $(function() {
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a> pos;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structInputInfo_1_1StopLink.html">   36</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structInputInfo_1_1StopLink.html">StopLink</a> {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structInputInfo_1_1StopLink.html#a650518531c058f2cbc811e3e72c9bedd">   37</a></span>  std::string_view <a class="code hl_variable" href="structInputInfo_1_1StopLink.html#a650518531c058f2cbc811e3e72c9bedd">stop_name</a>; </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  std::vector&lt;std::pair&lt;std::string_view, double&gt;&gt;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structInputInfo_1_1StopLink.html#a8b64d9a9dc52e5d9f8f081575fb4e73f">   39</a></span>      <a class="code hl_variable" href="structInputInfo_1_1StopLink.html#a8b64d9a9dc52e5d9f8f081575fb4e73f">neighbours</a>; </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structInputInfo_1_1Bus.html">   43</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structInputInfo_1_1Bus.html">Bus</a> {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  std::string_view name;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  std::vector&lt;std::string_view&gt; stops;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">bool</span> is_circular;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>} <span class="comment">// namespace InputInfo</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespaceDataStorage.html">   51</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceDataStorage.html">DataStorage</a> {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structDataStorage_1_1Stop.html">   54</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1Stop.html">Stop</a> {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  std::string name;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a> pos;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structDataStorage_1_1Bus.html">   60</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1Bus.html">Bus</a> {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  std::string name;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  std::vector&lt;Stop *&gt; stops;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keywordtype">bool</span> is_circular;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structDataStorage_1_1StopStats.html">   67</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1StopStats.html">StopStats</a> {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <a class="code hl_struct" href="structDataStorage_1_1Stop.html">Stop</a> *stop_ptr;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  std::unordered_set&lt;Bus *&gt; linked_buses;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  std::unordered_map&lt;Stop *, double&gt; linked_stops;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structDataStorage_1_1BusStats.html">   74</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1BusStats.html">BusStats</a> {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <a class="code hl_struct" href="structDataStorage_1_1Bus.html">Bus</a> *bus_ptr;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keywordtype">size_t</span> total_stops;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  std::unordered_set&lt;Stop *&gt; unique_stops;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="keywordtype">double</span> direct_lenght;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordtype">double</span> real_length;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>};</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">using</span> BusStorage = std::unordered_map&lt;std::string_view, BusStats&gt;;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">using</span> StopStorage = std::unordered_map&lt;std::string_view, StopStats&gt;;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classDataStorage_1_1StopCoordsIterator.html">   87</a></span><span class="keyword">class </span><a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <span class="keyword">using</span> iterator_category = std::random_access_iterator_tag;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="keyword">using</span> difference_type = std::ptrdiff_t;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keyword">using</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">value_type</a> = <a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a>;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="keyword">using</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">pointer</a> = <span class="keyword">const</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a> *;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keyword">using</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">reference</a> = <span class="keyword">const</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a> &amp;;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <span class="keyword">using</span> wrapped_iterator = std::vector&lt;const Stop *&gt;::const_iterator;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <span class="keyword">explicit</span> <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a>(wrapped_iterator wrapped) : wrapped_(wrapped) {}</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <a class="code hl_struct" href="structgeo_1_1Coordinates.html">reference</a> operator*() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <a class="code hl_struct" href="structgeo_1_1Coordinates.html">pointer</a> operator-&gt;() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> &amp;other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> &amp;other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> operator++(<span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> &amp;operator++();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  wrapped_iterator wrapped_{};</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>};</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="structDataStorage_1_1RoutesData.html">  111</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">RoutesData</a> {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  std::vector&lt;const Stop *&gt; routes_stops;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  std::vector&lt;const BusStats *&gt; bus_stats;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>};</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>} <span class="comment">// namespace DataStorage</span></div>
-<div class="ttc" id="aclassDataStorage_1_1StopCoordsIterator_html"><div class="ttname"><a href="classDataStorage_1_1StopCoordsIterator.html">DataStorage::StopCoordsIterator</a></div><div class="ttdef"><b>Definition:</b> domain.h:87</div></div>
-<div class="ttc" id="anamespaceDataStorage_html"><div class="ttname"><a href="namespaceDataStorage.html">DataStorage</a></div><div class="ttdoc">Objects solely used for information storage (mainly in TransportCatalogue)</div><div class="ttdef"><b>Definition:</b> domain.h:51</div></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structInputInfo_1_1StopLink.html">   37</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structInputInfo_1_1StopLink.html">StopLink</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structInputInfo_1_1StopLink.html#a650518531c058f2cbc811e3e72c9bedd">   38</a></span>  std::string_view <a class="code hl_variable" href="structInputInfo_1_1StopLink.html#a650518531c058f2cbc811e3e72c9bedd">stop_name</a>; </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  std::vector&lt;std::pair&lt;std::string_view, double&gt;&gt;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structInputInfo_1_1StopLink.html#a8b64d9a9dc52e5d9f8f081575fb4e73f">   40</a></span>      <a class="code hl_variable" href="structInputInfo_1_1StopLink.html#a8b64d9a9dc52e5d9f8f081575fb4e73f">neighbours</a>; </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structInputInfo_1_1Bus.html">   44</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structInputInfo_1_1Bus.html">Bus</a> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  std::string_view name;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  std::vector&lt;std::string_view&gt; stops;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keywordtype">bool</span> is_circular;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>} <span class="comment">// namespace InputInfo</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespaceDataStorage.html">   52</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceDataStorage.html">DataStorage</a> {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structDataStorage_1_1Stop.html">   55</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1Stop.html">Stop</a> {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  std::string name;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a> pos;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structDataStorage_1_1Bus.html">   61</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1Bus.html">Bus</a> {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  std::string name;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  std::vector&lt;Stop *&gt; stops;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keywordtype">bool</span> is_circular;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structDataStorage_1_1StopStats.html">   68</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1StopStats.html">StopStats</a> {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <a class="code hl_struct" href="structDataStorage_1_1Stop.html">Stop</a> *stop_ptr;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  std::unordered_set&lt;Bus *&gt; linked_buses;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  std::unordered_map&lt;Stop *, double&gt; linked_stops;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structDataStorage_1_1BusStats.html">   75</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1BusStats.html">BusStats</a> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <a class="code hl_struct" href="structDataStorage_1_1Bus.html">Bus</a> *bus_ptr;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keywordtype">size_t</span> total_stops;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  std::unordered_set&lt;Stop *&gt; unique_stops;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordtype">double</span> direct_lenght;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keywordtype">double</span> real_length;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">using</span> BusStorage = std::unordered_map&lt;std::string_view, BusStats&gt;;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">using</span> StopStorage = std::unordered_map&lt;std::string_view, StopStats&gt;;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classDataStorage_1_1StopCoordsIterator.html">   88</a></span><span class="keyword">class </span><a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="keyword">using</span> iterator_category = std::random_access_iterator_tag;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keyword">using</span> difference_type = std::ptrdiff_t;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="keyword">using</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">value_type</a> = <a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keyword">using</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">pointer</a> = <span class="keyword">const</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a> *;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <span class="keyword">using</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">reference</a> = <span class="keyword">const</span> <a class="code hl_struct" href="structgeo_1_1Coordinates.html">geo::Coordinates</a> &amp;;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <span class="keyword">using</span> wrapped_iterator = std::vector&lt;const Stop *&gt;::const_iterator;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  <span class="keyword">explicit</span> <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a>(wrapped_iterator wrapped) : wrapped_(wrapped) {}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <a class="code hl_struct" href="structgeo_1_1Coordinates.html">reference</a> operator*() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  <a class="code hl_struct" href="structgeo_1_1Coordinates.html">pointer</a> operator-&gt;() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> operator++(<span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  <a class="code hl_class" href="classDataStorage_1_1StopCoordsIterator.html">StopCoordsIterator</a> &amp;operator++();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  wrapped_iterator wrapped_{};</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>};</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="structDataStorage_1_1RoutesData.html">  112</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDataStorage_1_1RoutesData.html">RoutesData</a> {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  std::vector&lt;const Stop *&gt; routes_stops;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  std::vector&lt;const BusStats *&gt; bus_stats;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>} <span class="comment">// namespace DataStorage</span></div>
+<div class="ttc" id="aclassDataStorage_1_1StopCoordsIterator_html"><div class="ttname"><a href="classDataStorage_1_1StopCoordsIterator.html">DataStorage::StopCoordsIterator</a></div><div class="ttdef"><b>Definition:</b> domain.h:88</div></div>
+<div class="ttc" id="ageo_8h_html"><div class="ttname"><a href="geo_8h.html">geo.h</a></div><div class="ttdoc">Geographic coordinates related elements.</div></div>
+<div class="ttc" id="anamespaceDataStorage_html"><div class="ttname"><a href="namespaceDataStorage.html">DataStorage</a></div><div class="ttdoc">Objects solely used for information storage (mainly in TransportCatalogue)</div><div class="ttdef"><b>Definition:</b> domain.h:52</div></div>
 <div class="ttc" id="anamespaceInputInfo_html"><div class="ttname"><a href="namespaceInputInfo.html">InputInfo</a></div><div class="ttdoc">Cheap to copy objects used for information transfer to TransportCatalogue.</div><div class="ttdef"><b>Definition:</b> domain.h:27</div></div>
-<div class="ttc" id="astructDataStorage_1_1BusStats_html"><div class="ttname"><a href="structDataStorage_1_1BusStats.html">DataStorage::BusStats</a></div><div class="ttdoc">Wrapper for Bus, used to painlessly add extra information about route.</div><div class="ttdef"><b>Definition:</b> domain.h:74</div></div>
-<div class="ttc" id="astructDataStorage_1_1Bus_html"><div class="ttname"><a href="structDataStorage_1_1Bus.html">DataStorage::Bus</a></div><div class="ttdoc">Route name and stops (storage)</div><div class="ttdef"><b>Definition:</b> domain.h:60</div></div>
-<div class="ttc" id="astructDataStorage_1_1RoutesData_html"><div class="ttname"><a href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a></div><div class="ttdoc">Stores somehow connected routes and stops, used in MapRenderer.</div><div class="ttdef"><b>Definition:</b> domain.h:111</div></div>
-<div class="ttc" id="astructDataStorage_1_1StopStats_html"><div class="ttname"><a href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a></div><div class="ttdoc">Wrapper for Stop, used to painlessly add extra information about stop.</div><div class="ttdef"><b>Definition:</b> domain.h:67</div></div>
-<div class="ttc" id="astructDataStorage_1_1Stop_html"><div class="ttname"><a href="structDataStorage_1_1Stop.html">DataStorage::Stop</a></div><div class="ttdoc">Stop name and position (storage)</div><div class="ttdef"><b>Definition:</b> domain.h:54</div></div>
-<div class="ttc" id="astructInputInfo_1_1Bus_html"><div class="ttname"><a href="structInputInfo_1_1Bus.html">InputInfo::Bus</a></div><div class="ttdoc">Route name and stops (transfer)</div><div class="ttdef"><b>Definition:</b> domain.h:43</div></div>
-<div class="ttc" id="astructInputInfo_1_1StopLink_html"><div class="ttname"><a href="structInputInfo_1_1StopLink.html">InputInfo::StopLink</a></div><div class="ttdoc">For a given Stop contains other (connected by path, linked) stops distances.</div><div class="ttdef"><b>Definition:</b> domain.h:36</div></div>
-<div class="ttc" id="astructInputInfo_1_1StopLink_html_a650518531c058f2cbc811e3e72c9bedd"><div class="ttname"><a href="structInputInfo_1_1StopLink.html#a650518531c058f2cbc811e3e72c9bedd">InputInfo::StopLink::stop_name</a></div><div class="ttdeci">std::string_view stop_name</div><div class="ttdoc">&quot;From&quot; stop</div><div class="ttdef"><b>Definition:</b> domain.h:37</div></div>
-<div class="ttc" id="astructInputInfo_1_1StopLink_html_a8b64d9a9dc52e5d9f8f081575fb4e73f"><div class="ttname"><a href="structInputInfo_1_1StopLink.html#a8b64d9a9dc52e5d9f8f081575fb4e73f">InputInfo::StopLink::neighbours</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; std::string_view, double &gt; &gt; neighbours</div><div class="ttdoc">Vector of &quot;to&quot; stops, names and distances.</div><div class="ttdef"><b>Definition:</b> domain.h:39</div></div>
+<div class="ttc" id="astructDataStorage_1_1BusStats_html"><div class="ttname"><a href="structDataStorage_1_1BusStats.html">DataStorage::BusStats</a></div><div class="ttdoc">Wrapper for Bus, used to painlessly add extra information about route.</div><div class="ttdef"><b>Definition:</b> domain.h:75</div></div>
+<div class="ttc" id="astructDataStorage_1_1Bus_html"><div class="ttname"><a href="structDataStorage_1_1Bus.html">DataStorage::Bus</a></div><div class="ttdoc">Route name and stops (storage)</div><div class="ttdef"><b>Definition:</b> domain.h:61</div></div>
+<div class="ttc" id="astructDataStorage_1_1RoutesData_html"><div class="ttname"><a href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a></div><div class="ttdoc">Stores somehow logically connected routes and stops (used in MapRenderer)</div><div class="ttdef"><b>Definition:</b> domain.h:112</div></div>
+<div class="ttc" id="astructDataStorage_1_1StopStats_html"><div class="ttname"><a href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a></div><div class="ttdoc">Wrapper for Stop, used to painlessly add extra information about stop.</div><div class="ttdef"><b>Definition:</b> domain.h:68</div></div>
+<div class="ttc" id="astructDataStorage_1_1Stop_html"><div class="ttname"><a href="structDataStorage_1_1Stop.html">DataStorage::Stop</a></div><div class="ttdoc">Stop name and position (storage)</div><div class="ttdef"><b>Definition:</b> domain.h:55</div></div>
+<div class="ttc" id="astructInputInfo_1_1Bus_html"><div class="ttname"><a href="structInputInfo_1_1Bus.html">InputInfo::Bus</a></div><div class="ttdoc">Route name and stops (transfer)</div><div class="ttdef"><b>Definition:</b> domain.h:44</div></div>
+<div class="ttc" id="astructInputInfo_1_1StopLink_html"><div class="ttname"><a href="structInputInfo_1_1StopLink.html">InputInfo::StopLink</a></div><div class="ttdef"><b>Definition:</b> domain.h:37</div></div>
+<div class="ttc" id="astructInputInfo_1_1StopLink_html_a650518531c058f2cbc811e3e72c9bedd"><div class="ttname"><a href="structInputInfo_1_1StopLink.html#a650518531c058f2cbc811e3e72c9bedd">InputInfo::StopLink::stop_name</a></div><div class="ttdeci">std::string_view stop_name</div><div class="ttdoc">&quot;From&quot; stop</div><div class="ttdef"><b>Definition:</b> domain.h:38</div></div>
+<div class="ttc" id="astructInputInfo_1_1StopLink_html_a8b64d9a9dc52e5d9f8f081575fb4e73f"><div class="ttname"><a href="structInputInfo_1_1StopLink.html#a8b64d9a9dc52e5d9f8f081575fb4e73f">InputInfo::StopLink::neighbours</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; std::string_view, double &gt; &gt; neighbours</div><div class="ttdoc">Vector of &quot;to&quot; stops (names and distances)</div><div class="ttdef"><b>Definition:</b> domain.h:40</div></div>
 <div class="ttc" id="astructInputInfo_1_1Stop_html"><div class="ttname"><a href="structInputInfo_1_1Stop.html">InputInfo::Stop</a></div><div class="ttdoc">Stop name and position (transfer)</div><div class="ttdef"><b>Definition:</b> domain.h:30</div></div>
 <div class="ttc" id="astructOutputFormat_1_1Json_html"><div class="ttname"><a href="structOutputFormat_1_1Json.html">OutputFormat::Json</a></div><div class="ttdef"><b>Definition:</b> domain.h:22</div></div>
 <div class="ttc" id="astructOutputFormat_1_1Xml_html"><div class="ttname"><a href="structOutputFormat_1_1Xml.html">OutputFormat::Xml</a></div><div class="ttdef"><b>Definition:</b> domain.h:23</div></div>
 <div class="ttc" id="astructOutputFormat_html"><div class="ttname"><a href="structOutputFormat.html">OutputFormat</a></div><div class="ttdoc">Dummy type used to specify program output format.</div><div class="ttdef"><b>Definition:</b> domain.h:21</div></div>
-<div class="ttc" id="astructgeo_1_1Coordinates_html"><div class="ttname"><a href="structgeo_1_1Coordinates.html">geo::Coordinates</a></div><div class="ttdef"><b>Definition:</b> geo.h:7</div></div>
+<div class="ttc" id="astructgeo_1_1Coordinates_html"><div class="ttname"><a href="structgeo_1_1Coordinates.html">geo::Coordinates</a></div><div class="ttdoc">Point in geographic coordinate system (GCS)</div><div class="ttdef"><b>Definition:</b> geo.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -68,6 +68,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsvg_1_1Polyline-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">svg::Polyline Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -109,6 +111,17 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Render</b> (c
 <a class="el" href="classsvg_1_1Polyline.html">Polyline</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetStrokeLineJoin</b> (StrokeLineJoin line_join)</td></tr>
 <tr class="separator:aaee06c835dfe7819acae8e9455ebf6f6 inherit pub_methods_classsvg_1_1PathProps"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3e44bb5f8caddfdf14a38069d104fc5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsvg_1_1Polyline.html#a3e44bb5f8caddfdf14a38069d104fc5d">RenderObject</a> (const <a class="el" href="structsvg_1_1RenderContext.html">RenderContext</a> &amp;context) const override</td></tr>
+<tr class="separator:a3e44bb5f8caddfdf14a38069d104fc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ab7a3a53426f27a58f6288a96b9641b21"><td class="memItemLeft" align="right" valign="top"><a id="ab7a3a53426f27a58f6288a96b9641b21" name="ab7a3a53426f27a58f6288a96b9641b21"></a>
+std::vector&lt; <a class="el" href="structsvg_1_1Point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>points_</b></td></tr>
+<tr class="separator:ab7a3a53426f27a58f6288a96b9641b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classsvg_1_1PathProps"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classsvg_1_1PathProps')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classsvg_1_1PathProps.html">svg::PathProps&lt; Polyline &gt;</a></td></tr>
@@ -116,6 +129,35 @@ Additional Inherited Members</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>RenderAttrs</b> (std::ostream &amp;out) const</td></tr>
 <tr class="separator:a0eed50a9c1a26f62dc158983748a9e0a inherit pro_methods_classsvg_1_1PathProps"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3e44bb5f8caddfdf14a38069d104fc5d" name="a3e44bb5f8caddfdf14a38069d104fc5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e44bb5f8caddfdf14a38069d104fc5d">&#9670;&nbsp;</a></span>RenderObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void svg::Polyline::RenderObject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsvg_1_1RenderContext.html">RenderContext</a> &amp;&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classsvg_1_1Object.html">svg::Object</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>transport-catalogue/<a class="el" href="svg_8h_source.html">svg.h</a></li>
 <li>transport-catalogue/svg.cpp</li>

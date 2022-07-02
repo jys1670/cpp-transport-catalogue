@@ -278,7 +278,7 @@ Document::Document(Node root) : root_(std::move(root)) {}
 
 const Node &Document::GetRoot() const { return root_; }
 
-Document Load(istream &input) { return Document{LoadNode(input)}; }
+Document Load(std::istream &input) { return Document{LoadNode(input)}; }
 
 void Print(const Document &doc, std::ostream &output) {
   PrintNode(doc.GetRoot(), {output});
@@ -308,8 +308,8 @@ void PrintValue(const std::string &str, const PrintContext &ctx) {
   ctx.out << '\"';
 }
 
-void PrintValue(const bool &val, const PrintContext &ctx) {
-  ctx.out << (val ? "true" : "false");
+void PrintValue(const bool &bl, const PrintContext &ctx) {
+  ctx.out << (bl ? "true" : "false");
 }
 
 void PrintNode(const Node &node, const PrintContext &ctx) {

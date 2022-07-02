@@ -1,5 +1,10 @@
 \hypertarget{classTransportCatalogue}{}\doxysection{Transport\+Catalogue Class Reference}
 \label{classTransportCatalogue}\index{TransportCatalogue@{TransportCatalogue}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTransportCatalogue_1_1StopsStatsHasher}{Stops\+Stats\+Hasher}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,9 +32,39 @@ const Data\+Storage\+::\+Bus\+Storage \& {\bfseries Get\+Bus\+Stats\+Map} () con
 \mbox{\Hypertarget{classTransportCatalogue_af304837ae4dc151c03f0cc374e014a83}\label{classTransportCatalogue_af304837ae4dc151c03f0cc374e014a83}} 
 double {\bfseries Get\+Stops\+Direct\+Distance} (std\+::string\+\_\+view from, std\+::string\+\_\+view to)
 \end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTransportCatalogue_ab5108424a94a5216bb12c38a5cfedab4}\label{classTransportCatalogue_ab5108424a94a5216bb12c38a5cfedab4}} 
+static double {\bfseries Compute\+Stops\+Direct\+Dist} (const \mbox{\hyperlink{structDataStorage_1_1StopStats}{Data\+Storage\+::\+Stop\+Stats}} \&from, const \mbox{\hyperlink{structDataStorage_1_1StopStats}{Data\+Storage\+::\+Stop\+Stats}} \&to)
+\item 
+\mbox{\Hypertarget{classTransportCatalogue_a34d509cff6ec321bf66e798db091cc5b}\label{classTransportCatalogue_a34d509cff6ec321bf66e798db091cc5b}} 
+static double {\bfseries Get\+Stops\+Real\+Dist} (const \mbox{\hyperlink{structDataStorage_1_1StopStats}{Data\+Storage\+::\+Stop\+Stats}} \&from, const \mbox{\hyperlink{structDataStorage_1_1StopStats}{Data\+Storage\+::\+Stop\+Stats}} \&to)
+\item 
+\mbox{\Hypertarget{classTransportCatalogue_a6c24bce19c9b6db35ca9492838f88841}\label{classTransportCatalogue_a6c24bce19c9b6db35ca9492838f88841}} 
+static size\+\_\+t {\bfseries Get\+Bus\+Total\+Stops\+Amount} (const \mbox{\hyperlink{structDataStorage_1_1Bus}{Data\+Storage\+::\+Bus}} \&bus)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTransportCatalogue_a5b02c16c9ecbbc873dcaae163cc3989d}\label{classTransportCatalogue_a5b02c16c9ecbbc873dcaae163cc3989d}} 
+std\+::deque$<$ \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} $>$ {\bfseries stops\+\_\+}
+\item 
+\mbox{\Hypertarget{classTransportCatalogue_ae30ed4faaeccd1ed512647bf6ccd5090}\label{classTransportCatalogue_ae30ed4faaeccd1ed512647bf6ccd5090}} 
+std\+::deque$<$ \mbox{\hyperlink{structDataStorage_1_1Bus}{Data\+Storage\+::\+Bus}} $>$ {\bfseries buses\+\_\+}
+\item 
+\mbox{\Hypertarget{classTransportCatalogue_ae047894501413aabc7a4b587269f106d}\label{classTransportCatalogue_ae047894501413aabc7a4b587269f106d}} 
+Data\+Storage\+::\+Bus\+Storage {\bfseries busname\+\_\+to\+\_\+bus\+\_\+stats\+\_\+}
+\item 
+\mbox{\Hypertarget{classTransportCatalogue_ad0d2a3a37499919b77b8812884fbd61a}\label{classTransportCatalogue_ad0d2a3a37499919b77b8812884fbd61a}} 
+Data\+Storage\+::\+Stop\+Storage {\bfseries stopname\+\_\+to\+\_\+stop\+\_\+stats\+\_\+}
+\item 
+\mbox{\Hypertarget{classTransportCatalogue_ac2c1f789a52881c9fd01b033b5fc22f5}\label{classTransportCatalogue_ac2c1f789a52881c9fd01b033b5fc22f5}} 
+std\+::unordered\+\_\+map$<$ std\+::pair$<$ \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} $\ast$, \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} $\ast$ $>$, double, \mbox{\hyperlink{structTransportCatalogue_1_1StopsStatsHasher}{Stops\+Stats\+Hasher}} $>$ {\bfseries direct\+\_\+distances\+\_\+}
+\end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-transport-\/catalogue/transport\+\_\+catalogue.\+h\item 
+transport-\/catalogue/\mbox{\hyperlink{transport__catalogue_8h}{transport\+\_\+catalogue.\+h}}\item 
 transport-\/catalogue/transport\+\_\+catalogue.\+cpp\end{DoxyCompactItemize}

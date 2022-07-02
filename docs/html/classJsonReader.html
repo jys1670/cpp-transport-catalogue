@@ -63,21 +63,215 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classJsonReader-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">JsonReader Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Responsible for reading JSON input.  
+ <a href="classJsonReader.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="json__reader_8h_source.html">json_reader.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJsonReader_1_1CatalogueInserter.html">CatalogueInserter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functor used to process elements of <a class="el" href="classJsonReader.html#a4128cb3e724a1d295b64da9e4824d3d0" title="Queue with all TransportCatalogue state-changing requests, should be sorted to satisfy RequestTypes p...">JsonReader::input_queue_</a>.  <a href="structJsonReader_1_1CatalogueInserter.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJsonReader_1_1JsonInputParse.html">JsonInputParse</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functor used to parse and enqueue <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> state-changing requests.  <a href="structJsonReader_1_1JsonInputParse.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJsonReader_1_1JsonPrintParse.html">JsonPrintParse</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functor used to parse and enqueue <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> NON-state-changing requests.  <a href="structJsonReader_1_1JsonPrintParse.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJsonReader_1_1RequestTypes.html">RequestTypes</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Known types of database state-changing requests.  <a href="structJsonReader_1_1RequestTypes.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae943a0ba0e3dd69f9347addebc5d2345"><td class="memItemLeft" align="right" valign="top"><a id="ae943a0ba0e3dd69f9347addebc5d2345" name="ae943a0ba0e3dd69f9347addebc5d2345"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>JsonReader</b> (<a class="el" href="structGenericReaderInit.html">GenericReaderInit</a> &amp;input)</td></tr>
-<tr class="separator:ae943a0ba0e3dd69f9347addebc5d2345"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a967abe0fef2defd4488a45a5435c9e16"><td class="memItemLeft" align="right" valign="top"><a id="a967abe0fef2defd4488a45a5435c9e16" name="a967abe0fef2defd4488a45a5435c9e16"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessInput</b> (<a class="el" href="structOutputFormat_1_1Json.html">OutputFormat::Json</a>)</td></tr>
+<tr class="memitem:a34cc5f646705afb14ccfd0b978dceb34"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJsonReader.html#a34cc5f646705afb14ccfd0b978dceb34">JsonReader</a> (std::istream &amp;inputstream, <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> &amp;catalogue, <a class="el" href="classRequestHandler.html">RequestHandler</a> &amp;req_handler)</td></tr>
+<tr class="memdesc:a34cc5f646705afb14ccfd0b978dceb34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="classJsonReader.html#a34cc5f646705afb14ccfd0b978dceb34">More...</a><br /></td></tr>
+<tr class="separator:a34cc5f646705afb14ccfd0b978dceb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a967abe0fef2defd4488a45a5435c9e16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJsonReader.html#a967abe0fef2defd4488a45a5435c9e16">ProcessInput</a> (<a class="el" href="structOutputFormat_1_1Json.html">OutputFormat::Json</a>)</td></tr>
+<tr class="memdesc:a967abe0fef2defd4488a45a5435c9e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to read entire JSON document from <a class="el" href="classJsonReader.html#afd8c479b2672037dc2b75f00c14ca350" title="Stream from which JSON input will be read.">JsonReader::inputstream_</a>, modifies <a class="el" href="classJsonReader.html#ac5b6130989b8d8fd2933c9618fbd71cb" title="Database to be modified in place by insertion of new stops and routes.">JsonReader::catalogue_</a> if needed, then calls <a class="el" href="classJsonReader.html#a05be9435345d58abe371f1c47af3745f" title="any non-state-changing requests are delegated here">JsonReader::req_handler_</a> to output whatever was asked to print.  <a href="classJsonReader.html#a967abe0fef2defd4488a45a5435c9e16">More...</a><br /></td></tr>
 <tr class="separator:a967abe0fef2defd4488a45a5435c9e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a726e63dd92d2c8977c43c4261f0ec8"><td class="memItemLeft" align="right" valign="top"><a id="a3a726e63dd92d2c8977c43c4261f0ec8" name="a3a726e63dd92d2c8977c43c4261f0ec8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ParseSingleCommand</b> (const <a class="el" href="classjson_1_1Node.html">json::Node</a> &amp;node)</td></tr>
+<tr class="memdesc:a3a726e63dd92d2c8977c43c4261f0ec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles node that represents single known action defined in <a class="el" href="structJsonReader_1_1RequestTypes.html" title="Known types of database state-changing requests.">RequestTypes</a>. <br /></td></tr>
+<tr class="separator:a3a726e63dd92d2c8977c43c4261f0ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361020e7183373683e7d1753d84b51a2"><td class="memItemLeft" align="right" valign="top"><a id="a361020e7183373683e7d1753d84b51a2" name="a361020e7183373683e7d1753d84b51a2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InsertAllIntoCatalogue</b> ()</td></tr>
+<tr class="memdesc:a361020e7183373683e7d1753d84b51a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts all of new routes and stops parsed so far into <a class="el" href="classJsonReader.html#ac5b6130989b8d8fd2933c9618fbd71cb" title="Database to be modified in place by insertion of new stops and routes.">JsonReader::catalogue_</a>. <br /></td></tr>
+<tr class="separator:a361020e7183373683e7d1753d84b51a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:af3391d88f15387e0cd6f5109aeccd26c"><td class="memItemLeft" align="right" valign="top"><a id="af3391d88f15387e0cd6f5109aeccd26c" name="af3391d88f15387e0cd6f5109aeccd26c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>InputQueue</b> = std::variant&lt; <a class="el" href="structJsonReader_1_1RequestTypes_1_1StopInsert.html">RequestTypes::StopInsert</a>, <a class="el" href="structJsonReader_1_1RequestTypes_1_1StopLinkInsert.html">RequestTypes::StopLinkInsert</a>, <a class="el" href="structJsonReader_1_1RequestTypes_1_1BusInsert.html">RequestTypes::BusInsert</a> &gt;</td></tr>
+<tr class="memdesc:af3391d88f15387e0cd6f5109aeccd26c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime polymorphic type capable of storing all kinds of <a class="el" href="structJsonReader_1_1RequestTypes.html" title="Known types of database state-changing requests.">RequestTypes</a>. <br /></td></tr>
+<tr class="separator:af3391d88f15387e0cd6f5109aeccd26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3a724bf5780d4e3d3825459ab3862085"><td class="memItemLeft" align="right" valign="top"><a id="a3a724bf5780d4e3d3825459ab3862085" name="a3a724bf5780d4e3d3825459ab3862085"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr>
+<tr class="memdesc:a3a724bf5780d4e3d3825459ab3862085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all temporary JSON data, making <a class="el" href="classJsonReader.html" title="Responsible for reading JSON input.">JsonReader</a> ready to accept new document. <br /></td></tr>
+<tr class="separator:a3a724bf5780d4e3d3825459ab3862085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:afd8c479b2672037dc2b75f00c14ca350"><td class="memItemLeft" align="right" valign="top"><a id="afd8c479b2672037dc2b75f00c14ca350" name="afd8c479b2672037dc2b75f00c14ca350"></a>
+std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>inputstream_</b></td></tr>
+<tr class="memdesc:afd8c479b2672037dc2b75f00c14ca350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream from which JSON input will be read. <br /></td></tr>
+<tr class="separator:afd8c479b2672037dc2b75f00c14ca350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b6130989b8d8fd2933c9618fbd71cb"><td class="memItemLeft" align="right" valign="top"><a id="ac5b6130989b8d8fd2933c9618fbd71cb" name="ac5b6130989b8d8fd2933c9618fbd71cb"></a>
+<a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>catalogue_</b></td></tr>
+<tr class="memdesc:ac5b6130989b8d8fd2933c9618fbd71cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Database to be modified in place by insertion of new stops and routes. <br /></td></tr>
+<tr class="separator:ac5b6130989b8d8fd2933c9618fbd71cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05be9435345d58abe371f1c47af3745f"><td class="memItemLeft" align="right" valign="top"><a id="a05be9435345d58abe371f1c47af3745f" name="a05be9435345d58abe371f1c47af3745f"></a>
+<a class="el" href="classRequestHandler.html">RequestHandler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>req_handler_</b></td></tr>
+<tr class="memdesc:a05be9435345d58abe371f1c47af3745f"><td class="mdescLeft">&#160;</td><td class="mdescRight">any non-state-changing requests are delegated here <br /></td></tr>
+<tr class="separator:a05be9435345d58abe371f1c47af3745f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b7891826c8d7e01a3439adffdfce15"><td class="memItemLeft" align="right" valign="top"><a id="ac8b7891826c8d7e01a3439adffdfce15" name="ac8b7891826c8d7e01a3439adffdfce15"></a>
+struct <a class="el" href="structJsonReader_1_1JsonInputParse.html">JsonReader::JsonInputParse</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>this</b></td></tr>
+<tr class="separator:ac8b7891826c8d7e01a3439adffdfce15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab28c969940e4caa5110cc50ed1582e8"><td class="memItemLeft" align="right" valign="top"><a id="aab28c969940e4caa5110cc50ed1582e8" name="aab28c969940e4caa5110cc50ed1582e8"></a>
+struct <a class="el" href="structJsonReader_1_1JsonPrintParse.html">JsonReader::JsonPrintParse</a>&#160;</td><td class="memItemRight" valign="bottom"><b>req_handler_</b></td></tr>
+<tr class="separator:aab28c969940e4caa5110cc50ed1582e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7618f5b8fd1f6085b63a58282a211f70"><td class="memItemLeft" align="right" valign="top"><a id="a7618f5b8fd1f6085b63a58282a211f70" name="a7618f5b8fd1f6085b63a58282a211f70"></a>
+struct <a class="el" href="structJsonReader_1_1CatalogueInserter.html">JsonReader::CatalogueInserter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>this</b></td></tr>
+<tr class="separator:a7618f5b8fd1f6085b63a58282a211f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4128cb3e724a1d295b64da9e4824d3d0"><td class="memItemLeft" align="right" valign="top"><a id="a4128cb3e724a1d295b64da9e4824d3d0" name="a4128cb3e724a1d295b64da9e4824d3d0"></a>
+std::vector&lt; <a class="el" href="classJsonReader.html#af3391d88f15387e0cd6f5109aeccd26c">InputQueue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>input_queue_</b></td></tr>
+<tr class="memdesc:a4128cb3e724a1d295b64da9e4824d3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue with all <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> state-changing requests, should be sorted to satisfy <a class="el" href="structJsonReader_1_1RequestTypes.html" title="Known types of database state-changing requests.">RequestTypes</a> processing requirements. <br /></td></tr>
+<tr class="separator:a4128cb3e724a1d295b64da9e4824d3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c4ff8f1c0544ccd12947e985063faa7"><td class="memItemLeft" align="right" valign="top">std::deque&lt; <a class="el" href="structInputInfo_1_1Stop.html">InputInfo::Stop</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJsonReader.html#a6c4ff8f1c0544ccd12947e985063faa7">stops_input_queue_</a></td></tr>
+<tr class="memdesc:a6c4ff8f1c0544ccd12947e985063faa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage of stops related information.  <a href="classJsonReader.html#a6c4ff8f1c0544ccd12947e985063faa7">More...</a><br /></td></tr>
+<tr class="separator:a6c4ff8f1c0544ccd12947e985063faa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76c5731bf436f81703b3e8f9395124a0"><td class="memItemLeft" align="right" valign="top"><a id="a76c5731bf436f81703b3e8f9395124a0" name="a76c5731bf436f81703b3e8f9395124a0"></a>
+std::deque&lt; <a class="el" href="structInputInfo_1_1StopLink.html">InputInfo::StopLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>stoplinks_input_queue_</b></td></tr>
+<tr class="memdesc:a76c5731bf436f81703b3e8f9395124a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage of stop links related information. <br /></td></tr>
+<tr class="separator:a76c5731bf436f81703b3e8f9395124a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac60eb31813cdfc95cdac717e50621609"><td class="memItemLeft" align="right" valign="top"><a id="ac60eb31813cdfc95cdac717e50621609" name="ac60eb31813cdfc95cdac717e50621609"></a>
+std::deque&lt; <a class="el" href="structInputInfo_1_1Bus.html">InputInfo::Bus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buses_input_queue_</b></td></tr>
+<tr class="memdesc:ac60eb31813cdfc95cdac717e50621609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage of buses related information. <br /></td></tr>
+<tr class="separator:ac60eb31813cdfc95cdac717e50621609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Responsible for reading JSON input. </p>
+<p >This class is NOT meant to output anything, its main task is input information reading. If input is supposed to modify database, it is handled in place (new routes/stops directly inserted into <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a>). Other requests are delegated to RequestsHandler (in uniform, JSON independent format), which will process everything once there is nothing left to insert into <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a34cc5f646705afb14ccfd0b978dceb34" name="a34cc5f646705afb14ccfd0b978dceb34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34cc5f646705afb14ccfd0b978dceb34">&#9670;&nbsp;</a></span>JsonReader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">JsonReader::JsonReader </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>inputstream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> &amp;&#160;</td>
+          <td class="paramname"><em>catalogue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classRequestHandler.html">RequestHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>req_handler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for the class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">inputstream</td><td>stream from which JSON input will be read </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">catalogue</td><td>database to be modified in place by insertion of new stops and routes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">req_handler</td><td>requests that are not supposed to modify <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> are delegated here </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a967abe0fef2defd4488a45a5435c9e16" name="a967abe0fef2defd4488a45a5435c9e16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a967abe0fef2defd4488a45a5435c9e16">&#9670;&nbsp;</a></span>ProcessInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JsonReader::ProcessInput </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structOutputFormat_1_1Json.html">OutputFormat::Json</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attempts to read entire JSON document from <a class="el" href="classJsonReader.html#afd8c479b2672037dc2b75f00c14ca350" title="Stream from which JSON input will be read.">JsonReader::inputstream_</a>, modifies <a class="el" href="classJsonReader.html#ac5b6130989b8d8fd2933c9618fbd71cb" title="Database to be modified in place by insertion of new stops and routes.">JsonReader::catalogue_</a> if needed, then calls <a class="el" href="classJsonReader.html#a05be9435345d58abe371f1c47af3745f" title="any non-state-changing requests are delegated here">JsonReader::req_handler_</a> to output whatever was asked to print. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="structOutputFormat_1_1Json.html">OutputFormat::Json</a></td><td>specifies <a class="el" href="classRequestHandler.html" title="Responsible for querying database (TransportCatalogue) and outputting information in various formats.">RequestHandler</a> output format </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6c4ff8f1c0544ccd12947e985063faa7" name="a6c4ff8f1c0544ccd12947e985063faa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c4ff8f1c0544ccd12947e985063faa7">&#9670;&nbsp;</a></span>stops_input_queue_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::deque&lt;<a class="el" href="structInputInfo_1_1Stop.html">InputInfo::Stop</a>&gt; JsonReader::stops_input_queue_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Temporary storage of stops related information. </p>
+<p >Adding new objects to the end/beginning of deque does not invalidate previously received pointers, which is why this container is used </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>transport-catalogue/<a class="el" href="json__reader_8h_source.html">json_reader.h</a></li>
 <li>transport-catalogue/json_reader.cpp</li>

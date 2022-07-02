@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>json</b></li><li class="navelem"><a class="el" href="classjson_1_1Node.html">Node</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacejson.html">json</a></li><li class="navelem"><a class="el" href="classjson_1_1Node.html">Node</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,6 +73,11 @@ $(function() {
   <div class="headertitle"><div class="title">json::Node Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Runtime polymorphic type representing <a href="https://en.wikipedia.org/wiki/JSON#Data_types">JSON basic data types</a>  
+ <a href="classjson_1_1Node.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="json_8h_source.html">json.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for json::Node:</div>
 <div class="dyncontent">
@@ -83,7 +88,7 @@ Inheritance diagram for json::Node:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:abf459fe18f5ba3e9aa3997a12ab7223c"><td class="memItemLeft" align="right" valign="top"><a id="abf459fe18f5ba3e9aa3997a12ab7223c" name="abf459fe18f5ba3e9aa3997a12ab7223c"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Value</b> = std::variant&lt; std::nullptr_t, Array, Dict, bool, int, double, std::string &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Value</b> = std::variant&lt; std::nullptr_t, Array, <a class="el" href="namespacejson.html#a14165bfd985e982794b3697b71cc4a01">Dict</a>, bool, int, double, std::string &gt;</td></tr>
 <tr class="separator:abf459fe18f5ba3e9aa3997a12ab7223c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -131,13 +136,15 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>As
 const Array &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>AsArray</b> () const</td></tr>
 <tr class="separator:a984549e3c5c829a1e206052bf5b75c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae19da2defe217dd20a2ca32595f9d135"><td class="memItemLeft" align="right" valign="top"><a id="ae19da2defe217dd20a2ca32595f9d135" name="ae19da2defe217dd20a2ca32595f9d135"></a>
-const Dict &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>AsMap</b> () const</td></tr>
+const <a class="el" href="namespacejson.html#a14165bfd985e982794b3697b71cc4a01">Dict</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>AsMap</b> () const</td></tr>
 <tr class="separator:ae19da2defe217dd20a2ca32595f9d135"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7201377a4d60b8a2b93193693c6349ab"><td class="memItemLeft" align="right" valign="top"><a id="a7201377a4d60b8a2b93193693c6349ab" name="a7201377a4d60b8a2b93193693c6349ab"></a>
 const Value &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> () const</td></tr>
 <tr class="separator:a7201377a4d60b8a2b93193693c6349ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Runtime polymorphic type representing <a href="https://en.wikipedia.org/wiki/JSON#Data_types">JSON basic data types</a> </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>transport-catalogue/<a class="el" href="json_8h_source.html">json.h</a></li>
 <li>transport-catalogue/json.cpp</li>
 </ul>

@@ -1,3 +1,7 @@
+/*!
+ * \file map_renderer.h
+ * \brief Objects used for visualization of stops and routes
+ */
 #pragma once
 
 #include <algorithm>
@@ -15,17 +19,19 @@
 inline const double EPSILON = 1e-6;
 bool IsZero(double value);
 
-//! Functor for mapping physical to screen coordinates
+//! Functor used to map between physical and screen coordinates
 class SphereProjector {
 public:
   /*!
-  Constructor for the class
-  \param[in] points_begin iterator pointing to geo::Coordinates container begin
-  \param[in] points_end iterator pointing to geo::Coordinates container end
-  \param[in] max_width pixel width of "project to" area
-  \param[in] max_height pixel height of "project to" area
-  \param[in] padding "project to" area padding size in pixels
-  */
+   * Constructor for the class
+   * \param[in] points_begin iterator pointing to geo::Coordinates container
+   * begin
+   * \param[in] points_end iterator pointing to geo::Coordinates container
+   * end
+   * \param[in] max_width pixel width of "project to" area \param[in]
+   * max_height pixel height of "project to" area \param[in] padding "project
+   * to" area padding size in pixels
+   */
   template <typename PointInputIt>
   SphereProjector(PointInputIt points_begin, PointInputIt points_end,
                   double max_width, double max_height, double padding);
@@ -41,23 +47,64 @@ private:
 
 class MapRenderer {
 public:
+  /*!
+   * Constructs map image
+   * \param[in] data routes to be drawn and all their stops
+   * \param[out] map Actual SVG stored as string
+   */
   std::string RenderMap(DataStorage::RoutesData data);
+  /*!
+   * Updates image generation settings
+   * \param[in] node json::Dict that defines all fields of RenderSettings
+   */
   void LoadSettings(const json::Node &node);
 
 private:
+  //! MapRenderer settings storage
   struct RenderSettings {
-    double width;
-    double height;
-    double padding;
-    double line_width;
-    double stop_radius;
-    int bus_label_font_size;
-    svg::Point bus_label_offset;
-    int stop_label_font_size;
-    svg::Point stop_label_offset;
-    svg::Color underlayer_color;
-    double underlayer_width;
-    std::vector<svg::Color> color_palette;
+    //! Map width (in pixels)
+    double width{};
+    //! Map height (in pixels)
+    double height{};
+    //! Map padding (in pixels)
+    double padding{};
+    /*!
+     * Route lines <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width">stroke-width</a>
+     * attribute (in pixels)
+     */
+    double line_width{};
+    //! Stops are drawn as white circles with this radius (in pixels)
+    double stop_radius{};
+    //! Route names font size (in pixels)
+    int bus_label_font_size{};
+    /*!
+     * Route names position <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dx">dx</a>
+     * and <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy">dy</a>
+     * (in pixels)
+     */
+    svg::Point bus_label_offset{};
+    //! %Stop names font size (in pixels)
+    int stop_label_font_size{};
+    /*!
+     * %Stop names position <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dx">dx</a>
+     * and <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy">dy</a>
+     * (in pixels)
+     */
+    svg::Point stop_label_offset{};
+    //! Stops and routes background font (stroke effect) color
+    svg::Color underlayer_color{};
+    /*!
+     * Stops and routes background font (stroke effect) <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width">stroke-width</a>
+     */
+    double underlayer_width{};
+    //! Cyclically used colors for stops and routes
+    std::vector<svg::Color> color_palette{};
   } settings_;
 
   static svg::Color ParseColor(const json::Node &node);
@@ -79,8 +126,7 @@ template <typename PointInputIt>
 SphereProjector::SphereProjector(PointInputIt points_begin,
                                  PointInputIt points_end, double max_width,
                                  double max_height, double padding)
-    : padding_(padding) //
-{
+    : padding_(padding) {
 
   if (points_begin == points_end) {
     return;

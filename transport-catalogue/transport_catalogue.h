@@ -1,3 +1,7 @@
+/*!
+ * \file transport_catalogue.h
+ * \brief Stops and routes database
+*/
 #pragma once
 #include <deque>
 #include <iostream>

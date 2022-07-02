@@ -1,145 +1,82 @@
 \hypertarget{request__handler_8h_source}{}\doxysection{request\+\_\+handler.\+h}
 \label{request__handler_8h_source}\index{transport-\/catalogue/request\_handler.h@{transport-\/catalogue/request\_handler.h}}
-
+\mbox{\hyperlink{request__handler_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <algorithm>}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cassert>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <charconv>}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string\_view>}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <type\_traits>}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <unordered\_map>}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <string\_view>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}transport\_catalogue.h"{}}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}map\_renderer.h"{}}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{json_8h}{json.h}}"{}}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{domain_8h}{domain.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{domain_8h}{domain.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{json_8h}{json.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{map__renderer_8h}{map\_renderer.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{transport__catalogue_8h}{transport\_catalogue.h}}"{}}}
 \DoxyCodeLine{18 }
-\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classInputReader}{InputReader}} \{}
-\DoxyCodeLine{20 \textcolor{keyword}{public}:}
-\DoxyCodeLine{21   \mbox{\hyperlink{classInputReader}{InputReader}}(\mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&into)}
-\DoxyCodeLine{22       : storage\_\{into\} \{\};}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24   \textcolor{keywordtype}{void} ParseCommand(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26   \textcolor{keywordtype}{void} InsertAllIntoStorage();}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28 \textcolor{keyword}{private}:}
-\DoxyCodeLine{29   \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&storage\_;}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31   \textcolor{keyword}{struct }RequestTypes \{}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33     \textcolor{keyword}{struct }\mbox{\hyperlink{structInputReader_1_1RequestTypes_1_1StopInsert}{StopInsert}} \{}
-\DoxyCodeLine{34       \mbox{\hyperlink{structInputInfo_1_1Stop}{InputInfo::Stop}} *stop\_ptr;}
-\DoxyCodeLine{35     \};}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37     \textcolor{keyword}{struct }\mbox{\hyperlink{structInputReader_1_1RequestTypes_1_1StopLinkInsert}{StopLinkInsert}} \{}
-\DoxyCodeLine{38       \mbox{\hyperlink{structInputInfo_1_1StopLink}{InputInfo::StopLink}} *stoplink\_ptr;}
-\DoxyCodeLine{39     \};}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41     \textcolor{keyword}{struct }\mbox{\hyperlink{structInputReader_1_1RequestTypes_1_1BusInsert}{BusInsert}} \{}
-\DoxyCodeLine{42       \mbox{\hyperlink{structInputInfo_1_1Bus}{InputInfo::Bus}} *bus\_ptr;}
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classRequestHandler}{RequestHandler}} \{}
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33   \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{RequestTypes}} \{}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintBusStats}{PrintBusStats}} \{}
+\DoxyCodeLine{36       \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{37       std::string\_view bus\_name;}
+\DoxyCodeLine{38     \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintStopStats}{PrintStopStats}} \{}
+\DoxyCodeLine{41       \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{42       std::string\_view stop\_name;}
 \DoxyCodeLine{43     \};}
-\DoxyCodeLine{44   \};}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46   \textcolor{keyword}{using} InputQueue = std::variant<RequestTypes::StopInsert, RequestTypes::StopLinkInsert, RequestTypes::BusInsert>;}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48   \textcolor{keyword}{struct }JsonParse \{}
-\DoxyCodeLine{49   \textcolor{keyword}{public}:}
-\DoxyCodeLine{50     \textcolor{keyword}{explicit} JsonParse(\mbox{\hyperlink{classInputReader}{InputReader}} \& parent): parent\_\{parent\} \{\};}
-\DoxyCodeLine{51     \textcolor{keywordtype}{void} operator()(std::string\_view type, \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{52   \textcolor{keyword}{private}:}
-\DoxyCodeLine{53     \mbox{\hyperlink{classInputReader}{InputReader}} \&parent\_;}
-\DoxyCodeLine{54     \textcolor{keywordtype}{void} Bus(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{55     \textcolor{keywordtype}{void} Stop(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{56   \} json\_parser\_ \{*\textcolor{keyword}{this}\};}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{58   \textcolor{keyword}{struct }CatalogueInserter \{}
-\DoxyCodeLine{59   \textcolor{keyword}{public}:}
-\DoxyCodeLine{60     \textcolor{keyword}{explicit} CatalogueInserter(\mbox{\hyperlink{classInputReader}{InputReader}} \&parent): parent\_\{parent\} \{\};}
-\DoxyCodeLine{61     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} RequestTypes::StopInsert \&req);}
-\DoxyCodeLine{62     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} RequestTypes::StopLinkInsert \&req);}
-\DoxyCodeLine{63     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} RequestTypes::BusInsert \&req);}
-\DoxyCodeLine{64   \textcolor{keyword}{private}:}
-\DoxyCodeLine{65     \mbox{\hyperlink{classInputReader}{InputReader}} \&parent\_;}
-\DoxyCodeLine{66   \} catalogue\_inserter\_ \{*\textcolor{keyword}{this}\};}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68   std::vector<InputQueue> input\_queue\_;}
-\DoxyCodeLine{69   std::deque<InputInfo::Stop> stops\_input\_queue\_;}
-\DoxyCodeLine{70   std::deque<InputInfo::StopLink> stoplinks\_input\_queue\_;}
-\DoxyCodeLine{71   std::deque<InputInfo::Bus> buses\_input\_queue\_;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{UpdateMapRenderSettings}} \{}
+\DoxyCodeLine{46       \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} *settings;}
+\DoxyCodeLine{47     \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintMap}{PrintMap}} \{}
+\DoxyCodeLine{50       \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{51     \};}
+\DoxyCodeLine{52   \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{55   \textcolor{keyword}{using} \mbox{\hyperlink{classRequestHandler_a5b9fa59f7fd734a01d3981cfb550bdc6}{ReqsQueue}} =}
+\DoxyCodeLine{56       std::variant<\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintBusStats}{RequestTypes::PrintBusStats}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintStopStats}{RequestTypes::PrintStopStats}},}
+\DoxyCodeLine{57                    \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{RequestTypes::UpdateMapRenderSettings}},}
+\DoxyCodeLine{58                    \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintMap}{RequestTypes::PrintMap}}>;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{66   \mbox{\hyperlink{classRequestHandler_a31dc34ed1690306ba031df6283a02656}{RequestHandler}}(std::ostream \&output, \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&catalogue,}
+\DoxyCodeLine{67                  \mbox{\hyperlink{classMapRenderer}{MapRenderer}} \&renderer)}
+\DoxyCodeLine{68       : \mbox{\hyperlink{classRequestHandler_ae3815cd07c9153505cf7921aa18dd654}{outstream\_}}\{output\}, \mbox{\hyperlink{classRequestHandler_a985ca1af315578d4995288ad1e9c7428}{catalogue\_}}\{catalogue\}, \mbox{\hyperlink{classRequestHandler_ad1e73b0d7e811b36e749a8b0033a4c3c}{renderer\_}}\{renderer\} \{\};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRequestHandler_aca640031cffc03a8da79a315e4eae3c6}{InsertIntoQueue}}(\mbox{\hyperlink{classRequestHandler_a5b9fa59f7fd734a01d3981cfb550bdc6}{ReqsQueue}} \&\&elem);}
 \DoxyCodeLine{72 }
-\DoxyCodeLine{73   \textcolor{keywordtype}{void} Clear();}
-\DoxyCodeLine{74 \};}
-\DoxyCodeLine{75 }
-\DoxyCodeLine{76 \textcolor{keyword}{class }\mbox{\hyperlink{classStatReader}{StatReader}} \{}
-\DoxyCodeLine{77 \textcolor{keyword}{public}:}
-\DoxyCodeLine{78   \mbox{\hyperlink{classStatReader}{StatReader}}(\mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&source, std::ostream \&output, \mbox{\hyperlink{classMapRenderer}{MapRenderer}} \&renderer)}
-\DoxyCodeLine{79       : storage\_\{source\}, outstream\_\{output\}, renderer\_\{renderer\} \{\};}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{81   \mbox{\hyperlink{structDataStorage_1_1RoutesData}{DataStorage::RoutesData}} GetCatalogueData() \textcolor{keyword}{const};}
+\DoxyCodeLine{78   \mbox{\hyperlink{structDataStorage_1_1RoutesData}{DataStorage::RoutesData}} \mbox{\hyperlink{classRequestHandler_a2902041374c1e62b9dc9a3cc26b62c36}{GetCatalogueData}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{81   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRequestHandler_afabd16bd8434abbc624f0c37455ae844}{ProcessAllRequests}}(\mbox{\hyperlink{structOutputFormat_1_1Json}{OutputFormat::Json}});}
 \DoxyCodeLine{82 }
-\DoxyCodeLine{83   \textcolor{keywordtype}{void} ParseCommand(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{84 }
-\DoxyCodeLine{85   \textcolor{keywordtype}{void} PrintAllStats(\mbox{\hyperlink{structOutputFormat_1_1Json}{OutputFormat::Json}});}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87 \textcolor{keyword}{private}:}
-\DoxyCodeLine{88 }
-\DoxyCodeLine{89   \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&storage\_;}
-\DoxyCodeLine{90   std::ostream \&outstream\_;}
-\DoxyCodeLine{91   \mbox{\hyperlink{classMapRenderer}{MapRenderer}} \&renderer\_;}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{93   \textcolor{keyword}{struct }RequestTypes \{}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95     \textcolor{keyword}{struct }\mbox{\hyperlink{structStatReader_1_1RequestTypes_1_1BusStatsPrint}{BusStatsPrint}} \{}
-\DoxyCodeLine{96       \textcolor{keywordtype}{int} id;}
-\DoxyCodeLine{97       std::string\_view bus\_name;}
-\DoxyCodeLine{98     \};}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100     \textcolor{keyword}{struct }\mbox{\hyperlink{structStatReader_1_1RequestTypes_1_1StopStatsPrint}{StopStatsPrint}} \{}
-\DoxyCodeLine{101       \textcolor{keywordtype}{int} id;}
-\DoxyCodeLine{102       std::string\_view stop\_name;}
-\DoxyCodeLine{103     \};}
-\DoxyCodeLine{104 }
-\DoxyCodeLine{105     \textcolor{keyword}{struct }\mbox{\hyperlink{structStatReader_1_1RequestTypes_1_1MapPrint}{MapPrint}} \{}
-\DoxyCodeLine{106       \textcolor{keywordtype}{int} id;}
-\DoxyCodeLine{107       std::string\_view data;}
-\DoxyCodeLine{108     \};}
-\DoxyCodeLine{109   \};}
-\DoxyCodeLine{110 }
-\DoxyCodeLine{111   \textcolor{keyword}{using} StatQueue = std::variant<RequestTypes::BusStatsPrint, RequestTypes::StopStatsPrint, RequestTypes::MapPrint>;}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{113   \textcolor{keyword}{struct }JsonPrint \{}
-\DoxyCodeLine{114   \textcolor{keyword}{public}:}
-\DoxyCodeLine{115     \textcolor{keyword}{explicit} JsonPrint(\mbox{\hyperlink{classStatReader}{StatReader}}\& parent, json::Array \&arr): parent\_\{parent\}, arr\_\{arr\} \{\};}
-\DoxyCodeLine{116     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} RequestTypes::BusStatsPrint \&req);}
-\DoxyCodeLine{117     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} RequestTypes::StopStatsPrint \&req);}
-\DoxyCodeLine{118     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} RequestTypes::MapPrint \&req);}
-\DoxyCodeLine{119   \textcolor{keyword}{private}:}
-\DoxyCodeLine{120     \mbox{\hyperlink{classStatReader}{StatReader}} \&parent\_;}
-\DoxyCodeLine{121     json::Array \&arr\_;}
-\DoxyCodeLine{122   \};}
-\DoxyCodeLine{123 }
-\DoxyCodeLine{124   \textcolor{keyword}{struct }JsonParse \{}
-\DoxyCodeLine{125   \textcolor{keyword}{public}:}
-\DoxyCodeLine{126     \textcolor{keyword}{explicit} JsonParse(\mbox{\hyperlink{classStatReader}{StatReader}}\& parent): parent\_\{parent\} \{\};}
-\DoxyCodeLine{127     \textcolor{keywordtype}{void} operator()(std::string\_view type, \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{128   \textcolor{keyword}{private}:}
-\DoxyCodeLine{129     \mbox{\hyperlink{classStatReader}{StatReader}} \&parent\_;}
-\DoxyCodeLine{130     \textcolor{keywordtype}{void} Bus(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{131     \textcolor{keywordtype}{void} Stop(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{132     \textcolor{keywordtype}{void} Map(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{133   \} json\_parser\_ \{*\textcolor{keyword}{this}\};}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{135   std::vector<StatQueue> stat\_queue\_;}
-\DoxyCodeLine{136   std::deque<std::string> maps\_;}
-\DoxyCodeLine{137 }
-\DoxyCodeLine{138   \textcolor{keywordtype}{void} Clear();}
-\DoxyCodeLine{139 \};}
+\DoxyCodeLine{83 \textcolor{keyword}{private}:}
+\DoxyCodeLine{85   std::ostream \&\mbox{\hyperlink{classRequestHandler_ae3815cd07c9153505cf7921aa18dd654}{outstream\_}};}
+\DoxyCodeLine{87   \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&\mbox{\hyperlink{classRequestHandler_a985ca1af315578d4995288ad1e9c7428}{catalogue\_}};}
+\DoxyCodeLine{89   \mbox{\hyperlink{classMapRenderer}{MapRenderer}} \&\mbox{\hyperlink{classRequestHandler_ad1e73b0d7e811b36e749a8b0033a4c3c}{renderer\_}};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{93   \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1JsonPrint}{JsonPrint}} \{}
+\DoxyCodeLine{94   \textcolor{keyword}{public}:}
+\DoxyCodeLine{95     \textcolor{keyword}{explicit} \mbox{\hyperlink{structRequestHandler_1_1JsonPrint}{JsonPrint}}(\mbox{\hyperlink{classRequestHandler}{RequestHandler}} \&parent, json::Array \&arr)}
+\DoxyCodeLine{96         : parent\_\{parent\}, arr\_\{arr\} \{\};}
+\DoxyCodeLine{97     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintBusStats}{RequestTypes::PrintBusStats}} \&req);}
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintStopStats}{RequestTypes::PrintStopStats}} \&req);}
+\DoxyCodeLine{99     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{RequestTypes::UpdateMapRenderSettings}} \&req);}
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintMap}{RequestTypes::PrintMap}} \&req);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102   \textcolor{keyword}{private}:}
+\DoxyCodeLine{103     \mbox{\hyperlink{classRequestHandler}{RequestHandler}} \&parent\_;}
+\DoxyCodeLine{104     json::Array \&arr\_;}
+\DoxyCodeLine{105   \};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{108   std::vector<ReqsQueue> \mbox{\hyperlink{classRequestHandler_a678641ba0989a6ff6f90c7286a58924d}{reqs\_queue\_}};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{111   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRequestHandler_a4a99d3b8703657092bf7d57a7abbd4af}{Clear}}();}
+\DoxyCodeLine{112 \};}
 
 \end{DoxyCode}

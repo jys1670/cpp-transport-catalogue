@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputreader_0',['InputReader',['../classInputReader.html',1,'']]]
+  ['maprenderer_0',['MapRenderer',['../classMapRenderer.html',1,'']]]
 ];

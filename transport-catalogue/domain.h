@@ -1,12 +1,12 @@
 /*!
-\file domain.h
- \brief Header file with widely used objects
-
-Contains declarations and definitions of all kinds of types,
- that are used in composition with other parts of project: structures to
- transfer information between different modules, iterators over these structures
- elements and so on
-*/
+ * \file domain.h
+ * \brief Header file with widely used independent types
+ *
+ * Contains declarations and definitions of all kinds of types,
+ * that are used in composition with other parts of project: structures to
+ * transfer information between different modules, iterators over these
+ * structures elements and so on
+ */
 #pragma once
 
 #include <string>
@@ -32,11 +32,12 @@ struct Stop {
   geo::Coordinates pos;
 };
 
-//! For a given Stop contains other (connected by path, linked) stops distances
+//! For a given Stop contains other linked (connected) stops (names and
+//! distances)
 struct StopLink {
   std::string_view stop_name; //!< "From" stop
   std::vector<std::pair<std::string_view, double>>
-      neighbours; //!< Vector of "to" stops, names and distances
+      neighbours; //!< Vector of "to" stops (names and distances)
 };
 
 //! Route name and stops (transfer)
@@ -82,7 +83,7 @@ struct BusStats {
 using BusStorage = std::unordered_map<std::string_view, BusStats>;
 using StopStorage = std::unordered_map<std::string_view, StopStats>;
 
-//! Iterator over geo::Coordinates members of DataStorage::Stop structures
+//! Iterator over geo::Coordinates extracted from DataStorage::Stop pointers
 //! container
 class StopCoordsIterator {
 public:
@@ -107,7 +108,7 @@ private:
   wrapped_iterator wrapped_{};
 };
 
-//! Stores somehow connected routes and stops, used in MapRenderer
+//! Stores somehow logically connected routes and stops (used in MapRenderer)
 struct RoutesData {
   std::vector<const Stop *> routes_stops;
   std::vector<const BusStats *> bus_stats;
