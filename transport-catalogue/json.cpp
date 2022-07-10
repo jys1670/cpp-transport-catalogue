@@ -268,11 +268,15 @@ const Dict &Node::AsMap() const {
   return std::get<Dict>(*this);
 }
 
+Node::Node(Node::Value &&val) { *this = std::move(val); }
+
 Node::Node(const Document &doc) { *this = doc.GetRoot(); }
 
-const Node::Value &Node::GetValue() const {
+const Node::Value &Node::GetConstValue() const {
   return dynamic_cast<const Value &>(*this);
 }
+
+Node::Value &Node::GetValue() { return dynamic_cast<Value &>(*this); }
 
 Document::Document(Node root) : root_(std::move(root)) {}
 
@@ -313,7 +317,8 @@ void PrintValue(const bool &bl, const PrintContext &ctx) {
 }
 
 void PrintNode(const Node &node, const PrintContext &ctx) {
-  visit([&ctx](const auto &value) { PrintValue(value, ctx); }, node.GetValue());
+  visit([&ctx](const auto &value) { PrintValue(value, ctx); },
+        node.GetConstValue());
 }
 
 void PrintValue(const Array &arr, const PrintContext &ctx) {
@@ -348,7 +353,7 @@ void PrintValue(const Dict &dict, const PrintContext &ctx) {
       ctx.out << ",\n";
     }
     new_ctx.PrintIndent();
-    ctx.out << '"' << key << "\":";
+    ctx.out << '"' << key << "\": ";
     if (node.IsArray() || node.IsMap())
       ctx.out << '\n';
     PrintNode(node, new_ctx);

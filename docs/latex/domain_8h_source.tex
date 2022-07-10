@@ -65,17 +65,17 @@
 \DoxyCodeLine{80   \textcolor{keywordtype}{double} real\_length;}
 \DoxyCodeLine{81 \};}
 \DoxyCodeLine{82 }
-\DoxyCodeLine{83 \textcolor{keyword}{using} BusStorage = std::unordered\_map<std::string\_view, BusStats>;}
-\DoxyCodeLine{84 \textcolor{keyword}{using} StopStorage = std::unordered\_map<std::string\_view, StopStats>;}
+\DoxyCodeLine{83 \textcolor{keyword}{using }BusStorage = std::unordered\_map<std::string\_view, BusStats>;}
+\DoxyCodeLine{84 \textcolor{keyword}{using }StopStorage = std::unordered\_map<std::string\_view, StopStats>;}
 \DoxyCodeLine{85 }
 \DoxyCodeLine{88 \textcolor{keyword}{class }\mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}} \{}
 \DoxyCodeLine{89 \textcolor{keyword}{public}:}
-\DoxyCodeLine{90   \textcolor{keyword}{using} iterator\_category = std::random\_access\_iterator\_tag;}
-\DoxyCodeLine{91   \textcolor{keyword}{using} difference\_type = std::ptrdiff\_t;}
-\DoxyCodeLine{92   \textcolor{keyword}{using} \mbox{\hyperlink{structgeo_1_1Coordinates}{value\_type}} = \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}};}
-\DoxyCodeLine{93   \textcolor{keyword}{using} \mbox{\hyperlink{structgeo_1_1Coordinates}{pointer}} = \textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} *;}
-\DoxyCodeLine{94   \textcolor{keyword}{using} \mbox{\hyperlink{structgeo_1_1Coordinates}{reference}} = \textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} \&;}
-\DoxyCodeLine{95   \textcolor{keyword}{using} wrapped\_iterator = std::vector<const Stop *>::const\_iterator;}
+\DoxyCodeLine{90   \textcolor{keyword}{using }iterator\_category = std::forward\_iterator\_tag;}
+\DoxyCodeLine{91   \textcolor{keyword}{using }difference\_type = std::ptrdiff\_t;}
+\DoxyCodeLine{92   \textcolor{keyword}{using }\mbox{\hyperlink{structgeo_1_1Coordinates}{value\_type}} = \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}};}
+\DoxyCodeLine{93   \textcolor{keyword}{using }\mbox{\hyperlink{structgeo_1_1Coordinates}{pointer}} = \textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} *;}
+\DoxyCodeLine{94   \textcolor{keyword}{using }\mbox{\hyperlink{structgeo_1_1Coordinates}{reference}} = \textcolor{keyword}{const} \mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} \&;}
+\DoxyCodeLine{95   \textcolor{keyword}{using }wrapped\_iterator = std::vector<const Stop *>::const\_iterator;}
 \DoxyCodeLine{96 }
 \DoxyCodeLine{97   \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}}() = \textcolor{keywordflow}{default};}
 \DoxyCodeLine{98   \textcolor{keyword}{explicit} \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{StopCoordsIterator}}(wrapped\_iterator wrapped) : wrapped\_(wrapped) \{\}}

@@ -13,8 +13,14 @@
 #include <variant>
 #include <vector>
 
+//! The main and only SVG generation library namespace
 namespace svg {
 
+/*!
+ * Represents <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions">point
+ * on grid</a>
+ */
 struct Point {
   Point() = default;
   Point(double x, double y) : x(x), y(y) {}
@@ -22,6 +28,10 @@ struct Point {
   double y = 0;
 };
 
+/*!
+ * Defines <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba">color</a>
+ */
 struct Rgb {
   Rgb() = default;
   Rgb(uint8_t r, uint8_t g, uint8_t b) : red{r}, green{g}, blue{b} {}
@@ -30,6 +40,10 @@ struct Rgb {
   uint8_t blue{0};
 };
 
+/*!
+ * Defines <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba">color</a>
+ */
 struct Rgba {
   Rgba() = default;
   Rgba(uint8_t r, uint8_t g, uint8_t b, double a)
@@ -40,12 +54,20 @@ struct Rgba {
   double opacity{1.0};
 };
 
+/*!
+ * Represents <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap">stroke-linecap</a>
+ */
 enum class StrokeLineCap {
   BUTT,
   ROUND,
   SQUARE,
 };
 
+/*!
+ * Represents <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linejoin">stroke-linejoin</a>
+ */
 enum class StrokeLineJoin {
   ARCS,
   BEVEL,
@@ -54,12 +76,18 @@ enum class StrokeLineJoin {
   ROUND,
 };
 
+/*!
+ * Maps StrokeLineCap value to string while outputting to std::ostream
+ */
 const std::unordered_map<StrokeLineCap, std::string> LineCapStr = {
     {StrokeLineCap::BUTT, "butt"},
     {StrokeLineCap::ROUND, "round"},
     {StrokeLineCap::SQUARE, "square"},
 };
 
+/*!
+ * Maps StrokeLineJoin value to string while outputting to std::ostream
+ */
 const std::unordered_map<StrokeLineJoin, std::string> LineJoinStr = {
     {StrokeLineJoin::MITER, "miter"},
     {StrokeLineJoin::MITER_CLIP, "miter-clip"},
@@ -68,6 +96,9 @@ const std::unordered_map<StrokeLineJoin, std::string> LineJoinStr = {
     {StrokeLineJoin::ARCS, "arcs"},
 };
 
+/*!
+ * Symbols to be replaced in Text content
+ */
 const std::unordered_map<char, std::string> SymbolsToReplace = {
     {'\"', "&quot;"}, {'\'', "&apos;"}, {'<', "&lt;"},
     {'>', "&gt;"},    {'&', "&amp;"},
@@ -82,6 +113,7 @@ std::ostream &operator<<(std::ostream &out, const svg::Rgb &rgb);
 std::ostream &operator<<(std::ostream &out, const svg::Rgba &rgba);
 std::ostream &operator<<(std::ostream &out, const svg::Color &color);
 
+//! Used to store and print indentation in render calls
 struct RenderContext {
   RenderContext(std::ostream &out) : out(out) {}
   RenderContext(std::ostream &out, int indent_step, int indent = 0)
@@ -91,10 +123,13 @@ struct RenderContext {
   void RenderIndent() const;
 
   std::ostream &out;
-  int indent_step{0};
+  int indent_step{2};
   int indent{0};
 };
 
+/*!
+ * Interface of any SVG object
+ */
 class Object {
 public:
   virtual void Render(const RenderContext &context) const;
@@ -104,6 +139,10 @@ private:
   virtual void RenderObject(const RenderContext &context) const = 0;
 };
 
+/*!
+ *  Abstract class, that is used as interface of objects container
+ *  (not necessarily related to SVG)
+ */
 class ObjectContainer {
 public:
   template <typename T> void Add(T obj);
@@ -114,12 +153,19 @@ protected:
   std::vector<std::unique_ptr<Object>> objects_;
 };
 
+/*!
+ * Interface of drawable object (not necessarily related to SVG)
+ */
 class Drawable {
 public:
   virtual void Draw(ObjectContainer &container) const = 0;
   virtual ~Drawable() = default;
 };
 
+/*!
+ * Used to convert various color types into string (via std::visit)
+ * while outputting to std::ostream
+ */
 template <typename OutStream> struct ColorPrinter {
 public:
   explicit ColorPrinter(OutStream &out) : out_{out} {}
@@ -132,6 +178,9 @@ private:
   OutStream &out_;
 };
 
+/*!
+ * Used to set, store and print various fill & stroke properties
+ */
 template <typename Owner> class PathProps {
 public:
   Owner &SetFillColor(Color color);
@@ -154,6 +203,10 @@ private:
   Owner &AsOwner();
 };
 
+/*!
+ * Represents <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle">circle</a>
+ */
 class Circle final : public Object, public PathProps<Circle> {
 public:
   Circle &SetCenter(Point center);
@@ -166,6 +219,10 @@ private:
   double radius_ = 1.0;
 };
 
+/*!
+ * Represents <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polyline">polyline</a>
+ */
 class Polyline final : public Object, public PathProps<Polyline> {
 public:
   Polyline &AddPoint(Point point);
@@ -175,6 +232,10 @@ private:
   void RenderObject(const RenderContext &context) const override;
 };
 
+/*!
+ * Represents <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text">text</a>
+ */
 class Text final : public Object, public PathProps<Text> {
 public:
   Text &SetPosition(Point pos);
@@ -195,6 +256,10 @@ private:
   void RenderObject(const RenderContext &context) const override;
 };
 
+/*!
+ * Represents final SVG picture, aka composition containing all
+ * previously created objects
+ */
 class Document : public ObjectContainer {
 public:
   void AddPtr(std::unique_ptr<Object> &&obj);

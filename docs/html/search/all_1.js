@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['catalogue_5f_0',['catalogue_',['../classJsonReader.html#ac5b6130989b8d8fd2933c9618fbd71cb',1,'JsonReader::catalogue_()'],['../classRequestHandler.html#a985ca1af315578d4995288ad1e9c7428',1,'RequestHandler::catalogue_()']]],
-  ['catalogueinserter_1',['CatalogueInserter',['../structJsonReader_1_1CatalogueInserter.html',1,'JsonReader']]],
-  ['charstoreplace_2',['CharsToReplace',['../namespacejson.html#aae71aa8a3e2998dcb82942a1ec5874e6',1,'json']]],
-  ['circle_3',['Circle',['../classsvg_1_1Circle.html',1,'svg']]],
-  ['clear_4',['Clear',['../classJsonReader.html#a3a724bf5780d4e3d3825459ab3862085',1,'JsonReader::Clear()'],['../classRequestHandler.html#a4a99d3b8703657092bf7d57a7abbd4af',1,'RequestHandler::Clear()']]],
-  ['color_5fpalette_5',['color_palette',['../structMapRenderer_1_1RenderSettings.html#a1d73cfe0edc3cb6a9b064904aac9cf2a',1,'MapRenderer::RenderSettings']]],
-  ['colorprinter_6',['ColorPrinter',['../structsvg_1_1ColorPrinter.html',1,'svg']]],
-  ['computedistance_7',['ComputeDistance',['../namespacegeo.html#a23151a9f4e0f37c384dd4ae5005acb14',1,'geo']]],
-  ['coordinates_8',['Coordinates',['../structgeo_1_1Coordinates.html',1,'geo']]]
+  ['builder_0',['Builder',['../classjson_1_1Builder.html',1,'json']]],
+  ['bus_1',['Bus',['../structDataStorage_1_1Bus.html',1,'DataStorage::Bus'],['../structInputInfo_1_1Bus.html',1,'InputInfo::Bus']]],
+  ['bus_5flabel_5ffont_5fsize_2',['bus_label_font_size',['../structMapRenderer_1_1RenderSettings.html#a65e045dcc4dc505f79e02e498ab8b62e',1,'MapRenderer::RenderSettings']]],
+  ['bus_5flabel_5foffset_3',['bus_label_offset',['../structMapRenderer_1_1RenderSettings.html#a1759154c1c974a0084e30787d6d43a79',1,'MapRenderer::RenderSettings']]],
+  ['buses_5finput_5fqueue_5f_4',['buses_input_queue_',['../classJsonReader.html#ac60eb31813cdfc95cdac717e50621609',1,'JsonReader']]],
+  ['businsert_5',['BusInsert',['../structJsonReader_1_1RequestTypes_1_1BusInsert.html',1,'JsonReader::RequestTypes']]],
+  ['busstats_6',['BusStats',['../structDataStorage_1_1BusStats.html',1,'DataStorage']]]
 ];

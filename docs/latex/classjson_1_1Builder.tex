@@ -1,0 +1,59 @@
+\hypertarget{classjson_1_1Builder}{}\doxysection{json\+::Builder Class Reference}
+\label{classjson_1_1Builder}\index{json::Builder@{json::Builder}}
+
+
+Handy type used to construct JSON via method chaining approach.  
+
+
+
+
+{\ttfamily \#include $<$json\+\_\+builder.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_acb2244daff3f8ca2f84ac5254856fa3a}\label{classjson_1_1Builder_acb2244daff3f8ca2f84ac5254856fa3a}} 
+\mbox{\hyperlink{structjson_1_1ValueContext}{Value\+Context}} {\bfseries Value} (Node\+::\+Value val)
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_a481e32d53590e5410f54ae8d72ea65e1}\label{classjson_1_1Builder_a481e32d53590e5410f54ae8d72ea65e1}} 
+\mbox{\hyperlink{structjson_1_1MapKeyContext}{Map\+Key\+Context}} {\bfseries Key} (std\+::string key)
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_a8af422e6ab8162b9168fa942dbacd2c4}\label{classjson_1_1Builder_a8af422e6ab8162b9168fa942dbacd2c4}} 
+\mbox{\hyperlink{structjson_1_1MapItemContext}{Map\+Item\+Context}} {\bfseries Start\+Dict} ()
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_aaf3df64c032cd8f5bc32dcbc73e8bec3}\label{classjson_1_1Builder_aaf3df64c032cd8f5bc32dcbc73e8bec3}} 
+\mbox{\hyperlink{structjson_1_1ArrayItemContext}{Array\+Item\+Context}} {\bfseries Start\+Array} ()
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_a875e81526cb1c18612ad81f6d9a6b5d0}\label{classjson_1_1Builder_a875e81526cb1c18612ad81f6d9a6b5d0}} 
+\mbox{\hyperlink{structjson_1_1ValueContext}{Value\+Context}} {\bfseries End\+Dict} ()
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_a9e5a3dd6c4e6ce4bd333a9d3c684eabd}\label{classjson_1_1Builder_a9e5a3dd6c4e6ce4bd333a9d3c684eabd}} 
+\mbox{\hyperlink{structjson_1_1ValueContext}{Value\+Context}} {\bfseries End\+Array} ()
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_a16fdfb306a8c9cd5c4a79cab860d854c}\label{classjson_1_1Builder_a16fdfb306a8c9cd5c4a79cab860d854c}} 
+\mbox{\hyperlink{classjson_1_1Node}{Node}} {\bfseries Build} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_acc7bd52c4a24979d9712bd5194072dea}\label{classjson_1_1Builder_acc7bd52c4a24979d9712bd5194072dea}} 
+bool {\bfseries builder\+\_\+empty\+\_\+} \{true\}
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_a706028d04f8c41da092e069a3b5428d0}\label{classjson_1_1Builder_a706028d04f8c41da092e069a3b5428d0}} 
+std\+::optional$<$ std\+::string $>$ {\bfseries curr\+\_\+map\+\_\+key\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_a0fb69033e4f83b004f75ee64c1ace45f}\label{classjson_1_1Builder_a0fb69033e4f83b004f75ee64c1ace45f}} 
+\mbox{\hyperlink{classjson_1_1Node}{Node}} {\bfseries root\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classjson_1_1Builder_a37dd8944bd72b025b3ccb42963b25eec}\label{classjson_1_1Builder_a37dd8944bd72b025b3ccb42963b25eec}} 
+std\+::vector$<$ \mbox{\hyperlink{classjson_1_1Node}{Node}} $\ast$ $>$ {\bfseries nodes\+\_\+stack\+\_\+} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handy type used to construct JSON via method chaining approach. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+transport-\/catalogue/\mbox{\hyperlink{json__builder_8h}{json\+\_\+builder.\+h}}\item 
+transport-\/catalogue/json\+\_\+builder.\+cpp\end{DoxyCompactItemize}

@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['document_0',['Document',['../classjson_1_1Document.html',1,'json::Document'],['../classsvg_1_1Document.html',1,'svg::Document']]],
-  ['drawable_1',['Drawable',['../classsvg_1_1Drawable.html',1,'svg']]]
+  ['catalogueinserter_0',['CatalogueInserter',['../structJsonReader_1_1CatalogueInserter.html',1,'JsonReader']]],
+  ['circle_1',['Circle',['../classsvg_1_1Circle.html',1,'svg']]],
+  ['colorprinter_2',['ColorPrinter',['../structsvg_1_1ColorPrinter.html',1,'svg']]],
+  ['context_3',['Context',['../structjson_1_1Context.html',1,'json']]],
+  ['coordinates_4',['Coordinates',['../structgeo_1_1Coordinates.html',1,'geo']]]
 ];

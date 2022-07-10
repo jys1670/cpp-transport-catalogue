@@ -20,14 +20,14 @@ class \mbox{\hyperlink{classjson_1_1ParsingError}{json\+::\+Parsing\+Error}}
 struct \mbox{\hyperlink{structjson_1_1PrintContext}{json\+::\+Print\+Context}}
 \begin{DoxyCompactList}\small\item\em Used to store and print indentation in recursive print calls. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}}
-\begin{DoxyCompactList}\small\item\em Runtime polymorphic type representing \href{https://en.wikipedia.org/wiki/JSON\#Data_types}{\texttt{ JSON basic data types}} \end{DoxyCompactList}\item 
+\item 
 class \mbox{\hyperlink{classjson_1_1Document}{json\+::\+Document}}
 \begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{classjson_1_1Node}{Node}}, which stores \mbox{\hyperlink{classjson_1_1Node}{Node}} containing entire input data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacejson}{json}}
-\begin{DoxyCompactList}\small\item\em The main and only JSON read/write library namespace. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The main and only JSON create/read/write library namespace. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -72,7 +72,7 @@ void {\bfseries json\+::\+Print} (const Document \&doc, std\+::ostream \&output)
 const std\+::unordered\+\_\+set$<$ char $>$ {\bfseries json\+::\+Delimiters} = \{\textquotesingle{} \textquotesingle{}, \textquotesingle{}\textbackslash{}n\textquotesingle{}, \textquotesingle{}\textbackslash{}t\textquotesingle{}, \textquotesingle{}\textbackslash{}r\textquotesingle{}\}
 \begin{DoxyCompactList}\small\item\em Characters treated as delimiters when reading from input stream. \end{DoxyCompactList}\item 
 const std\+::unordered\+\_\+map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespacejson_aae71aa8a3e2998dcb82942a1ec5874e6}{json\+::\+Chars\+To\+Replace}}
-\begin{DoxyCompactList}\small\item\em Characters replaced by \mbox{\hyperlink{namespacejson_a864be03ac2692ea95acac809b7de107f}{Print\+Value(const std\+::string \&str, const Print\+Context \&ctx)}} during printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

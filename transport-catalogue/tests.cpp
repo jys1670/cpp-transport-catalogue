@@ -5,7 +5,7 @@
 
 void CheckTwoNodes(const json::Node &n1, const json::Node &n2,
                    std::string_view comment = "") {
-  if (n1.GetValue().index() != n2.GetValue().index()) {
+  if (n1.GetConstValue().index() != n2.GetConstValue().index()) {
     throw std::runtime_error("Nodes must hold the same type");
   }
   if (n1.IsMap()) {

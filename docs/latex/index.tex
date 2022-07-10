@@ -1,6 +1,29 @@
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
- This repository is a simple implementation of information storage, which can potentially be used in some kind of routing process. As of now, there is only JSON interface capable of printing/visualizing stops and routes information\+:
+ This repository is a simple implementation of information storage, which can potentially be used in some kind of navigation process. As of now, there is only JSON interface capable of printing/visualizing stops and routes information.
+
+{\bfseries{Building\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone https://github.com/jys1670/cpp-\/transport-\/catalogue.git}
+\DoxyCodeLine{cd cpp-\/transport-\/catalogue}
+\DoxyCodeLine{mkdir build \&\& cd build}
+\DoxyCodeLine{cmake ..}
+\DoxyCodeLine{make}
+\DoxyCodeLine{\# To run }
+\DoxyCodeLine{./transport-\/catalogue}
+
+\end{DoxyCode}
+
+
+{\bfseries{Example usage\+:}}
+
+
+\begin{DoxyItemize}
+\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/tests/2.json}{\texttt{ Input request (2)}}, which adds some objects to database and asks to print corresponding map
+\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/tests/2a.json}{\texttt{ Answer (2)}}, containing SVG map as string
+\end{DoxyItemize}
 
 \hypertarget{index_autotoc_md1}{}\doxysubsection{Documentation}\label{index_autotoc_md1}
 

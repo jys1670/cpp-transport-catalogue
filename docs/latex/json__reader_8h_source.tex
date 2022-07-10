@@ -50,7 +50,7 @@
 \DoxyCodeLine{87     \};}
 \DoxyCodeLine{88   \};}
 \DoxyCodeLine{89 }
-\DoxyCodeLine{91   \textcolor{keyword}{using} \mbox{\hyperlink{classJsonReader_af3391d88f15387e0cd6f5109aeccd26c}{InputQueue}} =}
+\DoxyCodeLine{91   \textcolor{keyword}{using }\mbox{\hyperlink{classJsonReader_af3391d88f15387e0cd6f5109aeccd26c}{InputQueue}} =}
 \DoxyCodeLine{92       std::variant<\mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1StopInsert}{RequestTypes::StopInsert}}, \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1StopLinkInsert}{RequestTypes::StopLinkInsert}},}
 \DoxyCodeLine{93                    \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1BusInsert}{RequestTypes::BusInsert}}>;}
 \DoxyCodeLine{94 }
@@ -60,7 +60,7 @@
 \DoxyCodeLine{102     \textcolor{keywordtype}{void} operator()(std::string\_view type, \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
 \DoxyCodeLine{103 }
 \DoxyCodeLine{104   \textcolor{keyword}{private}:}
-\DoxyCodeLine{105     \textcolor{keyword}{using} FunctionPtr = void (\mbox{\hyperlink{structJsonReader_1_1JsonInputParse}{JsonInputParse}}::*)(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&);}
+\DoxyCodeLine{105     \textcolor{keyword}{using }FunctionPtr = void (\mbox{\hyperlink{structJsonReader_1_1JsonInputParse}{JsonInputParse}}::*)(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&);}
 \DoxyCodeLine{108     \textcolor{keyword}{static} std::unordered\_map<std::string\_view, FunctionPtr> \mbox{\hyperlink{structJsonReader_1_1JsonInputParse_a068c4c47ee1dc3b4c9d99f5e8da887c9}{handlers\_}};}
 \DoxyCodeLine{109     \mbox{\hyperlink{classJsonReader}{JsonReader}} \&parent\_;}
 \DoxyCodeLine{110     \textcolor{keywordtype}{void} EnqueueBus(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
@@ -69,12 +69,12 @@
 \DoxyCodeLine{113 }
 \DoxyCodeLine{118   \textcolor{keyword}{struct }\mbox{\hyperlink{structJsonReader_1_1JsonPrintParse}{JsonPrintParse}} \{}
 \DoxyCodeLine{119   \textcolor{keyword}{public}:}
-\DoxyCodeLine{120     \textcolor{keyword}{using} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{RequestTypes}} = \mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{RequestHandler::RequestTypes}};}
+\DoxyCodeLine{120     \textcolor{keyword}{using }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{RequestTypes}} = \mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{RequestHandler::RequestTypes}};}
 \DoxyCodeLine{121     \textcolor{keyword}{explicit} \mbox{\hyperlink{structJsonReader_1_1JsonPrintParse}{JsonPrintParse}}(\mbox{\hyperlink{classRequestHandler}{RequestHandler}} \&parent) : parent\_\{parent\} \{\};}
 \DoxyCodeLine{122     \textcolor{keywordtype}{void} operator()(std::string\_view type, \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
 \DoxyCodeLine{123 }
 \DoxyCodeLine{124   \textcolor{keyword}{private}:}
-\DoxyCodeLine{125     \textcolor{keyword}{using} FunctionPtr = void (\mbox{\hyperlink{structJsonReader_1_1JsonPrintParse}{JsonPrintParse}}::*)(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&);}
+\DoxyCodeLine{125     \textcolor{keyword}{using }FunctionPtr = void (\mbox{\hyperlink{structJsonReader_1_1JsonPrintParse}{JsonPrintParse}}::*)(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&);}
 \DoxyCodeLine{126     \textcolor{keyword}{static} std::unordered\_map<std::string\_view, FunctionPtr> handlers\_;}
 \DoxyCodeLine{127     \mbox{\hyperlink{classRequestHandler}{RequestHandler}} \&parent\_;}
 \DoxyCodeLine{128     \textcolor{keywordtype}{void} EnqueueBus(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}

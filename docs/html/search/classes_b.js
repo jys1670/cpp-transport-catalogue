@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['updatemaprendersettings_0',['UpdateMapRenderSettings',['../structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings.html',1,'RequestHandler::RequestTypes']]]
+  ['text_0',['Text',['../classsvg_1_1Text.html',1,'svg']]],
+  ['transportcatalogue_1',['TransportCatalogue',['../classTransportCatalogue.html',1,'']]]
 ];

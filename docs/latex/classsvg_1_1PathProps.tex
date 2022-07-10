@@ -1,5 +1,14 @@
 \hypertarget{classsvg_1_1PathProps}{}\doxysection{svg\+::Path\+Props\texorpdfstring{$<$}{<} Owner \texorpdfstring{$>$}{>} Class Template Reference}
 \label{classsvg_1_1PathProps}\index{svg::PathProps$<$ Owner $>$@{svg::PathProps$<$ Owner $>$}}
+
+
+Used to set, store and print various fill \& stroke properties.  
+
+
+
+
+{\ttfamily \#include $<$svg.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,10 +22,10 @@ Owner \& {\bfseries Set\+Stroke\+Color} (Color color)
 Owner \& {\bfseries Set\+Stroke\+Width} (double width)
 \item 
 \mbox{\Hypertarget{classsvg_1_1PathProps_a4f2fe57b73cad165090d87d43758ad68}\label{classsvg_1_1PathProps_a4f2fe57b73cad165090d87d43758ad68}} 
-Owner \& {\bfseries Set\+Stroke\+Line\+Cap} (Stroke\+Line\+Cap line\+\_\+cap)
+Owner \& {\bfseries Set\+Stroke\+Line\+Cap} (\mbox{\hyperlink{namespacesvg_a21f42dde5a2566f4c2e98f797b2e153f}{Stroke\+Line\+Cap}} line\+\_\+cap)
 \item 
 \mbox{\Hypertarget{classsvg_1_1PathProps_aaee06c835dfe7819acae8e9455ebf6f6}\label{classsvg_1_1PathProps_aaee06c835dfe7819acae8e9455ebf6f6}} 
-Owner \& {\bfseries Set\+Stroke\+Line\+Join} (Stroke\+Line\+Join line\+\_\+join)
+Owner \& {\bfseries Set\+Stroke\+Line\+Join} (\mbox{\hyperlink{namespacesvg_ad7675c58b09137b9d67bbfc53c8f68b9}{Stroke\+Line\+Join}} line\+\_\+join)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -43,12 +52,17 @@ std\+::optional$<$ Color $>$ {\bfseries stroke\+\_\+color\+\_\+} = std\+::nullop
 std\+::optional$<$ double $>$ {\bfseries stroke\+\_\+width\+\_\+} = std\+::nullopt
 \item 
 \mbox{\Hypertarget{classsvg_1_1PathProps_a592d853e4eec00ca35452f33242ed467}\label{classsvg_1_1PathProps_a592d853e4eec00ca35452f33242ed467}} 
-std\+::optional$<$ Stroke\+Line\+Cap $>$ {\bfseries stroke\+\_\+linecap\+\_\+} = std\+::nullopt
+std\+::optional$<$ \mbox{\hyperlink{namespacesvg_a21f42dde5a2566f4c2e98f797b2e153f}{Stroke\+Line\+Cap}} $>$ {\bfseries stroke\+\_\+linecap\+\_\+} = std\+::nullopt
 \item 
 \mbox{\Hypertarget{classsvg_1_1PathProps_ad1731bc9d6c1e2f17020e17dad175504}\label{classsvg_1_1PathProps_ad1731bc9d6c1e2f17020e17dad175504}} 
-std\+::optional$<$ Stroke\+Line\+Join $>$ {\bfseries stroke\+\_\+linejoin\+\_\+} = std\+::nullopt
+std\+::optional$<$ \mbox{\hyperlink{namespacesvg_ad7675c58b09137b9d67bbfc53c8f68b9}{Stroke\+Line\+Join}} $>$ {\bfseries stroke\+\_\+linejoin\+\_\+} = std\+::nullopt
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Owner$>$\newline
+class svg\+::\+Path\+Props$<$ Owner $>$}
+Used to set, store and print various fill \& stroke properties. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

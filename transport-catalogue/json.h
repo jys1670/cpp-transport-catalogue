@@ -12,7 +12,7 @@
 #include <variant>
 #include <vector>
 
-//! The main and only JSON read/write library namespace
+//! The main and only JSON create/read/write library namespace
 namespace json {
 
 class Node;
@@ -46,7 +46,8 @@ using Array = std::vector<Node>;
 //! Characters treated as delimiters when reading from input stream
 const std::unordered_set<char> Delimiters = {' ', '\n', '\t', '\r'};
 
-//! Characters replaced by PrintValue(const std::string &str, const PrintContext &ctx) during printing
+//! Characters replaced by PrintValue(const std::string &str, const PrintContext
+//! &ctx) during printing
 const std::unordered_map<char, std::string> CharsToReplace = {
     {'\n', R"(\n)"},
     {'\r', R"(\r)"},
@@ -58,7 +59,8 @@ Document Load(std::istream &input);
 
 /**
     \fn PrintValue(const Value &value, const PrintContext &ctx)
-    \details Prints whatever type with defined operator<<(std::basic_ostream) to ctx.out
+    \details Prints whatever type with defined operator<<(std::basic_ostream) to
+   ctx.out
  */
 template <typename Value>
 void PrintValue(const Value &value, const PrintContext &ctx) {
@@ -95,13 +97,16 @@ void PrintValue(const std::string &str, const PrintContext &ctx);
  */
 void PrintValue(const bool &bl, const PrintContext &ctx);
 
-//! \details Detects value type of node and calls appropriate print functions, could be recursive
+//! \details Detects value type of node and calls appropriate print functions,
+//! could be recursive
 void PrintNode(const Node &node, const PrintContext &ctx);
 
 //! Wrapper for PrintNode() that works with Document
 void Print(const Document &doc, std::ostream &output);
 
-//! Runtime polymorphic type representing <a href="https://en.wikipedia.org/wiki/JSON#Data_types">JSON basic data types</a>
+//! Runtime polymorphic type representing <a
+//! href="https://en.wikipedia.org/wiki/JSON#Data_types">JSON basic data
+//! types</a>
 class Node final : private std::variant<std::nullptr_t, Array, Dict, bool, int,
                                         double, std::string> {
 public:
@@ -109,6 +114,7 @@ public:
       std::variant<std::nullptr_t, Array, Dict, bool, int, double, std::string>;
   using variant::variant;
 
+  Node(Node::Value &&val);
   Node(const Document &doc);
 
   bool IsInt() const;
@@ -127,7 +133,8 @@ public:
   const Array &AsArray() const;
   const Dict &AsMap() const;
 
-  const Value &GetValue() const;
+  const Value &GetConstValue() const;
+  Value &GetValue();
 };
 
 //! Wrapper for Node, which stores Node containing entire input data

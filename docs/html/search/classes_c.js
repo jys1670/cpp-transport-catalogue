@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xml_0',['Xml',['../structOutputFormat_1_1Xml.html',1,'OutputFormat']]]
+  ['updatemaprendersettings_0',['UpdateMapRenderSettings',['../structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings.html',1,'RequestHandler::RequestTypes']]]
 ];

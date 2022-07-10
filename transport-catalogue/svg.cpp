@@ -5,8 +5,8 @@ namespace svg {
 using namespace std::literals;
 
 void Object::Render(const RenderContext &context) const {
-  context.RenderIndent();
   context.out << std::endl;
+  context.RenderIndent();
   RenderObject(context);
 }
 
@@ -118,7 +118,7 @@ void Document::Render(std::ostream &out) const {
   out << R"(<?xml version="1.0" encoding="UTF-8" ?>)" << '\n'
       << R"(<svg xmlns="http://www.w3.org/2000/svg" version="1.1">)";
   for (auto &obj : objects_) {
-    obj->Render({out});
+    obj->Render(RenderContext{out}.Indented());
   }
   out << '\n' << R"(</svg>)";
 }

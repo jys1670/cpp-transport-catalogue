@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['object_0',['Object',['../classsvg_1_1Object.html',1,'svg']]],
-  ['objectcontainer_1',['ObjectContainer',['../classsvg_1_1ObjectContainer.html',1,'svg']]],
-  ['outputformat_2',['OutputFormat',['../structOutputFormat.html',1,'']]],
-  ['outstream_5f_3',['outstream_',['../classRequestHandler.html#ae3815cd07c9153505cf7921aa18dd654',1,'RequestHandler']]]
+  ['neighbours_0',['neighbours',['../structInputInfo_1_1StopLink.html#a8b64d9a9dc52e5d9f8f081575fb4e73f',1,'InputInfo::StopLink']]],
+  ['node_1',['Node',['../classjson_1_1Node.html',1,'json']]]
 ];

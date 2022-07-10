@@ -1,0 +1,91 @@
+\hypertarget{json__builder_8h_source}{}\doxysection{json\+\_\+builder.\+h}
+\label{json__builder_8h_source}\index{transport-\/catalogue/json\_builder.h@{transport-\/catalogue/json\_builder.h}}
+\mbox{\hyperlink{json__builder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{json_8h}{json.h}}"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacejson}{json}} \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{struct }ValueContext;}
+\DoxyCodeLine{17 \textcolor{keyword}{struct }ArrayItemContext;}
+\DoxyCodeLine{18 \textcolor{keyword}{struct }MapKeyContext;}
+\DoxyCodeLine{19 \textcolor{keyword}{struct }MapItemContext;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{classjson_1_1Builder}{Builder}} \{}
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24   \mbox{\hyperlink{classjson_1_1Builder}{Builder}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}} Value(Node::Value val);}
+\DoxyCodeLine{27   \mbox{\hyperlink{structjson_1_1MapKeyContext}{MapKeyContext}} Key(std::string key);}
+\DoxyCodeLine{28   \mbox{\hyperlink{structjson_1_1MapItemContext}{MapItemContext}} StartDict();}
+\DoxyCodeLine{29   \mbox{\hyperlink{structjson_1_1ArrayItemContext}{ArrayItemContext}} StartArray();}
+\DoxyCodeLine{30   \mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}} EndDict();}
+\DoxyCodeLine{31   \mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}} EndArray();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33   \mbox{\hyperlink{classjson_1_1Node}{Node}} Build();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{private}:}
+\DoxyCodeLine{36   \textcolor{keywordtype}{bool} builder\_empty\_\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{37   std::optional<std::string> curr\_map\_key\_\{\};}
+\DoxyCodeLine{38   \mbox{\hyperlink{classjson_1_1Node}{Node}} root\_\{\};}
+\DoxyCodeLine{39   std::vector<Node *> nodes\_stack\_\{\};}
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{43 \textcolor{keyword}{struct }\mbox{\hyperlink{structjson_1_1Context}{Context}} \{}
+\DoxyCodeLine{44 \textcolor{keyword}{public}:}
+\DoxyCodeLine{45   \textcolor{keyword}{explicit} \mbox{\hyperlink{structjson_1_1Context}{Context}}(\mbox{\hyperlink{classjson_1_1Builder}{Builder}} *builder);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47   \mbox{\hyperlink{classjson_1_1Builder}{Builder}} *builder\_;}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{51 \textcolor{keyword}{struct }\mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}} : \mbox{\hyperlink{structjson_1_1Context}{Context}} \{}
+\DoxyCodeLine{52   \textcolor{keyword}{explicit} \mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}}(\mbox{\hyperlink{classjson_1_1Builder}{Builder}} *builder);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54   \mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}} Value(Node::Value val);}
+\DoxyCodeLine{55   \mbox{\hyperlink{structjson_1_1MapKeyContext}{MapKeyContext}} Key(std::string key);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57   \mbox{\hyperlink{structjson_1_1MapItemContext}{MapItemContext}} StartDict();}
+\DoxyCodeLine{58   \mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}} EndDict();}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   \mbox{\hyperlink{structjson_1_1ArrayItemContext}{ArrayItemContext}} StartArray();}
+\DoxyCodeLine{61   \mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}} EndArray();}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63   \mbox{\hyperlink{classjson_1_1Node}{Node}} Build();}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{67 \textcolor{keyword}{struct }\mbox{\hyperlink{structjson_1_1MapKeyContext}{MapKeyContext}} : \mbox{\hyperlink{structjson_1_1Context}{Context}} \{}
+\DoxyCodeLine{68   \textcolor{keyword}{explicit} \mbox{\hyperlink{structjson_1_1MapKeyContext}{MapKeyContext}}(\mbox{\hyperlink{classjson_1_1Builder}{Builder}} *builder);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70   \mbox{\hyperlink{structjson_1_1MapItemContext}{MapItemContext}} Value(Node::Value val);}
+\DoxyCodeLine{71   \mbox{\hyperlink{structjson_1_1MapItemContext}{MapItemContext}} StartDict();}
+\DoxyCodeLine{72   \mbox{\hyperlink{structjson_1_1ArrayItemContext}{ArrayItemContext}} StartArray();}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{76 \textcolor{keyword}{struct }\mbox{\hyperlink{structjson_1_1MapItemContext}{MapItemContext}} : \mbox{\hyperlink{structjson_1_1Context}{Context}} \{}
+\DoxyCodeLine{77   \textcolor{keyword}{explicit} \mbox{\hyperlink{structjson_1_1MapItemContext}{MapItemContext}}(\mbox{\hyperlink{classjson_1_1Builder}{Builder}} *builder);}
+\DoxyCodeLine{78   \textcolor{keyword}{explicit} \mbox{\hyperlink{structjson_1_1MapItemContext}{MapItemContext}}(\mbox{\hyperlink{structjson_1_1Context}{Context}} ctx);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80   \mbox{\hyperlink{structjson_1_1MapKeyContext}{MapKeyContext}} Key(std::string key);}
+\DoxyCodeLine{81   \mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}} EndDict();}
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{85 \textcolor{keyword}{struct }\mbox{\hyperlink{structjson_1_1ArrayItemContext}{ArrayItemContext}} : \mbox{\hyperlink{structjson_1_1Context}{Context}} \{}
+\DoxyCodeLine{86   \textcolor{keyword}{explicit} \mbox{\hyperlink{structjson_1_1ArrayItemContext}{ArrayItemContext}}(\mbox{\hyperlink{classjson_1_1Builder}{Builder}} *builder);}
+\DoxyCodeLine{87   \textcolor{keyword}{explicit} \mbox{\hyperlink{structjson_1_1ArrayItemContext}{ArrayItemContext}}(\mbox{\hyperlink{structjson_1_1Context}{Context}} ctx);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89   \mbox{\hyperlink{structjson_1_1ArrayItemContext}{ArrayItemContext}} Value(Node::Value val);}
+\DoxyCodeLine{90   \mbox{\hyperlink{structjson_1_1MapItemContext}{MapItemContext}} StartDict();}
+\DoxyCodeLine{91   \mbox{\hyperlink{structjson_1_1ArrayItemContext}{ArrayItemContext}} StartArray();}
+\DoxyCodeLine{92   \mbox{\hyperlink{structjson_1_1ValueContext}{ValueContext}} EndArray();}
+\DoxyCodeLine{93 \};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \} \textcolor{comment}{// namespace json}}
+
+\end{DoxyCode}

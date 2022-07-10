@@ -10,7 +10,7 @@ set(SAVE_TEMP_FILES false)
 # Multithreading
 add_compile_options(-pthread)
 
-set(CMAKE_CXX_FLAGS_DEBUG "-gdwarf-4 -O0 -fno-inline -fdiagnostics-color -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -fno-inline -fdiagnostics-color -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0")
 
 if((ENABLE_WARNINGS_AS_ERRORS) AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
         message("WARNINGS as errors enabled")
@@ -18,8 +18,8 @@ if((ENABLE_WARNINGS_AS_ERRORS) AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
 endif()
 
 if((ENABLE_STDLIB_DEBUG_MACROS) AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
-        message("STDLIB debugging enabled")
-        add_compile_definitions("_GLIBCXX_DEBUG _GLIBCXX_DEBUG_PEDANTIC")
+        message("LIBSTDC++ debugging enabled")
+        add_compile_options(-D_GLIBCXX_DEBUG)
 endif()
 
 if((ENABLE_SANITIZERS) AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
@@ -41,7 +41,8 @@ if(SAVE_TEMP_FILES)
 endif()
 
 if(NOT CMAKE_BUILD_TYPE)
-        message( FATAL_ERROR "Choose a build type" )
+        message( "Build type was not specified ~ assuming Release" )
+        set(CMAKE_BUILD_TYPE "Release")
 endif(NOT CMAKE_BUILD_TYPE)
 
 

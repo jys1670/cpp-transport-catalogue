@@ -17,48 +17,53 @@ Scalable Vector Graphics (SVG) generation library.
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structsvg_1_1Point}{svg\+::\+Point}}
-\item 
+\begin{DoxyCompactList}\small\item\em Represents \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions}{\texttt{ point on grid}} \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structsvg_1_1Rgb}{svg\+::\+Rgb}}
-\item 
+\begin{DoxyCompactList}\small\item\em Defines \href{https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba}{\texttt{ color}} \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structsvg_1_1Rgba}{svg\+::\+Rgba}}
-\item 
+\begin{DoxyCompactList}\small\item\em Defines \href{https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba}{\texttt{ color}} \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structsvg_1_1RenderContext}{svg\+::\+Render\+Context}}
-\item 
+\begin{DoxyCompactList}\small\item\em Used to store and print indentation in render calls. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classsvg_1_1Object}{svg\+::\+Object}}
-\item 
+\begin{DoxyCompactList}\small\item\em Interface of any SVG object. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classsvg_1_1ObjectContainer}{svg\+::\+Object\+Container}}
-\item 
+\begin{DoxyCompactList}\small\item\em Abstract class, that is used as interface of objects container (not necessarily related to SVG) \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classsvg_1_1Drawable}{svg\+::\+Drawable}}
-\item 
+\begin{DoxyCompactList}\small\item\em Interface of drawable object (not necessarily related to SVG) \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structsvg_1_1ColorPrinter}{svg\+::\+Color\+Printer$<$ Out\+Stream $>$}}
-\item 
+\begin{DoxyCompactList}\small\item\em Used to convert various color types into string (via std\+::visit) while outputting to std\+::ostream. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classsvg_1_1PathProps}{svg\+::\+Path\+Props$<$ Owner $>$}}
-\item 
+\begin{DoxyCompactList}\small\item\em Used to set, store and print various fill \& stroke properties. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classsvg_1_1Circle}{svg\+::\+Circle}}
-\item 
+\begin{DoxyCompactList}\small\item\em Represents \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle}{\texttt{ circle}} \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classsvg_1_1Polyline}{svg\+::\+Polyline}}
-\item 
+\begin{DoxyCompactList}\small\item\em Represents \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polyline}{\texttt{ polyline}} \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classsvg_1_1Text}{svg\+::\+Text}}
-\item 
+\begin{DoxyCompactList}\small\item\em Represents \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text}{\texttt{ text}} \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classsvg_1_1Document}{svg\+::\+Document}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Represents final SVG picture, aka composition containing all previously created objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesvg}{svg}}
+\begin{DoxyCompactList}\small\item\em The main and only SVG generation library namespace. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{svg_8h_ab78e2fbeffad97df2b5e8ae9f9b87452}\label{svg_8h_ab78e2fbeffad97df2b5e8ae9f9b87452}} 
+\mbox{\Hypertarget{namespacesvg_ab78e2fbeffad97df2b5e8ae9f9b87452}\label{namespacesvg_ab78e2fbeffad97df2b5e8ae9f9b87452}} 
 using {\bfseries svg\+::\+Color} = std\+::variant$<$ std\+::monostate, std\+::string, Rgb, Rgba $>$
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{svg_8h_a21f42dde5a2566f4c2e98f797b2e153f}\label{svg_8h_a21f42dde5a2566f4c2e98f797b2e153f}} 
-enum class {\bfseries Stroke\+Line\+Cap} \{ {\bfseries BUTT}
+\mbox{\Hypertarget{namespacesvg_a21f42dde5a2566f4c2e98f797b2e153f}\label{namespacesvg_a21f42dde5a2566f4c2e98f797b2e153f}} 
+enum class \mbox{\hyperlink{namespacesvg_a21f42dde5a2566f4c2e98f797b2e153f}{svg\+::\+Stroke\+Line\+Cap}} \{ {\bfseries BUTT}
 , {\bfseries ROUND}
 , {\bfseries SQUARE}
  \}
-\item 
-\mbox{\Hypertarget{svg_8h_ad7675c58b09137b9d67bbfc53c8f68b9}\label{svg_8h_ad7675c58b09137b9d67bbfc53c8f68b9}} 
-enum class {\bfseries Stroke\+Line\+Join} \{ \newline
+\begin{DoxyCompactList}\small\item\em Represents \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap}{\texttt{ stroke-\/linecap}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacesvg_ad7675c58b09137b9d67bbfc53c8f68b9}\label{namespacesvg_ad7675c58b09137b9d67bbfc53c8f68b9}} 
+enum class \mbox{\hyperlink{namespacesvg_ad7675c58b09137b9d67bbfc53c8f68b9}{svg\+::\+Stroke\+Line\+Join}} \{ \newline
 {\bfseries ARCS}
 , {\bfseries BEVEL}
 , {\bfseries MITER}
@@ -66,35 +71,35 @@ enum class {\bfseries Stroke\+Line\+Join} \{ \newline
 , \newline
 {\bfseries ROUND}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Represents \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linejoin}{\texttt{ stroke-\/linejoin}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{svg_8cpp_a07157fe0b9aab25f63ec35a16611fdc0}\label{svg_8cpp_a07157fe0b9aab25f63ec35a16611fdc0}} 
+\mbox{\Hypertarget{namespacesvg_a07157fe0b9aab25f63ec35a16611fdc0}\label{namespacesvg_a07157fe0b9aab25f63ec35a16611fdc0}} 
 std\+::ostream \& {\bfseries svg\+::operator$<$$<$} (std\+::ostream \&out, const Stroke\+Line\+Cap \&linecap)
 \item 
-\mbox{\Hypertarget{svg_8cpp_a11b0916da12242d9f1a197e87541ab71}\label{svg_8cpp_a11b0916da12242d9f1a197e87541ab71}} 
+\mbox{\Hypertarget{namespacesvg_a11b0916da12242d9f1a197e87541ab71}\label{namespacesvg_a11b0916da12242d9f1a197e87541ab71}} 
 std\+::ostream \& {\bfseries svg\+::operator$<$$<$} (std\+::ostream \&out, const Stroke\+Line\+Join \&linejoin)
 \item 
-\mbox{\Hypertarget{svg_8cpp_ab826e16ea14432ee3a7bc7a84e6d94c6}\label{svg_8cpp_ab826e16ea14432ee3a7bc7a84e6d94c6}} 
+\mbox{\Hypertarget{namespacesvg_ab826e16ea14432ee3a7bc7a84e6d94c6}\label{namespacesvg_ab826e16ea14432ee3a7bc7a84e6d94c6}} 
 std\+::ostream \& {\bfseries svg\+::operator$<$$<$} (std\+::ostream \&out, const Rgb \&rgb)
 \item 
-\mbox{\Hypertarget{svg_8cpp_a8297804b3a86513b5a710f826f8a8796}\label{svg_8cpp_a8297804b3a86513b5a710f826f8a8796}} 
+\mbox{\Hypertarget{namespacesvg_a8297804b3a86513b5a710f826f8a8796}\label{namespacesvg_a8297804b3a86513b5a710f826f8a8796}} 
 std\+::ostream \& {\bfseries svg\+::operator$<$$<$} (std\+::ostream \&out, const Rgba \&rgba)
 \item 
-\mbox{\Hypertarget{svg_8cpp_a8fdba2a5bb8736348b1cd20432343100}\label{svg_8cpp_a8fdba2a5bb8736348b1cd20432343100}} 
+\mbox{\Hypertarget{namespacesvg_a8fdba2a5bb8736348b1cd20432343100}\label{namespacesvg_a8fdba2a5bb8736348b1cd20432343100}} 
 std\+::ostream \& {\bfseries svg\+::operator$<$$<$} (std\+::ostream \&out, const Color \&color)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const std\+::unordered\+\_\+map$<$ Stroke\+Line\+Cap, std\+::string $>$ \mbox{\hyperlink{svg_8h_a892e9c24316f07f17df975a47fb69b6f}{svg\+::\+Line\+Cap\+Str}}
-\item 
-const std\+::unordered\+\_\+map$<$ Stroke\+Line\+Join, std\+::string $>$ \mbox{\hyperlink{svg_8h_ae18bff585c3881d264ed96df03609d5d}{svg\+::\+Line\+Join\+Str}}
-\item 
-const std\+::unordered\+\_\+map$<$ char, std\+::string $>$ \mbox{\hyperlink{svg_8h_a4fedc4f6b2ea45a12f2dc78fcb88e7f4}{svg\+::\+Symbols\+To\+Replace}}
-\item 
-\mbox{\Hypertarget{svg_8h_adab7b3271e9efddab6f044f9dfdc284a}\label{svg_8h_adab7b3271e9efddab6f044f9dfdc284a}} 
+const std\+::unordered\+\_\+map$<$ Stroke\+Line\+Cap, std\+::string $>$ \mbox{\hyperlink{namespacesvg_a892e9c24316f07f17df975a47fb69b6f}{svg\+::\+Line\+Cap\+Str}}
+\begin{DoxyCompactList}\small\item\em Maps Stroke\+Line\+Cap value to string while outputting to std\+::ostream. \end{DoxyCompactList}\item 
+const std\+::unordered\+\_\+map$<$ Stroke\+Line\+Join, std\+::string $>$ \mbox{\hyperlink{namespacesvg_ae18bff585c3881d264ed96df03609d5d}{svg\+::\+Line\+Join\+Str}}
+\begin{DoxyCompactList}\small\item\em Maps Stroke\+Line\+Join value to string while outputting to std\+::ostream. \end{DoxyCompactList}\item 
+const std\+::unordered\+\_\+map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespacesvg_a4fedc4f6b2ea45a12f2dc78fcb88e7f4}{svg\+::\+Symbols\+To\+Replace}}
+\begin{DoxyCompactList}\small\item\em Symbols to be replaced in \mbox{\hyperlink{classsvg_1_1Text}{Text}} content. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacesvg_adab7b3271e9efddab6f044f9dfdc284a}\label{namespacesvg_adab7b3271e9efddab6f044f9dfdc284a}} 
 const Color {\bfseries svg\+::\+None\+Color} \{\char`\"{}none\char`\"{}\}
 \end{DoxyCompactItemize}
 
@@ -102,52 +107,3 @@ const Color {\bfseries svg\+::\+None\+Color} \{\char`\"{}none\char`\"{}\}
 \doxysubsection{Detailed Description}
 Scalable Vector Graphics (SVG) generation library. 
 
-
-
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{svg_8h_a892e9c24316f07f17df975a47fb69b6f}\label{svg_8h_a892e9c24316f07f17df975a47fb69b6f}} 
-\index{svg.h@{svg.h}!LineCapStr@{LineCapStr}}
-\index{LineCapStr@{LineCapStr}!svg.h@{svg.h}}
-\doxysubsubsection{\texorpdfstring{LineCapStr}{LineCapStr}}
-{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$Stroke\+Line\+Cap, std\+::string$>$ svg\+::\+Line\+Cap\+Str}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{= \{}
-\DoxyCodeLine{    \{StrokeLineCap::BUTT, \textcolor{stringliteral}{"{}butt"{}}\},}
-\DoxyCodeLine{    \{StrokeLineCap::ROUND, \textcolor{stringliteral}{"{}round"{}}\},}
-\DoxyCodeLine{    \{StrokeLineCap::SQUARE, \textcolor{stringliteral}{"{}square"{}}\},}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-\mbox{\Hypertarget{svg_8h_ae18bff585c3881d264ed96df03609d5d}\label{svg_8h_ae18bff585c3881d264ed96df03609d5d}} 
-\index{svg.h@{svg.h}!LineJoinStr@{LineJoinStr}}
-\index{LineJoinStr@{LineJoinStr}!svg.h@{svg.h}}
-\doxysubsubsection{\texorpdfstring{LineJoinStr}{LineJoinStr}}
-{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$Stroke\+Line\+Join, std\+::string$>$ svg\+::\+Line\+Join\+Str}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{= \{}
-\DoxyCodeLine{    \{StrokeLineJoin::MITER, \textcolor{stringliteral}{"{}miter"{}}\},}
-\DoxyCodeLine{    \{StrokeLineJoin::MITER\_CLIP, \textcolor{stringliteral}{"{}miter-\/clip"{}}\},}
-\DoxyCodeLine{    \{StrokeLineJoin::ROUND, \textcolor{stringliteral}{"{}round"{}}\},}
-\DoxyCodeLine{    \{StrokeLineJoin::BEVEL, \textcolor{stringliteral}{"{}bevel"{}}\},}
-\DoxyCodeLine{    \{StrokeLineJoin::ARCS, \textcolor{stringliteral}{"{}arcs"{}}\},}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-\mbox{\Hypertarget{svg_8h_a4fedc4f6b2ea45a12f2dc78fcb88e7f4}\label{svg_8h_a4fedc4f6b2ea45a12f2dc78fcb88e7f4}} 
-\index{svg.h@{svg.h}!SymbolsToReplace@{SymbolsToReplace}}
-\index{SymbolsToReplace@{SymbolsToReplace}!svg.h@{svg.h}}
-\doxysubsubsection{\texorpdfstring{SymbolsToReplace}{SymbolsToReplace}}
-{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$char, std\+::string$>$ svg\+::\+Symbols\+To\+Replace}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{= \{}
-\DoxyCodeLine{    \{\textcolor{charliteral}{'\(\backslash\)"{}'}, \textcolor{stringliteral}{"{}\&quot;"{}}\}, \{\textcolor{charliteral}{'\(\backslash\)''}, \textcolor{stringliteral}{"{}\&apos;"{}}\}, \{\textcolor{charliteral}{'<'}, \textcolor{stringliteral}{"{}\&lt;"{}}\},}
-\DoxyCodeLine{    \{\textcolor{charliteral}{'>'}, \textcolor{stringliteral}{"{}\&gt;"{}}\},    \{\textcolor{charliteral}{'\&'}, \textcolor{stringliteral}{"{}\&amp;"{}}\},}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}

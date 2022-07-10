@@ -1,4 +1,5 @@
 #include "request_handler.h"
+#include "json_builder.h"
 
 void RequestHandler::InsertIntoQueue(ReqsQueue &&elem) {
   reqs_queue_.emplace_back(elem);
@@ -8,22 +9,30 @@ void RequestHandler::JsonPrint::operator()(
     const RequestHandler::RequestTypes::PrintBusStats &req) {
   auto bus_info = parent_.catalogue_.GetBusInfo(req.bus_name);
   if (bus_info) {
-    arr_.emplace_back(json::Node{
-        json::Dict{
-            {"curvature", bus_info->real_length / bus_info->direct_lenght},
-            {"request_id", req.id},
-            {"route_length", bus_info->real_length},
-            {"stop_count", int(bus_info->total_stops)},
-            {"unique_stop_count", int(bus_info->unique_stops.size())},
-        },
-    });
+    arr_.emplace_back(
+        json::Builder()
+            .StartDict()
+            .Key("curvature")
+            .Value(bus_info->real_length / bus_info->direct_lenght)
+            .Key("request_id")
+            .Value(req.id)
+            .Key("route_length")
+            .Value(bus_info->real_length)
+            .Key("stop_count")
+            .Value(static_cast<int>(bus_info->total_stops))
+            .Key("unique_stop_count")
+            .Value(static_cast<int>(bus_info->unique_stops.size()))
+            .EndDict()
+            .Build());
   } else {
-    arr_.emplace_back(json::Node{
-        json::Dict{
-            {"request_id", req.id},
-            {"error_message", "not found"},
-        },
-    });
+    arr_.emplace_back(json::Builder()
+                          .StartDict()
+                          .Key("request_id")
+                          .Value(req.id)
+                          .Key("error_message")
+                          .Value("not found")
+                          .EndDict()
+                          .Build());
   }
 }
 
@@ -32,10 +41,15 @@ void RequestHandler::JsonPrint::operator()(
   auto stop_info = parent_.catalogue_.GetStopInfo(req.stop_name);
   if (stop_info) {
     if (stop_info->linked_buses.empty()) {
-      arr_.emplace_back(json::Node{json::Dict{
-          {"buses", json::Array{}},
-          {"request_id", req.id},
-      }});
+      arr_.emplace_back(json::Builder()
+                            .StartDict()
+                            .Key("buses")
+                            .StartArray()
+                            .EndArray()
+                            .Key("request_id")
+                            .Value(req.id)
+                            .EndDict()
+                            .Build());
     } else {
       std::vector<DataStorage::Bus *> pbus_vec(stop_info->linked_buses.begin(),
                                                stop_info->linked_buses.end());
@@ -43,18 +57,26 @@ void RequestHandler::JsonPrint::operator()(
                 [](auto lhs, auto rhs) { return lhs->name < rhs->name; });
       json::Array buses;
       for (auto bus_ptr : pbus_vec) {
-        buses.push_back(bus_ptr->name);
+        buses.emplace_back(bus_ptr->name);
       }
-      arr_.emplace_back(json::Node{json::Dict{
-          {"buses", std::move(buses)},
-          {"request_id", req.id},
-      }});
+      arr_.emplace_back(json::Builder()
+                            .StartDict()
+                            .Key("buses")
+                            .Value(std::move(buses))
+                            .Key("request_id")
+                            .Value(req.id)
+                            .EndDict()
+                            .Build());
     }
   } else {
-    arr_.emplace_back(json::Node{json::Dict{
-        {"request_id", req.id},
-        {"error_message", "not found"},
-    }});
+    arr_.emplace_back(json::Builder()
+                          .StartDict()
+                          .Key("request_id")
+                          .Value(req.id)
+                          .Key("error_message")
+                          .Value("not found")
+                          .EndDict()
+                          .Build());
   }
 }
 
@@ -65,13 +87,15 @@ void RequestHandler::JsonPrint::operator()(
 
 void RequestHandler::JsonPrint::operator()(
     const RequestHandler::RequestTypes::PrintMap &req) {
-  arr_.emplace_back(json::Node{
-      json::Dict{
-          {"map",
-           json::Node(parent_.renderer_.RenderMap(parent_.GetCatalogueData()))},
-          {"request_id", req.id},
-      },
-  });
+  arr_.emplace_back(
+      json::Builder()
+          .StartDict()
+          .Key("map")
+          .Value(parent_.renderer_.RenderMap(parent_.GetCatalogueData()))
+          .Key("request_id")
+          .Value(req.id)
+          .EndDict()
+          .Build());
 }
 
 void RequestHandler::ProcessAllRequests(OutputFormat::Json) {

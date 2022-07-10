@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['datastorage_0',['DataStorage',['../namespaceDataStorage.html',1,'']]],
-  ['delimiters_1',['Delimiters',['../namespacejson.html#a7dfa1293b4f94c01b01bb22e3933d3e4',1,'json']]],
-  ['dict_2',['Dict',['../namespacejson.html#a14165bfd985e982794b3697b71cc4a01',1,'json']]],
-  ['document_3',['Document',['../classjson_1_1Document.html',1,'json::Document'],['../classsvg_1_1Document.html',1,'svg::Document']]],
-  ['domain_2eh_4',['domain.h',['../domain_8h.html',1,'']]],
-  ['drawable_5',['Drawable',['../classsvg_1_1Drawable.html',1,'svg']]]
+  ['catalogue_5f_0',['catalogue_',['../classJsonReader.html#ac5b6130989b8d8fd2933c9618fbd71cb',1,'JsonReader::catalogue_()'],['../classRequestHandler.html#a985ca1af315578d4995288ad1e9c7428',1,'RequestHandler::catalogue_()']]],
+  ['catalogueinserter_1',['CatalogueInserter',['../structJsonReader_1_1CatalogueInserter.html',1,'JsonReader']]],
+  ['charstoreplace_2',['CharsToReplace',['../namespacejson.html#aae71aa8a3e2998dcb82942a1ec5874e6',1,'json']]],
+  ['circle_3',['Circle',['../classsvg_1_1Circle.html',1,'svg']]],
+  ['clear_4',['Clear',['../classJsonReader.html#a3a724bf5780d4e3d3825459ab3862085',1,'JsonReader::Clear()'],['../classRequestHandler.html#a4a99d3b8703657092bf7d57a7abbd4af',1,'RequestHandler::Clear()']]],
+  ['color_5fpalette_5',['color_palette',['../structMapRenderer_1_1RenderSettings.html#a1d73cfe0edc3cb6a9b064904aac9cf2a',1,'MapRenderer::RenderSettings']]],
+  ['colorprinter_6',['ColorPrinter',['../structsvg_1_1ColorPrinter.html',1,'svg']]],
+  ['computedistance_7',['ComputeDistance',['../namespacegeo.html#a23151a9f4e0f37c384dd4ae5005acb14',1,'geo']]],
+  ['context_8',['Context',['../structjson_1_1Context.html',1,'json']]],
+  ['coordinates_9',['Coordinates',['../structgeo_1_1Coordinates.html',1,'geo']]]
 ];

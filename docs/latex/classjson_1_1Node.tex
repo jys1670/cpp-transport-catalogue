@@ -2,11 +2,6 @@
 \label{classjson_1_1Node}\index{json::Node@{json::Node}}
 
 
-Runtime polymorphic type representing \href{https://en.wikipedia.org/wiki/JSON\#Data_types}{\texttt{ JSON basic data types}}  
-
-
-
-
 {\ttfamily \#include $<$json.\+h$>$}
 
 Inheritance diagram for json\+::Node\+:\begin{figure}[H]
@@ -23,6 +18,9 @@ using {\bfseries Value} = std\+::variant$<$ std\+::nullptr\+\_\+t, Array, \mbox{
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classjson_1_1Node_affb98220e7a66eb4bb85e2a58a643d5c}\label{classjson_1_1Node_affb98220e7a66eb4bb85e2a58a643d5c}} 
+{\bfseries Node} (Node\+::\+Value \&\&val)
 \item 
 \mbox{\Hypertarget{classjson_1_1Node_af331672e06b8f885edb1384153596e1f}\label{classjson_1_1Node_af331672e06b8f885edb1384153596e1f}} 
 {\bfseries Node} (const \mbox{\hyperlink{classjson_1_1Document}{Document}} \&doc)
@@ -69,8 +67,11 @@ const Array \& {\bfseries As\+Array} () const
 \mbox{\Hypertarget{classjson_1_1Node_ae19da2defe217dd20a2ca32595f9d135}\label{classjson_1_1Node_ae19da2defe217dd20a2ca32595f9d135}} 
 const \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{Dict}} \& {\bfseries As\+Map} () const
 \item 
-\mbox{\Hypertarget{classjson_1_1Node_a7201377a4d60b8a2b93193693c6349ab}\label{classjson_1_1Node_a7201377a4d60b8a2b93193693c6349ab}} 
-const Value \& {\bfseries Get\+Value} () const
+\mbox{\Hypertarget{classjson_1_1Node_a0964df31c40a1a2ba01cdb7abc1f4fa2}\label{classjson_1_1Node_a0964df31c40a1a2ba01cdb7abc1f4fa2}} 
+const Value \& {\bfseries Get\+Const\+Value} () const
+\item 
+\mbox{\Hypertarget{classjson_1_1Node_acce36d142e863fdbceed922a3c39ef0d}\label{classjson_1_1Node_acce36d142e863fdbceed922a3c39ef0d}} 
+Value \& {\bfseries Get\+Value} ()
 \end{DoxyCompactItemize}
 
 

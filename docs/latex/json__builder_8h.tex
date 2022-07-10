@@ -1,0 +1,36 @@
+\hypertarget{json__builder_8h}{}\doxysection{transport-\/catalogue/json\+\_\+builder.h File Reference}
+\label{json__builder_8h}\index{transport-\/catalogue/json\_builder.h@{transport-\/catalogue/json\_builder.h}}
+
+
+Handy JSON generator using method chaining approach.  
+
+
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}json.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classjson_1_1Builder}{json\+::\+Builder}}
+\begin{DoxyCompactList}\small\item\em Handy type used to construct JSON via method chaining approach. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1Context}{json\+::\+Context}}
+\begin{DoxyCompactList}\small\item\em Stores common \mbox{\hyperlink{classjson_1_1Builder}{Builder}} for all available states. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1ValueContext}{json\+::\+Value\+Context}}
+\begin{DoxyCompactList}\small\item\em Represents state in which all \mbox{\hyperlink{classjson_1_1Builder}{Builder}} actions are allowed. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1MapKeyContext}{json\+::\+Map\+Key\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed after setting dictionary key. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1MapItemContext}{json\+::\+Map\+Item\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed after insertion of dictionary \{key, value\} pair. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1ArrayItemContext}{json\+::\+Array\+Item\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed inside of an array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacejson}{json}}
+\begin{DoxyCompactList}\small\item\em The main and only JSON create/read/write library namespace. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handy JSON generator using method chaining approach. 
+

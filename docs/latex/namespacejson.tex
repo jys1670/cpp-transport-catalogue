@@ -2,20 +2,32 @@
 \label{namespacejson}\index{json@{json}}
 
 
-The main and only JSON read/write library namespace.  
+The main and only JSON create/read/write library namespace.  
 
 
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+struct \mbox{\hyperlink{structjson_1_1ArrayItemContext}{Array\+Item\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed inside of an array. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classjson_1_1Builder}{Builder}}
+\begin{DoxyCompactList}\small\item\em Handy type used to construct JSON via method chaining approach. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1Context}{Context}}
+\begin{DoxyCompactList}\small\item\em Stores common \mbox{\hyperlink{classjson_1_1Builder}{Builder}} for all available states. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classjson_1_1Document}{Document}}
 \begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{classjson_1_1Node}{Node}}, which stores \mbox{\hyperlink{classjson_1_1Node}{Node}} containing entire input data. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1MapItemContext}{Map\+Item\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed after insertion of dictionary \{key, value\} pair. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1MapKeyContext}{Map\+Key\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed after setting dictionary key. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classjson_1_1Node}{Node}}
-\begin{DoxyCompactList}\small\item\em Runtime polymorphic type representing \href{https://en.wikipedia.org/wiki/JSON\#Data_types}{\texttt{ JSON basic data types}} \end{DoxyCompactList}\item 
+\item 
 class \mbox{\hyperlink{classjson_1_1ParsingError}{Parsing\+Error}}
 \item 
 struct \mbox{\hyperlink{structjson_1_1PrintContext}{Print\+Context}}
-\begin{DoxyCompactList}\small\item\em Used to store and print indentation in recursive print calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Used to store and print indentation in recursive print calls. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1ValueContext}{Value\+Context}}
+\begin{DoxyCompactList}\small\item\em Represents state in which all \mbox{\hyperlink{classjson_1_1Builder}{Builder}} actions are allowed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,11 +72,11 @@ void \mbox{\hyperlink{namespacejson_aa6d96f9c910a9df120d8b6a04a7d6d86}{Print\+Va
 const std\+::unordered\+\_\+set$<$ char $>$ {\bfseries Delimiters} = \{\textquotesingle{} \textquotesingle{}, \textquotesingle{}\textbackslash{}n\textquotesingle{}, \textquotesingle{}\textbackslash{}t\textquotesingle{}, \textquotesingle{}\textbackslash{}r\textquotesingle{}\}
 \begin{DoxyCompactList}\small\item\em Characters treated as delimiters when reading from input stream. \end{DoxyCompactList}\item 
 const std\+::unordered\+\_\+map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespacejson_aae71aa8a3e2998dcb82942a1ec5874e6}{Chars\+To\+Replace}}
-\begin{DoxyCompactList}\small\item\em Characters replaced by \mbox{\hyperlink{namespacejson_a864be03ac2692ea95acac809b7de107f}{Print\+Value(const std\+::string \&str, const Print\+Context \&ctx)}} during printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The main and only JSON read/write library namespace. 
+The main and only JSON create/read/write library namespace. 
 
 \doxysubsection{Typedef Documentation}
 \mbox{\Hypertarget{namespacejson_a14165bfd985e982794b3697b71cc4a01}\label{namespacejson_a14165bfd985e982794b3697b71cc4a01}} 
@@ -138,7 +150,4 @@ Prints \char`\"{}null\char`\"{} (string) to ctx.\+out
 \DoxyCodeLine{\textcolor{stringliteral}{\}}}
 
 \end{DoxyCode}
-
-
-Characters replaced by \mbox{\hyperlink{namespacejson_a864be03ac2692ea95acac809b7de107f}{Print\+Value(const std\+::string \&str, const Print\+Context \&ctx)}} during printing. 
-
+Characters replaced by \mbox{\hyperlink{namespacejson_a864be03ac2692ea95acac809b7de107f}{Print\+Value(const std\+::string \&str, const Print\+Context \&ctx)}} during printing 
