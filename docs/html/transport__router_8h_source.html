@@ -164,7 +164,7 @@ $(function() {
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it2 = next(it1); it2 != end; ++it2) {</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <span class="keyword">auto</span> norm_id = vertex_to_id_.at(Vertex().SetStop(*it1).SetWait(<span class="keyword">false</span>));</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>      <span class="keyword">auto</span> wait_id = vertex_to_id_.at(Vertex().SetStop(*it2).SetWait(<span class="keyword">true</span>));</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      <span class="keywordtype">size_t</span> stops_between = std::distance(it1, it2);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      <span class="keyword">auto</span> stops_between = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(std::distance(it1, it2));</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      <span class="keyword">auto</span> curr_dist =</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>          catalogue_.GetStopsRealDist((*prev(it2))-&gt;name, (*it2)-&gt;name).value();</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      tot_dist += curr_dist;</div>

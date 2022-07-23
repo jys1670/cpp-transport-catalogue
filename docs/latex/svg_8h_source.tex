@@ -18,7 +18,7 @@
 \DoxyCodeLine{19 }
 \DoxyCodeLine{25 \textcolor{keyword}{struct }\mbox{\hyperlink{structsvg_1_1Point}{Point}} \{}
 \DoxyCodeLine{26   \mbox{\hyperlink{structsvg_1_1Point}{Point}}() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{27   \mbox{\hyperlink{structsvg_1_1Point}{Point}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y) : x(x), y(y) \{\}}
+\DoxyCodeLine{27   \mbox{\hyperlink{structsvg_1_1Point}{Point}}(\textcolor{keywordtype}{double} xc, \textcolor{keywordtype}{double} yc) : x(xc), y(yc) \{\}}
 \DoxyCodeLine{28   \textcolor{keywordtype}{double} x = 0;}
 \DoxyCodeLine{29   \textcolor{keywordtype}{double} y = 0;}
 \DoxyCodeLine{30 \};}
@@ -84,9 +84,9 @@
 \DoxyCodeLine{115 std::ostream \&operator<<(std::ostream \&out, \textcolor{keyword}{const} svg::Color \&color);}
 \DoxyCodeLine{116 }
 \DoxyCodeLine{118 \textcolor{keyword}{struct }\mbox{\hyperlink{structsvg_1_1RenderContext}{RenderContext}} \{}
-\DoxyCodeLine{119   \mbox{\hyperlink{structsvg_1_1RenderContext}{RenderContext}}(std::ostream \&out) : out(out) \{\}}
-\DoxyCodeLine{120   \mbox{\hyperlink{structsvg_1_1RenderContext}{RenderContext}}(std::ostream \&out, \textcolor{keywordtype}{int} indent\_step, \textcolor{keywordtype}{int} indent = 0)}
-\DoxyCodeLine{121       : out(out), indent\_step(indent\_step), indent(indent) \{\}}
+\DoxyCodeLine{119   \mbox{\hyperlink{structsvg_1_1RenderContext}{RenderContext}}(std::ostream \&outs) : out(outs) \{\}}
+\DoxyCodeLine{120   \mbox{\hyperlink{structsvg_1_1RenderContext}{RenderContext}}(std::ostream \&outs, \textcolor{keywordtype}{int} ind\_step, \textcolor{keywordtype}{int} ind = 0)}
+\DoxyCodeLine{121       : out(outs), indent\_step(ind\_step), indent(ind) \{\}}
 \DoxyCodeLine{122 }
 \DoxyCodeLine{123   \mbox{\hyperlink{structsvg_1_1RenderContext}{RenderContext}} Indented() \textcolor{keyword}{const};}
 \DoxyCodeLine{124   \textcolor{keywordtype}{void} RenderIndent() \textcolor{keyword}{const};}
@@ -109,9 +109,9 @@
 \DoxyCodeLine{148 \textcolor{keyword}{public}:}
 \DoxyCodeLine{149   \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} Add(T obj);}
 \DoxyCodeLine{150   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} AddPtr(std::unique\_ptr<Object> \&\&obj) = 0;}
-\DoxyCodeLine{151 }
-\DoxyCodeLine{152 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{153   \mbox{\hyperlink{classsvg_1_1ObjectContainer}{\string~ObjectContainer}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{151   \textcolor{keyword}{virtual} \mbox{\hyperlink{classsvg_1_1ObjectContainer}{\string~ObjectContainer}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{keyword}{protected}:}
 \DoxyCodeLine{154   std::vector<std::unique\_ptr<Object>> objects\_;}
 \DoxyCodeLine{155 \};}
 \DoxyCodeLine{156 }

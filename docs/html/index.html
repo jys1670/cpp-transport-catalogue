@@ -65,22 +65,79 @@ $(function() {
   <div class="headertitle"><div class="title">Transport Catalogue </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a> This repository is a simple implementation of information storage, which can potentially be used in some kind of navigation process. As of now, there is only JSON interface capable of printing/visualizing stops and routes information.</p>
-<p ><b>Building:</b></p>
-<div class="fragment"><div class="line">git clone https://github.com/jys1670/cpp-transport-catalogue.git</div>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a><img src="https://img.shields.io/badge/C%2B%2B-17%2F20-blue" alt="C++ version" class="inline"/> <img src="https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/ubuntu.yml/badge.svg" alt="Ubuntu CI" style="pointer-events: none;" class="inline"/></p>
+<p >This repository is a simple implementation of information storage, which can potentially be used in some kind of navigation process. As of now, there is only JSON interface capable of printing/visualizing stops and routes information as well as finding the fastest path between two stops.</p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Structure</h2>
+<div class="fragment"><div class="line">.</div>
+<div class="line">├── cmake</div>
+<div class="line">│   └── CompileOptions.cmake</div>
+<div class="line">├── docs</div>
+<div class="line">│   ├── examples</div>
+<div class="line">│   ├── html</div>
+<div class="line">│   ├── latex</div>
+<div class="line">│   └── index.html</div>
+<div class="line">├── tests</div>
+<div class="line">│   ├── CMakeLists.txt</div>
+<div class="line">│   ├── test.cpp</div>
+<div class="line">│   ├── timetest_input.json</div>
+<div class="line">│   └── timetest_output.json</div>
+<div class="line">├── transport-catalogue</div>
+<div class="line">│   ├── CMakeLists.txt</div>
+<div class="line">│   ├── domain.cpp</div>
+<div class="line">│   ├── domain.h</div>
+<div class="line">│   ├── geo.cpp</div>
+<div class="line">│   ├── geo.h</div>
+<div class="line">│   ├── graph.h</div>
+<div class="line">│   ├── json_builder.cpp</div>
+<div class="line">│   ├── json_builder.h</div>
+<div class="line">│   ├── json.cpp</div>
+<div class="line">│   ├── json.h</div>
+<div class="line">│   ├── json_reader.cpp</div>
+<div class="line">│   ├── json_reader.h</div>
+<div class="line">│   ├── main.cpp</div>
+<div class="line">│   ├── map_renderer.cpp</div>
+<div class="line">│   ├── map_renderer.h</div>
+<div class="line">│   ├── request_handler.cpp</div>
+<div class="line">│   ├── request_handler.h</div>
+<div class="line">│   ├── router.h</div>
+<div class="line">│   ├── svg.cpp</div>
+<div class="line">│   ├── svg.h</div>
+<div class="line">│   ├── tests.cpp</div>
+<div class="line">│   ├── tests.h</div>
+<div class="line">│   ├── transport_catalogue.cpp</div>
+<div class="line">│   ├── transport_catalogue.h</div>
+<div class="line">│   ├── transport_router.cpp</div>
+<div class="line">│   └── transport_router.h</div>
+<div class="line">├── CMakeLists.txt</div>
+<div class="line">├── Doxyfile</div>
+<div class="line">├── README.md</div>
+<div class="line">└── shell.nix</div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md2"></a>
+Building:</h2>
+<p >Preparation: </p><div class="fragment"><div class="line">git clone https://github.com/jys1670/cpp-transport-catalogue.git</div>
 <div class="line">cd cpp-transport-catalogue</div>
 <div class="line">mkdir build &amp;&amp; cd build</div>
-<div class="line">cmake ..</div>
-<div class="line">make</div>
-<div class="line"># To run </div>
-<div class="line">./transport-catalogue</div>
-</div><!-- fragment --><p ><b>Example usage:</b></p>
+</div><!-- fragment --><p >Building and running main executable: </p><div class="fragment"><div class="line">cmake -DCMAKE_BUILD_TYPE=Release ..</div>
+<div class="line">cmake --build . --config Release --target main</div>
+<div class="line">cd bin</div>
+<div class="line">./main</div>
+</div><!-- fragment --><p >Building and running unit tests (requires <a href="https://www.boost.org/">Boost</a>): </p><div class="fragment"><div class="line">cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTING=ON ..</div>
+<div class="line">cmake --build . --config Release --target unit_tests</div>
+<div class="line">cd bin</div>
+<div class="line">./unit_tests</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
+Example usage:</h2>
 <ul>
-<li><a href="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/tests/2.json">Input request (2)</a>, which adds some objects to database and asks to print corresponding map</li>
-<li><a href="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/tests/2a.json">Answer (2)</a>, containing SVG map as string</li>
+<li><a href="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/map_input.json">Input request (1)</a>, which adds some objects to database and asks to print corresponding map</li>
+<li><a href="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/map_output.json">Answer (1)</a>, containing SVG map as string</li>
 </ul>
 <p ><img src="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/example_map.svg" alt="example-map" style="pointer-events: none;" width="650" height="600" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md1"></a>
+<ul>
+<li><a href="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_input.json">Input request (2)</a>, which asks to find fastest path between stops</li>
+<li><a href="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_output.json">Answer (2)</a>, contains travel time and path description in <code>items</code> keys</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Documentation</h2>
 <ul>
 <li><b>Is in a work-in-progress state</b></li>

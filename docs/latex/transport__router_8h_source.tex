@@ -97,7 +97,7 @@
 \DoxyCodeLine{118     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it2 = next(it1); it2 != end; ++it2) \{}
 \DoxyCodeLine{119       \textcolor{keyword}{auto} norm\_id = vertex\_to\_id\_.at(Vertex().SetStop(*it1).SetWait(\textcolor{keyword}{false}));}
 \DoxyCodeLine{120       \textcolor{keyword}{auto} wait\_id = vertex\_to\_id\_.at(Vertex().SetStop(*it2).SetWait(\textcolor{keyword}{true}));}
-\DoxyCodeLine{121       \textcolor{keywordtype}{size\_t} stops\_between = std::distance(it1, it2);}
+\DoxyCodeLine{121       \textcolor{keyword}{auto} stops\_between = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::distance(it1, it2));}
 \DoxyCodeLine{122       \textcolor{keyword}{auto} curr\_dist =}
 \DoxyCodeLine{123           catalogue\_.GetStopsRealDist((*prev(it2))-\/>name, (*it2)-\/>name).value();}
 \DoxyCodeLine{124       tot\_dist += curr\_dist;}

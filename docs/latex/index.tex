@@ -1,31 +1,98 @@
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
- This repository is a simple implementation of information storage, which can potentially be used in some kind of navigation process. As of now, there is only JSON interface capable of printing/visualizing stops and routes information.
+ 
 
-{\bfseries{Building\+:}}
+This repository is a simple implementation of information storage, which can potentially be used in some kind of navigation process. As of now, there is only JSON interface capable of printing/visualizing stops and routes information as well as finding the fastest path between two stops.\hypertarget{index_autotoc_md1}{}\doxysubsection{Structure}\label{index_autotoc_md1}
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.}
+\DoxyCodeLine{├── cmake}
+\DoxyCodeLine{│   └── CompileOptions.cmake}
+\DoxyCodeLine{├── docs}
+\DoxyCodeLine{│   ├── examples}
+\DoxyCodeLine{│   ├── html}
+\DoxyCodeLine{│   ├── latex}
+\DoxyCodeLine{│   └── index.html}
+\DoxyCodeLine{├── tests}
+\DoxyCodeLine{│   ├── CMakeLists.txt}
+\DoxyCodeLine{│   ├── test.cpp}
+\DoxyCodeLine{│   ├── timetest\_input.json}
+\DoxyCodeLine{│   └── timetest\_output.json}
+\DoxyCodeLine{├── transport-\/catalogue}
+\DoxyCodeLine{│   ├── CMakeLists.txt}
+\DoxyCodeLine{│   ├── domain.cpp}
+\DoxyCodeLine{│   ├── domain.h}
+\DoxyCodeLine{│   ├── geo.cpp}
+\DoxyCodeLine{│   ├── geo.h}
+\DoxyCodeLine{│   ├── graph.h}
+\DoxyCodeLine{│   ├── json\_builder.cpp}
+\DoxyCodeLine{│   ├── json\_builder.h}
+\DoxyCodeLine{│   ├── json.cpp}
+\DoxyCodeLine{│   ├── json.h}
+\DoxyCodeLine{│   ├── json\_reader.cpp}
+\DoxyCodeLine{│   ├── json\_reader.h}
+\DoxyCodeLine{│   ├── main.cpp}
+\DoxyCodeLine{│   ├── map\_renderer.cpp}
+\DoxyCodeLine{│   ├── map\_renderer.h}
+\DoxyCodeLine{│   ├── request\_handler.cpp}
+\DoxyCodeLine{│   ├── request\_handler.h}
+\DoxyCodeLine{│   ├── router.h}
+\DoxyCodeLine{│   ├── svg.cpp}
+\DoxyCodeLine{│   ├── svg.h}
+\DoxyCodeLine{│   ├── tests.cpp}
+\DoxyCodeLine{│   ├── tests.h}
+\DoxyCodeLine{│   ├── transport\_catalogue.cpp}
+\DoxyCodeLine{│   ├── transport\_catalogue.h}
+\DoxyCodeLine{│   ├── transport\_router.cpp}
+\DoxyCodeLine{│   └── transport\_router.h}
+\DoxyCodeLine{├── CMakeLists.txt}
+\DoxyCodeLine{├── Doxyfile}
+\DoxyCodeLine{├── README.md}
+\DoxyCodeLine{└── shell.nix}
 
+\end{DoxyCode}
+ \hypertarget{index_autotoc_md2}{}\doxysubsection{Building\+:}\label{index_autotoc_md2}
+Preparation\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{git clone https://github.com/jys1670/cpp-\/transport-\/catalogue.git}
 \DoxyCodeLine{cd cpp-\/transport-\/catalogue}
 \DoxyCodeLine{mkdir build \&\& cd build}
-\DoxyCodeLine{cmake ..}
-\DoxyCodeLine{make}
-\DoxyCodeLine{\# To run }
-\DoxyCodeLine{./transport-\/catalogue}
 
 \end{DoxyCode}
 
 
-{\bfseries{Example usage\+:}}
+Building and running main executable\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake -\/DCMAKE\_BUILD\_TYPE=Release ..}
+\DoxyCodeLine{cmake -\/-\/build . -\/-\/config Release -\/-\/target main}
+\DoxyCodeLine{cd bin}
+\DoxyCodeLine{./main}
+
+\end{DoxyCode}
+
+
+Building and running unit tests (requires \href{https://www.boost.org/}{\texttt{ Boost}})\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake -\/DCMAKE\_BUILD\_TYPE=Release -\/DENABLE\_TESTING=ON ..}
+\DoxyCodeLine{cmake -\/-\/build . -\/-\/config Release -\/-\/target unit\_tests}
+\DoxyCodeLine{cd bin}
+\DoxyCodeLine{./unit\_tests}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{Example usage\+:}\label{index_autotoc_md3}
+
+\begin{DoxyItemize}
+\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/map_input.json}{\texttt{ Input request (1)}}, which adds some objects to database and asks to print corresponding map
+\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/map_output.json}{\texttt{ Answer (1)}}, containing SVG map as string
+\end{DoxyItemize}
+
+
 
 
 \begin{DoxyItemize}
-\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/tests/2.json}{\texttt{ Input request (2)}}, which adds some objects to database and asks to print corresponding map
-\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/tests/2a.json}{\texttt{ Answer (2)}}, containing SVG map as string
-\end{DoxyItemize}
-
-\hypertarget{index_autotoc_md1}{}\doxysubsection{Documentation}\label{index_autotoc_md1}
+\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_input.json}{\texttt{ Input request (2)}}, which asks to find fastest path between stops
+\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_output.json}{\texttt{ Answer (2)}}, contains travel time and path description in {\ttfamily items} keys
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{Documentation}\label{index_autotoc_md4}
 
 \begin{DoxyItemize}
 \item {\bfseries{Is in a work-\/in-\/progress state}}
