@@ -1,4 +1,4 @@
-name: build and run tests
+name: Ubuntu CI Test
 on:
   push:
     branches: [ main, master ]
