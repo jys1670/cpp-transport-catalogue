@@ -21,4 +21,4 @@ jobs:
       run: cmake --build build --config Release --target unit_tests -j4
     # run tests
     - name: run test 1
-      run: build/lib/unit_tests
+      run: build/bin/unit_tests
