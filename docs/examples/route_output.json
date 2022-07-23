@@ -1,0 +1,68 @@
+[
+  {
+    "curvature": 1.42563,
+    "request_id": 1,
+    "route_length": 5990,
+    "stop_count": 4,
+    "unique_stop_count": 3
+  },
+  {
+    "curvature": 1.28537,
+    "request_id": 2,
+    "route_length": 11570,
+    "stop_count": 5,
+    "unique_stop_count": 3
+  },
+  {
+    "buses": [
+      "177",
+      "331"
+    ],
+    "request_id": 3
+  },
+  {
+    "items": [
+      {
+        "bus": "177",
+        "span_count": 0,
+        "time": 6,
+        "type": "Bus"
+      },
+      {
+        "stop_name": "Stop A",
+        "time": 5.235,
+        "type": "Wait"
+      }
+    ],
+    "request_id": 4,
+    "total_time": 11.235
+  },
+  {
+    "items": [
+      {
+        "bus": "177",
+        "span_count": 0,
+        "time": 6,
+        "type": "Bus"
+      },
+      {
+        "stop_name": "Stop A",
+        "time": 5.235,
+        "type": "Wait"
+      },
+      {
+        "bus": "331",
+        "span_count": 0,
+        "time": 6,
+        "type": "Bus"
+      },
+      {
+        "stop_name": "Stop C",
+        "time": 6.975,
+        "type": "Wait"
+      }
+    ],
+    "request_id": 5,
+    "total_time": 24.21
+  }
+]

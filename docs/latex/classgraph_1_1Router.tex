@@ -1,0 +1,59 @@
+\hypertarget{classgraph_1_1Router}{}\doxysection{graph\+::Router\texorpdfstring{$<$}{<} Weight \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classgraph_1_1Router}\index{graph::Router$<$ Weight $>$@{graph::Router$<$ Weight $>$}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInfo}{Route\+Info}}
+\item 
+struct \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{Route\+Internal\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a357f213c71b90703199cf02dac4d7539}\label{classgraph_1_1Router_a357f213c71b90703199cf02dac4d7539}} 
+{\bfseries Router} (const \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Graph}} \&graph)
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a5e4a24558fea283ef3e002eeaec0e57f}\label{classgraph_1_1Router_a5e4a24558fea283ef3e002eeaec0e57f}} 
+std\+::optional$<$ \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInfo}{Route\+Info}} $>$ {\bfseries Build\+Route} (Vertex\+Id from, Vertex\+Id to) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a83943e6f3833464b0dae1f41603827ec}\label{classgraph_1_1Router_a83943e6f3833464b0dae1f41603827ec}} 
+using {\bfseries Graph} = \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Directed\+Weighted\+Graph}}$<$ Weight $>$
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_ac8f279c0d20a435b6926a7028d2b032e}\label{classgraph_1_1Router_ac8f279c0d20a435b6926a7028d2b032e}} 
+using {\bfseries Routes\+Internal\+Data} = std\+::vector$<$ std\+::vector$<$ std\+::optional$<$ \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{Route\+Internal\+Data}} $>$ $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a339b825d175ffe8745771497d1bd920b}\label{classgraph_1_1Router_a339b825d175ffe8745771497d1bd920b}} 
+void {\bfseries Initialize\+Routes\+Internal\+Data} (const \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Graph}} \&graph)
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a651ad0d584e0fcfc2f93ac07c160450f}\label{classgraph_1_1Router_a651ad0d584e0fcfc2f93ac07c160450f}} 
+void {\bfseries Relax\+Route} (Vertex\+Id vertex\+\_\+from, Vertex\+Id vertex\+\_\+to, const \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{Route\+Internal\+Data}} \&route\+\_\+from, const \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{Route\+Internal\+Data}} \&route\+\_\+to)
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_ab0aadffe118603a12f063e08df794398}\label{classgraph_1_1Router_ab0aadffe118603a12f063e08df794398}} 
+void {\bfseries Relax\+Routes\+Internal\+Data\+Through\+Vertex} (size\+\_\+t vertex\+\_\+count, Vertex\+Id vertex\+\_\+through)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a1c1cc28dc422e6607b937064e47bb351}\label{classgraph_1_1Router_a1c1cc28dc422e6607b937064e47bb351}} 
+const \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Graph}} \& {\bfseries graph\+\_\+}
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a24f824bb23230ec4e554ee8966076c75}\label{classgraph_1_1Router_a24f824bb23230ec4e554ee8966076c75}} 
+Routes\+Internal\+Data {\bfseries routes\+\_\+internal\+\_\+data\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a8ac9700e8138093256506c35e380990d}\label{classgraph_1_1Router_a8ac9700e8138093256506c35e380990d}} 
+static constexpr Weight {\bfseries ZERO\+\_\+\+WEIGHT} \{\}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+transport-\/catalogue/\mbox{\hyperlink{router_8h}{router.\+h}}\end{DoxyCompactItemize}

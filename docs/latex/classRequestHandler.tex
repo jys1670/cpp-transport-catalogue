@@ -19,16 +19,16 @@ struct \mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{Request\+Types}}
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classRequestHandler_a5b9fa59f7fd734a01d3981cfb550bdc6}\label{classRequestHandler_a5b9fa59f7fd734a01d3981cfb550bdc6}} 
-using {\bfseries Reqs\+Queue} = std\+::variant$<$ \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintBusStats}{Request\+Types\+::\+Print\+Bus\+Stats}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintStopStats}{Request\+Types\+::\+Print\+Stop\+Stats}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{Request\+Types\+::\+Update\+Map\+Render\+Settings}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintMap}{Request\+Types\+::\+Print\+Map}} $>$
+\mbox{\Hypertarget{classRequestHandler_ad802f64f992180a24fc894f9e38ba5e8}\label{classRequestHandler_ad802f64f992180a24fc894f9e38ba5e8}} 
+using {\bfseries Reqs\+Queue} = std\+::variant$<$ \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintBusStats}{Request\+Types\+::\+Print\+Bus\+Stats}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintStopStats}{Request\+Types\+::\+Print\+Stop\+Stats}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{Request\+Types\+::\+Update\+Map\+Render\+Settings}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintMap}{Request\+Types\+::\+Print\+Map}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings}{Request\+Types\+::\+Update\+Routing\+Settings}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1Route}{Request\+Types\+::\+Route}} $>$
 \begin{DoxyCompactList}\small\item\em Runtime polymorphic type capable of storing all kinds of \mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{Request\+Types}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classRequestHandler_a31dc34ed1690306ba031df6283a02656}{Request\+Handler}} (std\+::ostream \&output, \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} \&catalogue, \mbox{\hyperlink{classMapRenderer}{Map\+Renderer}} \&renderer)
+\mbox{\hyperlink{classRequestHandler_ae76bfd0057daee6d494aee77388e624a}{Request\+Handler}} (std\+::ostream \&output, \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} \&catalogue, \mbox{\hyperlink{classMapRenderer}{Map\+Renderer}} \&renderer, \mbox{\hyperlink{classTransportRouter}{Transport\+Router}} \&router)
 \begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classRequestHandler_aca640031cffc03a8da79a315e4eae3c6}\label{classRequestHandler_aca640031cffc03a8da79a315e4eae3c6}} 
-void {\bfseries Insert\+Into\+Queue} (\mbox{\hyperlink{classRequestHandler_a5b9fa59f7fd734a01d3981cfb550bdc6}{Reqs\+Queue}} \&\&elem)
+void {\bfseries Insert\+Into\+Queue} (\mbox{\hyperlink{classRequestHandler_ad802f64f992180a24fc894f9e38ba5e8}{Reqs\+Queue}} \&\&elem)
 \begin{DoxyCompactList}\small\item\em Inserts new element into \mbox{\hyperlink{classRequestHandler_a678641ba0989a6ff6f90c7286a58924d}{Request\+Handler\+::reqs\+\_\+queue\+\_\+}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classRequestHandler_a2902041374c1e62b9dc9a3cc26b62c36}\label{classRequestHandler_a2902041374c1e62b9dc9a3cc26b62c36}} 
 \mbox{\hyperlink{structDataStorage_1_1RoutesData}{Data\+Storage\+::\+Routes\+Data}} {\bfseries Get\+Catalogue\+Data} () const
@@ -54,8 +54,11 @@ std\+::ostream \& {\bfseries outstream\+\_\+}
 \mbox{\Hypertarget{classRequestHandler_ad1e73b0d7e811b36e749a8b0033a4c3c}\label{classRequestHandler_ad1e73b0d7e811b36e749a8b0033a4c3c}} 
 \mbox{\hyperlink{classMapRenderer}{Map\+Renderer}} \& {\bfseries renderer\+\_\+}
 \begin{DoxyCompactList}\small\item\em Renderer to handle map visualize requests when needed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRequestHandler_a15f36d88a36bbaeeef9c7efc03f7a2dd}\label{classRequestHandler_a15f36d88a36bbaeeef9c7efc03f7a2dd}} 
+\mbox{\hyperlink{classTransportRouter}{Transport\+Router}} \& {\bfseries trouter\+\_\+}
+\begin{DoxyCompactList}\small\item\em Transport router to handle fastest path requests when needed. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classRequestHandler_a678641ba0989a6ff6f90c7286a58924d}\label{classRequestHandler_a678641ba0989a6ff6f90c7286a58924d}} 
-std\+::vector$<$ \mbox{\hyperlink{classRequestHandler_a5b9fa59f7fd734a01d3981cfb550bdc6}{Reqs\+Queue}} $>$ {\bfseries reqs\+\_\+queue\+\_\+}
+std\+::vector$<$ \mbox{\hyperlink{classRequestHandler_ad802f64f992180a24fc894f9e38ba5e8}{Reqs\+Queue}} $>$ {\bfseries reqs\+\_\+queue\+\_\+}
 \begin{DoxyCompactList}\small\item\em Queue with all \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} NON-\/state-\/changing requests. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -65,11 +68,11 @@ Responsible for querying database (\mbox{\hyperlink{classTransportCatalogue}{Tra
 This class is NOT meant to modify \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}}. It is used as passive database query and information print tool, capable of working with multiple output formats. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classRequestHandler_a31dc34ed1690306ba031df6283a02656}\label{classRequestHandler_a31dc34ed1690306ba031df6283a02656}} 
+\mbox{\Hypertarget{classRequestHandler_ae76bfd0057daee6d494aee77388e624a}\label{classRequestHandler_ae76bfd0057daee6d494aee77388e624a}} 
 \index{RequestHandler@{RequestHandler}!RequestHandler@{RequestHandler}}
 \index{RequestHandler@{RequestHandler}!RequestHandler@{RequestHandler}}
 \doxysubsubsection{\texorpdfstring{RequestHandler()}{RequestHandler()}}
-{\footnotesize\ttfamily Request\+Handler\+::\+Request\+Handler (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output,  }\item[{\mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} \&}]{catalogue,  }\item[{\mbox{\hyperlink{classMapRenderer}{Map\+Renderer}} \&}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Request\+Handler\+::\+Request\+Handler (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output,  }\item[{\mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} \&}]{catalogue,  }\item[{\mbox{\hyperlink{classMapRenderer}{Map\+Renderer}} \&}]{renderer,  }\item[{\mbox{\hyperlink{classTransportRouter}{Transport\+Router}} \&}]{router }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

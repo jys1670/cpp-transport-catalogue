@@ -110,7 +110,7 @@ void MapRenderer::DrawRouteNames(DataStorage::RoutesData &data,
   using namespace svg;
   svg::Text name, substrate;
   substrate.SetOffset(settings_.bus_label_offset)
-      .SetFontSize(settings_.bus_label_font_size)
+      .SetFontSize(static_cast<uint32_t>(settings_.bus_label_font_size))
       .SetFontFamily("Verdana")
       .SetFontWeight("bold")
       .SetFillColor(settings_.underlayer_color)
@@ -119,7 +119,7 @@ void MapRenderer::DrawRouteNames(DataStorage::RoutesData &data,
       .SetStrokeLineJoin(StrokeLineJoin::ROUND)
       .SetStrokeLineCap(StrokeLineCap::ROUND);
   name.SetOffset(settings_.bus_label_offset)
-      .SetFontSize(settings_.bus_label_font_size)
+      .SetFontSize(static_cast<uint32_t>(settings_.bus_label_font_size))
       .SetFontFamily("Verdana")
       .SetFontWeight("bold");
   size_t counter{0}, palsize{settings_.color_palette.size()};
@@ -167,7 +167,7 @@ void MapRenderer::DrawStopNames(DataStorage::RoutesData &data,
   using namespace svg;
   svg::Text name, substrate;
   substrate.SetOffset(settings_.stop_label_offset)
-      .SetFontSize(settings_.stop_label_font_size)
+      .SetFontSize(static_cast<uint32_t>(settings_.stop_label_font_size))
       .SetFontFamily("Verdana")
       .SetFillColor(settings_.underlayer_color)
       .SetStrokeColor(settings_.underlayer_color)
@@ -175,7 +175,7 @@ void MapRenderer::DrawStopNames(DataStorage::RoutesData &data,
       .SetStrokeLineJoin(StrokeLineJoin::ROUND)
       .SetStrokeLineCap(StrokeLineCap::ROUND);
   name.SetOffset(settings_.stop_label_offset)
-      .SetFontSize(settings_.stop_label_font_size)
+      .SetFontSize(static_cast<uint32_t>(settings_.stop_label_font_size))
       .SetFontFamily("Verdana")
       .SetFillColor("black");
   for (const auto stop : data.routes_stops) {

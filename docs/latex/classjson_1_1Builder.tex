@@ -9,26 +9,39 @@ Handy type used to construct JSON via method chaining approach.
 
 {\ttfamily \#include $<$json\+\_\+builder.\+h$>$}
 
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structjson_1_1Builder_1_1ArrayItemContext}{Array\+Item\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed inside of an array. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1Builder_1_1Context}{Context}}
+\begin{DoxyCompactList}\small\item\em Stores common \mbox{\hyperlink{classjson_1_1Builder}{Builder}} for all available states. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1Builder_1_1MapItemContext}{Map\+Item\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed after insertion of dictionary \{key, value\} pair. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1Builder_1_1MapKeyContext}{Map\+Key\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed after setting dictionary key. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1Builder_1_1ValueContext}{Value\+Context}}
+\begin{DoxyCompactList}\small\item\em Represents state in which all \mbox{\hyperlink{classjson_1_1Builder}{Builder}} actions are allowed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classjson_1_1Builder_acb2244daff3f8ca2f84ac5254856fa3a}\label{classjson_1_1Builder_acb2244daff3f8ca2f84ac5254856fa3a}} 
-\mbox{\hyperlink{structjson_1_1ValueContext}{Value\+Context}} {\bfseries Value} (Node\+::\+Value val)
+\mbox{\Hypertarget{classjson_1_1Builder_a581d06f6638c3893dbed93267ba773af}\label{classjson_1_1Builder_a581d06f6638c3893dbed93267ba773af}} 
+\mbox{\hyperlink{structjson_1_1Builder_1_1ValueContext}{Value\+Context}} {\bfseries Value} (Node\+::\+Value val)
 \item 
-\mbox{\Hypertarget{classjson_1_1Builder_a481e32d53590e5410f54ae8d72ea65e1}\label{classjson_1_1Builder_a481e32d53590e5410f54ae8d72ea65e1}} 
-\mbox{\hyperlink{structjson_1_1MapKeyContext}{Map\+Key\+Context}} {\bfseries Key} (std\+::string key)
+\mbox{\Hypertarget{classjson_1_1Builder_a79dfb7476fa77152f7098282ffbcfabc}\label{classjson_1_1Builder_a79dfb7476fa77152f7098282ffbcfabc}} 
+\mbox{\hyperlink{structjson_1_1Builder_1_1MapKeyContext}{Map\+Key\+Context}} {\bfseries Key} (std\+::string key)
 \item 
-\mbox{\Hypertarget{classjson_1_1Builder_a8af422e6ab8162b9168fa942dbacd2c4}\label{classjson_1_1Builder_a8af422e6ab8162b9168fa942dbacd2c4}} 
-\mbox{\hyperlink{structjson_1_1MapItemContext}{Map\+Item\+Context}} {\bfseries Start\+Dict} ()
+\mbox{\Hypertarget{classjson_1_1Builder_a3c3d8faa0e1f7b9f7690f6816ff438eb}\label{classjson_1_1Builder_a3c3d8faa0e1f7b9f7690f6816ff438eb}} 
+\mbox{\hyperlink{structjson_1_1Builder_1_1MapItemContext}{Map\+Item\+Context}} {\bfseries Start\+Dict} ()
 \item 
-\mbox{\Hypertarget{classjson_1_1Builder_aaf3df64c032cd8f5bc32dcbc73e8bec3}\label{classjson_1_1Builder_aaf3df64c032cd8f5bc32dcbc73e8bec3}} 
-\mbox{\hyperlink{structjson_1_1ArrayItemContext}{Array\+Item\+Context}} {\bfseries Start\+Array} ()
+\mbox{\Hypertarget{classjson_1_1Builder_a7d26af6721a78f4c9ebd3d93a777b7a6}\label{classjson_1_1Builder_a7d26af6721a78f4c9ebd3d93a777b7a6}} 
+\mbox{\hyperlink{structjson_1_1Builder_1_1ArrayItemContext}{Array\+Item\+Context}} {\bfseries Start\+Array} ()
 \item 
-\mbox{\Hypertarget{classjson_1_1Builder_a875e81526cb1c18612ad81f6d9a6b5d0}\label{classjson_1_1Builder_a875e81526cb1c18612ad81f6d9a6b5d0}} 
-\mbox{\hyperlink{structjson_1_1ValueContext}{Value\+Context}} {\bfseries End\+Dict} ()
+\mbox{\Hypertarget{classjson_1_1Builder_a95fbccd9fbd9c608e707b8cb5eaf6c73}\label{classjson_1_1Builder_a95fbccd9fbd9c608e707b8cb5eaf6c73}} 
+\mbox{\hyperlink{structjson_1_1Builder_1_1ValueContext}{Value\+Context}} {\bfseries End\+Dict} ()
 \item 
-\mbox{\Hypertarget{classjson_1_1Builder_a9e5a3dd6c4e6ce4bd333a9d3c684eabd}\label{classjson_1_1Builder_a9e5a3dd6c4e6ce4bd333a9d3c684eabd}} 
-\mbox{\hyperlink{structjson_1_1ValueContext}{Value\+Context}} {\bfseries End\+Array} ()
+\mbox{\Hypertarget{classjson_1_1Builder_afaffc32d9fa4ff5993af51d6c8228155}\label{classjson_1_1Builder_afaffc32d9fa4ff5993af51d6c8228155}} 
+\mbox{\hyperlink{structjson_1_1Builder_1_1ValueContext}{Value\+Context}} {\bfseries End\+Array} ()
 \item 
 \mbox{\Hypertarget{classjson_1_1Builder_a16fdfb306a8c9cd5c4a79cab860d854c}\label{classjson_1_1Builder_a16fdfb306a8c9cd5c4a79cab860d854c}} 
 \mbox{\hyperlink{classjson_1_1Node}{Node}} {\bfseries Build} ()

@@ -1,7 +1,8 @@
 /*!
  * \file transport_catalogue.h
  * \brief Stops and routes database
-*/
+ */
+
 #pragma once
 #include <deque>
 #include <iostream>
@@ -17,7 +18,6 @@
 
 class TransportCatalogue {
 public:
-
   void AddStop(const InputInfo::Stop &new_stop);
 
   void AddStopLinks(const InputInfo::StopLink &new_links);
@@ -28,11 +28,14 @@ public:
 
   const DataStorage::StopStats *GetStopInfo(std::string_view stop_name) const;
 
-  const DataStorage::StopStorage& GetStopStatsMap() const;
+  const DataStorage::StopStorage &GetStopStatsMap() const;
 
-  const DataStorage::BusStorage& GetBusStatsMap() const;
+  const DataStorage::BusStorage &GetBusStatsMap() const;
 
-  double GetStopsDirectDistance(std::string_view from, std::string_view to);
+  std::vector<const DataStorage::Stop *> GetAllStops() const;
+
+  std::optional<double> GetStopsRealDist(std::string_view from,
+                                         std::string_view to) const;
 
 private:
   std::deque<DataStorage::Stop> stops_;
@@ -43,7 +46,8 @@ private:
   struct StopsStatsHasher {
     size_t operator()(const std::pair<DataStorage::Stop *, DataStorage::Stop *>
                           object) const {
-      return (size_t)object.first + (size_t)object.second * 37;
+      return reinterpret_cast<size_t>(object.first) +
+             reinterpret_cast<size_t>(object.second) * 37;
     }
   };
 

@@ -2,6 +2,7 @@
  * \file request_handler.h
  * \brief Things to query and print TransportCatalogue information
  */
+
 #pragma once
 
 #include <algorithm>
@@ -15,6 +16,7 @@
 #include "json.h"
 #include "map_renderer.h"
 #include "transport_catalogue.h"
+#include "transport_router.h"
 
 /*!
  * \brief Responsible for querying database (TransportCatalogue) and
@@ -49,13 +51,24 @@ public:
     struct PrintMap {
       int id;
     };
+
+    struct UpdateRoutingSettings {
+      const json::Node *settings;
+    };
+
+    struct Route {
+      int id;
+      std::string_view from;
+      std::string_view to;
+    };
   };
 
   //! Runtime polymorphic type capable of storing all kinds of RequestTypes
   using ReqsQueue =
       std::variant<RequestTypes::PrintBusStats, RequestTypes::PrintStopStats,
                    RequestTypes::UpdateMapRenderSettings,
-                   RequestTypes::PrintMap>;
+                   RequestTypes::PrintMap, RequestTypes::UpdateRoutingSettings,
+                   RequestTypes::Route>;
 
   /*!
    * Constructor for the class
@@ -64,8 +77,9 @@ public:
    * \param[in] renderer will be used for map visualize requests when needed
    */
   RequestHandler(std::ostream &output, TransportCatalogue &catalogue,
-                 MapRenderer &renderer)
-      : outstream_{output}, catalogue_{catalogue}, renderer_{renderer} {};
+                 MapRenderer &renderer, TransportRouter &router)
+      : outstream_{output},
+        catalogue_{catalogue}, renderer_{renderer}, trouter_{router} {};
 
   //! Inserts new element into RequestHandler::reqs_queue_
   void InsertIntoQueue(ReqsQueue &&elem);
@@ -87,6 +101,8 @@ private:
   TransportCatalogue &catalogue_;
   //! Renderer to handle map visualize requests when needed
   MapRenderer &renderer_;
+  //! Transport router to handle fastest path requests when needed
+  TransportRouter &trouter_;
 
   //! Functor used to respond to RequestHandler::reqs_queue_ requests in JSON
   //! format
@@ -98,6 +114,8 @@ private:
     void operator()(const RequestTypes::PrintStopStats &req);
     void operator()(const RequestTypes::UpdateMapRenderSettings &req);
     void operator()(const RequestTypes::PrintMap &req);
+    void operator()(const RequestTypes::UpdateRoutingSettings &req);
+    void operator()(const RequestTypes::Route &req);
 
   private:
     RequestHandler &parent_;

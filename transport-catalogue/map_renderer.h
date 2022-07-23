@@ -50,7 +50,7 @@ public:
   /*!
    * Constructs map image
    * \param[in] data routes to be drawn and all their stops
-   * \param[out] map Actual SVG stored as string
+   * \return Actual SVG stored as string
    */
   std::string RenderMap(DataStorage::RoutesData data);
   /*!

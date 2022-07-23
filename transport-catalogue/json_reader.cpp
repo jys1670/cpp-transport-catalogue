@@ -10,6 +10,9 @@ void JsonReader::ProcessInput(OutputFormat::Json) {
   req_handler_.InsertIntoQueue(
       RequestHandler::RequestTypes::UpdateMapRenderSettings{
           &doc_map.at("render_settings")});
+  req_handler_.InsertIntoQueue(
+      RequestHandler::RequestTypes::UpdateRoutingSettings{
+          &doc_map.at("routing_settings")});
   for (const auto &node : doc_map.at("stat_requests").AsArray()) {
     json_print_parser_(node.AsMap().at("type").AsString(), node);
   }
@@ -83,11 +86,19 @@ void JsonReader::JsonPrintParse::EnqueueMapDraw(const json::Node &node) {
       RequestTypes::PrintMap{node.AsMap().at("id").AsInt()});
 }
 
+void JsonReader::JsonPrintParse::EnqueueRoute(const json::Node &node) {
+  const auto &route_map = node.AsMap();
+  parent_.InsertIntoQueue(RequestTypes::Route{route_map.at("id").AsInt(),
+                                              route_map.at("from").AsString(),
+                                              route_map.at("to").AsString()});
+}
+
 std::unordered_map<std::string_view, JsonReader::JsonPrintParse::FunctionPtr>
     JsonReader::JsonPrintParse::handlers_ = {
         {"Bus", &JsonReader::JsonPrintParse::EnqueueBus},
         {"Stop", &JsonReader::JsonPrintParse::EnqueueStop},
         {"Map", &JsonReader::JsonPrintParse::EnqueueMapDraw},
+        {"Route", &JsonReader::JsonPrintParse::EnqueueRoute},
 };
 
 void JsonReader::CatalogueInserter::operator()(

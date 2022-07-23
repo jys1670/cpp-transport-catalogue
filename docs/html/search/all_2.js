@@ -8,6 +8,6 @@ var searchData=
   ['color_5fpalette_5',['color_palette',['../structMapRenderer_1_1RenderSettings.html#a1d73cfe0edc3cb6a9b064904aac9cf2a',1,'MapRenderer::RenderSettings']]],
   ['colorprinter_6',['ColorPrinter',['../structsvg_1_1ColorPrinter.html',1,'svg']]],
   ['computedistance_7',['ComputeDistance',['../namespacegeo.html#a23151a9f4e0f37c384dd4ae5005acb14',1,'geo']]],
-  ['context_8',['Context',['../structjson_1_1Context.html',1,'json']]],
+  ['context_8',['Context',['../structjson_1_1Builder_1_1Context.html',1,'json::Builder']]],
   ['coordinates_9',['Coordinates',['../structgeo_1_1Coordinates.html',1,'geo']]]
 ];

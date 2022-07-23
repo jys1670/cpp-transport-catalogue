@@ -1,7 +1,7 @@
 /*!
-\file geo.h
- \brief Geographic coordinates related elements
-*/
+ * \file geo.h
+ * \brief Geographic coordinates related elements
+ */
 #pragma once
 
 #include <cmath>

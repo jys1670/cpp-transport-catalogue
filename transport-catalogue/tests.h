@@ -2,6 +2,7 @@
  * \file tests.h
  * \brief Lets hope everything works
  */
+
 #pragma once
 
 #include "json_reader.h"

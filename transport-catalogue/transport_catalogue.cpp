@@ -106,19 +106,35 @@ size_t TransportCatalogue::GetBusTotalStopsAmount(const DataStorage::Bus &bus) {
   return bus.is_circular ? bus.stops.size() : bus.stops.size() * 2 - 1;
 }
 
-double TransportCatalogue::GetStopsDirectDistance(std::string_view from,
-                                                  std::string_view to) {
+std::optional<double>
+TransportCatalogue::GetStopsRealDist(const std::string_view from,
+                                     const std::string_view to) const {
   if (stopname_to_stop_stats_.count(from) &&
       stopname_to_stop_stats_.count(to)) {
-    DataStorage::StopStats &stop1 = stopname_to_stop_stats_.at(from);
-    DataStorage::StopStats &stop2 = stopname_to_stop_stats_.at(to);
-    return direct_distances_.at({stop1.stop_ptr, stop2.stop_ptr});
+    auto &stop1 = stopname_to_stop_stats_.at(from);
+    auto &stop2 = stopname_to_stop_stats_.at(to);
+    if (stop1.linked_stops.count(stop2.stop_ptr)) {
+      return stop1.linked_stops.at(stop2.stop_ptr);
+    }
+    if (stop2.linked_stops.count(stop1.stop_ptr)) {
+      return stop2.linked_stops.at(stop1.stop_ptr);
+    }
   }
-  return -1; // makes no sense, error case
+  return std::nullopt;
 }
+
 const DataStorage::StopStorage &TransportCatalogue::GetStopStatsMap() const {
   return stopname_to_stop_stats_;
 }
+
 const DataStorage::BusStorage &TransportCatalogue::GetBusStatsMap() const {
   return busname_to_bus_stats_;
+}
+
+std::vector<const DataStorage::Stop *> TransportCatalogue::GetAllStops() const {
+  std::vector<const DataStorage::Stop *> result{};
+  for (auto &stop : stops_) {
+    result.emplace_back(&stop);
+  }
+  return result;
 }

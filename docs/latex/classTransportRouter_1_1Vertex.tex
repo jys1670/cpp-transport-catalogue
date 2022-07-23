@@ -1,0 +1,45 @@
+\hypertarget{classTransportRouter_1_1Vertex}{}\doxysection{Transport\+Router\+::Vertex Class Reference}
+\label{classTransportRouter_1_1Vertex}\index{TransportRouter::Vertex@{TransportRouter::Vertex}}
+
+
+Represents real world entity \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} (and its properties) as graph vertex.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTransportRouter_1_1Vertex_afab3165235fed179c75d014679a8a220}\label{classTransportRouter_1_1Vertex_afab3165235fed179c75d014679a8a220}} 
+\mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \& {\bfseries Set\+Stop} (const \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} $\ast$st)
+\item 
+\mbox{\Hypertarget{classTransportRouter_1_1Vertex_a6fb82e62d243bece01d1b2675e4db779}\label{classTransportRouter_1_1Vertex_a6fb82e62d243bece01d1b2675e4db779}} 
+\mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \& {\bfseries Set\+Wait} (bool wait)
+\item 
+\mbox{\Hypertarget{classTransportRouter_1_1Vertex_aa023f21242dbd8bd3b48408a9f33af0c}\label{classTransportRouter_1_1Vertex_aa023f21242dbd8bd3b48408a9f33af0c}} 
+const \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} $\ast$ {\bfseries Get\+Stop} () const
+\item 
+\mbox{\Hypertarget{classTransportRouter_1_1Vertex_a04ceeae60f8a9a6a039a6f15d00d85f1}\label{classTransportRouter_1_1Vertex_a04ceeae60f8a9a6a039a6f15d00d85f1}} 
+bool {\bfseries Get\+Wait\+Status} () const
+\item 
+\mbox{\Hypertarget{classTransportRouter_1_1Vertex_a10ccb777676eeaec25805e591d6224ec}\label{classTransportRouter_1_1Vertex_a10ccb777676eeaec25805e591d6224ec}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTransportRouter_1_1Vertex_aa2972a3301d61690c347391515ca5bc3}\label{classTransportRouter_1_1Vertex_aa2972a3301d61690c347391515ca5bc3}} 
+const \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} $\ast$ {\bfseries stop} \{nullptr\}
+\item 
+\mbox{\Hypertarget{classTransportRouter_1_1Vertex_a6dcebbb1fe8c34813c95cbb196ef7bc7}\label{classTransportRouter_1_1Vertex_a6dcebbb1fe8c34813c95cbb196ef7bc7}} 
+bool {\bfseries must\+\_\+wait} \{false\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents real world entity \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} (and its properties) as graph vertex. 
+
+Combination of all class fields defines unique graph vertex. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+transport-\/catalogue/\mbox{\hyperlink{transport__router_8h}{transport\+\_\+router.\+h}}\item 
+transport-\/catalogue/transport\+\_\+router.\+cpp\end{DoxyCompactItemize}

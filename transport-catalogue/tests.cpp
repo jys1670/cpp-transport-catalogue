@@ -17,13 +17,13 @@ void CheckTwoNodes(const json::Node &n1, const json::Node &n2,
          ++it1, ++it2) {
       CheckTwoNodes(it1->first, it2->first, "EnqueueMapDraw keys mismatch");
       if (it1->first != "map") {
-        CheckTwoNodes(it1->second, it2->second, "EnqueueMapDraw values mismatch");
+        CheckTwoNodes(it1->second, it2->second,
+                      "EnqueueMapDraw values mismatch");
       } else {
 
-//        std::ofstream my_map ("../tests/my_map.svg"),
-//        corr_map("../tests/corr_map.svg"); my_map << it1->second.AsString();
-//        corr_map << it2->second.AsString();
-
+        //        std::ofstream my_map ("../tests/my_map.svg"),
+        //        corr_map("../tests/corr_map.svg"); my_map <<
+        //        it1->second.AsString(); corr_map << it2->second.AsString();
       }
     }
     return;
@@ -56,10 +56,11 @@ void TestBasicInputOutput() {
   input.open("../tests/1.json");
   ostr.open("../tests/1a.json");
 
-  TransportCatalogue database {};
-  MapRenderer renderer {};
-  RequestHandler req_handler {output, database, renderer};
-  JsonReader json_file_reader {input, database, req_handler};
+  TransportCatalogue database{};
+  MapRenderer renderer{};
+  TransportRouter router{database};
+  RequestHandler req_handler{output, database, renderer, router};
+  JsonReader json_file_reader{input, database, req_handler};
 
   json_file_reader.ProcessInput(OutputFormat::Json{});
   std::istringstream input1{output.str()};

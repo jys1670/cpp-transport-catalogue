@@ -1,0 +1,46 @@
+\hypertarget{classgraph_1_1DirectedWeightedGraph}{}\doxysection{graph\+::Directed\+Weighted\+Graph\texorpdfstring{$<$}{<} Weight \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classgraph_1_1DirectedWeightedGraph}\index{graph::DirectedWeightedGraph$<$ Weight $>$@{graph::DirectedWeightedGraph$<$ Weight $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_a2bc3267b06ecefe849b0797ccf7c44f8}\label{classgraph_1_1DirectedWeightedGraph_a2bc3267b06ecefe849b0797ccf7c44f8}} 
+{\bfseries Directed\+Weighted\+Graph} (size\+\_\+t vertex\+\_\+count)
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_a158b28e65a2fd44cf27cfccc15fddf1f}\label{classgraph_1_1DirectedWeightedGraph_a158b28e65a2fd44cf27cfccc15fddf1f}} 
+Edge\+Id {\bfseries Add\+Edge} (const \mbox{\hyperlink{structgraph_1_1Edge}{Edge}}$<$ Weight $>$ \&edge)
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_a62eb5b09e007e3d8e76197d5bd9a65bb}\label{classgraph_1_1DirectedWeightedGraph_a62eb5b09e007e3d8e76197d5bd9a65bb}} 
+size\+\_\+t {\bfseries Get\+Vertex\+Count} () const
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_afa6955afc0f5de4f75e4e05460a65776}\label{classgraph_1_1DirectedWeightedGraph_afa6955afc0f5de4f75e4e05460a65776}} 
+size\+\_\+t {\bfseries Get\+Edge\+Count} () const
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_a1e7ba03443d4e319de5d27ddf8f68498}\label{classgraph_1_1DirectedWeightedGraph_a1e7ba03443d4e319de5d27ddf8f68498}} 
+const \mbox{\hyperlink{structgraph_1_1Edge}{Edge}}$<$ Weight $>$ \& {\bfseries Get\+Edge} (Edge\+Id edge\+\_\+id) const
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_a0111274ce1393c844dadc0537c347e70}\label{classgraph_1_1DirectedWeightedGraph_a0111274ce1393c844dadc0537c347e70}} 
+\mbox{\hyperlink{classgraph_1_1Range}{Incident\+Edges\+Range}} {\bfseries Get\+Incident\+Edges} (Vertex\+Id vertex) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_ae497b76bad23ec65662cc4d52c4a56b6}\label{classgraph_1_1DirectedWeightedGraph_ae497b76bad23ec65662cc4d52c4a56b6}} 
+using {\bfseries Incidence\+List} = std\+::vector$<$ Edge\+Id $>$
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_acff6b4c857f84d2f5b35951d8374d9a1}\label{classgraph_1_1DirectedWeightedGraph_acff6b4c857f84d2f5b35951d8374d9a1}} 
+using {\bfseries Incident\+Edges\+Range} = \mbox{\hyperlink{classgraph_1_1Range}{Range}}$<$ typename Incidence\+List\+::const\+\_\+iterator $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_ae1fdafac1ba0fc79e6c17aa781730d5a}\label{classgraph_1_1DirectedWeightedGraph_ae1fdafac1ba0fc79e6c17aa781730d5a}} 
+std\+::vector$<$ \mbox{\hyperlink{structgraph_1_1Edge}{Edge}}$<$ Weight $>$ $>$ {\bfseries edges\+\_\+}
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_a2686cdf1d90bcc8a48a12ce71124cf21}\label{classgraph_1_1DirectedWeightedGraph_a2686cdf1d90bcc8a48a12ce71124cf21}} 
+std\+::vector$<$ Incidence\+List $>$ {\bfseries incidence\+\_\+lists\+\_\+}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+transport-\/catalogue/\mbox{\hyperlink{graph_8h}{graph.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,31 @@
+if (ENABLE_TESTING)
+    find_package (Boost COMPONENTS unit_test_framework REQUIRED)
+    include_directories(${Boost_INCLUDE_DIRS})
+
+    set(TEST_MAIN "unit_tests")
+    aux_source_directory(../transport-catalogue TEST_SOURCES)
+    list(REMOVE_ITEM TEST_SOURCES "../transport-catalogue/main.cpp")
+    set(TEST_SOURCES "${TEST_SOURCES}" ./test.cpp)
+
+    add_executable(${TEST_MAIN} ${TEST_SOURCES})
+
+    add_debug_compiler_options(
+            TARGET ${EXECUTABLE_NAME}
+            "WARNINGS_AS_ERRORS" ${WARNINGS_AS_ERRORS}
+            "SANITIZERS" ${SANITIZERS}
+            "SAVE_TEMP_FILES" ${SAVE_TEMP_FILES}
+    )
+    target_link_libraries(${TEST_MAIN} PRIVATE ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
+
+    target_compile_definitions(${TEST_MAIN} PRIVATE CURR_TEST_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
+
+    set_target_properties(
+            ${TEST_MAIN}
+            PROPERTIES
+            ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+            LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+            RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
+
+
+endif()

@@ -88,18 +88,18 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a5b9fa59f7fd734a01d3981cfb550bdc6"><td class="memItemLeft" align="right" valign="top"><a id="a5b9fa59f7fd734a01d3981cfb550bdc6" name="a5b9fa59f7fd734a01d3981cfb550bdc6"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ReqsQueue</b> = std::variant&lt; <a class="el" href="structRequestHandler_1_1RequestTypes_1_1PrintBusStats.html">RequestTypes::PrintBusStats</a>, <a class="el" href="structRequestHandler_1_1RequestTypes_1_1PrintStopStats.html">RequestTypes::PrintStopStats</a>, <a class="el" href="structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings.html">RequestTypes::UpdateMapRenderSettings</a>, <a class="el" href="structRequestHandler_1_1RequestTypes_1_1PrintMap.html">RequestTypes::PrintMap</a> &gt;</td></tr>
-<tr class="memdesc:a5b9fa59f7fd734a01d3981cfb550bdc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime polymorphic type capable of storing all kinds of <a class="el" href="structRequestHandler_1_1RequestTypes.html" title="Known types of database query (NON-state-changing) requests.">RequestTypes</a>. <br /></td></tr>
-<tr class="separator:a5b9fa59f7fd734a01d3981cfb550bdc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad802f64f992180a24fc894f9e38ba5e8"><td class="memItemLeft" align="right" valign="top"><a id="ad802f64f992180a24fc894f9e38ba5e8" name="ad802f64f992180a24fc894f9e38ba5e8"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ReqsQueue</b> = std::variant&lt; <a class="el" href="structRequestHandler_1_1RequestTypes_1_1PrintBusStats.html">RequestTypes::PrintBusStats</a>, <a class="el" href="structRequestHandler_1_1RequestTypes_1_1PrintStopStats.html">RequestTypes::PrintStopStats</a>, <a class="el" href="structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings.html">RequestTypes::UpdateMapRenderSettings</a>, <a class="el" href="structRequestHandler_1_1RequestTypes_1_1PrintMap.html">RequestTypes::PrintMap</a>, <a class="el" href="structRequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings.html">RequestTypes::UpdateRoutingSettings</a>, <a class="el" href="structRequestHandler_1_1RequestTypes_1_1Route.html">RequestTypes::Route</a> &gt;</td></tr>
+<tr class="memdesc:ad802f64f992180a24fc894f9e38ba5e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime polymorphic type capable of storing all kinds of <a class="el" href="structRequestHandler_1_1RequestTypes.html" title="Known types of database query (NON-state-changing) requests.">RequestTypes</a>. <br /></td></tr>
+<tr class="separator:ad802f64f992180a24fc894f9e38ba5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a31dc34ed1690306ba031df6283a02656"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRequestHandler.html#a31dc34ed1690306ba031df6283a02656">RequestHandler</a> (std::ostream &amp;output, <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> &amp;catalogue, <a class="el" href="classMapRenderer.html">MapRenderer</a> &amp;renderer)</td></tr>
-<tr class="memdesc:a31dc34ed1690306ba031df6283a02656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="classRequestHandler.html#a31dc34ed1690306ba031df6283a02656">More...</a><br /></td></tr>
-<tr class="separator:a31dc34ed1690306ba031df6283a02656"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae76bfd0057daee6d494aee77388e624a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRequestHandler.html#ae76bfd0057daee6d494aee77388e624a">RequestHandler</a> (std::ostream &amp;output, <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> &amp;catalogue, <a class="el" href="classMapRenderer.html">MapRenderer</a> &amp;renderer, <a class="el" href="classTransportRouter.html">TransportRouter</a> &amp;router)</td></tr>
+<tr class="memdesc:ae76bfd0057daee6d494aee77388e624a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="classRequestHandler.html#ae76bfd0057daee6d494aee77388e624a">More...</a><br /></td></tr>
+<tr class="separator:ae76bfd0057daee6d494aee77388e624a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca640031cffc03a8da79a315e4eae3c6"><td class="memItemLeft" align="right" valign="top"><a id="aca640031cffc03a8da79a315e4eae3c6" name="aca640031cffc03a8da79a315e4eae3c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>InsertIntoQueue</b> (<a class="el" href="classRequestHandler.html#a5b9fa59f7fd734a01d3981cfb550bdc6">ReqsQueue</a> &amp;&amp;elem)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InsertIntoQueue</b> (<a class="el" href="classRequestHandler.html#ad802f64f992180a24fc894f9e38ba5e8">ReqsQueue</a> &amp;&amp;elem)</td></tr>
 <tr class="memdesc:aca640031cffc03a8da79a315e4eae3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts new element into <a class="el" href="classRequestHandler.html#a678641ba0989a6ff6f90c7286a58924d" title="Queue with all TransportCatalogue NON-state-changing requests.">RequestHandler::reqs_queue_</a>. <br /></td></tr>
 <tr class="separator:aca640031cffc03a8da79a315e4eae3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2902041374c1e62b9dc9a3cc26b62c36"><td class="memItemLeft" align="right" valign="top"><a id="a2902041374c1e62b9dc9a3cc26b62c36" name="a2902041374c1e62b9dc9a3cc26b62c36"></a>
@@ -132,8 +132,12 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>outstre
 <a class="el" href="classMapRenderer.html">MapRenderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>renderer_</b></td></tr>
 <tr class="memdesc:ad1e73b0d7e811b36e749a8b0033a4c3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderer to handle map visualize requests when needed. <br /></td></tr>
 <tr class="separator:ad1e73b0d7e811b36e749a8b0033a4c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15f36d88a36bbaeeef9c7efc03f7a2dd"><td class="memItemLeft" align="right" valign="top"><a id="a15f36d88a36bbaeeef9c7efc03f7a2dd" name="a15f36d88a36bbaeeef9c7efc03f7a2dd"></a>
+<a class="el" href="classTransportRouter.html">TransportRouter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>trouter_</b></td></tr>
+<tr class="memdesc:a15f36d88a36bbaeeef9c7efc03f7a2dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transport router to handle fastest path requests when needed. <br /></td></tr>
+<tr class="separator:a15f36d88a36bbaeeef9c7efc03f7a2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a678641ba0989a6ff6f90c7286a58924d"><td class="memItemLeft" align="right" valign="top"><a id="a678641ba0989a6ff6f90c7286a58924d" name="a678641ba0989a6ff6f90c7286a58924d"></a>
-std::vector&lt; <a class="el" href="classRequestHandler.html#a5b9fa59f7fd734a01d3981cfb550bdc6">ReqsQueue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>reqs_queue_</b></td></tr>
+std::vector&lt; <a class="el" href="classRequestHandler.html#ad802f64f992180a24fc894f9e38ba5e8">ReqsQueue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>reqs_queue_</b></td></tr>
 <tr class="memdesc:a678641ba0989a6ff6f90c7286a58924d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue with all <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> NON-state-changing requests. <br /></td></tr>
 <tr class="separator:a678641ba0989a6ff6f90c7286a58924d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -141,8 +145,8 @@ std::vector&lt; <a class="el" href="classRequestHandler.html#a5b9fa59f7fd734a01d
 <div class="textblock"><p >Responsible for querying database (<a class="el" href="classTransportCatalogue.html">TransportCatalogue</a>) and outputting information in various formats. </p>
 <p >This class is NOT meant to modify <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a>. It is used as passive database query and information print tool, capable of working with multiple output formats. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a31dc34ed1690306ba031df6283a02656" name="a31dc34ed1690306ba031df6283a02656"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31dc34ed1690306ba031df6283a02656">&#9670;&nbsp;</a></span>RequestHandler()</h2>
+<a id="ae76bfd0057daee6d494aee77388e624a" name="ae76bfd0057daee6d494aee77388e624a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae76bfd0057daee6d494aee77388e624a">&#9670;&nbsp;</a></span>RequestHandler()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -166,7 +170,13 @@ std::vector&lt; <a class="el" href="classRequestHandler.html#a5b9fa59f7fd734a01d
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classMapRenderer.html">MapRenderer</a> &amp;&#160;</td>
-          <td class="paramname"><em>renderer</em>&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTransportRouter.html">TransportRouter</a> &amp;&#160;</td>
+          <td class="paramname"><em>router</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

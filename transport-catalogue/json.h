@@ -1,7 +1,8 @@
 /*!
-\file json.h
- \brief JSON read/write library
-*/
+ * \file json.h
+ * \brief JSON read/write library
+ */
+
 #pragma once
 
 #include <iostream>

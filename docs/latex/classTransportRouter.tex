@@ -1,0 +1,125 @@
+\hypertarget{classTransportRouter}{}\doxysection{Transport\+Router Class Reference}
+\label{classTransportRouter}\index{TransportRouter@{TransportRouter}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}}
+\begin{DoxyCompactList}\small\item\em Represents real world entity \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} (and its properties) as graph vertex. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structTransportRouter_1_1VertexHasher}{Vertex\+Hasher}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTransportRouter_a8df952ca4b73ebf8163417aac2ed8e31}{Transport\+Router}} (const \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} \&catalogue)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransportRouter_abdd2cc584aa98fade1dc5dc9457de99e}{Load\+Settings}} (const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&node)
+\begin{DoxyCompactList}\small\item\em Updates routing parameters such as velocity, wait time, etc. \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{structRouteAnswer}{Route\+Answer}} $>$ \mbox{\hyperlink{classTransportRouter_ac6bda5392f2e9b628a5785e285a2d0f3}{Find\+Fastest\+Route}} (std\+::string\+\_\+view from, std\+::string\+\_\+view to)
+\begin{DoxyCompactList}\small\item\em Find the fastest (in terms of time) path between two existing (!) stops. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTransportRouter_a75aefd32ddc708b357416da6fcf7a052}\label{classTransportRouter_a75aefd32ddc708b357416da6fcf7a052}} 
+void {\bfseries Generate\+Graph} ()
+\item 
+\mbox{\Hypertarget{classTransportRouter_ab5ad1e32c38d7cf52f86a787c237c76d}\label{classTransportRouter_ab5ad1e32c38d7cf52f86a787c237c76d}} 
+void {\bfseries Generate\+Vertexes} (std\+::vector$<$ const \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}} $\ast$ $>$ \&stops)
+\item 
+\mbox{\Hypertarget{classTransportRouter_a7b4623a61082e64a500711fb6fc1bf90}\label{classTransportRouter_a7b4623a61082e64a500711fb6fc1bf90}} 
+void {\bfseries Insert\+All\+Edges\+Into\+Graph} (const \mbox{\hyperlink{structDataStorage_1_1Bus}{Data\+Storage\+::\+Bus}} $\ast$bus)
+\item 
+\mbox{\Hypertarget{classTransportRouter_a31323d32f7fcaa56c8498917b8781563}\label{classTransportRouter_a31323d32f7fcaa56c8498917b8781563}} 
+{\footnotesize template$<$typename Input\+It $>$ }\\void {\bfseries Insert\+Edges\+Between\+Stops} (Input\+It begin, Input\+It end, const \mbox{\hyperlink{structDataStorage_1_1Bus}{Data\+Storage\+::\+Bus}} $\ast$bus)
+\item 
+\mbox{\Hypertarget{classTransportRouter_ac48b1a4871d84987b97cb66adc5da654}\label{classTransportRouter_ac48b1a4871d84987b97cb66adc5da654}} 
+\mbox{\hyperlink{structRouteAnswer}{Route\+Answer}} {\bfseries Generate\+Answer} (const \mbox{\hyperlink{classgraph_1_1Router}{graph\+::\+Router}}$<$ double $>$\+::\+Route\+Info \&path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTransportRouter_ac90aaf41ee8fc40b24093a041448f106}\label{classTransportRouter_ac90aaf41ee8fc40b24093a041448f106}} 
+const \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} \& {\bfseries catalogue\+\_\+}
+\item 
+\mbox{\Hypertarget{classTransportRouter_acc8a93afb385706fcf0c3c6e513ad474}\label{classTransportRouter_acc8a93afb385706fcf0c3c6e513ad474}} 
+double {\bfseries bus\+\_\+wait\+\_\+time\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classTransportRouter_a8383ae5d93b4c92315e7721d53d2fb41}\label{classTransportRouter_a8383ae5d93b4c92315e7721d53d2fb41}} 
+double {\bfseries bus\+\_\+velocity\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classTransportRouter_ad71153467c67258057c95a6410414d1e}\label{classTransportRouter_ad71153467c67258057c95a6410414d1e}} 
+\mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{graph\+::\+Directed\+Weighted\+Graph}}$<$ double $>$ {\bfseries graph\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classTransportRouter_a1f4b1a6a5378c6e433eb9c2b6833a590}\label{classTransportRouter_a1f4b1a6a5378c6e433eb9c2b6833a590}} 
+bool {\bfseries graph\+\_\+finished\+\_\+} \{false\}
+\item 
+\mbox{\Hypertarget{classTransportRouter_a029c83786f7554334d86b3378e557278}\label{classTransportRouter_a029c83786f7554334d86b3378e557278}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classgraph_1_1Router}{graph\+::\+Router}}$<$ double $>$ $>$ {\bfseries router\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classTransportRouter_a1e58b4646507bd2e3b4115ab90ad18ee}\label{classTransportRouter_a1e58b4646507bd2e3b4115ab90ad18ee}} 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}}, size\+\_\+t, \mbox{\hyperlink{structTransportRouter_1_1VertexHasher}{Vertex\+Hasher}} $>$ {\bfseries vertex\+\_\+to\+\_\+id\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classTransportRouter_a33130673a9287575682dd7c9f95c70cd}\label{classTransportRouter_a33130673a9287575682dd7c9f95c70cd}} 
+std\+::vector$<$ \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} $>$ {\bfseries id\+\_\+to\+\_\+vertex\+\_\+} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTransportRouter_a8df952ca4b73ebf8163417aac2ed8e31}\label{classTransportRouter_a8df952ca4b73ebf8163417aac2ed8e31}} 
+\index{TransportRouter@{TransportRouter}!TransportRouter@{TransportRouter}}
+\index{TransportRouter@{TransportRouter}!TransportRouter@{TransportRouter}}
+\doxysubsubsection{\texorpdfstring{TransportRouter()}{TransportRouter()}}
+{\footnotesize\ttfamily Transport\+Router\+::\+Transport\+Router (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}} \&}]{catalogue }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em catalogue} & database whose content will be used to generate directed graph \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTransportRouter_ac6bda5392f2e9b628a5785e285a2d0f3}\label{classTransportRouter_ac6bda5392f2e9b628a5785e285a2d0f3}} 
+\index{TransportRouter@{TransportRouter}!FindFastestRoute@{FindFastestRoute}}
+\index{FindFastestRoute@{FindFastestRoute}!TransportRouter@{TransportRouter}}
+\doxysubsubsection{\texorpdfstring{FindFastestRoute()}{FindFastestRoute()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{structRouteAnswer}{Route\+Answer}} $>$ Transport\+Router\+::\+Find\+Fastest\+Route (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{from,  }\item[{std\+::string\+\_\+view}]{to }\end{DoxyParamCaption})}
+
+
+
+Find the fastest (in terms of time) path between two existing (!) stops. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em from} & Starting stop name \\
+\hline
+\mbox{\texttt{ in}}  & {\em to} & Destination stop name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Path description 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransportRouter_abdd2cc584aa98fade1dc5dc9457de99e}\label{classTransportRouter_abdd2cc584aa98fade1dc5dc9457de99e}} 
+\index{TransportRouter@{TransportRouter}!LoadSettings@{LoadSettings}}
+\index{LoadSettings@{LoadSettings}!TransportRouter@{TransportRouter}}
+\doxysubsubsection{\texorpdfstring{LoadSettings()}{LoadSettings()}}
+{\footnotesize\ttfamily void Transport\+Router\+::\+Load\+Settings (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates routing parameters such as velocity, wait time, etc. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em node} & \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{json\+::\+Dict}} that defines all parameters \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+transport-\/catalogue/\mbox{\hyperlink{transport__router_8h}{transport\+\_\+router.\+h}}\item 
+transport-\/catalogue/transport\+\_\+router.\+cpp\end{DoxyCompactItemize}

@@ -2,6 +2,7 @@
  * \file svg.h
  * \brief Scalable Vector Graphics (SVG) generation library
  */
+
 #pragma once
 
 #include <cstdint>
@@ -23,7 +24,7 @@ namespace svg {
  */
 struct Point {
   Point() = default;
-  Point(double x, double y) : x(x), y(y) {}
+  Point(double xc, double yc) : x(xc), y(yc) {}
   double x = 0;
   double y = 0;
 };
@@ -115,9 +116,9 @@ std::ostream &operator<<(std::ostream &out, const svg::Color &color);
 
 //! Used to store and print indentation in render calls
 struct RenderContext {
-  RenderContext(std::ostream &out) : out(out) {}
-  RenderContext(std::ostream &out, int indent_step, int indent = 0)
-      : out(out), indent_step(indent_step), indent(indent) {}
+  RenderContext(std::ostream &outs) : out(outs) {}
+  RenderContext(std::ostream &outs, int ind_step, int ind = 0)
+      : out(outs), indent_step(ind_step), indent(ind) {}
 
   RenderContext Indented() const;
   void RenderIndent() const;
@@ -147,9 +148,9 @@ class ObjectContainer {
 public:
   template <typename T> void Add(T obj);
   virtual void AddPtr(std::unique_ptr<Object> &&obj) = 0;
+  virtual ~ObjectContainer() = default;
 
 protected:
-  ~ObjectContainer() = default;
   std::vector<std::unique_ptr<Object>> objects_;
 };
 

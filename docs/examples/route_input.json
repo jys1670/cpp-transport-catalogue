@@ -1,0 +1,127 @@
+{
+  "base_requests": [
+    {
+      "is_roundtrip": true,
+      "name": "177",
+      "stops": [
+        "Stop A",
+        "Stop B",
+        "Stop C",
+        "Stop A"
+      ],
+      "type": "Bus"
+    },
+    {
+      "is_roundtrip": false,
+      "name": "331",
+      "stops": [
+        "Stop B",
+        "Stop C",
+        "Stop D"
+      ],
+      "type": "Bus"
+    },
+    {
+      "latitude": 54.574371,
+      "longitude": 36.6517,
+      "name": "Stop A",
+      "road_distances": {
+        "Stop B": 2600
+      },
+      "type": "Stop"
+    },
+    {
+      "latitude": 54.587655,
+      "longitude": 36.645687,
+      "name": "Stop C",
+      "road_distances": {
+        "Stop B": 1380,
+        "Stop A": 2500,
+        "Stop D": 4650
+      },
+      "type": "Stop"
+    },
+    {
+      "latitude": 54.592028,
+      "longitude": 36.653656,
+      "name": "Stop B",
+      "road_distances": {
+        "Stop C": 890
+      },
+      "type": "Stop"
+    },
+    {
+      "latitude": 54.611717,
+      "longitude": 36.603938,
+      "name": "Stop D",
+      "road_distances": {},
+      "type": "Stop"
+    }
+  ],
+  "render_settings": {
+    "bus_label_font_size": 20,
+    "bus_label_offset": [
+      7,
+      15
+    ],
+    "color_palette": [
+      "green",
+      [
+        255,
+        160,
+        0
+      ],
+      "red"
+    ],
+    "height": 200,
+    "line_width": 14,
+    "padding": 30,
+    "stop_label_font_size": 20,
+    "stop_label_offset": [
+      7,
+      -3
+    ],
+    "stop_radius": 5,
+    "underlayer_color": [
+      255,
+      255,
+      255,
+      0.85
+    ],
+    "underlayer_width": 3,
+    "width": 200
+  },
+  "routing_settings": {
+    "bus_velocity": 40,
+    "bus_wait_time": 6
+  },
+  "stat_requests": [
+    {
+      "id": 1,
+      "name": "177",
+      "type": "Bus"
+    },
+    {
+      "id": 2,
+      "name": "331",
+      "type": "Bus"
+    },
+    {
+      "id": 3,
+      "name": "Stop C",
+      "type": "Stop"
+    },
+    {
+      "from": "Stop A",
+      "id": 4,
+      "to": "Stop C",
+      "type": "Route"
+    },
+    {
+      "from": "Stop A",
+      "id": 5,
+      "to": "Stop D",
+      "type": "Route"
+    }
+  ]
+}

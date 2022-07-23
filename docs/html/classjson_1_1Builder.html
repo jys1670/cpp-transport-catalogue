@@ -67,6 +67,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classjson_1_1Builder-members.html">List of all members</a>  </div>
@@ -79,26 +80,44 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="json__builder_8h_source.html">json_builder.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjson_1_1Builder_1_1ArrayItemContext.html">ArrayItemContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actions that are allowed inside of an array.  <a href="structjson_1_1Builder_1_1ArrayItemContext.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjson_1_1Builder_1_1Context.html">Context</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores common <a class="el" href="classjson_1_1Builder.html" title="Handy type used to construct JSON via method chaining approach.">Builder</a> for all available states.  <a href="structjson_1_1Builder_1_1Context.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjson_1_1Builder_1_1MapItemContext.html">MapItemContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actions that are allowed after insertion of dictionary {key, value} pair.  <a href="structjson_1_1Builder_1_1MapItemContext.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjson_1_1Builder_1_1MapKeyContext.html">MapKeyContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actions that are allowed after setting dictionary key.  <a href="structjson_1_1Builder_1_1MapKeyContext.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjson_1_1Builder_1_1ValueContext.html">ValueContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents state in which all <a class="el" href="classjson_1_1Builder.html" title="Handy type used to construct JSON via method chaining approach.">Builder</a> actions are allowed.  <a href="structjson_1_1Builder_1_1ValueContext.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acb2244daff3f8ca2f84ac5254856fa3a"><td class="memItemLeft" align="right" valign="top"><a id="acb2244daff3f8ca2f84ac5254856fa3a" name="acb2244daff3f8ca2f84ac5254856fa3a"></a>
-<a class="el" href="structjson_1_1ValueContext.html">ValueContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Value</b> (Node::Value val)</td></tr>
-<tr class="separator:acb2244daff3f8ca2f84ac5254856fa3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a481e32d53590e5410f54ae8d72ea65e1"><td class="memItemLeft" align="right" valign="top"><a id="a481e32d53590e5410f54ae8d72ea65e1" name="a481e32d53590e5410f54ae8d72ea65e1"></a>
-<a class="el" href="structjson_1_1MapKeyContext.html">MapKeyContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Key</b> (std::string key)</td></tr>
-<tr class="separator:a481e32d53590e5410f54ae8d72ea65e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8af422e6ab8162b9168fa942dbacd2c4"><td class="memItemLeft" align="right" valign="top"><a id="a8af422e6ab8162b9168fa942dbacd2c4" name="a8af422e6ab8162b9168fa942dbacd2c4"></a>
-<a class="el" href="structjson_1_1MapItemContext.html">MapItemContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>StartDict</b> ()</td></tr>
-<tr class="separator:a8af422e6ab8162b9168fa942dbacd2c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf3df64c032cd8f5bc32dcbc73e8bec3"><td class="memItemLeft" align="right" valign="top"><a id="aaf3df64c032cd8f5bc32dcbc73e8bec3" name="aaf3df64c032cd8f5bc32dcbc73e8bec3"></a>
-<a class="el" href="structjson_1_1ArrayItemContext.html">ArrayItemContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>StartArray</b> ()</td></tr>
-<tr class="separator:aaf3df64c032cd8f5bc32dcbc73e8bec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a875e81526cb1c18612ad81f6d9a6b5d0"><td class="memItemLeft" align="right" valign="top"><a id="a875e81526cb1c18612ad81f6d9a6b5d0" name="a875e81526cb1c18612ad81f6d9a6b5d0"></a>
-<a class="el" href="structjson_1_1ValueContext.html">ValueContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EndDict</b> ()</td></tr>
-<tr class="separator:a875e81526cb1c18612ad81f6d9a6b5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e5a3dd6c4e6ce4bd333a9d3c684eabd"><td class="memItemLeft" align="right" valign="top"><a id="a9e5a3dd6c4e6ce4bd333a9d3c684eabd" name="a9e5a3dd6c4e6ce4bd333a9d3c684eabd"></a>
-<a class="el" href="structjson_1_1ValueContext.html">ValueContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EndArray</b> ()</td></tr>
-<tr class="separator:a9e5a3dd6c4e6ce4bd333a9d3c684eabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a581d06f6638c3893dbed93267ba773af"><td class="memItemLeft" align="right" valign="top"><a id="a581d06f6638c3893dbed93267ba773af" name="a581d06f6638c3893dbed93267ba773af"></a>
+<a class="el" href="structjson_1_1Builder_1_1ValueContext.html">ValueContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Value</b> (Node::Value val)</td></tr>
+<tr class="separator:a581d06f6638c3893dbed93267ba773af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79dfb7476fa77152f7098282ffbcfabc"><td class="memItemLeft" align="right" valign="top"><a id="a79dfb7476fa77152f7098282ffbcfabc" name="a79dfb7476fa77152f7098282ffbcfabc"></a>
+<a class="el" href="structjson_1_1Builder_1_1MapKeyContext.html">MapKeyContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Key</b> (std::string key)</td></tr>
+<tr class="separator:a79dfb7476fa77152f7098282ffbcfabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3d8faa0e1f7b9f7690f6816ff438eb"><td class="memItemLeft" align="right" valign="top"><a id="a3c3d8faa0e1f7b9f7690f6816ff438eb" name="a3c3d8faa0e1f7b9f7690f6816ff438eb"></a>
+<a class="el" href="structjson_1_1Builder_1_1MapItemContext.html">MapItemContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>StartDict</b> ()</td></tr>
+<tr class="separator:a3c3d8faa0e1f7b9f7690f6816ff438eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d26af6721a78f4c9ebd3d93a777b7a6"><td class="memItemLeft" align="right" valign="top"><a id="a7d26af6721a78f4c9ebd3d93a777b7a6" name="a7d26af6721a78f4c9ebd3d93a777b7a6"></a>
+<a class="el" href="structjson_1_1Builder_1_1ArrayItemContext.html">ArrayItemContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>StartArray</b> ()</td></tr>
+<tr class="separator:a7d26af6721a78f4c9ebd3d93a777b7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95fbccd9fbd9c608e707b8cb5eaf6c73"><td class="memItemLeft" align="right" valign="top"><a id="a95fbccd9fbd9c608e707b8cb5eaf6c73" name="a95fbccd9fbd9c608e707b8cb5eaf6c73"></a>
+<a class="el" href="structjson_1_1Builder_1_1ValueContext.html">ValueContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EndDict</b> ()</td></tr>
+<tr class="separator:a95fbccd9fbd9c608e707b8cb5eaf6c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaffc32d9fa4ff5993af51d6c8228155"><td class="memItemLeft" align="right" valign="top"><a id="afaffc32d9fa4ff5993af51d6c8228155" name="afaffc32d9fa4ff5993af51d6c8228155"></a>
+<a class="el" href="structjson_1_1Builder_1_1ValueContext.html">ValueContext</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EndArray</b> ()</td></tr>
+<tr class="separator:afaffc32d9fa4ff5993af51d6c8228155"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16fdfb306a8c9cd5c4a79cab860d854c"><td class="memItemLeft" align="right" valign="top"><a id="a16fdfb306a8c9cd5c4a79cab860d854c" name="a16fdfb306a8c9cd5c4a79cab860d854c"></a>
 <a class="el" href="classjson_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Build</b> ()</td></tr>
 <tr class="separator:a16fdfb306a8c9cd5c4a79cab860d854c"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -1,50 +1,38 @@
 cmake_minimum_required(VERSION 3.21)
-project(transport-catalogue CXX)
+project("transport-catalogue" LANGUAGES CXX)
+
+### Global variables
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(ENABLE_WARNINGS_AS_ERRORS true)
-set(ENABLE_STDLIB_DEBUG_MACROS false)
-set(ENABLE_SANITIZERS false)
-set(SAVE_TEMP_FILES false)
+### Options
+# Tests
+option(ENABLE_TESTING "Whether to enable unit tests" OFF)
 
-# Multithreading
-add_compile_options(-pthread)
+# Debug build compilation options
+option(WARNINGS_AS_ERRORS "Warnings as errors in Debug builds" ON)
+option(SANITIZERS "Whether to enable sanitizers" OFF)
+option(SAVE_TEMP_FILES "Whether save compiler temp files" OFF)
 
-set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -fno-inline -fdiagnostics-color -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0")
+### Project Name
+set(EXECUTABLE_NAME "main")
 
-if((ENABLE_WARNINGS_AS_ERRORS) AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
-        message("WARNINGS as errors enabled")
-        add_compile_options(-Wall -Wextra -pedantic -Werror)
+
+### Cmake modules
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/)
+include(CompileOptions)
+
+# build type check
+if (NOT CMAKE_BUILD_TYPE)
+        message(STATUS "No build type selected, default to Debug")
+        set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
-if((ENABLE_STDLIB_DEBUG_MACROS) AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
-        message("LIBSTDC++ debugging enabled")
-        add_compile_options(-D_GLIBCXX_DEBUG)
-endif()
+### Subdirs
+add_subdirectory(transport-catalogue)
+add_subdirectory(tests)
 
-if((ENABLE_SANITIZERS) AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
-        message("SANITIZERS enabled")
-        set(san_options
-                -fsanitize=address
-                #-fsanitize=thread
-                -fsanitize=leak
-                -fno-omit-frame-pointer
-                -fno-optimize-sibling-calls
-                )
-        add_compile_options(${san_options})
-        add_link_options(${san_options})
-endif()
-
-if(SAVE_TEMP_FILES)
-        message("TEMP files saved")
-        add_compile_options(-g -masm=intel -save-temps)
-endif()
-
-if(NOT CMAKE_BUILD_TYPE)
-        message( "Build type was not specified ~ assuming Release" )
-        set(CMAKE_BUILD_TYPE "Release")
-endif(NOT CMAKE_BUILD_TYPE)
-
-
-aux_source_directory(./transport-catalogue SOURCES)
-add_executable(${PROJECT_NAME} ${SOURCES})
+# Install targets
+install(TARGETS ${EXECUTABLE_NAME}
+        RUNTIME DESTINATION bin)

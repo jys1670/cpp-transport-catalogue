@@ -1,8 +1,23 @@
 var searchData=
 [
-  ['tests_2eh_0',['tests.h',['../tests_8h.html',1,'']]],
-  ['text_1',['Text',['../classsvg_1_1Text.html',1,'svg']]],
-  ['transport_20catalogue_2',['Transport Catalogue',['../index.html',1,'']]],
-  ['transport_5fcatalogue_2eh_3',['transport_catalogue.h',['../transport__catalogue_8h.html',1,'']]],
-  ['transportcatalogue_4',['TransportCatalogue',['../classTransportCatalogue.html',1,'']]]
+  ['range_0',['Range',['../classgraph_1_1Range.html',1,'graph']]],
+  ['rendercontext_1',['RenderContext',['../structsvg_1_1RenderContext.html',1,'svg']]],
+  ['renderer_5f_2',['renderer_',['../classRequestHandler.html#ad1e73b0d7e811b36e749a8b0033a4c3c',1,'RequestHandler']]],
+  ['rendermap_3',['RenderMap',['../classMapRenderer.html#a9eeb8627741e312fde59c0bd435953e9',1,'MapRenderer']]],
+  ['rendersettings_4',['RenderSettings',['../structMapRenderer_1_1RenderSettings.html',1,'MapRenderer']]],
+  ['req_5fhandler_5f_5',['req_handler_',['../classJsonReader.html#a05be9435345d58abe371f1c47af3745f',1,'JsonReader']]],
+  ['reqs_5fqueue_5f_6',['reqs_queue_',['../classRequestHandler.html#a678641ba0989a6ff6f90c7286a58924d',1,'RequestHandler']]],
+  ['reqsqueue_7',['ReqsQueue',['../classRequestHandler.html#ad802f64f992180a24fc894f9e38ba5e8',1,'RequestHandler']]],
+  ['request_5fhandler_2eh_8',['request_handler.h',['../request__handler_8h.html',1,'']]],
+  ['requesthandler_9',['RequestHandler',['../classRequestHandler.html#ae76bfd0057daee6d494aee77388e624a',1,'RequestHandler::RequestHandler()'],['../classRequestHandler.html',1,'RequestHandler']]],
+  ['requesttypes_10',['RequestTypes',['../structJsonReader_1_1RequestTypes.html',1,'JsonReader::RequestTypes'],['../structRequestHandler_1_1RequestTypes.html',1,'RequestHandler::RequestTypes']]],
+  ['rgb_11',['Rgb',['../structsvg_1_1Rgb.html',1,'svg']]],
+  ['rgba_12',['Rgba',['../structsvg_1_1Rgba.html',1,'svg']]],
+  ['route_13',['Route',['../structRequestHandler_1_1RequestTypes_1_1Route.html',1,'RequestHandler::RequestTypes']]],
+  ['routeanswer_14',['RouteAnswer',['../structRouteAnswer.html',1,'']]],
+  ['routeinfo_15',['RouteInfo',['../structgraph_1_1Router_1_1RouteInfo.html',1,'graph::Router']]],
+  ['routeinternaldata_16',['RouteInternalData',['../structgraph_1_1Router_1_1RouteInternalData.html',1,'graph::Router']]],
+  ['router_17',['Router',['../classgraph_1_1Router.html',1,'graph']]],
+  ['router_2eh_18',['router.h',['../router_8h.html',1,'']]],
+  ['routesdata_19',['RoutesData',['../structDataStorage_1_1RoutesData.html',1,'DataStorage']]]
 ];

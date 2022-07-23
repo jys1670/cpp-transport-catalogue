@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['sphereprojector_0',['SphereProjector',['../classSphereProjector.html#ab2b8be7ced9482358a6e79e19e2be0de',1,'SphereProjector']]]
+  ['rendermap_0',['RenderMap',['../classMapRenderer.html#a9eeb8627741e312fde59c0bd435953e9',1,'MapRenderer']]],
+  ['requesthandler_1',['RequestHandler',['../classRequestHandler.html#ae76bfd0057daee6d494aee77388e624a',1,'RequestHandler']]]
 ];

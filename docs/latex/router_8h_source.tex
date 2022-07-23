@@ -1,0 +1,130 @@
+\hypertarget{router_8h_source}{}\doxysection{router.\+h}
+\label{router_8h_source}\index{transport-\/catalogue/router.h@{transport-\/catalogue/router.h}}
+\mbox{\hyperlink{router_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{graph_8h}{graph.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }graph \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight> \textcolor{keyword}{class }\mbox{\hyperlink{classgraph_1_1Router}{Router}} \{}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24   \textcolor{keyword}{using }\mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Graph}} = \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{DirectedWeightedGraph<Weight>}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27   \textcolor{keyword}{explicit} \mbox{\hyperlink{classgraph_1_1Router}{Router}}(\textcolor{keyword}{const} \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Graph}} \&graph);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \textcolor{keyword}{struct }\mbox{\hyperlink{structgraph_1_1Router_1_1RouteInfo}{RouteInfo}} \{}
+\DoxyCodeLine{30     Weight weight;}
+\DoxyCodeLine{31     std::vector<EdgeId> edges;}
+\DoxyCodeLine{32   \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   std::optional<RouteInfo> BuildRoute(VertexId from, VertexId to) \textcolor{keyword}{const};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{private}:}
+\DoxyCodeLine{37   \textcolor{keyword}{struct }\mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{RouteInternalData}} \{}
+\DoxyCodeLine{38     Weight weight;}
+\DoxyCodeLine{39     std::optional<EdgeId> prev\_edge;}
+\DoxyCodeLine{40   \};}
+\DoxyCodeLine{41   \textcolor{keyword}{using }RoutesInternalData =}
+\DoxyCodeLine{42       std::vector<std::vector<std::optional<RouteInternalData>>>;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44   \textcolor{keywordtype}{void} InitializeRoutesInternalData(\textcolor{keyword}{const} \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Graph}} \&graph) \{}
+\DoxyCodeLine{45     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} vertex\_count = graph.GetVertexCount();}
+\DoxyCodeLine{46     \textcolor{keywordflow}{for} (VertexId vertex = 0; vertex < vertex\_count; ++vertex) \{}
+\DoxyCodeLine{47       routes\_internal\_data\_[vertex][vertex] =}
+\DoxyCodeLine{48           \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{RouteInternalData}}\{ZERO\_WEIGHT, std::nullopt\};}
+\DoxyCodeLine{49       \textcolor{keywordflow}{for} (\textcolor{keyword}{const} EdgeId edge\_id : graph.GetIncidentEdges(vertex)) \{}
+\DoxyCodeLine{50         \textcolor{keyword}{const} \textcolor{keyword}{auto} \&edge = graph.GetEdge(edge\_id);}
+\DoxyCodeLine{51         \textcolor{keywordflow}{if} (edge.weight < ZERO\_WEIGHT) \{}
+\DoxyCodeLine{52           \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}Edges' weights should be non-\/negative"{}});}
+\DoxyCodeLine{53         \}}
+\DoxyCodeLine{54         \textcolor{keyword}{auto} \&route\_internal\_data = routes\_internal\_data\_[vertex][edge.to];}
+\DoxyCodeLine{55         \textcolor{keywordflow}{if} (!route\_internal\_data || route\_internal\_data-\/>weight > edge.weight) \{}
+\DoxyCodeLine{56           route\_internal\_data = RouteInternalData\{edge.weight, edge\_id\};}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58       \}}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60   \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62   \textcolor{keywordtype}{void} RelaxRoute(VertexId vertex\_from, VertexId vertex\_to,}
+\DoxyCodeLine{63                   \textcolor{keyword}{const} RouteInternalData \&route\_from,}
+\DoxyCodeLine{64                   \textcolor{keyword}{const} RouteInternalData \&route\_to) \{}
+\DoxyCodeLine{65     \textcolor{keyword}{auto} \&route\_relaxing = routes\_internal\_data\_[vertex\_from][vertex\_to];}
+\DoxyCodeLine{66     \textcolor{keyword}{const} Weight candidate\_weight = route\_from.weight + route\_to.weight;}
+\DoxyCodeLine{67     \textcolor{keywordflow}{if} (!route\_relaxing || candidate\_weight < route\_relaxing-\/>weight) \{}
+\DoxyCodeLine{68       route\_relaxing = \{candidate\_weight, route\_to.prev\_edge}
+\DoxyCodeLine{69                                               ? route\_to.prev\_edge}
+\DoxyCodeLine{70                                               : route\_from.prev\_edge\};}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72   \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74   \textcolor{keywordtype}{void} RelaxRoutesInternalDataThroughVertex(\textcolor{keywordtype}{size\_t} vertex\_count,}
+\DoxyCodeLine{75                                             VertexId vertex\_through) \{}
+\DoxyCodeLine{76     \textcolor{keywordflow}{for} (VertexId vertex\_from = 0; vertex\_from < vertex\_count; ++vertex\_from) \{}
+\DoxyCodeLine{77       \textcolor{keywordflow}{if} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&route\_from =}
+\DoxyCodeLine{78               routes\_internal\_data\_[vertex\_from][vertex\_through]) \{}
+\DoxyCodeLine{79         \textcolor{keywordflow}{for} (VertexId vertex\_to = 0; vertex\_to < vertex\_count; ++vertex\_to) \{}
+\DoxyCodeLine{80           \textcolor{keywordflow}{if} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&route\_to =}
+\DoxyCodeLine{81                   routes\_internal\_data\_[vertex\_through][vertex\_to]) \{}
+\DoxyCodeLine{82             RelaxRoute(vertex\_from, vertex\_to, *route\_from, *route\_to);}
+\DoxyCodeLine{83           \}}
+\DoxyCodeLine{84         \}}
+\DoxyCodeLine{85       \}}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87   \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89   \textcolor{keyword}{static} \textcolor{keyword}{constexpr} Weight ZERO\_WEIGHT\{\};}
+\DoxyCodeLine{90   \textcolor{keyword}{const} Graph \&graph\_;}
+\DoxyCodeLine{91   RoutesInternalData routes\_internal\_data\_;}
+\DoxyCodeLine{92 \};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
+\DoxyCodeLine{95 Router<Weight>::Router(\textcolor{keyword}{const} Graph \&graph)}
+\DoxyCodeLine{96     : graph\_(graph),}
+\DoxyCodeLine{97       routes\_internal\_data\_(graph.GetVertexCount(),}
+\DoxyCodeLine{98                             std::vector<std::optional<RouteInternalData>>(}
+\DoxyCodeLine{99                                 graph.GetVertexCount())) \{}
+\DoxyCodeLine{100   InitializeRoutesInternalData(graph);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102   \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} vertex\_count = graph.GetVertexCount();}
+\DoxyCodeLine{103   \textcolor{keywordflow}{for} (VertexId vertex\_through = 0; vertex\_through < vertex\_count;}
+\DoxyCodeLine{104        ++vertex\_through) \{}
+\DoxyCodeLine{105     RelaxRoutesInternalDataThroughVertex(vertex\_count, vertex\_through);}
+\DoxyCodeLine{106   \}}
+\DoxyCodeLine{107 \}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
+\DoxyCodeLine{110 std::optional<typename Router<Weight>::RouteInfo>}
+\DoxyCodeLine{111 Router<Weight>::BuildRoute(VertexId from, VertexId to)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{112   \textcolor{keyword}{const} \textcolor{keyword}{auto} \&route\_internal\_data = routes\_internal\_data\_.at(from).at(to);}
+\DoxyCodeLine{113   \textcolor{keywordflow}{if} (!route\_internal\_data) \{}
+\DoxyCodeLine{114     \textcolor{keywordflow}{return} std::nullopt;}
+\DoxyCodeLine{115   \}}
+\DoxyCodeLine{116   \textcolor{keyword}{const} Weight weight = route\_internal\_data-\/>weight;}
+\DoxyCodeLine{117   std::vector<EdgeId> edges;}
+\DoxyCodeLine{118   \textcolor{keywordflow}{for} (std::optional<EdgeId> edge\_id = route\_internal\_data-\/>prev\_edge; edge\_id;}
+\DoxyCodeLine{119        edge\_id = routes\_internal\_data\_[from][graph\_.GetEdge(*edge\_id).from]}
+\DoxyCodeLine{120                      -\/>prev\_edge) \{}
+\DoxyCodeLine{121     edges.push\_back(*edge\_id);}
+\DoxyCodeLine{122   \}}
+\DoxyCodeLine{123   std::reverse(edges.begin(), edges.end());}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125   \textcolor{keywordflow}{return} RouteInfo\{weight, std::move(edges)\};}
+\DoxyCodeLine{126 \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \} \textcolor{comment}{// namespace graph}}
+
+\end{DoxyCode}

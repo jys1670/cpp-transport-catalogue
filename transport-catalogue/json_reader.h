@@ -128,6 +128,7 @@ private:
     void EnqueueBus(const json::Node &node);
     void EnqueueStop(const json::Node &node);
     void EnqueueMapDraw(const json::Node &node);
+    void EnqueueRoute(const json::Node &node);
   } json_print_parser_{req_handler_};
 
   //! Functor used to process elements of JsonReader::input_queue_

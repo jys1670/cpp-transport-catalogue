@@ -80,28 +80,29 @@
 \DoxyCodeLine{128     \textcolor{keywordtype}{void} EnqueueBus(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
 \DoxyCodeLine{129     \textcolor{keywordtype}{void} EnqueueStop(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
 \DoxyCodeLine{130     \textcolor{keywordtype}{void} EnqueueMapDraw(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
-\DoxyCodeLine{131   \} json\_print\_parser\_\{\mbox{\hyperlink{classJsonReader_a05be9435345d58abe371f1c47af3745f}{req\_handler\_}}\};}
-\DoxyCodeLine{132 }
-\DoxyCodeLine{134   \textcolor{keyword}{struct }\mbox{\hyperlink{structJsonReader_1_1CatalogueInserter}{CatalogueInserter}} \{}
-\DoxyCodeLine{135   \textcolor{keyword}{public}:}
-\DoxyCodeLine{136     \textcolor{keyword}{explicit} \mbox{\hyperlink{structJsonReader_1_1CatalogueInserter}{CatalogueInserter}}(\mbox{\hyperlink{classJsonReader}{JsonReader}} \&parent) : parent\_\{parent\} \{\};}
-\DoxyCodeLine{137     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1StopInsert}{RequestTypes::StopInsert}} \&req);}
-\DoxyCodeLine{138     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1StopLinkInsert}{RequestTypes::StopLinkInsert}} \&req);}
-\DoxyCodeLine{139     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1BusInsert}{RequestTypes::BusInsert}} \&req);}
-\DoxyCodeLine{140 }
-\DoxyCodeLine{141   \textcolor{keyword}{private}:}
-\DoxyCodeLine{142     \mbox{\hyperlink{classJsonReader}{JsonReader}} \&parent\_;}
-\DoxyCodeLine{143   \} catalogue\_inserter\_\{*\textcolor{keyword}{this}\};}
-\DoxyCodeLine{144 }
-\DoxyCodeLine{149   std::vector<InputQueue> \mbox{\hyperlink{classJsonReader_a4128cb3e724a1d295b64da9e4824d3d0}{input\_queue\_}};}
-\DoxyCodeLine{150 }
-\DoxyCodeLine{157   std::deque<InputInfo::Stop> \mbox{\hyperlink{classJsonReader_a6c4ff8f1c0544ccd12947e985063faa7}{stops\_input\_queue\_}};}
-\DoxyCodeLine{158 }
-\DoxyCodeLine{160   std::deque<InputInfo::StopLink> \mbox{\hyperlink{classJsonReader_a76c5731bf436f81703b3e8f9395124a0}{stoplinks\_input\_queue\_}};}
-\DoxyCodeLine{161 }
-\DoxyCodeLine{163   std::deque<InputInfo::Bus> \mbox{\hyperlink{classJsonReader_ac60eb31813cdfc95cdac717e50621609}{buses\_input\_queue\_}};}
-\DoxyCodeLine{164 }
-\DoxyCodeLine{169   \textcolor{keywordtype}{void} \mbox{\hyperlink{classJsonReader_a3a724bf5780d4e3d3825459ab3862085}{Clear}}();}
-\DoxyCodeLine{170 \};}
+\DoxyCodeLine{131     \textcolor{keywordtype}{void} EnqueueRoute(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
+\DoxyCodeLine{132   \} json\_print\_parser\_\{\mbox{\hyperlink{classJsonReader_a05be9435345d58abe371f1c47af3745f}{req\_handler\_}}\};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{135   \textcolor{keyword}{struct }\mbox{\hyperlink{structJsonReader_1_1CatalogueInserter}{CatalogueInserter}} \{}
+\DoxyCodeLine{136   \textcolor{keyword}{public}:}
+\DoxyCodeLine{137     \textcolor{keyword}{explicit} \mbox{\hyperlink{structJsonReader_1_1CatalogueInserter}{CatalogueInserter}}(\mbox{\hyperlink{classJsonReader}{JsonReader}} \&parent) : parent\_\{parent\} \{\};}
+\DoxyCodeLine{138     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1StopInsert}{RequestTypes::StopInsert}} \&req);}
+\DoxyCodeLine{139     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1StopLinkInsert}{RequestTypes::StopLinkInsert}} \&req);}
+\DoxyCodeLine{140     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structJsonReader_1_1RequestTypes_1_1BusInsert}{RequestTypes::BusInsert}} \&req);}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142   \textcolor{keyword}{private}:}
+\DoxyCodeLine{143     \mbox{\hyperlink{classJsonReader}{JsonReader}} \&parent\_;}
+\DoxyCodeLine{144   \} catalogue\_inserter\_\{*\textcolor{keyword}{this}\};}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{150   std::vector<InputQueue> \mbox{\hyperlink{classJsonReader_a4128cb3e724a1d295b64da9e4824d3d0}{input\_queue\_}};}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{158   std::deque<InputInfo::Stop> \mbox{\hyperlink{classJsonReader_a6c4ff8f1c0544ccd12947e985063faa7}{stops\_input\_queue\_}};}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{161   std::deque<InputInfo::StopLink> \mbox{\hyperlink{classJsonReader_a76c5731bf436f81703b3e8f9395124a0}{stoplinks\_input\_queue\_}};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{164   std::deque<InputInfo::Bus> \mbox{\hyperlink{classJsonReader_ac60eb31813cdfc95cdac717e50621609}{buses\_input\_queue\_}};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{170   \textcolor{keywordtype}{void} \mbox{\hyperlink{classJsonReader_a3a724bf5780d4e3d3825459ab3862085}{Clear}}();}
+\DoxyCodeLine{171 \};}
 
 \end{DoxyCode}

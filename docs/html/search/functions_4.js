@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadsettings_0',['LoadSettings',['../classMapRenderer.html#ac6d6b6446d6e56d30dbab39858045891',1,'MapRenderer']]]
+  ['jsonreader_0',['JsonReader',['../classJsonReader.html#a34cc5f646705afb14ccfd0b978dceb34',1,'JsonReader']]]
 ];

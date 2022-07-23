@@ -98,6 +98,64 @@ void RequestHandler::JsonPrint::operator()(
           .Build());
 }
 
+void RequestHandler::JsonPrint::operator()(
+    const RequestTypes::UpdateRoutingSettings &req) {
+  parent_.trouter_.LoadSettings(*req.settings);
+}
+
+void RequestHandler::JsonPrint::operator()(const RequestTypes::Route &req) {
+  auto answer = parent_.trouter_.FindFastestRoute(req.from, req.to);
+  json::Array items{};
+  if (answer) {
+    for (RouteAnswer::Item &item : answer->items) {
+      if (auto ptr = std::get_if<RouteAnswer::Bus>(&item)) {
+        items.emplace_back(json::Builder()
+                               .StartDict()
+                               .Key("bus")
+                               .Value(std::string{ptr->bus->name})
+                               .Key("span_count")
+                               .Value(ptr->span_count)
+                               .Key("time")
+                               .Value(ptr->time)
+                               .Key("type")
+                               .Value("Bus")
+                               .EndDict()
+                               .Build());
+      } else if (auto aptr = std::get_if<RouteAnswer::Wait>(&item)) {
+        items.emplace_back(json::Builder()
+                               .StartDict()
+                               .Key("stop_name")
+                               .Value(std::string{aptr->stop->name})
+                               .Key("time")
+                               .Value(aptr->time)
+                               .Key("type")
+                               .Value("Wait")
+                               .EndDict()
+                               .Build());
+      }
+    }
+    arr_.emplace_back(json::Builder()
+                          .StartDict()
+                          .Key("request_id")
+                          .Value(req.id)
+                          .Key("total_time")
+                          .Value(answer->total_time)
+                          .Key("items")
+                          .Value(std::move(items))
+                          .EndDict()
+                          .Build());
+  } else {
+    arr_.emplace_back(json::Builder()
+                          .StartDict()
+                          .Key("request_id")
+                          .Value(req.id)
+                          .Key("error_message")
+                          .Value("not found")
+                          .EndDict()
+                          .Build());
+  }
+}
+
 void RequestHandler::ProcessAllRequests(OutputFormat::Json) {
   json::Array result;
   JsonPrint visitor{*this, result};

@@ -1,0 +1,41 @@
+\hypertarget{structRouteAnswer}{}\doxysection{Route\+Answer Struct Reference}
+\label{structRouteAnswer}\index{RouteAnswer@{RouteAnswer}}
+
+
+Format independent description of the fastest path.  
+
+
+
+
+{\ttfamily \#include $<$transport\+\_\+router.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRouteAnswer_1_1Bus}{Bus}}
+\item 
+struct \mbox{\hyperlink{structRouteAnswer_1_1Wait}{Wait}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structRouteAnswer_a4d42ace281058e8fd118049d454ed7c7}\label{structRouteAnswer_a4d42ace281058e8fd118049d454ed7c7}} 
+using {\bfseries Item} = std\+::variant$<$ \mbox{\hyperlink{structRouteAnswer_1_1Wait}{Wait}}, \mbox{\hyperlink{structRouteAnswer_1_1Bus}{Bus}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structRouteAnswer_a0daf2c056952c9ceee30ebb3383609e3}\label{structRouteAnswer_a0daf2c056952c9ceee30ebb3383609e3}} 
+double {\bfseries total\+\_\+time}
+\item 
+\mbox{\Hypertarget{structRouteAnswer_a7f54f0b9befc66499100bd02f5f842d1}\label{structRouteAnswer_a7f54f0b9befc66499100bd02f5f842d1}} 
+std\+::vector$<$ Item $>$ {\bfseries items}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Format independent description of the fastest path. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+transport-\/catalogue/\mbox{\hyperlink{transport__router_8h}{transport\+\_\+router.\+h}}\end{DoxyCompactItemize}

@@ -6,7 +6,7 @@
 namespace json {
 
 /* Builder */
-ValueContext Builder::Value(Node::Value val) {
+Builder::ValueContext Builder::Value(Node::Value val) {
   if (builder_empty_) {
     root_.GetValue() = std::move(val);
     builder_empty_ = false;
@@ -38,7 +38,7 @@ ValueContext Builder::Value(Node::Value val) {
   return ValueContext{this};
 }
 
-MapKeyContext Builder::Key(std::string key) {
+Builder::MapKeyContext Builder::Key(std::string key) {
   if (builder_empty_) {
     throw std::logic_error("Incorrect call chain order, found Key(...) without "
                            "corresponding Dict(...)");
@@ -59,7 +59,7 @@ MapKeyContext Builder::Key(std::string key) {
   return MapKeyContext{this};
 }
 
-MapItemContext Builder::StartDict() {
+Builder::MapItemContext Builder::StartDict() {
   Dict dict;
   if (builder_empty_) {
     nodes_stack_.emplace_back(&(root_ = std::move(dict)));
@@ -91,7 +91,7 @@ MapItemContext Builder::StartDict() {
   return MapItemContext{this};
 }
 
-ArrayItemContext Builder::StartArray() {
+Builder::ArrayItemContext Builder::StartArray() {
   Array array;
   if (builder_empty_) {
     nodes_stack_.emplace_back(&(root_ = std::move(array)));
@@ -123,7 +123,7 @@ ArrayItemContext Builder::StartArray() {
   return ArrayItemContext{this};
 }
 
-ValueContext Builder::EndDict() {
+Builder::ValueContext Builder::EndDict() {
   if (builder_empty_) {
     throw std::logic_error(
         "Incorrect call chain order, found EndDict(...) without "
@@ -146,7 +146,7 @@ ValueContext Builder::EndDict() {
   return ValueContext{this};
 }
 
-ValueContext Builder::EndArray() {
+Builder::ValueContext Builder::EndArray() {
   if (builder_empty_) {
     throw std::logic_error(
         "Incorrect call chain order, found EndArray(...) without "
@@ -178,66 +178,86 @@ Node Builder::Build() {
 }
 
 /* Context */
-Context::Context(Builder *builder) : builder_{builder} {}
+Builder::Context::Context(Builder *builder) : builder_{builder} {}
 
 /* ValueContext */
-ValueContext::ValueContext(Builder *builder) : Context{builder} {}
+Builder::ValueContext::ValueContext(Builder *builder) : Context{builder} {}
 
-MapKeyContext ValueContext::Key(std::string key) {
+Builder::MapKeyContext Builder::ValueContext::Key(std::string key) {
   return builder_->Key(std::move(key));
 }
 
-ValueContext ValueContext::Value(Node::Value val) {
+Builder::ValueContext Builder::ValueContext::Value(Node::Value val) {
   return builder_->Value(std::move(val));
 }
 
-MapItemContext ValueContext::StartDict() { return builder_->StartDict(); }
-
-ValueContext ValueContext::EndDict() { return builder_->EndDict(); }
-
-ArrayItemContext ValueContext::StartArray() { return builder_->StartArray(); }
-
-ValueContext ValueContext::EndArray() { return builder_->EndArray(); }
-
-Node ValueContext::Build() { return builder_->Build(); }
-
-/* MapKeyContext */
-MapKeyContext::MapKeyContext(Builder *builder) : Context{builder} {}
-
-MapItemContext MapKeyContext::Value(Node::Value val) {
-  return MapItemContext{builder_->Value(std::move(val))};
+Builder::MapItemContext Builder::ValueContext::StartDict() {
+  return builder_->StartDict();
 }
 
-MapItemContext MapKeyContext::StartDict() { return builder_->StartDict(); }
-
-ArrayItemContext MapKeyContext::StartArray() { return builder_->StartArray(); }
-
-/* MapItemContext */
-MapItemContext::MapItemContext(Builder *builder) : Context{builder} {}
-
-MapItemContext::MapItemContext(Context ctx) : Context{ctx.builder_} {}
-
-MapKeyContext MapItemContext::Key(std::string key) {
-  return builder_->Key(std::move(key));
+Builder::ValueContext Builder::ValueContext::EndDict() {
+  return builder_->EndDict();
 }
 
-ValueContext MapItemContext::EndDict() { return builder_->EndDict(); }
-
-/* ArrayItemContext */
-ArrayItemContext::ArrayItemContext(Builder *builder) : Context{builder} {}
-
-ArrayItemContext::ArrayItemContext(Context ctx) : Context{ctx.builder_} {}
-
-ArrayItemContext ArrayItemContext::Value(Node::Value val) {
-  return ArrayItemContext{builder_->Value(std::move(val))};
-}
-
-MapItemContext ArrayItemContext::StartDict() { return builder_->StartDict(); }
-
-ArrayItemContext ArrayItemContext::StartArray() {
+Builder::ArrayItemContext Builder::ValueContext::StartArray() {
   return builder_->StartArray();
 }
 
-ValueContext ArrayItemContext::EndArray() { return builder_->EndArray(); }
+Builder::ValueContext Builder::ValueContext::EndArray() {
+  return builder_->EndArray();
+}
+
+Node Builder::ValueContext::Build() { return builder_->Build(); }
+
+/* MapKeyContext */
+Builder::MapKeyContext::MapKeyContext(Builder *builder) : Context{builder} {}
+
+Builder::MapItemContext Builder::MapKeyContext::Value(Node::Value val) {
+  return MapItemContext{builder_->Value(std::move(val))};
+}
+
+Builder::MapItemContext Builder::MapKeyContext::StartDict() {
+  return builder_->StartDict();
+}
+
+Builder::ArrayItemContext Builder::MapKeyContext::StartArray() {
+  return builder_->StartArray();
+}
+
+/* MapItemContext */
+Builder::MapItemContext::MapItemContext(Builder *builder) : Context{builder} {}
+
+Builder::MapItemContext::MapItemContext(Context ctx) : Context{ctx.builder_} {}
+
+Builder::MapKeyContext Builder::MapItemContext::Key(std::string key) {
+  return builder_->Key(std::move(key));
+}
+
+Builder::ValueContext Builder::MapItemContext::EndDict() {
+  return builder_->EndDict();
+}
+
+/* ArrayItemContext */
+Builder::ArrayItemContext::ArrayItemContext(Builder *builder)
+    : Context{builder} {}
+
+Builder::ArrayItemContext::ArrayItemContext(Context ctx)
+    : Context{ctx.builder_} {}
+
+Builder::ArrayItemContext Builder::ArrayItemContext::Value(Node::Value val) {
+  return ArrayItemContext{builder_->Value(std::move(val))};
+}
+
+Builder::MapItemContext Builder::ArrayItemContext::StartDict() {
+  return builder_->StartDict();
+}
+
+Builder::ArrayItemContext Builder::ArrayItemContext::StartArray() {
+  return builder_->StartArray();
+}
+
+Builder::ValueContext Builder::ArrayItemContext::EndArray() {
+  return builder_->EndArray();
+}
 
 } // namespace json
