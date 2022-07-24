@@ -19,7 +19,7 @@ jobs:
         run: mkdir build
 
       - name: Cmake build
-        run: cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
 
       - name: Cmake make
         run: cmake --build build --config Release --target main -j4
@@ -27,5 +27,5 @@ jobs:
       - name: Upload binary
         uses: actions/upload-artifact@v3
         with:
-          name: Linux main binary
+          name: main_linux
           path: build/bin/main*
