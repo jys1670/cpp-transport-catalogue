@@ -43,17 +43,6 @@ private:
   DataStorage::BusStorage busname_to_bus_stats_;
   DataStorage::StopStorage stopname_to_stop_stats_;
 
-  struct StopsStatsHasher {
-    size_t operator()(const std::pair<DataStorage::Stop *, DataStorage::Stop *>
-                          object) const {
-      return reinterpret_cast<size_t>(object.first) +
-             reinterpret_cast<size_t>(object.second) * 37;
-    }
-  };
-
-  std::unordered_map<std::pair<DataStorage::Stop *, DataStorage::Stop *>,
-                     double, StopsStatsHasher>
-      direct_distances_;
 
   static double ComputeStopsDirectDist(const DataStorage::StopStats &from,
                                        const DataStorage::StopStats &to);

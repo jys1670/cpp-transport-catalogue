@@ -28,8 +28,8 @@ namespace InputInfo {
 
 //! %Stop name and position (transfer)
 struct Stop {
-  std::string_view name;
-  geo::Coordinates pos;
+  std::string_view name{};
+  geo::Coordinates pos{};
 };
 
 //! For a given Stop contains other linked (connected) stops (names and
@@ -53,31 +53,83 @@ namespace DataStorage {
 
 //! %Stop name and position (storage)
 struct Stop {
-  std::string name;
-  geo::Coordinates pos;
+  Stop &SetStopName(std::string_view str) {
+    name = str;
+    return *this;
+  }
+  Stop &SetCoordinates(geo::Coordinates value) {
+    pos = value;
+    return *this;
+  }
+  std::string name{};
+  geo::Coordinates pos{};
 };
 
 //! Route name and stops (storage)
 struct Bus {
-  std::string name;
-  std::vector<Stop *> stops;
-  bool is_circular;
+  Bus &SetBusName(std::string_view str) {
+    name = str;
+    return *this;
+  }
+  Bus &SetCircular(bool value) {
+    is_circular = value;
+    return *this;
+  }
+  Bus &AddStop(Stop *ptr) {
+    stops.emplace_back(ptr);
+    return *this;
+  }
+  std::string name{};
+  std::vector<Stop *> stops{};
+  bool is_circular{};
 };
 
 //! Wrapper for Stop, used to painlessly add extra information about stop
 struct StopStats {
-  Stop *stop_ptr;
-  std::unordered_set<Bus *> linked_buses;
-  std::unordered_map<Stop *, double> linked_stops;
+  StopStats &SetStop(Stop *ptr) {
+    stop_ptr = ptr;
+    return *this;
+  }
+  StopStats &AddLinkedBus(Bus *ptr) {
+    linked_buses.insert(ptr);
+    return *this;
+  }
+  StopStats &SetLinkedStopDistance(Stop *ptr, double distance) {
+    linked_stops[ptr] = distance;
+    return *this;
+  }
+  Stop *stop_ptr{nullptr};
+  std::unordered_set<Bus *> linked_buses{};
+  std::unordered_map<Stop *, double> linked_stops{};
 };
 
 //! Wrapper for Bus, used to painlessly add extra information about route
 struct BusStats {
-  Bus *bus_ptr;
-  size_t total_stops;
-  std::unordered_set<Stop *> unique_stops;
-  double direct_lenght;
-  double real_length;
+  BusStats &SetBus(Bus *ptr) {
+    bus_ptr = ptr;
+    return *this;
+  }
+  BusStats &SetTotalStops(size_t number) {
+    total_stops = number;
+    return *this;
+  }
+  BusStats &SetUniqueStops(std::unordered_set<Stop *> &&stops) {
+    unique_stops = std::move(stops);
+    return *this;
+  }
+  BusStats &SetDirectLength(double val) {
+    direct_lenght = val;
+    return *this;
+  }
+  BusStats &SetRealLength(double val) {
+    real_length = val;
+    return *this;
+  }
+  Bus *bus_ptr{nullptr};
+  size_t total_stops{};
+  std::unordered_set<Stop *> unique_stops{};
+  double direct_lenght{};
+  double real_length{};
 };
 
 using BusStorage = std::unordered_map<std::string_view, BusStats>;

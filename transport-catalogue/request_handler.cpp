@@ -108,26 +108,26 @@ void RequestHandler::JsonPrint::operator()(const RequestTypes::Route &req) {
   json::Array items{};
   if (answer) {
     for (RouteAnswer::Item &item : answer->items) {
-      if (auto ptr = std::get_if<RouteAnswer::Bus>(&item)) {
+      if (auto b_ptr = std::get_if<RouteAnswer::Bus>(&item)) {
         items.emplace_back(json::Builder()
                                .StartDict()
                                .Key("bus")
-                               .Value(std::string{ptr->bus->name})
+                               .Value(std::string{b_ptr->bus->name})
                                .Key("span_count")
-                               .Value(ptr->span_count)
+                               .Value(static_cast<int>(b_ptr->span_count))
                                .Key("time")
-                               .Value(ptr->time)
+                               .Value(b_ptr->time)
                                .Key("type")
                                .Value("Bus")
                                .EndDict()
                                .Build());
-      } else if (auto aptr = std::get_if<RouteAnswer::Wait>(&item)) {
+      } else if (auto w_ptr = std::get_if<RouteAnswer::Wait>(&item)) {
         items.emplace_back(json::Builder()
                                .StartDict()
                                .Key("stop_name")
-                               .Value(std::string{aptr->stop->name})
+                               .Value(std::string{w_ptr->stop->name})
                                .Key("time")
-                               .Value(aptr->time)
+                               .Value(w_ptr->time)
                                .Key("type")
                                .Value("Wait")
                                .EndDict()

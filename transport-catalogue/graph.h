@@ -35,6 +35,26 @@ using VertexId = size_t;
 using EdgeId = size_t;
 
 template <typename Weight> struct Edge {
+  Edge &SetFromVertex(VertexId vert) {
+    from = vert;
+    return *this;
+  }
+  Edge &SetToVertex(VertexId vert) {
+    to = vert;
+    return *this;
+  }
+  Edge &SetWeight(Weight value) {
+    weight = value;
+    return *this;
+  }
+  Edge &SetBus(const DataStorage::Bus *ptr) {
+    bus = ptr;
+    return *this;
+  }
+  Edge &SetStopCount(size_t count) {
+    stop_count = count;
+    return *this;
+  }
   VertexId from;
   VertexId to;
   Weight weight;

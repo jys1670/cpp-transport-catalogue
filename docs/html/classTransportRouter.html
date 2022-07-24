@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
@@ -74,11 +75,19 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransportRouter_1_1Settings.html">Settings</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransportRouter_1_1Vertex.html">Vertex</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents real world entity <a class="el" href="structDataStorage_1_1Stop.html" title="Stop name and position (storage)">DataStorage::Stop</a> (and its properties) as graph vertex.  <a href="classTransportRouter_1_1Vertex.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransportRouter_1_1VertexHasher.html">VertexHasher</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a1b6e531cc52daa66f71b8a33f89c9d2b"><td class="memItemLeft" align="right" valign="top"><a id="a1b6e531cc52daa66f71b8a33f89c9d2b" name="a1b6e531cc52daa66f71b8a33f89c9d2b"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Edge</b> = <a class="el" href="structgraph_1_1Edge.html">graph::Edge</a>&lt; double &gt;</td></tr>
+<tr class="separator:a1b6e531cc52daa66f71b8a33f89c9d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -116,12 +125,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ac90aaf41ee8fc40b24093a041448f106"><td class="memItemLeft" align="right" valign="top"><a id="ac90aaf41ee8fc40b24093a041448f106" name="ac90aaf41ee8fc40b24093a041448f106"></a>
 const <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>catalogue_</b></td></tr>
 <tr class="separator:ac90aaf41ee8fc40b24093a041448f106"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc8a93afb385706fcf0c3c6e513ad474"><td class="memItemLeft" align="right" valign="top"><a id="acc8a93afb385706fcf0c3c6e513ad474" name="acc8a93afb385706fcf0c3c6e513ad474"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>bus_wait_time_</b> {}</td></tr>
-<tr class="separator:acc8a93afb385706fcf0c3c6e513ad474"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8383ae5d93b4c92315e7721d53d2fb41"><td class="memItemLeft" align="right" valign="top"><a id="a8383ae5d93b4c92315e7721d53d2fb41" name="a8383ae5d93b4c92315e7721d53d2fb41"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>bus_velocity_</b> {}</td></tr>
-<tr class="separator:a8383ae5d93b4c92315e7721d53d2fb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a540196372939531bd267d4b41574a359"><td class="memItemLeft" align="right" valign="top"><a id="a540196372939531bd267d4b41574a359" name="a540196372939531bd267d4b41574a359"></a>
+struct <a class="el" href="structTransportRouter_1_1Settings.html">TransportRouter::Settings</a>&#160;</td><td class="memItemRight" valign="bottom"><b>settings_</b></td></tr>
+<tr class="separator:a540196372939531bd267d4b41574a359"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad71153467c67258057c95a6410414d1e"><td class="memItemLeft" align="right" valign="top"><a id="ad71153467c67258057c95a6410414d1e" name="ad71153467c67258057c95a6410414d1e"></a>
 <a class="el" href="classgraph_1_1DirectedWeightedGraph.html">graph::DirectedWeightedGraph</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>graph_</b> {}</td></tr>
 <tr class="separator:ad71153467c67258057c95a6410414d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -239,8 +245,8 @@ std::vector&lt; <a class="el" href="classTransportRouter_1_1Vertex.html">Vertex<
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>transport-catalogue/<a class="el" href="transport__router_8h_source.html">transport_router.h</a></li>
-<li>transport-catalogue/transport_router.cpp</li>
+<li>/home/user/Documents/cpp-transport-catalogue/transport-catalogue/<a class="el" href="transport__router_8h_source.html">transport_router.h</a></li>
+<li>/home/user/Documents/cpp-transport-catalogue/transport-catalogue/transport_router.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

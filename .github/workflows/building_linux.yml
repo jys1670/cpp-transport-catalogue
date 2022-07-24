@@ -1,0 +1,31 @@
+name: Building on Linux
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup required packages
+        run: sudo apt-get install -y binutils-dev libssl-dev uuid-dev
+
+      - name: Setup GCC
+        uses: egor-tensin/setup-gcc@v1
+
+      - name: Create build directory
+        run: mkdir build
+
+      - name: Cmake build
+        run: cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release
+
+      - name: Cmake make
+        run: cmake --build build --config Release --target main -j4
+
+      - name: Upload binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux main binary
+          path: build/bin/main*

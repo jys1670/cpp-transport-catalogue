@@ -1,6 +1,8 @@
 ## Transport Catalogue
 ![C++ version](https://img.shields.io/badge/C%2B%2B-17%2F20-blue)
-![Ubuntu CI](https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/ubuntu.yml/badge.svg)
+![Building on Linux](https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/building_linux.yml/badge.svg)
+![Building on Windows](https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/building_windows.yml/badge.svg)
+![Linux CI](https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/linux_ci_test.yml/badge.svg)
 
 This repository is a simple implementation of information storage, which can potentially be used in some kind of navigation process.
 As of now, there is only JSON interface capable of printing/visualizing stops and routes information as well as finding the fastest path
@@ -11,11 +13,13 @@ between two stops.
 ```
 .
 ├── cmake
-│   └── CompileOptions.cmake
+│   ├── CompileOptions.cmake
+│   └── Docs.cmake
 ├── docs
 │   ├── examples
 │   ├── html
 │   ├── latex
+│   ├── Doxyfile
 │   └── index.html
 ├── tests
 │   ├── CMakeLists.txt
@@ -43,16 +47,13 @@ between two stops.
 │   ├── router.h
 │   ├── svg.cpp
 │   ├── svg.h
-│   ├── tests.cpp
-│   ├── tests.h
 │   ├── transport_catalogue.cpp
 │   ├── transport_catalogue.h
 │   ├── transport_router.cpp
 │   └── transport_router.h
 ├── CMakeLists.txt
-├── Doxyfile
-├── README.md
-└── shell.nix
+└── README.md
+
 ```
 ### Building:
 
@@ -79,6 +80,11 @@ cd bin
 ./unit_tests
 ```
 
+Updating documentation:
+```sh
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build . --config Release --target doxygen
+```
 
 ### Example usage:
 
@@ -93,5 +99,5 @@ cd bin
 - [Answer (2)](https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_output.json), contains travel time and path description in `items` keys
 
 ### Documentation
-- **Is in a work-in-progress state**
-- You can check it out here: [Transport-Catalogue-Documentation](https://jys1670.github.io/cpp-transport-catalogue/html/index.html).
+
+You can check it out here: [Transport-Catalogue-Documentation](https://jys1670.github.io/cpp-transport-catalogue/html/index.html).

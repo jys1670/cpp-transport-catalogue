@@ -1,0 +1,25 @@
+name: Linux CI Test
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Boost libraries
+      run: sudo apt-get update && sudo apt-get install -yq libboost-all-dev
+
+    - name: Create build directory
+      run: mkdir build
+
+    - name: Cmake build
+      run: cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTING=ON
+
+    - name: Cmake make
+      run: cmake --build build --config Release --target unit_tests -j4
+
+    - name: Run test
+      run: build/bin/unit_tests

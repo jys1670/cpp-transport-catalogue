@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp-transport-catalogue: transport-catalogue/transport_catalogue.h Source File</title>
+<title>cpp-transport-catalogue: /home/user/Documents/cpp-transport-catalogue/transport-catalogue/transport_catalogue.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,36 +110,24 @@ $(function() {
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  DataStorage::BusStorage busname_to_bus_stats_;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  DataStorage::StopStorage stopname_to_stop_stats_;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structTransportCatalogue_1_1StopsStatsHasher.html">   46</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structTransportCatalogue_1_1StopsStatsHasher.html">StopsStatsHasher</a> {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">size_t</span> operator()(<span class="keyword">const</span> std::pair&lt;DataStorage::Stop *, DataStorage::Stop *&gt;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                          <span class="keywordtype">object</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>      <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(<span class="keywordtype">object</span>.first) +</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>             <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(<span class="keywordtype">object</span>.second) * 37;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  };</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  std::unordered_map&lt;std::pair&lt;DataStorage::Stop *, DataStorage::Stop *&gt;,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                     double, <a class="code hl_struct" href="structTransportCatalogue_1_1StopsStatsHasher.html">StopsStatsHasher</a>&gt;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>      direct_distances_;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keyword">static</span> <span class="keywordtype">double</span> ComputeStopsDirectDist(<span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a> &amp;from,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                                       <span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a> &amp;to);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keyword">static</span> <span class="keywordtype">double</span> GetStopsRealDist(<span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a> &amp;from,</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                                 <span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a> &amp;to);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keyword">static</span> <span class="keywordtype">size_t</span> GetBusTotalStopsAmount(<span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1Bus.html">DataStorage::Bus</a> &amp;bus);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keyword">static</span> <span class="keywordtype">double</span> ComputeStopsDirectDist(<span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a> &amp;from,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                                       <span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a> &amp;to);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keyword">static</span> <span class="keywordtype">double</span> GetStopsRealDist(<span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a> &amp;from,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                                 <span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a> &amp;to);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keyword">static</span> <span class="keywordtype">size_t</span> GetBusTotalStopsAmount(<span class="keyword">const</span> <a class="code hl_struct" href="structDataStorage_1_1Bus.html">DataStorage::Bus</a> &amp;bus);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
 <div class="ttc" id="aclassTransportCatalogue_html"><div class="ttname"><a href="classTransportCatalogue.html">TransportCatalogue</a></div><div class="ttdef"><b>Definition:</b> transport_catalogue.h:19</div></div>
 <div class="ttc" id="adomain_8h_html"><div class="ttname"><a href="domain_8h.html">domain.h</a></div><div class="ttdoc">Header file with widely used independent types.</div></div>
 <div class="ttc" id="ageo_8h_html"><div class="ttname"><a href="geo_8h.html">geo.h</a></div><div class="ttdoc">Geographic coordinates related elements.</div></div>
-<div class="ttc" id="astructDataStorage_1_1BusStats_html"><div class="ttname"><a href="structDataStorage_1_1BusStats.html">DataStorage::BusStats</a></div><div class="ttdoc">Wrapper for Bus, used to painlessly add extra information about route.</div><div class="ttdef"><b>Definition:</b> domain.h:75</div></div>
-<div class="ttc" id="astructDataStorage_1_1Bus_html"><div class="ttname"><a href="structDataStorage_1_1Bus.html">DataStorage::Bus</a></div><div class="ttdoc">Route name and stops (storage)</div><div class="ttdef"><b>Definition:</b> domain.h:61</div></div>
-<div class="ttc" id="astructDataStorage_1_1StopStats_html"><div class="ttname"><a href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a></div><div class="ttdoc">Wrapper for Stop, used to painlessly add extra information about stop.</div><div class="ttdef"><b>Definition:</b> domain.h:68</div></div>
+<div class="ttc" id="astructDataStorage_1_1BusStats_html"><div class="ttname"><a href="structDataStorage_1_1BusStats.html">DataStorage::BusStats</a></div><div class="ttdoc">Wrapper for Bus, used to painlessly add extra information about route.</div><div class="ttdef"><b>Definition:</b> domain.h:107</div></div>
+<div class="ttc" id="astructDataStorage_1_1Bus_html"><div class="ttname"><a href="structDataStorage_1_1Bus.html">DataStorage::Bus</a></div><div class="ttdoc">Route name and stops (storage)</div><div class="ttdef"><b>Definition:</b> domain.h:69</div></div>
+<div class="ttc" id="astructDataStorage_1_1StopStats_html"><div class="ttname"><a href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a></div><div class="ttdoc">Wrapper for Stop, used to painlessly add extra information about stop.</div><div class="ttdef"><b>Definition:</b> domain.h:88</div></div>
 <div class="ttc" id="astructInputInfo_1_1Bus_html"><div class="ttname"><a href="structInputInfo_1_1Bus.html">InputInfo::Bus</a></div><div class="ttdoc">Route name and stops (transfer)</div><div class="ttdef"><b>Definition:</b> domain.h:44</div></div>
 <div class="ttc" id="astructInputInfo_1_1StopLink_html"><div class="ttname"><a href="structInputInfo_1_1StopLink.html">InputInfo::StopLink</a></div><div class="ttdef"><b>Definition:</b> domain.h:37</div></div>
 <div class="ttc" id="astructInputInfo_1_1Stop_html"><div class="ttname"><a href="structInputInfo_1_1Stop.html">InputInfo::Stop</a></div><div class="ttdoc">Stop name and position (transfer)</div><div class="ttdef"><b>Definition:</b> domain.h:30</div></div>
-<div class="ttc" id="astructTransportCatalogue_1_1StopsStatsHasher_html"><div class="ttname"><a href="structTransportCatalogue_1_1StopsStatsHasher.html">TransportCatalogue::StopsStatsHasher</a></div><div class="ttdef"><b>Definition:</b> transport_catalogue.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

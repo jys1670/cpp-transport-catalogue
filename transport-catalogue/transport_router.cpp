@@ -1,5 +1,6 @@
-#include "transport_router.h"
 #include <algorithm>
+
+#include "transport_router.h"
 
 TransportRouter::TransportRouter(const TransportCatalogue &catalogue)
     : catalogue_{catalogue} {}
@@ -59,7 +60,12 @@ void TransportRouter::InsertAllEdgesIntoGraph(const DataStorage::Bus *bus) {
   for (auto stop : bus->stops) {
     auto wait_id = vertex_to_id_.at(Vertex().SetStop(stop).SetWait(true));
     auto norm_id = vertex_to_id_.at(Vertex().SetStop(stop).SetWait(false));
-    graph_.AddEdge({wait_id, norm_id, bus_wait_time_, bus, 0});
+    graph_.AddEdge(Edge()
+                       .SetFromVertex(wait_id)
+                       .SetToVertex(norm_id)
+                       .SetWeight(settings_.bus_wait_time)
+                       .SetBus(bus)
+                       .SetStopCount(0));
   }
   InsertEdgesBetweenStops(bus->stops.begin(), bus->stops.end(), bus);
   if (bus->is_circular) {
@@ -76,12 +82,15 @@ TransportRouter::GenerateAnswer(const graph::Router<double>::RouteInfo &path) {
   for (auto edge_id : path.edges) {
     auto curr_edge = graph_.GetEdge(edge_id);
     if (!curr_edge.stop_count) {
-      result.items.emplace_back(RouteAnswer::Bus{
-          curr_edge.bus, static_cast<int>(curr_edge.stop_count),
-          curr_edge.weight});
+      result.items.emplace_back(RouteAnswer::Bus()
+                                    .SetBus(curr_edge.bus)
+                                    .SetSpanCount(curr_edge.stop_count)
+                                    .SetTime(curr_edge.weight));
     } else {
-      result.items.emplace_back(RouteAnswer::Wait{
-          id_to_vertex_.at(curr_edge.from).GetStop(), curr_edge.weight});
+      result.items.emplace_back(
+          RouteAnswer::Wait()
+              .SetStop(id_to_vertex_.at(curr_edge.from).GetStop())
+              .SetTime(curr_edge.weight));
     }
   }
   result.total_time = path.weight;

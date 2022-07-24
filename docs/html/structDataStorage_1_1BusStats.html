@@ -67,6 +67,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structDataStorage_1_1BusStats-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">DataStorage::BusStats Struct Reference</div></div>
@@ -78,28 +79,46 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="domain_8h_source.html">domain.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a49b1f60492a32df9363037b52ee9dcc5"><td class="memItemLeft" align="right" valign="top"><a id="a49b1f60492a32df9363037b52ee9dcc5" name="a49b1f60492a32df9363037b52ee9dcc5"></a>
+<a class="el" href="structDataStorage_1_1BusStats.html">BusStats</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetBus</b> (<a class="el" href="structDataStorage_1_1Bus.html">Bus</a> *ptr)</td></tr>
+<tr class="separator:a49b1f60492a32df9363037b52ee9dcc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96fc66ea8bcb39305ec0f6ff95dbc69a"><td class="memItemLeft" align="right" valign="top"><a id="a96fc66ea8bcb39305ec0f6ff95dbc69a" name="a96fc66ea8bcb39305ec0f6ff95dbc69a"></a>
+<a class="el" href="structDataStorage_1_1BusStats.html">BusStats</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetTotalStops</b> (size_t number)</td></tr>
+<tr class="separator:a96fc66ea8bcb39305ec0f6ff95dbc69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b5af34daf5b1ad4c807de71d941a1b"><td class="memItemLeft" align="right" valign="top"><a id="a00b5af34daf5b1ad4c807de71d941a1b" name="a00b5af34daf5b1ad4c807de71d941a1b"></a>
+<a class="el" href="structDataStorage_1_1BusStats.html">BusStats</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetUniqueStops</b> (std::unordered_set&lt; <a class="el" href="structDataStorage_1_1Stop.html">Stop</a> * &gt; &amp;&amp;stops)</td></tr>
+<tr class="separator:a00b5af34daf5b1ad4c807de71d941a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a140d2f4712a080a567583eab0069a4"><td class="memItemLeft" align="right" valign="top"><a id="a7a140d2f4712a080a567583eab0069a4" name="a7a140d2f4712a080a567583eab0069a4"></a>
+<a class="el" href="structDataStorage_1_1BusStats.html">BusStats</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetDirectLength</b> (double val)</td></tr>
+<tr class="separator:a7a140d2f4712a080a567583eab0069a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca4634edd60432c8a04cc9462b26f37"><td class="memItemLeft" align="right" valign="top"><a id="a1ca4634edd60432c8a04cc9462b26f37" name="a1ca4634edd60432c8a04cc9462b26f37"></a>
+<a class="el" href="structDataStorage_1_1BusStats.html">BusStats</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetRealLength</b> (double val)</td></tr>
+<tr class="separator:a1ca4634edd60432c8a04cc9462b26f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aca8c3fe5e1f815c367f04fec47e34a5d"><td class="memItemLeft" align="right" valign="top"><a id="aca8c3fe5e1f815c367f04fec47e34a5d" name="aca8c3fe5e1f815c367f04fec47e34a5d"></a>
-<a class="el" href="structDataStorage_1_1Bus.html">Bus</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>bus_ptr</b></td></tr>
+<a class="el" href="structDataStorage_1_1Bus.html">Bus</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>bus_ptr</b> {nullptr}</td></tr>
 <tr class="separator:aca8c3fe5e1f815c367f04fec47e34a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46f33906507d31cb63a745b9dd350e46"><td class="memItemLeft" align="right" valign="top"><a id="a46f33906507d31cb63a745b9dd350e46" name="a46f33906507d31cb63a745b9dd350e46"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>total_stops</b></td></tr>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>total_stops</b> {}</td></tr>
 <tr class="separator:a46f33906507d31cb63a745b9dd350e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e0cd9b5eb7b4da48fdd834903a5075a"><td class="memItemLeft" align="right" valign="top"><a id="a3e0cd9b5eb7b4da48fdd834903a5075a" name="a3e0cd9b5eb7b4da48fdd834903a5075a"></a>
-std::unordered_set&lt; <a class="el" href="structDataStorage_1_1Stop.html">Stop</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>unique_stops</b></td></tr>
+std::unordered_set&lt; <a class="el" href="structDataStorage_1_1Stop.html">Stop</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>unique_stops</b> {}</td></tr>
 <tr class="separator:a3e0cd9b5eb7b4da48fdd834903a5075a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a101b41b6814c55dcfd4eee81a326728b"><td class="memItemLeft" align="right" valign="top"><a id="a101b41b6814c55dcfd4eee81a326728b" name="a101b41b6814c55dcfd4eee81a326728b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>direct_lenght</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>direct_lenght</b> {}</td></tr>
 <tr class="separator:a101b41b6814c55dcfd4eee81a326728b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adba8fa0e87dbde61b4858b271c5e96e1"><td class="memItemLeft" align="right" valign="top"><a id="adba8fa0e87dbde61b4858b271c5e96e1" name="adba8fa0e87dbde61b4858b271c5e96e1"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>real_length</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>real_length</b> {}</td></tr>
 <tr class="separator:adba8fa0e87dbde61b4858b271c5e96e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Wrapper for <a class="el" href="structDataStorage_1_1Bus.html" title="Route name and stops (storage)">Bus</a>, used to painlessly add extra information about route. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>transport-catalogue/<a class="el" href="domain_8h_source.html">domain.h</a></li>
+<li>/home/user/Documents/cpp-transport-catalogue/transport-catalogue/<a class="el" href="domain_8h_source.html">domain.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

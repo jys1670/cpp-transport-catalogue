@@ -5,25 +5,46 @@
 
 #pragma once
 
-#include "domain.h"
-#include "json.h"
-#include "router.h"
-#include "transport_catalogue.h"
 #include <map>
 #include <memory>
 #include <string>
 #include <unordered_map>
 #include <utility>
 
+#include "domain.h"
+#include "json.h"
+#include "router.h"
+#include "transport_catalogue.h"
+
 //! Format independent description of the fastest path
 struct RouteAnswer {
   struct Wait {
+    Wait &SetStop(const DataStorage::Stop *ptr) {
+      stop = ptr;
+      return *this;
+    }
+    Wait &SetTime(double number) {
+      time = number;
+      return *this;
+    }
     const DataStorage::Stop *stop;
     double time;
   };
   struct Bus {
+    Bus &SetBus(const DataStorage::Bus *ptr) {
+      bus = ptr;
+      return *this;
+    }
+    Bus &SetSpanCount(size_t number) {
+      span_count = number;
+      return *this;
+    }
+    Bus &SetTime(double number) {
+      time = number;
+      return *this;
+    }
     const DataStorage::Bus *bus;
-    int span_count;
+    size_t span_count;
     double time;
   };
   using Item = std::variant<Wait, Bus>;
@@ -34,6 +55,7 @@ struct RouteAnswer {
 //!
 class TransportRouter {
 public:
+  using Edge = graph::Edge<double>;
   /*!
    * Constructor for the class
    * \param[in] catalogue database whose content will be used to generate
@@ -47,8 +69,9 @@ public:
    */
   void LoadSettings(const json::Node &node) {
     const auto &settings = node.AsMap();
-    bus_wait_time_ = settings.at("bus_wait_time").AsDouble();
-    bus_velocity_ = settings.at("bus_velocity").AsDouble() * 1000.0 / 60.0;
+    settings_.bus_wait_time = settings.at("bus_wait_time").AsDouble();
+    settings_.bus_velocity =
+        settings.at("bus_velocity").AsDouble() * 1000.0 / 60.0;
   }
 
   /*!
@@ -85,8 +108,10 @@ private:
   };
 
   const TransportCatalogue &catalogue_;
-  double bus_wait_time_{};
-  double bus_velocity_{};
+  struct Settings {
+    double bus_wait_time{};
+    double bus_velocity{};
+  } settings_;
 
   graph::DirectedWeightedGraph<double> graph_{};
   bool graph_finished_{false};
@@ -122,8 +147,12 @@ void TransportRouter::InsertEdgesBetweenStops(InputIt begin, InputIt end,
       auto curr_dist =
           catalogue_.GetStopsRealDist((*prev(it2))->name, (*it2)->name).value();
       tot_dist += curr_dist;
-      graph_.AddEdge(
-          {norm_id, wait_id, tot_dist / bus_velocity_, bus, stops_between});
+      graph_.AddEdge(Edge()
+                         .SetFromVertex(norm_id)
+                         .SetToVertex(wait_id)
+                         .SetWeight(tot_dist / settings_.bus_velocity)
+                         .SetBus(bus)
+                         .SetStopCount(stops_between));
     }
   }
 }

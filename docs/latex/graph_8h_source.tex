@@ -1,5 +1,5 @@
 \hypertarget{graph_8h_source}{}\doxysection{graph.\+h}
-\label{graph_8h_source}\index{transport-\/catalogue/graph.h@{transport-\/catalogue/graph.h}}
+\label{graph_8h_source}\index{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/graph.h@{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/graph.h}}
 \mbox{\hyperlink{graph_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
@@ -35,66 +35,86 @@
 \DoxyCodeLine{35 \textcolor{keyword}{using }EdgeId = size\_t;}
 \DoxyCodeLine{36 }
 \DoxyCodeLine{37 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight> \textcolor{keyword}{struct }\mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \{}
-\DoxyCodeLine{38   VertexId from;}
-\DoxyCodeLine{39   VertexId to;}
-\DoxyCodeLine{40   Weight weight;}
-\DoxyCodeLine{41   \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus;}
-\DoxyCodeLine{42   \textcolor{keywordtype}{size\_t} stop\_count;}
-\DoxyCodeLine{43 \};}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight> \textcolor{keyword}{class }\mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{DirectedWeightedGraph}} \{}
-\DoxyCodeLine{46 \textcolor{keyword}{private}:}
-\DoxyCodeLine{47   \textcolor{keyword}{using }IncidenceList = std::vector<EdgeId>;}
-\DoxyCodeLine{48   \textcolor{keyword}{using }\mbox{\hyperlink{classgraph_1_1Range}{IncidentEdgesRange}} = \mbox{\hyperlink{classgraph_1_1Range}{Range<typename IncidenceList::const\_iterator>}};}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50 \textcolor{keyword}{public}:}
-\DoxyCodeLine{51   \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{DirectedWeightedGraph}}() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{52   \textcolor{keyword}{explicit} \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{DirectedWeightedGraph}}(\textcolor{keywordtype}{size\_t} vertex\_count);}
-\DoxyCodeLine{53   EdgeId AddEdge(\textcolor{keyword}{const} \mbox{\hyperlink{structgraph_1_1Edge}{Edge<Weight>}} \&edge);}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55   \textcolor{keywordtype}{size\_t} GetVertexCount() \textcolor{keyword}{const};}
-\DoxyCodeLine{56   \textcolor{keywordtype}{size\_t} GetEdgeCount() \textcolor{keyword}{const};}
-\DoxyCodeLine{57   \textcolor{keyword}{const} \mbox{\hyperlink{structgraph_1_1Edge}{Edge<Weight>}} \&GetEdge(EdgeId edge\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{58   \mbox{\hyperlink{classgraph_1_1Range}{IncidentEdgesRange}} GetIncidentEdges(VertexId vertex) \textcolor{keyword}{const};}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60 \textcolor{keyword}{private}:}
-\DoxyCodeLine{61   std::vector<Edge<Weight>> edges\_;}
-\DoxyCodeLine{62   std::vector<IncidenceList> incidence\_lists\_;}
+\DoxyCodeLine{38   \mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \&SetFromVertex(VertexId vert) \{}
+\DoxyCodeLine{39     from = vert;}
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{41   \}}
+\DoxyCodeLine{42   \mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \&SetToVertex(VertexId vert) \{}
+\DoxyCodeLine{43     to = vert;}
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{45   \}}
+\DoxyCodeLine{46   \mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \&SetWeight(Weight value) \{}
+\DoxyCodeLine{47     weight = value;}
+\DoxyCodeLine{48     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{49   \}}
+\DoxyCodeLine{50   \mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \&SetBus(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *ptr) \{}
+\DoxyCodeLine{51     bus = ptr;}
+\DoxyCodeLine{52     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{53   \}}
+\DoxyCodeLine{54   \mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \&SetStopCount(\textcolor{keywordtype}{size\_t} count) \{}
+\DoxyCodeLine{55     stop\_count = count;}
+\DoxyCodeLine{56     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{57   \}}
+\DoxyCodeLine{58   VertexId from;}
+\DoxyCodeLine{59   VertexId to;}
+\DoxyCodeLine{60   Weight weight;}
+\DoxyCodeLine{61   \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus;}
+\DoxyCodeLine{62   \textcolor{keywordtype}{size\_t} stop\_count;}
 \DoxyCodeLine{63 \};}
 \DoxyCodeLine{64 }
-\DoxyCodeLine{65 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
-\DoxyCodeLine{66 \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{DirectedWeightedGraph<Weight>::DirectedWeightedGraph}}(\textcolor{keywordtype}{size\_t} vertex\_count)}
-\DoxyCodeLine{67     : incidence\_lists\_(vertex\_count) \{\}}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{69 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
-\DoxyCodeLine{70 EdgeId DirectedWeightedGraph<Weight>::AddEdge(\textcolor{keyword}{const} Edge<Weight> \&edge) \{}
-\DoxyCodeLine{71   edges\_.push\_back(edge);}
-\DoxyCodeLine{72   \textcolor{keyword}{const} EdgeId \textcolor{keywordtype}{id} = edges\_.size() -\/ 1;}
-\DoxyCodeLine{73   incidence\_lists\_.at(edge.from).push\_back(\textcolor{keywordtype}{id});}
-\DoxyCodeLine{74   \textcolor{keywordflow}{return} id;}
-\DoxyCodeLine{75 \}}
-\DoxyCodeLine{76 }
-\DoxyCodeLine{77 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
-\DoxyCodeLine{78 \textcolor{keywordtype}{size\_t} DirectedWeightedGraph<Weight>::GetVertexCount()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{79   \textcolor{keywordflow}{return} incidence\_lists\_.size();}
-\DoxyCodeLine{80 \}}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
-\DoxyCodeLine{83 \textcolor{keywordtype}{size\_t} DirectedWeightedGraph<Weight>::GetEdgeCount()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{84   \textcolor{keywordflow}{return} edges\_.size();}
-\DoxyCodeLine{85 \}}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
-\DoxyCodeLine{88 \textcolor{keyword}{const} Edge<Weight> \&}
-\DoxyCodeLine{89 DirectedWeightedGraph<Weight>::GetEdge(EdgeId edge\_id)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{90   \textcolor{keywordflow}{return} edges\_.at(edge\_id);}
-\DoxyCodeLine{91 \}}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{93 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
-\DoxyCodeLine{94 \textcolor{keyword}{typename} DirectedWeightedGraph<Weight>::IncidentEdgesRange}
-\DoxyCodeLine{95 DirectedWeightedGraph<Weight>::GetIncidentEdges(VertexId vertex)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{96   \textcolor{keywordflow}{return} AsRange(incidence\_lists\_.at(vertex));}
-\DoxyCodeLine{97 \}}
-\DoxyCodeLine{98 \} \textcolor{comment}{// namespace graph}}
+\DoxyCodeLine{65 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight> \textcolor{keyword}{class }\mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{DirectedWeightedGraph}} \{}
+\DoxyCodeLine{66 \textcolor{keyword}{private}:}
+\DoxyCodeLine{67   \textcolor{keyword}{using }IncidenceList = std::vector<EdgeId>;}
+\DoxyCodeLine{68   \textcolor{keyword}{using }\mbox{\hyperlink{classgraph_1_1Range}{IncidentEdgesRange}} = \mbox{\hyperlink{classgraph_1_1Range}{Range<typename IncidenceList::const\_iterator>}};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{public}:}
+\DoxyCodeLine{71   \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{DirectedWeightedGraph}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{72   \textcolor{keyword}{explicit} \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{DirectedWeightedGraph}}(\textcolor{keywordtype}{size\_t} vertex\_count);}
+\DoxyCodeLine{73   EdgeId AddEdge(\textcolor{keyword}{const} \mbox{\hyperlink{structgraph_1_1Edge}{Edge<Weight>}} \&edge);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75   \textcolor{keywordtype}{size\_t} GetVertexCount() \textcolor{keyword}{const};}
+\DoxyCodeLine{76   \textcolor{keywordtype}{size\_t} GetEdgeCount() \textcolor{keyword}{const};}
+\DoxyCodeLine{77   \textcolor{keyword}{const} \mbox{\hyperlink{structgraph_1_1Edge}{Edge<Weight>}} \&GetEdge(EdgeId edge\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{78   \mbox{\hyperlink{classgraph_1_1Range}{IncidentEdgesRange}} GetIncidentEdges(VertexId vertex) \textcolor{keyword}{const};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{keyword}{private}:}
+\DoxyCodeLine{81   std::vector<Edge<Weight>> edges\_;}
+\DoxyCodeLine{82   std::vector<IncidenceList> incidence\_lists\_;}
+\DoxyCodeLine{83 \};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
+\DoxyCodeLine{86 \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{DirectedWeightedGraph<Weight>::DirectedWeightedGraph}}(\textcolor{keywordtype}{size\_t} vertex\_count)}
+\DoxyCodeLine{87     : incidence\_lists\_(vertex\_count) \{\}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
+\DoxyCodeLine{90 EdgeId DirectedWeightedGraph<Weight>::AddEdge(\textcolor{keyword}{const} Edge<Weight> \&edge) \{}
+\DoxyCodeLine{91   edges\_.push\_back(edge);}
+\DoxyCodeLine{92   \textcolor{keyword}{const} EdgeId \textcolor{keywordtype}{id} = edges\_.size() -\/ 1;}
+\DoxyCodeLine{93   incidence\_lists\_.at(edge.from).push\_back(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{94   \textcolor{keywordflow}{return} id;}
+\DoxyCodeLine{95 \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
+\DoxyCodeLine{98 \textcolor{keywordtype}{size\_t} DirectedWeightedGraph<Weight>::GetVertexCount()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{99   \textcolor{keywordflow}{return} incidence\_lists\_.size();}
+\DoxyCodeLine{100 \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
+\DoxyCodeLine{103 \textcolor{keywordtype}{size\_t} DirectedWeightedGraph<Weight>::GetEdgeCount()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{104   \textcolor{keywordflow}{return} edges\_.size();}
+\DoxyCodeLine{105 \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
+\DoxyCodeLine{108 \textcolor{keyword}{const} Edge<Weight> \&}
+\DoxyCodeLine{109 DirectedWeightedGraph<Weight>::GetEdge(EdgeId edge\_id)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{110   \textcolor{keywordflow}{return} edges\_.at(edge\_id);}
+\DoxyCodeLine{111 \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Weight>}
+\DoxyCodeLine{114 \textcolor{keyword}{typename} DirectedWeightedGraph<Weight>::IncidentEdgesRange}
+\DoxyCodeLine{115 DirectedWeightedGraph<Weight>::GetIncidentEdges(VertexId vertex)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{116   \textcolor{keywordflow}{return} AsRange(incidence\_lists\_.at(vertex));}
+\DoxyCodeLine{117 \}}
+\DoxyCodeLine{118 \} \textcolor{comment}{// namespace graph}}
 
 \end{DoxyCode}

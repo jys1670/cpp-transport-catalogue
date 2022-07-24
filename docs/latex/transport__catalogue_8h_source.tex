@@ -1,5 +1,5 @@
 \hypertarget{transport__catalogue_8h_source}{}\doxysection{transport\+\_\+catalogue.\+h}
-\label{transport__catalogue_8h_source}\index{transport-\/catalogue/transport\_catalogue.h@{transport-\/catalogue/transport\_catalogue.h}}
+\label{transport__catalogue_8h_source}\index{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/transport\_catalogue.h@{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/transport\_catalogue.h}}
 \mbox{\hyperlink{transport__catalogue_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
@@ -43,25 +43,14 @@
 \DoxyCodeLine{43   DataStorage::BusStorage busname\_to\_bus\_stats\_;}
 \DoxyCodeLine{44   DataStorage::StopStorage stopname\_to\_stop\_stats\_;}
 \DoxyCodeLine{45 }
-\DoxyCodeLine{46   \textcolor{keyword}{struct }\mbox{\hyperlink{structTransportCatalogue_1_1StopsStatsHasher}{StopsStatsHasher}} \{}
-\DoxyCodeLine{47     \textcolor{keywordtype}{size\_t} operator()(\textcolor{keyword}{const} std::pair<DataStorage::Stop *, DataStorage::Stop *>}
-\DoxyCodeLine{48                           \textcolor{keywordtype}{object})\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{49       \textcolor{keywordflow}{return} \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(\textcolor{keywordtype}{object}.first) +}
-\DoxyCodeLine{50              \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(\textcolor{keywordtype}{object}.second) * 37;}
-\DoxyCodeLine{51     \}}
-\DoxyCodeLine{52   \};}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54   std::unordered\_map<std::pair<DataStorage::Stop *, DataStorage::Stop *>,}
-\DoxyCodeLine{55                      double, \mbox{\hyperlink{structTransportCatalogue_1_1StopsStatsHasher}{StopsStatsHasher}}>}
-\DoxyCodeLine{56       direct\_distances\_;}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{58   \textcolor{keyword}{static} \textcolor{keywordtype}{double} ComputeStopsDirectDist(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&from,}
-\DoxyCodeLine{59                                        \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&to);}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61   \textcolor{keyword}{static} \textcolor{keywordtype}{double} GetStopsRealDist(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&from,}
-\DoxyCodeLine{62                                  \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&to);}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64   \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} GetBusTotalStopsAmount(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} \&bus);}
-\DoxyCodeLine{65 \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47   \textcolor{keyword}{static} \textcolor{keywordtype}{double} ComputeStopsDirectDist(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&from,}
+\DoxyCodeLine{48                                        \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&to);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50   \textcolor{keyword}{static} \textcolor{keywordtype}{double} GetStopsRealDist(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&from,}
+\DoxyCodeLine{51                                  \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&to);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53   \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} GetBusTotalStopsAmount(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} \&bus);}
+\DoxyCodeLine{54 \};}
 
 \end{DoxyCode}

@@ -1,110 +1,139 @@
 \hypertarget{transport__router_8h_source}{}\doxysection{transport\+\_\+router.\+h}
-\label{transport__router_8h_source}\index{transport-\/catalogue/transport\_router.h@{transport-\/catalogue/transport\_router.h}}
+\label{transport__router_8h_source}\index{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/transport\_router.h@{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/transport\_router.h}}
 \mbox{\hyperlink{transport__router_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{domain_8h}{domain.h}}"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{json_8h}{json.h}}"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{router_8h}{router.h}}"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{transport__catalogue_8h}{transport\_catalogue.h}}"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <map>}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <unordered\_map>}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <utility>}}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{19 \textcolor{keyword}{struct }\mbox{\hyperlink{structRouteAnswer}{RouteAnswer}} \{}
-\DoxyCodeLine{20   \textcolor{keyword}{struct }\mbox{\hyperlink{structRouteAnswer_1_1Wait}{Wait}} \{}
-\DoxyCodeLine{21     \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Stop}{DataStorage::Stop}} *stop;}
-\DoxyCodeLine{22     \textcolor{keywordtype}{double} time;}
-\DoxyCodeLine{23   \};}
-\DoxyCodeLine{24   \textcolor{keyword}{struct }\mbox{\hyperlink{structRouteAnswer_1_1Bus}{Bus}} \{}
-\DoxyCodeLine{25     \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus;}
-\DoxyCodeLine{26     \textcolor{keywordtype}{int} span\_count;}
-\DoxyCodeLine{27     \textcolor{keywordtype}{double} time;}
-\DoxyCodeLine{28   \};}
-\DoxyCodeLine{29   \textcolor{keyword}{using }Item = std::variant<Wait, Bus>;}
-\DoxyCodeLine{30   \textcolor{keywordtype}{double} total\_time;}
-\DoxyCodeLine{31   std::vector<Item> items;}
-\DoxyCodeLine{32 \};}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{classTransportRouter}{TransportRouter}} \{}
-\DoxyCodeLine{36 \textcolor{keyword}{public}:}
-\DoxyCodeLine{42   \mbox{\hyperlink{classTransportRouter_a8df952ca4b73ebf8163417aac2ed8e31}{TransportRouter}}(\textcolor{keyword}{const} \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&catalogue);}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{48   \textcolor{keywordtype}{void} \mbox{\hyperlink{classTransportRouter_abdd2cc584aa98fade1dc5dc9457de99e}{LoadSettings}}(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node) \{}
-\DoxyCodeLine{49     \textcolor{keyword}{const} \textcolor{keyword}{auto} \&settings = node.AsMap();}
-\DoxyCodeLine{50     bus\_wait\_time\_ = settings.at(\textcolor{stringliteral}{"{}bus\_wait\_time"{}}).AsDouble();}
-\DoxyCodeLine{51     bus\_velocity\_ = settings.at(\textcolor{stringliteral}{"{}bus\_velocity"{}}).AsDouble() * 1000.0 / 60.0;}
-\DoxyCodeLine{52   \}}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{60   std::optional<RouteAnswer> \mbox{\hyperlink{classTransportRouter_ac6bda5392f2e9b628a5785e285a2d0f3}{FindFastestRoute}}(std::string\_view from,}
-\DoxyCodeLine{61                                               std::string\_view to);}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63 \textcolor{keyword}{private}:}
-\DoxyCodeLine{68   \textcolor{keyword}{class }\mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \{}
-\DoxyCodeLine{69   \textcolor{keyword}{public}:}
-\DoxyCodeLine{70     \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \&SetStop(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Stop}{DataStorage::Stop}} *st);}
-\DoxyCodeLine{71     \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \&SetWait(\textcolor{keywordtype}{bool} wait);}
-\DoxyCodeLine{72     \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Stop}{DataStorage::Stop}} *GetStop() \textcolor{keyword}{const};}
-\DoxyCodeLine{73     \textcolor{keywordtype}{bool} GetWaitStatus() \textcolor{keyword}{const};}
-\DoxyCodeLine{74     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \&other) \textcolor{keyword}{const};}
-\DoxyCodeLine{75 }
-\DoxyCodeLine{76   \textcolor{keyword}{private}:}
-\DoxyCodeLine{77     \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Stop}{DataStorage::Stop}} *stop\{\textcolor{keyword}{nullptr}\};}
-\DoxyCodeLine{78     \textcolor{keywordtype}{bool} must\_wait\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{79   \};}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{81   \textcolor{keyword}{struct }\mbox{\hyperlink{structTransportRouter_1_1VertexHasher}{VertexHasher}} \{}
-\DoxyCodeLine{82     \textcolor{keywordtype}{size\_t} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \&obj)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{83       \textcolor{keywordflow}{return} (\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(obj.GetStop()) << obj.GetWaitStatus());}
-\DoxyCodeLine{84     \}}
-\DoxyCodeLine{85   \};}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87   \textcolor{keyword}{const} \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&catalogue\_;}
-\DoxyCodeLine{88   \textcolor{keywordtype}{double} bus\_wait\_time\_\{\};}
-\DoxyCodeLine{89   \textcolor{keywordtype}{double} bus\_velocity\_\{\};}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91   \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{graph::DirectedWeightedGraph<double>}} graph\_\{\};}
-\DoxyCodeLine{92   \textcolor{keywordtype}{bool} graph\_finished\_\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{94   \textcolor{comment}{// router needs finished graph as constructor, thus pointer is used}}
-\DoxyCodeLine{95   std::unique\_ptr<graph::Router<double>> router\_\{\};}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97   std::unordered\_map<Vertex, size\_t, VertexHasher> vertex\_to\_id\_\{\};}
-\DoxyCodeLine{98   std::vector<Vertex> id\_to\_vertex\_\{\};}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100   \textcolor{keywordtype}{void} GenerateGraph();}
-\DoxyCodeLine{101 }
-\DoxyCodeLine{102   \textcolor{keywordtype}{void} GenerateVertexes(std::vector<const DataStorage::Stop *> \&stops);}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{domain_8h}{domain.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{json_8h}{json.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{router_8h}{router.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{transport__catalogue_8h}{transport\_catalogue.h}}"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{20 \textcolor{keyword}{struct }\mbox{\hyperlink{structRouteAnswer}{RouteAnswer}} \{}
+\DoxyCodeLine{21   \textcolor{keyword}{struct }\mbox{\hyperlink{structRouteAnswer_1_1Wait}{Wait}} \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{structRouteAnswer_1_1Wait}{Wait}} \&SetStop(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Stop}{DataStorage::Stop}} *ptr) \{}
+\DoxyCodeLine{23       stop = ptr;}
+\DoxyCodeLine{24       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26     \mbox{\hyperlink{structRouteAnswer_1_1Wait}{Wait}} \&SetTime(\textcolor{keywordtype}{double} number) \{}
+\DoxyCodeLine{27       time = number;}
+\DoxyCodeLine{28       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30     \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Stop}{DataStorage::Stop}} *stop;}
+\DoxyCodeLine{31     \textcolor{keywordtype}{double} time;}
+\DoxyCodeLine{32   \};}
+\DoxyCodeLine{33   \textcolor{keyword}{struct }\mbox{\hyperlink{structRouteAnswer_1_1Bus}{Bus}} \{}
+\DoxyCodeLine{34     \mbox{\hyperlink{structRouteAnswer_1_1Bus}{Bus}} \&SetBus(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *ptr) \{}
+\DoxyCodeLine{35       bus = ptr;}
+\DoxyCodeLine{36       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38     \mbox{\hyperlink{structRouteAnswer_1_1Bus}{Bus}} \&SetSpanCount(\textcolor{keywordtype}{size\_t} number) \{}
+\DoxyCodeLine{39       span\_count = number;}
+\DoxyCodeLine{40       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42     \mbox{\hyperlink{structRouteAnswer_1_1Bus}{Bus}} \&SetTime(\textcolor{keywordtype}{double} number) \{}
+\DoxyCodeLine{43       time = number;}
+\DoxyCodeLine{44       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46     \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus;}
+\DoxyCodeLine{47     \textcolor{keywordtype}{size\_t} span\_count;}
+\DoxyCodeLine{48     \textcolor{keywordtype}{double} time;}
+\DoxyCodeLine{49   \};}
+\DoxyCodeLine{50   \textcolor{keyword}{using }Item = std::variant<Wait, Bus>;}
+\DoxyCodeLine{51   \textcolor{keywordtype}{double} total\_time;}
+\DoxyCodeLine{52   std::vector<Item> items;}
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{56 \textcolor{keyword}{class }\mbox{\hyperlink{classTransportRouter}{TransportRouter}} \{}
+\DoxyCodeLine{57 \textcolor{keyword}{public}:}
+\DoxyCodeLine{58   \textcolor{keyword}{using }\mbox{\hyperlink{structgraph_1_1Edge}{Edge}} = \mbox{\hyperlink{structgraph_1_1Edge}{graph::Edge<double>}};}
+\DoxyCodeLine{64   \mbox{\hyperlink{classTransportRouter_a8df952ca4b73ebf8163417aac2ed8e31}{TransportRouter}}(\textcolor{keyword}{const} \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&catalogue);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{70   \textcolor{keywordtype}{void} \mbox{\hyperlink{classTransportRouter_abdd2cc584aa98fade1dc5dc9457de99e}{LoadSettings}}(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node) \{}
+\DoxyCodeLine{71     \textcolor{keyword}{const} \textcolor{keyword}{auto} \&settings = node.AsMap();}
+\DoxyCodeLine{72     settings\_.bus\_wait\_time = settings.at(\textcolor{stringliteral}{"{}bus\_wait\_time"{}}).AsDouble();}
+\DoxyCodeLine{73     settings\_.bus\_velocity =}
+\DoxyCodeLine{74         settings.at(\textcolor{stringliteral}{"{}bus\_velocity"{}}).AsDouble() * 1000.0 / 60.0;}
+\DoxyCodeLine{75   \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{83   std::optional<RouteAnswer> \mbox{\hyperlink{classTransportRouter_ac6bda5392f2e9b628a5785e285a2d0f3}{FindFastestRoute}}(std::string\_view from,}
+\DoxyCodeLine{84                                               std::string\_view to);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{private}:}
+\DoxyCodeLine{91   \textcolor{keyword}{class }\mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \{}
+\DoxyCodeLine{92   \textcolor{keyword}{public}:}
+\DoxyCodeLine{93     \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \&SetStop(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Stop}{DataStorage::Stop}} *st);}
+\DoxyCodeLine{94     \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \&SetWait(\textcolor{keywordtype}{bool} wait);}
+\DoxyCodeLine{95     \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Stop}{DataStorage::Stop}} *GetStop() \textcolor{keyword}{const};}
+\DoxyCodeLine{96     \textcolor{keywordtype}{bool} GetWaitStatus() \textcolor{keyword}{const};}
+\DoxyCodeLine{97     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \&other) \textcolor{keyword}{const};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99   \textcolor{keyword}{private}:}
+\DoxyCodeLine{100     \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Stop}{DataStorage::Stop}} *stop\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{101     \textcolor{keywordtype}{bool} must\_wait\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{102   \};}
 \DoxyCodeLine{103 }
-\DoxyCodeLine{104   \textcolor{keywordtype}{void} InsertAllEdgesIntoGraph(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus);}
-\DoxyCodeLine{105 }
-\DoxyCodeLine{106   \textcolor{keyword}{template} <\textcolor{keyword}{typename} InputIt>}
-\DoxyCodeLine{107   \textcolor{keywordtype}{void} InsertEdgesBetweenStops(InputIt begin, InputIt end,}
-\DoxyCodeLine{108                                \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus);}
+\DoxyCodeLine{104   \textcolor{keyword}{struct }\mbox{\hyperlink{structTransportRouter_1_1VertexHasher}{VertexHasher}} \{}
+\DoxyCodeLine{105     \textcolor{keywordtype}{size\_t} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{classTransportRouter_1_1Vertex}{Vertex}} \&obj)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{106       \textcolor{keywordflow}{return} (\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(obj.GetStop()) << obj.GetWaitStatus());}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108   \};}
 \DoxyCodeLine{109 }
-\DoxyCodeLine{110   \mbox{\hyperlink{structRouteAnswer}{RouteAnswer}} GenerateAnswer(\textcolor{keyword}{const} \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInfo}{graph::Router<double>::RouteInfo}} \&path);}
-\DoxyCodeLine{111 \};}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{113 \textcolor{keyword}{template} <\textcolor{keyword}{typename} InputIt>}
-\DoxyCodeLine{114 \textcolor{keywordtype}{void} TransportRouter::InsertEdgesBetweenStops(InputIt begin, InputIt end,}
-\DoxyCodeLine{115                                               \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus) \{}
-\DoxyCodeLine{116   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it1 = begin; it1 != end; ++it1) \{}
-\DoxyCodeLine{117     \textcolor{keywordtype}{double} tot\_dist\{0\};}
-\DoxyCodeLine{118     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it2 = next(it1); it2 != end; ++it2) \{}
-\DoxyCodeLine{119       \textcolor{keyword}{auto} norm\_id = vertex\_to\_id\_.at(Vertex().SetStop(*it1).SetWait(\textcolor{keyword}{false}));}
-\DoxyCodeLine{120       \textcolor{keyword}{auto} wait\_id = vertex\_to\_id\_.at(Vertex().SetStop(*it2).SetWait(\textcolor{keyword}{true}));}
-\DoxyCodeLine{121       \textcolor{keyword}{auto} stops\_between = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::distance(it1, it2));}
-\DoxyCodeLine{122       \textcolor{keyword}{auto} curr\_dist =}
-\DoxyCodeLine{123           catalogue\_.GetStopsRealDist((*prev(it2))-\/>name, (*it2)-\/>name).value();}
-\DoxyCodeLine{124       tot\_dist += curr\_dist;}
-\DoxyCodeLine{125       graph\_.AddEdge(}
-\DoxyCodeLine{126           \{norm\_id, wait\_id, tot\_dist / bus\_velocity\_, bus, stops\_between\});}
-\DoxyCodeLine{127     \}}
-\DoxyCodeLine{128   \}}
-\DoxyCodeLine{129 \}}
+\DoxyCodeLine{110   \textcolor{keyword}{const} \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&catalogue\_;}
+\DoxyCodeLine{111   \textcolor{keyword}{struct }\mbox{\hyperlink{structTransportRouter_1_1Settings}{Settings}} \{}
+\DoxyCodeLine{112     \textcolor{keywordtype}{double} bus\_wait\_time\{\};}
+\DoxyCodeLine{113     \textcolor{keywordtype}{double} bus\_velocity\{\};}
+\DoxyCodeLine{114   \} settings\_;}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116   \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{graph::DirectedWeightedGraph<double>}} graph\_\{\};}
+\DoxyCodeLine{117   \textcolor{keywordtype}{bool} graph\_finished\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119   \textcolor{comment}{// router needs finished graph as constructor, thus pointer is used}}
+\DoxyCodeLine{120   std::unique\_ptr<graph::Router<double>> router\_\{\};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122   std::unordered\_map<Vertex, size\_t, VertexHasher> vertex\_to\_id\_\{\};}
+\DoxyCodeLine{123   std::vector<Vertex> id\_to\_vertex\_\{\};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125   \textcolor{keywordtype}{void} GenerateGraph();}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127   \textcolor{keywordtype}{void} GenerateVertexes(std::vector<const DataStorage::Stop *> \&stops);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129   \textcolor{keywordtype}{void} InsertAllEdgesIntoGraph(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus);}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131   \textcolor{keyword}{template} <\textcolor{keyword}{typename} InputIt>}
+\DoxyCodeLine{132   \textcolor{keywordtype}{void} InsertEdgesBetweenStops(InputIt begin, InputIt end,}
+\DoxyCodeLine{133                                \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus);}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135   \mbox{\hyperlink{structRouteAnswer}{RouteAnswer}} GenerateAnswer(\textcolor{keyword}{const} \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInfo}{graph::Router<double>::RouteInfo}} \&path);}
+\DoxyCodeLine{136 \};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{keyword}{template} <\textcolor{keyword}{typename} InputIt>}
+\DoxyCodeLine{139 \textcolor{keywordtype}{void} TransportRouter::InsertEdgesBetweenStops(InputIt begin, InputIt end,}
+\DoxyCodeLine{140                                               \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} *bus) \{}
+\DoxyCodeLine{141   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it1 = begin; it1 != end; ++it1) \{}
+\DoxyCodeLine{142     \textcolor{keywordtype}{double} tot\_dist\{0\};}
+\DoxyCodeLine{143     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it2 = next(it1); it2 != end; ++it2) \{}
+\DoxyCodeLine{144       \textcolor{keyword}{auto} norm\_id = vertex\_to\_id\_.at(Vertex().SetStop(*it1).SetWait(\textcolor{keyword}{false}));}
+\DoxyCodeLine{145       \textcolor{keyword}{auto} wait\_id = vertex\_to\_id\_.at(Vertex().SetStop(*it2).SetWait(\textcolor{keyword}{true}));}
+\DoxyCodeLine{146       \textcolor{keyword}{auto} stops\_between = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::distance(it1, it2));}
+\DoxyCodeLine{147       \textcolor{keyword}{auto} curr\_dist =}
+\DoxyCodeLine{148           catalogue\_.GetStopsRealDist((*prev(it2))-\/>name, (*it2)-\/>name).value();}
+\DoxyCodeLine{149       tot\_dist += curr\_dist;}
+\DoxyCodeLine{150       graph\_.AddEdge(Edge()}
+\DoxyCodeLine{151                          .SetFromVertex(norm\_id)}
+\DoxyCodeLine{152                          .SetToVertex(wait\_id)}
+\DoxyCodeLine{153                          .SetWeight(tot\_dist / settings\_.bus\_velocity)}
+\DoxyCodeLine{154                          .SetBus(bus)}
+\DoxyCodeLine{155                          .SetStopCount(stops\_between));}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157   \}}
+\DoxyCodeLine{158 \}}
 
 \end{DoxyCode}
