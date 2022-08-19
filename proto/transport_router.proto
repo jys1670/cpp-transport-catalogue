@@ -6,9 +6,8 @@ package serialization;
 
 message RouteInternalData {
   double weight = 1;
-//  bool has_prev_edge = 3;
-//  uint32 prev_edge = 2;
-  optional uint32 prev_edge = 2;
+  bool has_prev_edge = 2;
+  uint32 prev_edge = 3;
 }
 
 message RouteInternalDataList {

@@ -84,7 +84,7 @@ private:
   void DrawStopNames(core::data::RoutesData &data, SphereProjector &projector,
                      svg::Document &doc);
 
-  svg::Color DeserializeColor(const serialization::Color &color);
+  static svg::Color DeserializeColor(const serialization::Color &color);
 };
 
 template <typename PointInputIt>

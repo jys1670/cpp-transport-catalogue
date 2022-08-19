@@ -9,17 +9,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup required packages
-        run: sudo apt-get install -y binutils-dev libssl-dev uuid-dev
-
-      - name: Setup GCC
+      - name: Set up GCC
         uses: egor-tensin/setup-gcc@v1
+        with:
+          version: 11
+          platform: x64
+
+      - name: Install protobuf
+        run: vcpkg install protobuf:x64-linux
 
       - name: Create build directory
         run: mkdir build
 
       - name: Cmake build
-        run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake
+        env:
+          CC: gcc-11
+          CXX: g++-11
 
       - name: Cmake make
         run: cmake --build build --config Release --target main -j4

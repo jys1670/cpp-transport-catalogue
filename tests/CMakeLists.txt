@@ -12,12 +12,12 @@ if (ENABLE_TESTING)
     add_executable(${TEST_MAIN} ${PROTO_SRCS} ${PROTO_HDRS} ${TEST_SOURCES})
 
     target_include_directories(${TEST_MAIN}
-            PRIVATE ${Protobuf_INCLUDE_DIRS}
-            PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
+            PUBLIC ${Protobuf_INCLUDE_DIRS}
+            PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
             )
     target_link_libraries(${TEST_MAIN}
-            PRIVATE "$<IF:$<CONFIG:Debug>,${Protobuf_LIBRARY_DEBUG},${Protobuf_LIBRARY}>"
-            PRIVATE ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+            PUBLIC "$<IF:$<CONFIG:Debug>,${Protobuf_LIBRARY_DEBUG},${Protobuf_LIBRARY}>"
+            PUBLIC ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
             )
 
     add_debug_compiler_options(

@@ -12,11 +12,14 @@ jobs:
       - name: "Setup Visual Studio"
         uses: egor-tensin/vs-shell@v2
 
+      - name: Install protobuf
+        run: vcpkg install protobuf:x64-windows-static
+
       - name: Create build directory
         run: mkdir build
 
       - name: Cmake build
-        run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
 
       - name: Cmake make
         run: cmake --build build --config Release --target main -j4

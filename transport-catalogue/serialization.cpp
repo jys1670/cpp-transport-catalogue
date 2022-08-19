@@ -117,10 +117,10 @@ void Serializer::SerializeGraphRouterInternals(
       }
       if (data->prev_edge) {
         sr_data.set_prev_edge(*(data->prev_edge));
-        // sr_data.set_has_prev_edge(true);
+        sr_data.set_has_prev_edge(true);
       } else {
         sr_data.clear_prev_edge();
-        // sr_data.set_has_prev_edge(false);
+        sr_data.set_has_prev_edge(false);
       }
       *(sr_data_list.add_route_data()) = std::move(sr_data);
     }

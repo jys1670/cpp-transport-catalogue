@@ -180,7 +180,7 @@ void TransportRouter::ImportVertexIds(
   }
 
   vertex_to_id_.clear();
-  for (int i = 0; i < id_to_vertex_.size(); ++i) {
+  for (size_t i = 0; i < id_to_vertex_.size(); ++i) {
     vertex_to_id_[id_to_vertex_[i]] = i;
   }
 }

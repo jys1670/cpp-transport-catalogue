@@ -13,7 +13,7 @@ void PrintUsage(const std::string &filename, std::ostream &stream = std::cerr) {
 int main(int argc, char *argv[]) {
   std::filesystem::path fp{argv[0]};
   if (argc != 2) {
-    PrintUsage(fp.filename());
+    PrintUsage(fp.filename().string());
     return 1;
   }
   const std::string_view mode(argv[1]);
@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
 
     json_reader.ProcessInput(doc_map);
   } else {
-    PrintUsage(fp.filename());
+    PrintUsage(fp.filename().string());
     return 1;
   }
 }

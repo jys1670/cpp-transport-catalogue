@@ -7,19 +7,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Install Boost libraries
-      run: sudo apt-get update && sudo apt-get install -yq libboost-all-dev
+      - name: Install Boost libraries
+        run: sudo apt-get update && sudo apt-get install -yq libboost-all-dev
 
-    - name: Create build directory
-      run: mkdir build
+      - name: Set up GCC
+        uses: egor-tensin/setup-gcc@v1
+        with:
+          version: 11
+          platform: x64
 
-    - name: Cmake build
-      run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTING=ON
+      - name: Install protobuf
+        run: vcpkg install protobuf:x64-linux
 
-    - name: Cmake make
-      run: cmake --build build --config Release --target unit_tests -j4
+      - name: Create build directory
+        run: mkdir build
 
-    - name: Run test
-      run: build/bin/unit_tests
+      - name: Cmake build
+        run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTING=ON -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake
+        env:
+          CC: gcc-11
+          CXX: g++-11
+
+      - name: Cmake make
+        run: cmake --build build --config Release --target unit_tests -j4
+
+      - name: Run test
+        run: build/bin/unit_tests
