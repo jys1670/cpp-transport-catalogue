@@ -3,7 +3,7 @@
 #include <iostream>
 #include <utility>
 
-namespace json {
+namespace io::json {
 
 /* Builder */
 Builder::ValueContext Builder::Value(Node::Value val) {
@@ -260,4 +260,4 @@ Builder::ValueContext Builder::ArrayItemContext::EndArray() {
   return builder_->EndArray();
 }
 
-} // namespace json
+} // namespace io::json

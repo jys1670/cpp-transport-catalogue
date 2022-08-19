@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['delimiters_0',['Delimiters',['../namespacejson.html#a7dfa1293b4f94c01b01bb22e3933d3e4',1,'json']]]
+  ['delimiters_0',['Delimiters',['../namespaceio_1_1json.html#adef080325e8f760d1cb287c7152fa18f',1,'io::json']]]
 ];

@@ -1,22 +1,44 @@
 #include "json_reader.h"
+namespace io {
+void JsonReader::ProcessInput(const json::Dict &doc_map, OutputFormat format) {
+  if (doc_map.count("base_requests")) {
+    ProcessBaseReqs(doc_map);
+  }
+  if (doc_map.count("render_settings")) {
+    EnqueueRenderSettingsUpdate(doc_map);
+  }
+  if (doc_map.count("routing_settings")) {
+    EnqueueRoutingSettingsUpdate(doc_map);
+  }
+  if (doc_map.count("stat_requests")) {
+    EnqueueStatReqs(doc_map);
+  }
+  req_handler_.ProcessAllRequests(format);
+}
 
-void JsonReader::ProcessInput(OutputFormat::Json) {
-  const json::Document doc = json::Load(inputstream_);
-  const auto &doc_map = doc.GetRoot().AsMap();
+void JsonReader::ProcessBaseReqs(const json::Dict &doc_map) {
   for (const auto &node : doc_map.at("base_requests").AsArray()) {
     ParseSingleCommand(node);
   }
   InsertAllIntoCatalogue();
+}
+
+void JsonReader::EnqueueRenderSettingsUpdate(const json::Dict &doc_map) {
   req_handler_.InsertIntoQueue(
-      RequestHandler::RequestTypes::UpdateMapRenderSettings{
+      io::RequestHandler::RequestTypes::UpdateMapRenderSettings{
           &doc_map.at("render_settings")});
+}
+
+void JsonReader::EnqueueRoutingSettingsUpdate(const json::Dict &doc_map) {
   req_handler_.InsertIntoQueue(
-      RequestHandler::RequestTypes::UpdateRoutingSettings{
+      io::RequestHandler::RequestTypes::UpdateRoutingSettings{
           &doc_map.at("routing_settings")});
+}
+
+void JsonReader::EnqueueStatReqs(const json::Dict &doc_map) {
   for (const auto &node : doc_map.at("stat_requests").AsArray()) {
     json_print_parser_(node.AsMap().at("type").AsString(), node);
   }
-  req_handler_.ProcessAllRequests(OutputFormat::Json{});
 }
 
 void JsonReader::ParseSingleCommand(const json::Node &node) {
@@ -32,7 +54,7 @@ void JsonReader::JsonInputParse::operator()(std::string_view type,
 void JsonReader::JsonInputParse::EnqueueBus(const json::Node &node) {
   const auto &bus_map = node.AsMap();
   std::string_view bus_name = bus_map.at("name").AsString();
-  InputInfo::Bus new_bus{bus_name, {}, bus_map.at("is_roundtrip").AsBool()};
+  io::Bus new_bus{bus_name, {}, bus_map.at("is_roundtrip").AsBool()};
   for (const auto &name : bus_map.at("stops").AsArray()) {
     new_bus.stops.emplace_back(name.AsString());
   }
@@ -43,10 +65,10 @@ void JsonReader::JsonInputParse::EnqueueBus(const json::Node &node) {
 void JsonReader::JsonInputParse::EnqueueStop(const json::Node &node) {
   const auto &stop_map = node.AsMap();
   std::string_view stop_name = stop_map.at("name").AsString();
-  InputInfo::Stop new_stop = {stop_name,
-                              {stop_map.at("latitude").AsDouble(),
-                               stop_map.at("longitude").AsDouble()}};
-  InputInfo::StopLink new_stoplink = {stop_name, {}};
+  io::Stop new_stop = {stop_name,
+                       {stop_map.at("latitude").AsDouble(),
+                        stop_map.at("longitude").AsDouble()}};
+  io::StopLink new_stoplink = {stop_name, {}};
   for (const auto &[name, dist] : stop_map.at("road_distances").AsMap()) {
     new_stoplink.neighbours.emplace_back(name, dist.AsDouble());
   }
@@ -133,3 +155,4 @@ void JsonReader::Clear() {
   stoplinks_input_queue_.clear();
   buses_input_queue_.clear();
 }
+} // namespace io

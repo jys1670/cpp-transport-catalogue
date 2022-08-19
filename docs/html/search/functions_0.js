@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['clear_0',['Clear',['../classJsonReader.html#a3a724bf5780d4e3d3825459ab3862085',1,'JsonReader::Clear()'],['../classRequestHandler.html#a4a99d3b8703657092bf7d57a7abbd4af',1,'RequestHandler::Clear()']]],
+  ['clear_0',['Clear',['../classio_1_1JsonReader.html#aaf4b0ece34fc2677527d86d6cafe8528',1,'io::JsonReader::Clear()'],['../classio_1_1RequestHandler.html#a2bb108c8e0860fb8d6119ddb693611cb',1,'io::RequestHandler::Clear()']]],
   ['computedistance_1',['ComputeDistance',['../namespacegeo.html#a23151a9f4e0f37c384dd4ae5005acb14',1,'geo']]]
 ];

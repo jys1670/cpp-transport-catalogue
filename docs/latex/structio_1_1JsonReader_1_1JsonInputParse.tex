@@ -1,0 +1,68 @@
+\hypertarget{structio_1_1JsonReader_1_1JsonInputParse}{}\doxysection{io\+::Json\+Reader\+::Json\+Input\+Parse Struct Reference}
+\label{structio_1_1JsonReader_1_1JsonInputParse}\index{io::JsonReader::JsonInputParse@{io::JsonReader::JsonInputParse}}
+
+
+Functor used to parse and enqueue Transport\+Catalogue state-\/changing requests.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonInputParse_a3e8c03f37be069c51e568bd285bdbd65}\label{structio_1_1JsonReader_1_1JsonInputParse_a3e8c03f37be069c51e568bd285bdbd65}} 
+{\bfseries Json\+Input\+Parse} (\mbox{\hyperlink{classio_1_1JsonReader}{Json\+Reader}} \&parent)
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonInputParse_a6bf61f2d59447ab80bd135cdb0779828}\label{structio_1_1JsonReader_1_1JsonInputParse_a6bf61f2d59447ab80bd135cdb0779828}} 
+void {\bfseries operator()} (std\+::string\+\_\+view type, const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonInputParse_a50ab86408a4000fcb76e1c2bd2df8395}\label{structio_1_1JsonReader_1_1JsonInputParse_a50ab86408a4000fcb76e1c2bd2df8395}} 
+using {\bfseries Function\+Ptr} = void(Json\+Input\+Parse\+::$\ast$)(const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonInputParse_a71de5c5ceed5c3b5eab92bb4e2672a35}\label{structio_1_1JsonReader_1_1JsonInputParse_a71de5c5ceed5c3b5eab92bb4e2672a35}} 
+void {\bfseries Enqueue\+Bus} (const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&node)
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonInputParse_a0229f7e519faf94250993d7032f8291c}\label{structio_1_1JsonReader_1_1JsonInputParse_a0229f7e519faf94250993d7032f8291c}} 
+void {\bfseries Enqueue\+Stop} (const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonInputParse_afd777d8860d20427882be616ef5f7f6e}\label{structio_1_1JsonReader_1_1JsonInputParse_afd777d8860d20427882be616ef5f7f6e}} 
+\mbox{\hyperlink{classio_1_1JsonReader}{Json\+Reader}} \& {\bfseries parent\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Function\+Ptr $>$ \mbox{\hyperlink{structio_1_1JsonReader_1_1JsonInputParse_ad4f5b3b66dcb2e1ae607eb6621e4885e}{handlers\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functor used to parse and enqueue Transport\+Catalogue state-\/changing requests. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonInputParse_ad4f5b3b66dcb2e1ae607eb6621e4885e}\label{structio_1_1JsonReader_1_1JsonInputParse_ad4f5b3b66dcb2e1ae607eb6621e4885e}} 
+\index{io::JsonReader::JsonInputParse@{io::JsonReader::JsonInputParse}!handlers\_@{handlers\_}}
+\index{handlers\_@{handlers\_}!io::JsonReader::JsonInputParse@{io::JsonReader::JsonInputParse}}
+\doxysubsubsection{\texorpdfstring{handlers\_}{handlers\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Json\+Reader\+::\+Json\+Input\+Parse\+::\+Function\+Ptr $>$ io\+::\+Json\+Reader\+::\+Json\+Input\+Parse\+::handlers\+\_\+\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{        \{\textcolor{stringliteral}{"{}Bus"{}}, \&JsonReader::JsonInputParse::EnqueueBus\},}
+\DoxyCodeLine{        \{\textcolor{stringliteral}{"{}Stop"{}}, \&JsonReader::JsonInputParse::EnqueueStop\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Maps between request type string (\char`\"{}\+Bus\char`\"{}, \char`\"{}\+Stop\char`\"{}, etc) and appropriate member function handler (Enqueue\+Bus, Enqueue\+Stop, etc) 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{json__reader_8h}{json\+\_\+reader.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/json\+\_\+reader.\+cpp\end{DoxyCompactItemize}

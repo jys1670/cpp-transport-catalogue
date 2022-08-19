@@ -16,15 +16,10 @@
 #include <vector>
 
 #include "geo.h"
-
-//! Dummy type used to specify program output format
-struct OutputFormat {
-  struct Json {};
-  struct Xml {};
-};
+#include "svg.h"
 
 //! Cheap to copy objects used for information transfer to TransportCatalogue
-namespace InputInfo {
+namespace io {
 
 //! %Stop name and position (transfer)
 struct Stop {
@@ -46,39 +41,32 @@ struct Bus {
   std::vector<std::string_view> stops;
   bool is_circular;
 };
-} // namespace InputInfo
+
+//! Dummy type used to specify program output format
+enum class OutputFormat {
+  Json,
+  None,
+};
+} // namespace io
+
+namespace core {
 
 //! Objects solely used for information storage (mainly in TransportCatalogue)
-namespace DataStorage {
+namespace data {
 
 //! %Stop name and position (storage)
 struct Stop {
-  Stop &SetStopName(std::string_view str) {
-    name = str;
-    return *this;
-  }
-  Stop &SetCoordinates(geo::Coordinates value) {
-    pos = value;
-    return *this;
-  }
+  Stop &SetStopName(std::string_view str);
+  Stop &SetCoordinates(geo::Coordinates value);
   std::string name{};
   geo::Coordinates pos{};
 };
 
 //! Route name and stops (storage)
 struct Bus {
-  Bus &SetBusName(std::string_view str) {
-    name = str;
-    return *this;
-  }
-  Bus &SetCircular(bool value) {
-    is_circular = value;
-    return *this;
-  }
-  Bus &AddStop(Stop *ptr) {
-    stops.emplace_back(ptr);
-    return *this;
-  }
+  Bus &SetBusName(std::string_view str);
+  Bus &SetCircular(bool value);
+  Bus &AddStop(Stop *ptr);
   std::string name{};
   std::vector<Stop *> stops{};
   bool is_circular{};
@@ -86,18 +74,9 @@ struct Bus {
 
 //! Wrapper for Stop, used to painlessly add extra information about stop
 struct StopStats {
-  StopStats &SetStop(Stop *ptr) {
-    stop_ptr = ptr;
-    return *this;
-  }
-  StopStats &AddLinkedBus(Bus *ptr) {
-    linked_buses.insert(ptr);
-    return *this;
-  }
-  StopStats &SetLinkedStopDistance(Stop *ptr, double distance) {
-    linked_stops[ptr] = distance;
-    return *this;
-  }
+  StopStats &SetStop(Stop *ptr);
+  StopStats &AddLinkedBus(Bus *ptr);
+  StopStats &SetLinkedStopDistance(Stop *ptr, double distance);
   Stop *stop_ptr{nullptr};
   std::unordered_set<Bus *> linked_buses{};
   std::unordered_map<Stop *, double> linked_stops{};
@@ -105,26 +84,11 @@ struct StopStats {
 
 //! Wrapper for Bus, used to painlessly add extra information about route
 struct BusStats {
-  BusStats &SetBus(Bus *ptr) {
-    bus_ptr = ptr;
-    return *this;
-  }
-  BusStats &SetTotalStops(size_t number) {
-    total_stops = number;
-    return *this;
-  }
-  BusStats &SetUniqueStops(std::unordered_set<Stop *> &&stops) {
-    unique_stops = std::move(stops);
-    return *this;
-  }
-  BusStats &SetDirectLength(double val) {
-    direct_lenght = val;
-    return *this;
-  }
-  BusStats &SetRealLength(double val) {
-    real_length = val;
-    return *this;
-  }
+  BusStats &SetBus(Bus *ptr);
+  BusStats &SetTotalStops(size_t number);
+  BusStats &SetUniqueStops(std::unordered_set<Stop *> &&stops);
+  BusStats &SetDirectLength(double val);
+  BusStats &SetRealLength(double val);
   Bus *bus_ptr{nullptr};
   size_t total_stops{};
   std::unordered_set<Stop *> unique_stops{};
@@ -166,4 +130,95 @@ struct RoutesData {
   std::vector<const BusStats *> bus_stats;
 };
 
-} // namespace DataStorage
+} // namespace data
+
+//! Format independent description of the fastest path
+struct RouteAnswer {
+  struct Wait {
+    Wait &SetStop(const data::Stop *ptr);
+    Wait &SetTime(double number);
+    const data::Stop *stop;
+    double time;
+  };
+  struct Bus {
+    Bus &SetBus(const data::Bus *ptr);
+    Bus &SetSpanCount(size_t number);
+    Bus &SetTime(double number);
+    const data::Bus *bus;
+    size_t span_count;
+    double time;
+  };
+  using Item = std::variant<Wait, Bus>;
+  double total_time;
+  std::vector<Item> items;
+};
+
+/*!
+ * Represents real world entity DataStorage::Stop (and its properties) as
+ * graph vertex. Combination of all class fields defines unique graph vertex.
+ */
+class Vertex {
+public:
+  Vertex &SetStop(const data::Stop *st);
+  Vertex &SetWait(bool wait);
+  const data::Stop *GetStop() const;
+  bool GetWaitStatus() const;
+  bool operator==(const Vertex &other) const;
+
+private:
+  const data::Stop *stop{nullptr};
+  bool must_wait{false};
+};
+
+struct VertexHasher {
+  size_t operator()(const Vertex &obj) const;
+};
+} // namespace core
+
+namespace graphics {
+struct RenderSettings {
+  //! Map width (in pixels)
+  double width{};
+  //! Map height (in pixels)
+  double height{};
+  //! Map padding (in pixels)
+  double padding{};
+  /*!
+   * Route lines <a
+   * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width">stroke-width</a>
+   * attribute (in pixels)
+   */
+  double line_width{};
+  //! Stops are drawn as white circles with this radius (in pixels)
+  double stop_radius{};
+  //! Route names font size (in pixels)
+  int bus_label_font_size{};
+  /*!
+   * Route names position <a
+   * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dx">dx</a>
+   * and <a
+   * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy">dy</a>
+   * (in pixels)
+   */
+  svg::Point bus_label_offset{};
+  //! %Stop names font size (in pixels)
+  int stop_label_font_size{};
+  /*!
+   * %Stop names position <a
+   * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dx">dx</a>
+   * and <a
+   * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy">dy</a>
+   * (in pixels)
+   */
+  svg::Point stop_label_offset{};
+  //! Stops and routes background font (stroke effect) color
+  svg::Color underlayer_color{};
+  /*!
+   * Stops and routes background font (stroke effect) <a
+   * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width">stroke-width</a>
+   */
+  double underlayer_width{};
+  //! Cyclically used colors for stops and routes
+  std::vector<svg::Color> color_palette{};
+};
+} // namespace graphics

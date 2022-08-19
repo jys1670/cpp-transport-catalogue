@@ -1,0 +1,49 @@
+\hypertarget{classcore_1_1Vertex}{}\doxysection{core\+::Vertex Class Reference}
+\label{classcore_1_1Vertex}\index{core::Vertex@{core::Vertex}}
+
+
+Represents real world entity Data\+Storage\+::\+Stop (and its properties) as graph vertex.  
+
+
+
+
+{\ttfamily \#include $<$domain.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcore_1_1Vertex_a5481013fc5e56e2b528406a845866bb2}\label{classcore_1_1Vertex_a5481013fc5e56e2b528406a845866bb2}} 
+\mbox{\hyperlink{classcore_1_1Vertex}{Vertex}} \& {\bfseries Set\+Stop} (const \mbox{\hyperlink{structcore_1_1data_1_1Stop}{data\+::\+Stop}} $\ast$st)
+\item 
+\mbox{\Hypertarget{classcore_1_1Vertex_a524b15f1b7a606efb8edf2c8beea7a52}\label{classcore_1_1Vertex_a524b15f1b7a606efb8edf2c8beea7a52}} 
+\mbox{\hyperlink{classcore_1_1Vertex}{Vertex}} \& {\bfseries Set\+Wait} (bool wait)
+\item 
+\mbox{\Hypertarget{classcore_1_1Vertex_a4f95e2b51b5f358e13e0027acc04c5d3}\label{classcore_1_1Vertex_a4f95e2b51b5f358e13e0027acc04c5d3}} 
+const \mbox{\hyperlink{structcore_1_1data_1_1Stop}{data\+::\+Stop}} $\ast$ {\bfseries Get\+Stop} () const
+\item 
+\mbox{\Hypertarget{classcore_1_1Vertex_a57b83c3d427106cfbdc2b460e96e1653}\label{classcore_1_1Vertex_a57b83c3d427106cfbdc2b460e96e1653}} 
+bool {\bfseries Get\+Wait\+Status} () const
+\item 
+\mbox{\Hypertarget{classcore_1_1Vertex_a1c9a00a401df671731c5f2f228efafd9}\label{classcore_1_1Vertex_a1c9a00a401df671731c5f2f228efafd9}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classcore_1_1Vertex}{Vertex}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcore_1_1Vertex_a3ac03b8afe62d03ec81f9cb7ae837c27}\label{classcore_1_1Vertex_a3ac03b8afe62d03ec81f9cb7ae837c27}} 
+const \mbox{\hyperlink{structcore_1_1data_1_1Stop}{data\+::\+Stop}} $\ast$ {\bfseries stop} \{nullptr\}
+\item 
+\mbox{\Hypertarget{classcore_1_1Vertex_a3aee19d38adc44035171192dab6c757c}\label{classcore_1_1Vertex_a3aee19d38adc44035171192dab6c757c}} 
+bool {\bfseries must\+\_\+wait} \{false\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents real world entity Data\+Storage\+::\+Stop (and its properties) as graph vertex. 
+
+Combination of all class fields defines unique graph vertex. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{domain_8h}{domain.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/domain.\+cpp\end{DoxyCompactItemize}

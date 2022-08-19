@@ -1,0 +1,35 @@
+\hypertarget{namespacecore_1_1data}{}\doxysection{core\+::data Namespace Reference}
+\label{namespacecore_1_1data}\index{core::data@{core::data}}
+
+
+Objects solely used for information storage (mainly in \mbox{\hyperlink{classcore_1_1TransportCatalogue}{Transport\+Catalogue}})  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcore_1_1data_1_1Bus}{Bus}}
+\begin{DoxyCompactList}\small\item\em Route name and stops (storage) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcore_1_1data_1_1BusStats}{Bus\+Stats}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structcore_1_1data_1_1Bus}{Bus}}, used to painlessly add extra information about route. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{Routes\+Data}}
+\begin{DoxyCompactList}\small\item\em Stores somehow logically connected routes and stops (used in Map\+Renderer) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcore_1_1data_1_1Stop}{Stop}}
+\begin{DoxyCompactList}\small\item\em Stop name and position (storage) \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcore_1_1data_1_1StopCoordsIterator}{Stop\+Coords\+Iterator}}
+\item 
+struct \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{Stop\+Stats}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structcore_1_1data_1_1Stop}{Stop}}, used to painlessly add extra information about stop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacecore_1_1data_ac97ad8102eeb871e441d7670b70d571b}\label{namespacecore_1_1data_ac97ad8102eeb871e441d7670b70d571b}} 
+using {\bfseries Bus\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, \mbox{\hyperlink{structcore_1_1data_1_1BusStats}{Bus\+Stats}} $>$
+\item 
+\mbox{\Hypertarget{namespacecore_1_1data_ac965199d7a641eda7eec7240134ae7ec}\label{namespacecore_1_1data_ac965199d7a641eda7eec7240134ae7ec}} 
+using {\bfseries Stop\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{Stop\+Stats}} $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Objects solely used for information storage (mainly in \mbox{\hyperlink{classcore_1_1TransportCatalogue}{Transport\+Catalogue}}) 

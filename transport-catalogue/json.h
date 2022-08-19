@@ -14,7 +14,7 @@
 #include <vector>
 
 //! The main and only JSON create/read/write library namespace
-namespace json {
+namespace io::json {
 
 class Node;
 class Document;
@@ -149,4 +149,4 @@ private:
   Node root_;
 };
 
-} // namespace json
+} // namespace io::json

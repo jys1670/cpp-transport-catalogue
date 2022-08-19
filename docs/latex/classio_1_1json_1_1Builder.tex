@@ -1,0 +1,72 @@
+\hypertarget{classio_1_1json_1_1Builder}{}\doxysection{io\+::json\+::Builder Class Reference}
+\label{classio_1_1json_1_1Builder}\index{io::json::Builder@{io::json::Builder}}
+
+
+Handy type used to construct JSON via method chaining approach.  
+
+
+
+
+{\ttfamily \#include $<$json\+\_\+builder.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structio_1_1json_1_1Builder_1_1ArrayItemContext}{Array\+Item\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed inside of an array. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structio_1_1json_1_1Builder_1_1Context}{Context}}
+\begin{DoxyCompactList}\small\item\em Stores common \mbox{\hyperlink{classio_1_1json_1_1Builder}{Builder}} for all available states. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structio_1_1json_1_1Builder_1_1MapItemContext}{Map\+Item\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed after insertion of dictionary \{key, value\} pair. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structio_1_1json_1_1Builder_1_1MapKeyContext}{Map\+Key\+Context}}
+\begin{DoxyCompactList}\small\item\em Actions that are allowed after setting dictionary key. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structio_1_1json_1_1Builder_1_1ValueContext}{Value\+Context}}
+\begin{DoxyCompactList}\small\item\em Represents state in which all \mbox{\hyperlink{classio_1_1json_1_1Builder}{Builder}} actions are allowed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_aa950c626daa69b093bc7af934dcda8e6}\label{classio_1_1json_1_1Builder_aa950c626daa69b093bc7af934dcda8e6}} 
+\mbox{\hyperlink{structio_1_1json_1_1Builder_1_1ValueContext}{Value\+Context}} {\bfseries Value} (Node\+::\+Value val)
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_a83089c21f1c4e1b61af721be082fd572}\label{classio_1_1json_1_1Builder_a83089c21f1c4e1b61af721be082fd572}} 
+\mbox{\hyperlink{structio_1_1json_1_1Builder_1_1MapKeyContext}{Map\+Key\+Context}} {\bfseries Key} (std\+::string key)
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_a7280a64cc9f78146db642cd895083b79}\label{classio_1_1json_1_1Builder_a7280a64cc9f78146db642cd895083b79}} 
+\mbox{\hyperlink{structio_1_1json_1_1Builder_1_1MapItemContext}{Map\+Item\+Context}} {\bfseries Start\+Dict} ()
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_a6caa57c453e41e4842dab63e6db8f5b6}\label{classio_1_1json_1_1Builder_a6caa57c453e41e4842dab63e6db8f5b6}} 
+\mbox{\hyperlink{structio_1_1json_1_1Builder_1_1ArrayItemContext}{Array\+Item\+Context}} {\bfseries Start\+Array} ()
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_a1999b4e7b8dd0268f890aa5c7fb227ad}\label{classio_1_1json_1_1Builder_a1999b4e7b8dd0268f890aa5c7fb227ad}} 
+\mbox{\hyperlink{structio_1_1json_1_1Builder_1_1ValueContext}{Value\+Context}} {\bfseries End\+Dict} ()
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_a502b57b05c8849d064f75c714595ab84}\label{classio_1_1json_1_1Builder_a502b57b05c8849d064f75c714595ab84}} 
+\mbox{\hyperlink{structio_1_1json_1_1Builder_1_1ValueContext}{Value\+Context}} {\bfseries End\+Array} ()
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_a3da9a7f86a73af0cbeda0713a7e7f086}\label{classio_1_1json_1_1Builder_a3da9a7f86a73af0cbeda0713a7e7f086}} 
+\mbox{\hyperlink{classio_1_1json_1_1Node}{Node}} {\bfseries Build} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_af35511c25d17afb8e6ce62090ef3b043}\label{classio_1_1json_1_1Builder_af35511c25d17afb8e6ce62090ef3b043}} 
+bool {\bfseries builder\+\_\+empty\+\_\+} \{true\}
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_a803726bc567a53145839e47a1c715866}\label{classio_1_1json_1_1Builder_a803726bc567a53145839e47a1c715866}} 
+std\+::optional$<$ std\+::string $>$ {\bfseries curr\+\_\+map\+\_\+key\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_ab2af343ecfa49bc719b4d76c6a4b7a25}\label{classio_1_1json_1_1Builder_ab2af343ecfa49bc719b4d76c6a4b7a25}} 
+\mbox{\hyperlink{classio_1_1json_1_1Node}{Node}} {\bfseries root\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Builder_a1b07af0027d5b9d655f14ec48de2b571}\label{classio_1_1json_1_1Builder_a1b07af0027d5b9d655f14ec48de2b571}} 
+std\+::vector$<$ \mbox{\hyperlink{classio_1_1json_1_1Node}{Node}} $\ast$ $>$ {\bfseries nodes\+\_\+stack\+\_\+} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handy type used to construct JSON via method chaining approach. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{json__builder_8h}{json\+\_\+builder.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/json\+\_\+builder.\+cpp\end{DoxyCompactItemize}

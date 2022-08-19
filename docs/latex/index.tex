@@ -15,6 +15,12 @@ This repository is a simple implementation of information storage, which can pot
 \DoxyCodeLine{│   ├── latex}
 \DoxyCodeLine{│   ├── Doxyfile}
 \DoxyCodeLine{│   └── index.html}
+\DoxyCodeLine{├── proto}
+\DoxyCodeLine{│   ├── graph.proto}
+\DoxyCodeLine{│   ├── map\_renderer.proto}
+\DoxyCodeLine{│   ├── svg.proto}
+\DoxyCodeLine{│   ├── transport\_catalogue.proto}
+\DoxyCodeLine{│   └── transport\_router.proto}
 \DoxyCodeLine{├── tests}
 \DoxyCodeLine{│   ├── CMakeLists.txt}
 \DoxyCodeLine{│   ├── test.cpp}
@@ -39,6 +45,8 @@ This repository is a simple implementation of information storage, which can pot
 \DoxyCodeLine{│   ├── request\_handler.cpp}
 \DoxyCodeLine{│   ├── request\_handler.h}
 \DoxyCodeLine{│   ├── router.h}
+\DoxyCodeLine{│   ├── serialization.cpp}
+\DoxyCodeLine{│   ├── serialization.h}
 \DoxyCodeLine{│   ├── svg.cpp}
 \DoxyCodeLine{│   ├── svg.h}
 \DoxyCodeLine{│   ├── transport\_catalogue.cpp}
@@ -64,7 +72,7 @@ Building and running main executable\+:
 \DoxyCodeLine{cmake -\/DCMAKE\_BUILD\_TYPE=Release ..}
 \DoxyCodeLine{cmake -\/-\/build . -\/-\/config Release -\/-\/target main}
 \DoxyCodeLine{cd bin}
-\DoxyCodeLine{./main}
+\DoxyCodeLine{./main [make\_base|process\_requests] ...}
 
 \end{DoxyCode}
 
@@ -99,4 +107,4 @@ Updating documentation\+:
 \item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_input.json}{\texttt{ Input request (2)}}, which asks to find fastest path between stops
 \item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_output.json}{\texttt{ Answer (2)}}, contains travel time and path description in {\ttfamily items} keys
 \end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{Documentation}\label{index_autotoc_md4}
-You can check it out here\+: \href{https://jys1670.github.io/cpp-transport-catalogue/html/index.html}{\texttt{ Transport-\/\+Catalogue-\/\+Documentation}}. 
+You can check it out here\+: \href{https://jys1670.github.io/cpp-transport-catalogue/html/index.html}{\texttt{ Transport-\/\+Catalogue-\/\+Documentation (outdated)}}. 

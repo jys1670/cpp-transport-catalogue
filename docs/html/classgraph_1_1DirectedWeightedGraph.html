@@ -67,14 +67,23 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classgraph_1_1DirectedWeightedGraph-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">graph::DirectedWeightedGraph&lt; Weight &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae497b76bad23ec65662cc4d52c4a56b6"><td class="memItemLeft" align="right" valign="top"><a id="ae497b76bad23ec65662cc4d52c4a56b6" name="ae497b76bad23ec65662cc4d52c4a56b6"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>IncidenceList</b> = std::vector&lt; EdgeId &gt;</td></tr>
+<tr class="separator:ae497b76bad23ec65662cc4d52c4a56b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff6b4c857f84d2f5b35951d8374d9a1"><td class="memItemLeft" align="right" valign="top"><a id="acff6b4c857f84d2f5b35951d8374d9a1" name="acff6b4c857f84d2f5b35951d8374d9a1"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>IncidentEdgesRange</b> = <a class="el" href="classgraph_1_1Range.html">Range</a>&lt; typename IncidenceList::const_iterator &gt;</td></tr>
+<tr class="separator:acff6b4c857f84d2f5b35951d8374d9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2bc3267b06ecefe849b0797ccf7c44f8"><td class="memItemLeft" align="right" valign="top"><a id="a2bc3267b06ecefe849b0797ccf7c44f8" name="a2bc3267b06ecefe849b0797ccf7c44f8"></a>
@@ -95,15 +104,12 @@ const <a class="el" href="structgraph_1_1Edge.html">Edge</a>&lt; Weight &gt; &am
 <tr class="memitem:a0111274ce1393c844dadc0537c347e70"><td class="memItemLeft" align="right" valign="top"><a id="a0111274ce1393c844dadc0537c347e70" name="a0111274ce1393c844dadc0537c347e70"></a>
 <a class="el" href="classgraph_1_1Range.html">IncidentEdgesRange</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetIncidentEdges</b> (VertexId vertex) const</td></tr>
 <tr class="separator:a0111274ce1393c844dadc0537c347e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:ae497b76bad23ec65662cc4d52c4a56b6"><td class="memItemLeft" align="right" valign="top"><a id="ae497b76bad23ec65662cc4d52c4a56b6" name="ae497b76bad23ec65662cc4d52c4a56b6"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>IncidenceList</b> = std::vector&lt; EdgeId &gt;</td></tr>
-<tr class="separator:ae497b76bad23ec65662cc4d52c4a56b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acff6b4c857f84d2f5b35951d8374d9a1"><td class="memItemLeft" align="right" valign="top"><a id="acff6b4c857f84d2f5b35951d8374d9a1" name="acff6b4c857f84d2f5b35951d8374d9a1"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>IncidentEdgesRange</b> = <a class="el" href="classgraph_1_1Range.html">Range</a>&lt; typename IncidenceList::const_iterator &gt;</td></tr>
-<tr class="separator:acff6b4c857f84d2f5b35951d8374d9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31ed70648fa51aee06edae36da62ab9d"><td class="memItemLeft" align="right" valign="top"><a id="a31ed70648fa51aee06edae36da62ab9d" name="a31ed70648fa51aee06edae36da62ab9d"></a>
+<a class="el" href="classgraph_1_1DirectedWeightedGraph.html">DirectedWeightedGraph</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetEdges</b> (std::vector&lt; <a class="el" href="structgraph_1_1Edge.html">Edge</a>&lt; Weight &gt; &gt; &amp;&amp;edges)</td></tr>
+<tr class="separator:a31ed70648fa51aee06edae36da62ab9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c06cad2b57b2a99cb2297cabbeafe6"><td class="memItemLeft" align="right" valign="top"><a id="ab8c06cad2b57b2a99cb2297cabbeafe6" name="ab8c06cad2b57b2a99cb2297cabbeafe6"></a>
+<a class="el" href="classgraph_1_1DirectedWeightedGraph.html">DirectedWeightedGraph</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetIncidenceLists</b> (std::vector&lt; IncidenceList &gt; &amp;&amp;lists)</td></tr>
+<tr class="separator:ab8c06cad2b57b2a99cb2297cabbeafe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>

@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['datastorage_0',['DataStorage',['../namespaceDataStorage.html',1,'']]],
-  ['delimiters_1',['Delimiters',['../namespacejson.html#a7dfa1293b4f94c01b01bb22e3933d3e4',1,'json']]],
-  ['dict_2',['Dict',['../namespacejson.html#a14165bfd985e982794b3697b71cc4a01',1,'json']]],
-  ['directedweightedgraph_3',['DirectedWeightedGraph',['../classgraph_1_1DirectedWeightedGraph.html',1,'graph']]],
-  ['directedweightedgraph_3c_20double_20_3e_4',['DirectedWeightedGraph&lt; double &gt;',['../classgraph_1_1DirectedWeightedGraph.html',1,'graph']]],
-  ['document_5',['Document',['../classjson_1_1Document.html',1,'json::Document'],['../classsvg_1_1Document.html',1,'svg::Document']]],
-  ['domain_2eh_6',['domain.h',['../domain_8h.html',1,'']]],
-  ['drawable_7',['Drawable',['../classsvg_1_1Drawable.html',1,'svg']]]
+  ['delimiters_0',['Delimiters',['../namespaceio_1_1json.html#adef080325e8f760d1cb287c7152fa18f',1,'io::json']]],
+  ['dict_1',['Dict',['../namespaceio_1_1json.html#afef700639d081056b62d37f480e79f20',1,'io::json']]],
+  ['directedweightedgraph_2',['DirectedWeightedGraph',['../classgraph_1_1DirectedWeightedGraph.html',1,'graph']]],
+  ['directedweightedgraph_3c_20double_20_3e_3',['DirectedWeightedGraph&lt; double &gt;',['../classgraph_1_1DirectedWeightedGraph.html',1,'graph']]],
+  ['document_4',['Document',['../classgraphics_1_1svg_1_1Document.html',1,'graphics::svg::Document'],['../classio_1_1json_1_1Document.html',1,'io::json::Document']]],
+  ['domain_2eh_5',['domain.h',['../domain_8h.html',1,'']]],
+  ['drawable_6',['Drawable',['../classgraphics_1_1svg_1_1Drawable.html',1,'graphics::svg']]]
 ];

@@ -14,7 +14,10 @@
 #include "domain.h"
 #include "geo.h"
 #include "json.h"
+#include "serialization.h"
 #include "svg.h"
+
+namespace graphics {
 
 inline const double EPSILON = 1e-6;
 bool IsZero(double value);
@@ -47,79 +50,41 @@ private:
 
 class MapRenderer {
 public:
+  MapRenderer() = default;
+
+  void ImportRenderSettings(const serialization::TrCatalogue &sr_catalogue);
+  void ExportRenderSettings(serialization::Serializer &sr);
   /*!
    * Constructs map image
    * \param[in] data routes to be drawn and all their stops
    * \return Actual SVG stored as string
    */
-  std::string RenderMap(DataStorage::RoutesData data);
+  std::string RenderMap(core::data::RoutesData data);
   /*!
    * Updates image generation settings
    * \param[in] node json::Dict that defines all fields of RenderSettings
    */
-  void LoadSettings(const json::Node &node);
+  void LoadSettings(const io::json::Node &node);
 
 private:
   //! MapRenderer settings storage
-  struct RenderSettings {
-    //! Map width (in pixels)
-    double width{};
-    //! Map height (in pixels)
-    double height{};
-    //! Map padding (in pixels)
-    double padding{};
-    /*!
-     * Route lines <a
-     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width">stroke-width</a>
-     * attribute (in pixels)
-     */
-    double line_width{};
-    //! Stops are drawn as white circles with this radius (in pixels)
-    double stop_radius{};
-    //! Route names font size (in pixels)
-    int bus_label_font_size{};
-    /*!
-     * Route names position <a
-     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dx">dx</a>
-     * and <a
-     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy">dy</a>
-     * (in pixels)
-     */
-    svg::Point bus_label_offset{};
-    //! %Stop names font size (in pixels)
-    int stop_label_font_size{};
-    /*!
-     * %Stop names position <a
-     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dx">dx</a>
-     * and <a
-     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy">dy</a>
-     * (in pixels)
-     */
-    svg::Point stop_label_offset{};
-    //! Stops and routes background font (stroke effect) color
-    svg::Color underlayer_color{};
-    /*!
-     * Stops and routes background font (stroke effect) <a
-     * href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width">stroke-width</a>
-     */
-    double underlayer_width{};
-    //! Cyclically used colors for stops and routes
-    std::vector<svg::Color> color_palette{};
-  } settings_;
+  RenderSettings settings_;
 
-  static svg::Color ParseColor(const json::Node &node);
+  static svg::Color ParseColor(const io::json::Node &node);
 
-  void DrawRoutes(DataStorage::RoutesData &data, SphereProjector &projector,
+  void DrawRoutes(core::data::RoutesData &data, SphereProjector &projector,
                   svg::Document &doc);
 
-  void DrawRouteNames(DataStorage::RoutesData &data, SphereProjector &projector,
+  void DrawRouteNames(core::data::RoutesData &data, SphereProjector &projector,
                       svg::Document &doc);
 
-  void DrawStopSymbols(DataStorage::RoutesData &data,
-                       SphereProjector &projector, svg::Document &doc);
+  void DrawStopSymbols(core::data::RoutesData &data, SphereProjector &projector,
+                       svg::Document &doc);
 
-  void DrawStopNames(DataStorage::RoutesData &data, SphereProjector &projector,
+  void DrawStopNames(core::data::RoutesData &data, SphereProjector &projector,
                      svg::Document &doc);
+
+  svg::Color DeserializeColor(const serialization::Color &color);
 };
 
 template <typename PointInputIt>
@@ -162,3 +127,5 @@ SphereProjector::SphereProjector(PointInputIt points_begin,
     zoom_coeff_ = *height_zoom;
   }
 }
+
+} // namespace graphics

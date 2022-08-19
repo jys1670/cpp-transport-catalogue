@@ -18,6 +18,7 @@
 #include "transport_catalogue.h"
 #include "transport_router.h"
 
+namespace io {
 /*!
  * \brief Responsible for querying database (TransportCatalogue) and
  * outputting information in various formats.
@@ -76,8 +77,8 @@ public:
    * \param[in] catalogue database which will be queried
    * \param[in] renderer will be used for map visualize requests when needed
    */
-  RequestHandler(std::ostream &output, TransportCatalogue &catalogue,
-                 MapRenderer &renderer, TransportRouter &router)
+  RequestHandler(std::ostream &output, core::TransportCatalogue &catalogue,
+                 graphics::MapRenderer &renderer, core::TransportRouter &router)
       : outstream_{output},
         catalogue_{catalogue}, renderer_{renderer}, trouter_{router} {};
 
@@ -89,20 +90,20 @@ public:
    * just those used in routes, with no repetitions) from
    * RequestHandler::catalogue_
    */
-  DataStorage::RoutesData GetCatalogueData() const;
+  core::data::RoutesData GetCatalogueData() const;
 
   //! Processes each element from RequestHandler::reqs_queue_
-  void ProcessAllRequests(OutputFormat::Json);
+  void ProcessAllRequests(OutputFormat format = OutputFormat::Json);
 
 private:
   //! Stream to which information will be output
   std::ostream &outstream_;
   //! Database that processes requests for information
-  TransportCatalogue &catalogue_;
+  core::TransportCatalogue &catalogue_;
   //! Renderer to handle map visualize requests when needed
-  MapRenderer &renderer_;
+  graphics::MapRenderer &renderer_;
   //! Transport router to handle fastest path requests when needed
-  TransportRouter &trouter_;
+  core::TransportRouter &trouter_;
 
   //! Functor used to respond to RequestHandler::reqs_queue_ requests in JSON
   //! format
@@ -128,3 +129,4 @@ private:
   //! Clears RequestHandler::reqs_queue_
   void Clear();
 };
+} // namespace io

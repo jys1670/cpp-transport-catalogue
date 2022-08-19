@@ -31,9 +31,6 @@ public:
     std::vector<EdgeId> edges;
   };
 
-  std::optional<RouteInfo> BuildRoute(VertexId from, VertexId to) const;
-
-private:
   struct RouteInternalData {
     Weight weight;
     std::optional<EdgeId> prev_edge;
@@ -41,6 +38,18 @@ private:
   using RoutesInternalData =
       std::vector<std::vector<std::optional<RouteInternalData>>>;
 
+  std::optional<RouteInfo> BuildRoute(VertexId from, VertexId to) const;
+
+  const RoutesInternalData &GetRoutesInternalData() const {
+    return routes_internal_data_;
+  }
+
+  Router &SetRouterInternalData(RoutesInternalData &&data) {
+    routes_internal_data_ = std::move(data);
+    return *this;
+  }
+
+private:
   void InitializeRoutesInternalData(const Graph &graph) {
     const size_t vertex_count = graph.GetVertexCount();
     for (VertexId vertex = 0; vertex < vertex_count; ++vertex) {

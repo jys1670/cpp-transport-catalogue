@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "graph.proto";
+
+package serialization;
+
+message RouteInternalData {
+  double weight = 1;
+//  bool has_prev_edge = 3;
+//  uint32 prev_edge = 2;
+  optional uint32 prev_edge = 2;
+}
+
+message RouteInternalDataList {
+  repeated RouteInternalData route_data = 1;
+}
+
+message Router {
+  Graph graph = 1;
+  repeated RouteInternalDataList routes_data_list = 2;
+}

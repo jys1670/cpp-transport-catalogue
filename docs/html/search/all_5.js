@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['findfastestroute_0',['FindFastestRoute',['../classTransportRouter.html#ac6bda5392f2e9b628a5785e285a2d0f3',1,'TransportRouter']]]
+  ['findfastestroute_0',['FindFastestRoute',['../classcore_1_1TransportRouter.html#a81a166ae09aa40fac762324055e2b527',1,'core::TransportRouter']]]
 ];

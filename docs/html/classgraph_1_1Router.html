@@ -68,6 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
@@ -85,6 +86,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraph_1_1Router_1_1RouteInternalData.html">RouteInternalData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac8f279c0d20a435b6926a7028d2b032e"><td class="memItemLeft" align="right" valign="top"><a id="ac8f279c0d20a435b6926a7028d2b032e" name="ac8f279c0d20a435b6926a7028d2b032e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>RoutesInternalData</b> = std::vector&lt; std::vector&lt; std::optional&lt; <a class="el" href="structgraph_1_1Router_1_1RouteInternalData.html">RouteInternalData</a> &gt; &gt; &gt;</td></tr>
+<tr class="separator:ac8f279c0d20a435b6926a7028d2b032e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a357f213c71b90703199cf02dac4d7539"><td class="memItemLeft" align="right" valign="top"><a id="a357f213c71b90703199cf02dac4d7539" name="a357f213c71b90703199cf02dac4d7539"></a>
@@ -93,15 +100,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5e4a24558fea283ef3e002eeaec0e57f"><td class="memItemLeft" align="right" valign="top"><a id="a5e4a24558fea283ef3e002eeaec0e57f" name="a5e4a24558fea283ef3e002eeaec0e57f"></a>
 std::optional&lt; <a class="el" href="structgraph_1_1Router_1_1RouteInfo.html">RouteInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>BuildRoute</b> (VertexId from, VertexId to) const</td></tr>
 <tr class="separator:a5e4a24558fea283ef3e002eeaec0e57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a992069878ba70e99d3789b377826f2c5"><td class="memItemLeft" align="right" valign="top"><a id="a992069878ba70e99d3789b377826f2c5" name="a992069878ba70e99d3789b377826f2c5"></a>
+const RoutesInternalData &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoutesInternalData</b> () const</td></tr>
+<tr class="separator:a992069878ba70e99d3789b377826f2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f214590e212b819c5911f1f53483686"><td class="memItemLeft" align="right" valign="top"><a id="a2f214590e212b819c5911f1f53483686" name="a2f214590e212b819c5911f1f53483686"></a>
+<a class="el" href="classgraph_1_1Router.html">Router</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SetRouterInternalData</b> (RoutesInternalData &amp;&amp;data)</td></tr>
+<tr class="separator:a2f214590e212b819c5911f1f53483686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
 Private Types</h2></td></tr>
 <tr class="memitem:a83943e6f3833464b0dae1f41603827ec"><td class="memItemLeft" align="right" valign="top"><a id="a83943e6f3833464b0dae1f41603827ec" name="a83943e6f3833464b0dae1f41603827ec"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>Graph</b> = <a class="el" href="classgraph_1_1DirectedWeightedGraph.html">DirectedWeightedGraph</a>&lt; Weight &gt;</td></tr>
 <tr class="separator:a83943e6f3833464b0dae1f41603827ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8f279c0d20a435b6926a7028d2b032e"><td class="memItemLeft" align="right" valign="top"><a id="ac8f279c0d20a435b6926a7028d2b032e" name="ac8f279c0d20a435b6926a7028d2b032e"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>RoutesInternalData</b> = std::vector&lt; std::vector&lt; std::optional&lt; <a class="el" href="structgraph_1_1Router_1_1RouteInternalData.html">RouteInternalData</a> &gt; &gt; &gt;</td></tr>
-<tr class="separator:ac8f279c0d20a435b6926a7028d2b032e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>

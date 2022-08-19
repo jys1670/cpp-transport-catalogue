@@ -3,9 +3,7 @@
 
 #include "json.h"
 
-using namespace std;
-
-namespace json {
+namespace io::json {
 
 bool operator==(const Node &lhs, const Node &rhs) {
   if (lhs.IsNull() && rhs.IsNull()) {
@@ -46,9 +44,9 @@ bool SequenceCheck(std::istream &input, const std::string &str) {
                     std::istreambuf_iterator<char>(input));
 }
 
-Node LoadNode(istream &input);
+Node LoadNode(std::istream &input);
 
-Node LoadNumber(istream &input) {
+Node LoadNumber(std::istream &input) {
   using namespace std::literals;
 
   std::string parsed_num;
@@ -110,7 +108,7 @@ Node LoadNumber(istream &input) {
   }
 }
 
-Node LoadString(istream &input) {
+Node LoadString(std::istream &input) {
   using namespace std::literals;
 
   auto it = std::istreambuf_iterator<char>(input);
@@ -160,7 +158,7 @@ Node LoadString(istream &input) {
   return Node{s};
 }
 
-Node LoadArray(istream &input) {
+Node LoadArray(std::istream &input) {
   Array result;
   char c;
   for (; input >> c && c != ']';) {
@@ -175,7 +173,7 @@ Node LoadArray(istream &input) {
   return Node(std::move(result));
 }
 
-Node LoadDict(istream &input) {
+Node LoadDict(std::istream &input) {
   Dict result;
   char c;
 
@@ -184,7 +182,7 @@ Node LoadDict(istream &input) {
       input >> c;
     }
 
-    string key = LoadString(input).AsString();
+    std::string key = LoadString(input).AsString();
     input >> c;
     result.insert({std::move(key), LoadNode(input)});
   }
@@ -194,7 +192,7 @@ Node LoadDict(istream &input) {
   return Node(std::move(result));
 }
 
-Node LoadNode(istream &input) {
+Node LoadNode(std::istream &input) {
   char c{};
   for (; input >> c && Delimiters.count(c);)
     ;
@@ -219,47 +217,53 @@ Node LoadNode(istream &input) {
 
 } // namespace
 
-bool Node::IsInt() const { return holds_alternative<int>(*this); }
+bool Node::IsInt() const { return std::holds_alternative<int>(*this); }
 bool Node::IsDouble() const {
-  return IsInt() || holds_alternative<double>(*this);
+  return IsInt() || std::holds_alternative<double>(*this);
 }
-bool Node::IsPureDouble() const { return holds_alternative<double>(*this); }
-bool Node::IsBool() const { return holds_alternative<bool>(*this); }
-bool Node::IsString() const { return holds_alternative<std::string>(*this); }
-bool Node::IsNull() const { return holds_alternative<std::nullptr_t>(*this); }
-bool Node::IsArray() const { return holds_alternative<Array>(*this); }
-bool Node::IsMap() const { return holds_alternative<Dict>(*this); }
+bool Node::IsPureDouble() const {
+  return std::holds_alternative<double>(*this);
+}
+bool Node::IsBool() const { return std::holds_alternative<bool>(*this); }
+bool Node::IsString() const {
+  return std::holds_alternative<std::string>(*this);
+}
+bool Node::IsNull() const {
+  return std::holds_alternative<std::nullptr_t>(*this);
+}
+bool Node::IsArray() const { return std::holds_alternative<Array>(*this); }
+bool Node::IsMap() const { return std::holds_alternative<Dict>(*this); }
 
 int Node::AsInt() const {
   if (!IsInt())
     throw std::logic_error("Incorrect type");
-  return get<int>(*this);
+  return std::get<int>(*this);
 }
 
 bool Node::AsBool() const {
   if (!IsBool())
     throw std::logic_error("Incorrect type");
-  return get<bool>(*this);
+  return std::get<bool>(*this);
 }
 
 double Node::AsDouble() const {
   if (!IsDouble())
     throw std::logic_error("Incorrect type");
   if (IsInt())
-    return get<int>(*this);
-  return get<double>(*this);
+    return std::get<int>(*this);
+  return std::get<double>(*this);
 }
 
-const string &Node::AsString() const {
+const std::string &Node::AsString() const {
   if (!IsString())
     throw std::logic_error("Incorrect type");
-  return get<string>(*this);
+  return std::get<std::string>(*this);
 }
 
 const Array &Node::AsArray() const {
   if (!IsArray())
     throw std::logic_error("Incorrect type");
-  return get<Array>(*this);
+  return std::get<Array>(*this);
 }
 
 const Dict &Node::AsMap() const {
@@ -363,4 +367,4 @@ void PrintValue(const Dict &dict, const PrintContext &ctx) {
   ctx.out << '}';
 }
 
-} // namespace json
+} // namespace io::json

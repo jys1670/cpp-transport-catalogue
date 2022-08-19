@@ -9,7 +9,7 @@
 #include <optional>
 #include <string>
 
-std::optional<double> FindTime(int req_id, const json::Array &source) {
+std::optional<double> FindTime(int req_id, const io::json::Array &source) {
   for (const auto &el : source) {
     const auto &el_dict = el.AsMap();
     if (el_dict.count("request_id")) {
@@ -32,17 +32,20 @@ BOOST_AUTO_TEST_CASE(total_time_test) {
   input_data_json_file.open(curr_dir + "/timetest_input.json");
   correct_output_json_file.open(curr_dir + "/timetest_output.json");
 
-  TransportCatalogue database{};
-  MapRenderer renderer{};
-  TransportRouter router{database};
-  RequestHandler req_handler{out_str_stream, database, renderer, router};
-  JsonReader json_file_reader{input_data_json_file, database, req_handler};
+  core::TransportCatalogue database{};
+  core::TransportRouter router{database};
+  graphics::MapRenderer renderer{};
+  io::RequestHandler req_handler{out_str_stream, database, renderer, router};
+  io::JsonReader json_reader{database, req_handler};
 
-  json_file_reader.ProcessInput(OutputFormat::Json{});
+  const io::json::Document doc = io::json::Load(input_data_json_file);
+  const auto &doc_map = doc.GetRoot().AsMap();
+
+  json_reader.ProcessInput(doc_map);
   std::istringstream questionable_output_json{out_str_stream.str()};
 
-  const auto json_correct = json::Load(correct_output_json_file);
-  const auto json_testing = json::Load(questionable_output_json);
+  const auto json_correct = io::json::Load(correct_output_json_file);
+  const auto json_testing = io::json::Load(questionable_output_json);
 
   BOOST_REQUIRE(json_testing.GetRoot().IsArray());
 

@@ -1,0 +1,84 @@
+\hypertarget{classio_1_1json_1_1Node}{}\doxysection{io\+::json\+::Node Class Reference}
+\label{classio_1_1json_1_1Node}\index{io::json::Node@{io::json::Node}}
+
+
+{\ttfamily \#include $<$json.\+h$>$}
+
+Inheritance diagram for io\+::json\+::Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classio_1_1json_1_1Node}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a2e55ece5b2ef6b30f50ed3d221f867ad}\label{classio_1_1json_1_1Node_a2e55ece5b2ef6b30f50ed3d221f867ad}} 
+using {\bfseries Value} = std\+::variant$<$ std\+::nullptr\+\_\+t, Array, \mbox{\hyperlink{namespaceio_1_1json_afef700639d081056b62d37f480e79f20}{Dict}}, bool, int, double, std\+::string $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a5b84038a2ce6b7f07305428527fd07cf}\label{classio_1_1json_1_1Node_a5b84038a2ce6b7f07305428527fd07cf}} 
+{\bfseries Node} (Node\+::\+Value \&\&val)
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_aa096d7bf1623ac498ac04085a4c8fa39}\label{classio_1_1json_1_1Node_aa096d7bf1623ac498ac04085a4c8fa39}} 
+{\bfseries Node} (const \mbox{\hyperlink{classio_1_1json_1_1Document}{Document}} \&doc)
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a79ca6203dd84ba6161f95b7790558a90}\label{classio_1_1json_1_1Node_a79ca6203dd84ba6161f95b7790558a90}} 
+bool {\bfseries Is\+Int} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a7ebb206630ba7059e9bb6581bbb6175e}\label{classio_1_1json_1_1Node_a7ebb206630ba7059e9bb6581bbb6175e}} 
+bool {\bfseries Is\+Double} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_ab23e377c5b4990628895e6b5028f0b41}\label{classio_1_1json_1_1Node_ab23e377c5b4990628895e6b5028f0b41}} 
+bool {\bfseries Is\+Pure\+Double} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a27d2481cc58c1cdc56ff8af32d0a3f15}\label{classio_1_1json_1_1Node_a27d2481cc58c1cdc56ff8af32d0a3f15}} 
+bool {\bfseries Is\+Bool} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_ad3c3088dbbdabb92f119c799e65787e8}\label{classio_1_1json_1_1Node_ad3c3088dbbdabb92f119c799e65787e8}} 
+bool {\bfseries Is\+String} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a76ca25c2923dde5148ca9a2370908916}\label{classio_1_1json_1_1Node_a76ca25c2923dde5148ca9a2370908916}} 
+bool {\bfseries Is\+Null} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a494b2019cdcb7b5e47e7fadf3e193450}\label{classio_1_1json_1_1Node_a494b2019cdcb7b5e47e7fadf3e193450}} 
+bool {\bfseries Is\+Array} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_ae4e11147c29fe88012dd6964e7a4919e}\label{classio_1_1json_1_1Node_ae4e11147c29fe88012dd6964e7a4919e}} 
+bool {\bfseries Is\+Map} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a200e4fccb1402a3019ade7d4dfa91f3f}\label{classio_1_1json_1_1Node_a200e4fccb1402a3019ade7d4dfa91f3f}} 
+int {\bfseries As\+Int} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a5d1c7c30692f723b337fec10928b05dd}\label{classio_1_1json_1_1Node_a5d1c7c30692f723b337fec10928b05dd}} 
+bool {\bfseries As\+Bool} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_ace5961c0c770fc14eff0a00b85cd7216}\label{classio_1_1json_1_1Node_ace5961c0c770fc14eff0a00b85cd7216}} 
+double {\bfseries As\+Double} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a25cc028c3d36fde1deb573bba4813ad6}\label{classio_1_1json_1_1Node_a25cc028c3d36fde1deb573bba4813ad6}} 
+const std\+::string \& {\bfseries As\+String} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a5d99c5c249d89183b557a4aa00a021b6}\label{classio_1_1json_1_1Node_a5d99c5c249d89183b557a4aa00a021b6}} 
+const Array \& {\bfseries As\+Array} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a907b61cfa860686cafa2b503445c8f3d}\label{classio_1_1json_1_1Node_a907b61cfa860686cafa2b503445c8f3d}} 
+const \mbox{\hyperlink{namespaceio_1_1json_afef700639d081056b62d37f480e79f20}{Dict}} \& {\bfseries As\+Map} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_a5cb62ff9283ebf2079c1b313f1ee2e1f}\label{classio_1_1json_1_1Node_a5cb62ff9283ebf2079c1b313f1ee2e1f}} 
+const Value \& {\bfseries Get\+Const\+Value} () const
+\item 
+\mbox{\Hypertarget{classio_1_1json_1_1Node_abcdfafb4df197e028136404d212e6700}\label{classio_1_1json_1_1Node_abcdfafb4df197e028136404d212e6700}} 
+Value \& {\bfseries Get\+Value} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Runtime polymorphic type representing \href{https://en.wikipedia.org/wiki/JSON\#Data_types}{\texttt{ JSON basic data types}} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{json_8h}{json.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/json.\+cpp\end{DoxyCompactItemize}

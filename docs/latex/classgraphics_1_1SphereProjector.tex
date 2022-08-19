@@ -1,0 +1,70 @@
+\hypertarget{classgraphics_1_1SphereProjector}{}\doxysection{graphics\+::Sphere\+Projector Class Reference}
+\label{classgraphics_1_1SphereProjector}\index{graphics::SphereProjector@{graphics::SphereProjector}}
+
+
+Functor used to map between physical and screen coordinates.  
+
+
+
+
+{\ttfamily \#include $<$map\+\_\+renderer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Point\+Input\+It $>$ }\\\mbox{\hyperlink{classgraphics_1_1SphereProjector_a3bcf4c098f5aa6718a180eafd0df2614}{Sphere\+Projector}} (Point\+Input\+It points\+\_\+begin, Point\+Input\+It points\+\_\+end, double max\+\_\+width, double max\+\_\+height, double padding)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgraphics_1_1SphereProjector_a340f468a057efc873e6cc025aeca2178}\label{classgraphics_1_1SphereProjector_a340f468a057efc873e6cc025aeca2178}} 
+\mbox{\hyperlink{structgraphics_1_1svg_1_1Point}{svg\+::\+Point}} {\bfseries operator()} (\mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} coords) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1SphereProjector_a4f2bb6796b8db8f9d202e13877c1ce8b}\label{classgraphics_1_1SphereProjector_a4f2bb6796b8db8f9d202e13877c1ce8b}} 
+double {\bfseries padding\+\_\+}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1SphereProjector_a39b30f4f87f0b6962a2734ee104f5d5c}\label{classgraphics_1_1SphereProjector_a39b30f4f87f0b6962a2734ee104f5d5c}} 
+double {\bfseries min\+\_\+lon\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classgraphics_1_1SphereProjector_a5a1848ad6ce7bba2110c3b672ba47251}\label{classgraphics_1_1SphereProjector_a5a1848ad6ce7bba2110c3b672ba47251}} 
+double {\bfseries max\+\_\+lat\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classgraphics_1_1SphereProjector_a8c26a1663b40fd5d03794c22d4c3ab91}\label{classgraphics_1_1SphereProjector_a8c26a1663b40fd5d03794c22d4c3ab91}} 
+double {\bfseries zoom\+\_\+coeff\+\_\+} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functor used to map between physical and screen coordinates. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgraphics_1_1SphereProjector_a3bcf4c098f5aa6718a180eafd0df2614}\label{classgraphics_1_1SphereProjector_a3bcf4c098f5aa6718a180eafd0df2614}} 
+\index{graphics::SphereProjector@{graphics::SphereProjector}!SphereProjector@{SphereProjector}}
+\index{SphereProjector@{SphereProjector}!graphics::SphereProjector@{graphics::SphereProjector}}
+\doxysubsubsection{\texorpdfstring{SphereProjector()}{SphereProjector()}}
+{\footnotesize\ttfamily template$<$typename Point\+Input\+It $>$ \\
+graphics\+::\+Sphere\+Projector\+::\+Sphere\+Projector (\begin{DoxyParamCaption}\item[{Point\+Input\+It}]{points\+\_\+begin,  }\item[{Point\+Input\+It}]{points\+\_\+end,  }\item[{double}]{max\+\_\+width,  }\item[{double}]{max\+\_\+height,  }\item[{double}]{padding }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em points\+\_\+begin} & iterator pointing to \mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} container begin \\
+\hline
+\mbox{\texttt{ in}}  & {\em points\+\_\+end} & iterator pointing to \mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} container end \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+\_\+width} & pixel width of \char`\"{}project to\char`\"{} area\\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+\_\+height} & pixel height of \char`\"{}project to\char`\"{} area\\
+\hline
+\mbox{\texttt{ in}}  & {\em padding} & \char`\"{}project to\char`\"{} area padding size in pixels \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{map__renderer_8h}{map\+\_\+renderer.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/map\+\_\+renderer.\+cpp\end{DoxyCompactItemize}

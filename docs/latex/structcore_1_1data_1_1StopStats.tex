@@ -1,0 +1,44 @@
+\hypertarget{structcore_1_1data_1_1StopStats}{}\doxysection{core\+::data\+::Stop\+Stats Struct Reference}
+\label{structcore_1_1data_1_1StopStats}\index{core::data::StopStats@{core::data::StopStats}}
+
+
+Wrapper for \mbox{\hyperlink{structcore_1_1data_1_1Stop}{Stop}}, used to painlessly add extra information about stop.  
+
+
+
+
+{\ttfamily \#include $<$domain.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structcore_1_1data_1_1StopStats_a0d340d29b020843cbac98457396448f3}\label{structcore_1_1data_1_1StopStats_a0d340d29b020843cbac98457396448f3}} 
+\mbox{\hyperlink{structcore_1_1data_1_1StopStats}{Stop\+Stats}} \& {\bfseries Set\+Stop} (\mbox{\hyperlink{structcore_1_1data_1_1Stop}{Stop}} $\ast$ptr)
+\item 
+\mbox{\Hypertarget{structcore_1_1data_1_1StopStats_a34c0dde11a2ea98d02afb741408196f3}\label{structcore_1_1data_1_1StopStats_a34c0dde11a2ea98d02afb741408196f3}} 
+\mbox{\hyperlink{structcore_1_1data_1_1StopStats}{Stop\+Stats}} \& {\bfseries Add\+Linked\+Bus} (\mbox{\hyperlink{structcore_1_1data_1_1Bus}{Bus}} $\ast$ptr)
+\item 
+\mbox{\Hypertarget{structcore_1_1data_1_1StopStats_a1e3ae38b3328d6c81312d6447a57aecd}\label{structcore_1_1data_1_1StopStats_a1e3ae38b3328d6c81312d6447a57aecd}} 
+\mbox{\hyperlink{structcore_1_1data_1_1StopStats}{Stop\+Stats}} \& {\bfseries Set\+Linked\+Stop\+Distance} (\mbox{\hyperlink{structcore_1_1data_1_1Stop}{Stop}} $\ast$ptr, double distance)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structcore_1_1data_1_1StopStats_a4a3ff2e05217f3f44451caaa5a4503bb}\label{structcore_1_1data_1_1StopStats_a4a3ff2e05217f3f44451caaa5a4503bb}} 
+\mbox{\hyperlink{structcore_1_1data_1_1Stop}{Stop}} $\ast$ {\bfseries stop\+\_\+ptr} \{nullptr\}
+\item 
+\mbox{\Hypertarget{structcore_1_1data_1_1StopStats_a5739975af2e704e65e6fdaf43541dcd4}\label{structcore_1_1data_1_1StopStats_a5739975af2e704e65e6fdaf43541dcd4}} 
+std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{structcore_1_1data_1_1Bus}{Bus}} $\ast$ $>$ {\bfseries linked\+\_\+buses} \{\}
+\item 
+\mbox{\Hypertarget{structcore_1_1data_1_1StopStats_a7d546f56f09d3c1f4444f3d4fbcdb352}\label{structcore_1_1data_1_1StopStats_a7d546f56f09d3c1f4444f3d4fbcdb352}} 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{structcore_1_1data_1_1Stop}{Stop}} $\ast$, double $>$ {\bfseries linked\+\_\+stops} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper for \mbox{\hyperlink{structcore_1_1data_1_1Stop}{Stop}}, used to painlessly add extra information about stop. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{domain_8h}{domain.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/domain.\+cpp\end{DoxyCompactItemize}

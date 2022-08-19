@@ -14,43 +14,10 @@
 #include "domain.h"
 #include "json.h"
 #include "router.h"
+#include "serialization.h"
 #include "transport_catalogue.h"
 
-//! Format independent description of the fastest path
-struct RouteAnswer {
-  struct Wait {
-    Wait &SetStop(const DataStorage::Stop *ptr) {
-      stop = ptr;
-      return *this;
-    }
-    Wait &SetTime(double number) {
-      time = number;
-      return *this;
-    }
-    const DataStorage::Stop *stop;
-    double time;
-  };
-  struct Bus {
-    Bus &SetBus(const DataStorage::Bus *ptr) {
-      bus = ptr;
-      return *this;
-    }
-    Bus &SetSpanCount(size_t number) {
-      span_count = number;
-      return *this;
-    }
-    Bus &SetTime(double number) {
-      time = number;
-      return *this;
-    }
-    const DataStorage::Bus *bus;
-    size_t span_count;
-    double time;
-  };
-  using Item = std::variant<Wait, Bus>;
-  double total_time;
-  std::vector<Item> items;
-};
+namespace core {
 
 //!
 class TransportRouter {
@@ -63,11 +30,14 @@ public:
    */
   TransportRouter(const TransportCatalogue &catalogue);
 
+  void ImportState(const serialization::TrCatalogue &sr_catalogue);
+  void ExportState(serialization::Serializer &sr);
+
   /*!
    * Updates routing parameters such as velocity, wait time, etc
    * \param[in] node json::Dict that defines all parameters
    */
-  void LoadSettings(const json::Node &node) {
+  void LoadSettings(const io::json::Node &node) {
     const auto &settings = node.AsMap();
     settings_.bus_wait_time = settings.at("bus_wait_time").AsDouble();
     settings_.bus_velocity =
@@ -84,29 +54,6 @@ public:
                                               std::string_view to);
 
 private:
-  /*!
-   * Represents real world entity DataStorage::Stop (and its properties) as
-   * graph vertex. Combination of all class fields defines unique graph vertex.
-   */
-  class Vertex {
-  public:
-    Vertex &SetStop(const DataStorage::Stop *st);
-    Vertex &SetWait(bool wait);
-    const DataStorage::Stop *GetStop() const;
-    bool GetWaitStatus() const;
-    bool operator==(const Vertex &other) const;
-
-  private:
-    const DataStorage::Stop *stop{nullptr};
-    bool must_wait{false};
-  };
-
-  struct VertexHasher {
-    size_t operator()(const Vertex &obj) const {
-      return (reinterpret_cast<size_t>(obj.GetStop()) << obj.GetWaitStatus());
-    }
-  };
-
   const TransportCatalogue &catalogue_;
   struct Settings {
     double bus_wait_time{};
@@ -124,20 +71,26 @@ private:
 
   void GenerateGraph();
 
-  void GenerateVertexes(std::vector<const DataStorage::Stop *> &stops);
+  void GenerateVertexes(std::vector<const data::Stop *> &stops);
 
-  void InsertAllEdgesIntoGraph(const DataStorage::Bus *bus);
+  void InsertAllEdgesIntoGraph(const data::Bus *bus);
 
   template <typename InputIt>
   void InsertEdgesBetweenStops(InputIt begin, InputIt end,
-                               const DataStorage::Bus *bus);
+                               const data::Bus *bus);
 
   RouteAnswer GenerateAnswer(const graph::Router<double>::RouteInfo &path);
+
+  void ImportGraph(const serialization::Graph &sr_graph);
+
+  void ImportRouter(const serialization::Router &sr_router);
+
+  void ImportVertexIds(const serialization::TrCatalogue &sr_catalogue);
 };
 
 template <typename InputIt>
 void TransportRouter::InsertEdgesBetweenStops(InputIt begin, InputIt end,
-                                              const DataStorage::Bus *bus) {
+                                              const data::Bus *bus) {
   for (auto it1 = begin; it1 != end; ++it1) {
     double tot_dist{0};
     for (auto it2 = next(it1); it2 != end; ++it2) {
@@ -156,3 +109,5 @@ void TransportRouter::InsertEdgesBetweenStops(InputIt begin, InputIt end,
     }
   }
 }
+
+} // namespace core

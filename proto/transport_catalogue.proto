@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "map_renderer.proto";
+import "graph.proto";
+import "transport_router.proto";
+
+package serialization;
+
+message Coordinates {
+  double lat = 1;
+  double lng = 2;
+}
+
+message Stop {
+  string name = 1;
+  Coordinates coordinates = 2;
+}
+
+message StopStats {
+  uint32 stop_index = 1;
+  repeated uint32 linked_buses_indexes = 2;
+  repeated uint32 linked_stops_indexes = 3;
+  repeated double linked_stops_distances = 4;
+}
+
+message Bus {
+  string name = 1;
+  repeated uint32 stop_indexes = 2;
+  bool is_circular = 3;
+}
+
+message BusStats {
+  uint32 bus_index = 1;
+  uint64 total_stops = 2;
+  repeated uint32 uniq_stops_indexes = 3;
+  double direct_length = 4;
+  double real_length = 5;
+}
+
+message TrCatalogue {
+  repeated Stop stops = 1;
+  repeated Bus buses = 2;
+  repeated BusStats busname_to_bus_stats = 3;
+  repeated StopStats stopname_to_stop_stats = 4;
+  RenderSettings render_settings = 5;
+  uint32 bus_wait_time = 7;
+  uint32 bus_velocity = 8;
+  Router router = 9;
+  repeated Vertex id_to_vertex = 10;
+}

@@ -1,5 +1,5 @@
 ## Transport Catalogue
-![C++ version](https://img.shields.io/badge/C%2B%2B-17%2F20-blue)
+![C++ version](https://img.shields.io/badge/C%2B%2B-17-blue)
 ![Building on Linux](https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/building_linux.yml/badge.svg)
 ![Building on Windows](https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/building_windows.yml/badge.svg)
 ![Linux CI](https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/linux_ci_test.yml/badge.svg)
@@ -21,6 +21,12 @@ between two stops.
 │   ├── latex
 │   ├── Doxyfile
 │   └── index.html
+├── proto
+│   ├── graph.proto
+│   ├── map_renderer.proto
+│   ├── svg.proto
+│   ├── transport_catalogue.proto
+│   └── transport_router.proto
 ├── tests
 │   ├── CMakeLists.txt
 │   ├── test.cpp
@@ -45,6 +51,8 @@ between two stops.
 │   ├── request_handler.cpp
 │   ├── request_handler.h
 │   ├── router.h
+│   ├── serialization.cpp
+│   ├── serialization.h
 │   ├── svg.cpp
 │   ├── svg.h
 │   ├── transport_catalogue.cpp
@@ -53,7 +61,6 @@ between two stops.
 │   └── transport_router.h
 ├── CMakeLists.txt
 └── README.md
-
 ```
 ### Building:
 
@@ -69,7 +76,7 @@ Building and running main executable:
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build . --config Release --target main
 cd bin
-./main
+./main [make_base|process_requests] ...
 ```
 
 Building and running unit tests (requires [Boost](https://www.boost.org/)):
@@ -100,4 +107,4 @@ cmake --build . --config Release --target doxygen
 
 ### Documentation
 
-You can check it out here: [Transport-Catalogue-Documentation](https://jys1670.github.io/cpp-transport-catalogue/html/index.html).
+You can check it out here: [Transport-Catalogue-Documentation (outdated)](https://jys1670.github.io/cpp-transport-catalogue/html/index.html).

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['catalogue_5f_0',['catalogue_',['../classJsonReader.html#ac5b6130989b8d8fd2933c9618fbd71cb',1,'JsonReader::catalogue_()'],['../classRequestHandler.html#a985ca1af315578d4995288ad1e9c7428',1,'RequestHandler::catalogue_()']]],
-  ['charstoreplace_1',['CharsToReplace',['../namespacejson.html#aae71aa8a3e2998dcb82942a1ec5874e6',1,'json']]],
-  ['color_5fpalette_2',['color_palette',['../structMapRenderer_1_1RenderSettings.html#a1d73cfe0edc3cb6a9b064904aac9cf2a',1,'MapRenderer::RenderSettings']]]
+  ['catalogue_5f_0',['catalogue_',['../classio_1_1JsonReader.html#a053a99f2bd71431a8ce1c3404260617b',1,'io::JsonReader::catalogue_()'],['../classio_1_1RequestHandler.html#ad4d89514715f574958ce0a8de49dbbb8',1,'io::RequestHandler::catalogue_()']]],
+  ['charstoreplace_1',['CharsToReplace',['../namespaceio_1_1json.html#aee96511945d9e42f762bbe343b963659',1,'io::json']]],
+  ['color_5fpalette_2',['color_palette',['../structgraphics_1_1RenderSettings.html#a25f3a5c132eb2b08c9677713128a7c26',1,'graphics::RenderSettings']]]
 ];

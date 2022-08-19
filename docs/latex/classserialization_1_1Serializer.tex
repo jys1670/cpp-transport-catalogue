@@ -1,0 +1,62 @@
+\hypertarget{classserialization_1_1Serializer}{}\doxysection{serialization\+::Serializer Class Reference}
+\label{classserialization_1_1Serializer}\index{serialization::Serializer@{serialization::Serializer}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a10837893394ad7779fda44ee7a810112}\label{classserialization_1_1Serializer_a10837893394ad7779fda44ee7a810112}} 
+void {\bfseries Serialize\+Stops} (const std\+::deque$<$ \mbox{\hyperlink{structcore_1_1data_1_1Stop}{core\+::data\+::\+Stop}} $>$ \&stops)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a3c752ec3f6ec91cb45b6879a2175dcd2}\label{classserialization_1_1Serializer_a3c752ec3f6ec91cb45b6879a2175dcd2}} 
+void {\bfseries Serialize\+Buses} (const std\+::deque$<$ \mbox{\hyperlink{structcore_1_1data_1_1Bus}{core\+::data\+::\+Bus}} $>$ \&buses)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a28b4f30ec646f0d1b9e5bbc882a2e0b6}\label{classserialization_1_1Serializer_a28b4f30ec646f0d1b9e5bbc882a2e0b6}} 
+void {\bfseries Serialize\+Stop\+Stats} (const core\+::data\+::\+Stop\+Storage \&stop\+\_\+stats)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a6d38490989bcdc5b1c8351547af072ca}\label{classserialization_1_1Serializer_a6d38490989bcdc5b1c8351547af072ca}} 
+void {\bfseries Serialize\+Bus\+Stats} (const core\+::data\+::\+Bus\+Storage \&bus\+\_\+stats)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a35d00d7755440369632ea642d2c0d47e}\label{classserialization_1_1Serializer_a35d00d7755440369632ea642d2c0d47e}} 
+void {\bfseries Serialize\+Render\+Settings} (const \mbox{\hyperlink{structgraphics_1_1RenderSettings}{graphics\+::\+Render\+Settings}} \&settings)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_aa62d7483bdd851223955621b5ad8027d}\label{classserialization_1_1Serializer_aa62d7483bdd851223955621b5ad8027d}} 
+void {\bfseries Serialize\+Vertex\+Ids} (const std\+::vector$<$ \mbox{\hyperlink{classcore_1_1Vertex}{core\+::\+Vertex}} $>$ \&id\+\_\+to\+\_\+vertex)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a27090935aa033086c83a2460aa62d959}\label{classserialization_1_1Serializer_a27090935aa033086c83a2460aa62d959}} 
+void {\bfseries Serialize\+Graph\+Router\+Internals} (const \mbox{\hyperlink{classgraph_1_1Router}{graph\+::\+Router}}$<$ double $>$\+::\+Routes\+Internal\+Data \&routes\+\_\+data)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_acac875eda306b9bfc81e80a575b3a531}\label{classserialization_1_1Serializer_acac875eda306b9bfc81e80a575b3a531}} 
+void {\bfseries Serialize\+Graph} (const \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{graph\+::\+Directed\+Weighted\+Graph}}$<$ double $>$ \&graph)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a85ca890ff107295c81142dda970f41c3}\label{classserialization_1_1Serializer_a85ca890ff107295c81142dda970f41c3}} 
+void {\bfseries Serialize\+To\+Ostream} (std\+::ostream $\ast$out) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a26f07c0f6989991e1f5f4dcaf43d8f6f}\label{classserialization_1_1Serializer_a26f07c0f6989991e1f5f4dcaf43d8f6f}} 
+static Color {\bfseries Serialize\+Color} (const graphics\+::svg\+::\+Color \&color)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_ac85d031e81016e2f082560a77a881e01}\label{classserialization_1_1Serializer_ac85d031e81016e2f082560a77a881e01}} 
+static Edge {\bfseries Serialize\+Edge} (const \mbox{\hyperlink{structgraph_1_1Edge}{graph\+::\+Edge}}$<$ double $>$ \&edge)
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a029d09481e8c0ecd42678b0fb760623c}\label{classserialization_1_1Serializer_a029d09481e8c0ecd42678b0fb760623c}} 
+static Incidence\+List {\bfseries Serialize\+Incidence\+Lists} (\mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{graph\+::\+Directed\+Weighted\+Graph}}$<$ double $>$\+::\+Incident\+Edges\+Range range)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a952ab40dc698d6079570f39be775334c}\label{classserialization_1_1Serializer_a952ab40dc698d6079570f39be775334c}} 
+Tr\+Catalogue {\bfseries sr\+\_\+catalogue\+\_\+}
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a4d9f4c959ab663584ed76ada93661d60}\label{classserialization_1_1Serializer_a4d9f4c959ab663584ed76ada93661d60}} 
+std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, size\+\_\+t $>$ {\bfseries stop\+\_\+to\+\_\+index\+\_\+}
+\item 
+\mbox{\Hypertarget{classserialization_1_1Serializer_a9d3180742cf6f3f665eb51f41669b969}\label{classserialization_1_1Serializer_a9d3180742cf6f3f665eb51f41669b969}} 
+std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, size\+\_\+t $>$ {\bfseries bus\+\_\+to\+\_\+index\+\_\+}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/serialization.\+h\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/serialization.\+cpp\end{DoxyCompactItemize}

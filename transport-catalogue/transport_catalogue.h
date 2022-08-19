@@ -15,40 +15,47 @@
 
 #include "domain.h"
 #include "geo.h"
+#include "serialization.h"
 
+namespace core {
 class TransportCatalogue {
 public:
-  void AddStop(const InputInfo::Stop &new_stop);
+  TransportCatalogue() = default;
 
-  void AddStopLinks(const InputInfo::StopLink &new_links);
+  void ImportDataBase(const serialization::TrCatalogue &sr_catalogue);
 
-  void AddBus(const InputInfo::Bus &new_bus);
+  void ExportDataBase(serialization::Serializer &sr);
 
-  const DataStorage::BusStats *GetBusInfo(std::string_view bus_name) const;
+  void AddStop(const io::Stop &new_stop);
 
-  const DataStorage::StopStats *GetStopInfo(std::string_view stop_name) const;
+  void AddStopLinks(const io::StopLink &new_links);
 
-  const DataStorage::StopStorage &GetStopStatsMap() const;
+  void AddBus(const io::Bus &new_bus);
 
-  const DataStorage::BusStorage &GetBusStatsMap() const;
+  const data::BusStats *GetBusInfo(std::string_view bus_name) const;
 
-  std::vector<const DataStorage::Stop *> GetAllStops() const;
+  const data::StopStats *GetStopInfo(std::string_view stop_name) const;
+
+  const data::BusStorage &GetBusStatsMap() const;
+
+  std::vector<const data::Stop *> GetAllStops() const;
 
   std::optional<double> GetStopsRealDist(std::string_view from,
                                          std::string_view to) const;
 
 private:
-  std::deque<DataStorage::Stop> stops_;
-  std::deque<DataStorage::Bus> buses_;
-  DataStorage::BusStorage busname_to_bus_stats_;
-  DataStorage::StopStorage stopname_to_stop_stats_;
+  std::deque<data::Stop> stops_;
+  std::deque<data::Bus> buses_;
+  data::BusStorage busname_to_bus_stats_;
+  data::StopStorage stopname_to_stop_stats_;
 
+  static double ComputeStopsDirectDist(const data::StopStats &from,
+                                       const data::StopStats &to);
 
-  static double ComputeStopsDirectDist(const DataStorage::StopStats &from,
-                                       const DataStorage::StopStats &to);
+  static double GetStopsRealDist(const data::StopStats &from,
+                                 const data::StopStats &to);
 
-  static double GetStopsRealDist(const DataStorage::StopStats &from,
-                                 const DataStorage::StopStats &to);
-
-  static size_t GetBusTotalStopsAmount(const DataStorage::Bus &bus);
+  static size_t GetBusTotalStopsAmount(const data::Bus &bus);
 };
+
+} // namespace core

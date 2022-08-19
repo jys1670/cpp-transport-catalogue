@@ -7,15 +7,25 @@ if (ENABLE_TESTING)
     list(REMOVE_ITEM TEST_SOURCES "../transport-catalogue/main.cpp")
     set(TEST_SOURCES "${TEST_SOURCES}" ./test.cpp)
 
-    add_executable(${TEST_MAIN} ${TEST_SOURCES})
+    protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
+
+    add_executable(${TEST_MAIN} ${PROTO_SRCS} ${PROTO_HDRS} ${TEST_SOURCES})
+
+    target_include_directories(${TEST_MAIN}
+            PRIVATE ${Protobuf_INCLUDE_DIRS}
+            PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
+            )
+    target_link_libraries(${TEST_MAIN}
+            PRIVATE "$<IF:$<CONFIG:Debug>,${Protobuf_LIBRARY_DEBUG},${Protobuf_LIBRARY}>"
+            PRIVATE ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+            )
 
     add_debug_compiler_options(
-            TARGET ${EXECUTABLE_NAME}
+            TARGET ${TEST_MAIN}
             "WARNINGS_AS_ERRORS" ${WARNINGS_AS_ERRORS}
             "SANITIZERS" ${SANITIZERS}
             "SAVE_TEMP_FILES" ${SAVE_TEMP_FILES}
     )
-    target_link_libraries(${TEST_MAIN} PRIVATE ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
 
     target_compile_definitions(${TEST_MAIN} PRIVATE CURR_TEST_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 

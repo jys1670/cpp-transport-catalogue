@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadsettings_0',['LoadSettings',['../classMapRenderer.html#ac6d6b6446d6e56d30dbab39858045891',1,'MapRenderer::LoadSettings()'],['../classTransportRouter.html#abdd2cc584aa98fade1dc5dc9457de99e',1,'TransportRouter::LoadSettings()']]]
+  ['loadsettings_0',['LoadSettings',['../classgraphics_1_1MapRenderer.html#a77ffbeb6d2ec35a5c70b9e5255c27241',1,'graphics::MapRenderer::LoadSettings()'],['../classcore_1_1TransportRouter.html#a9080ec0fdc6a159049794505cecdf65d',1,'core::TransportRouter::LoadSettings()']]]
 ];

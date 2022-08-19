@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width_0',['width',['../structMapRenderer_1_1RenderSettings.html#ac70991540b8d6c0623853bdf06bd4fb5',1,'MapRenderer::RenderSettings']]]
+  ['width_0',['width',['../structgraphics_1_1RenderSettings.html#a41d7fe02e0299fc3d432e63966b2528a',1,'graphics::RenderSettings']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['neighbours_0',['neighbours',['../structInputInfo_1_1StopLink.html#a8b64d9a9dc52e5d9f8f081575fb4e73f',1,'InputInfo::StopLink']]],
-  ['node_1',['Node',['../classjson_1_1Node.html',1,'json']]]
+  ['neighbours_0',['neighbours',['../structio_1_1StopLink.html#a98617d100eded6760ae252ab384b5dca',1,'io::StopLink']]],
+  ['node_1',['Node',['../classio_1_1json_1_1Node.html',1,'io::json']]]
 ];

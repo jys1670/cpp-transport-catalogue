@@ -15,7 +15,7 @@
 #include <vector>
 
 //! The main and only SVG generation library namespace
-namespace svg {
+namespace graphics::svg {
 
 /*!
  * Represents <a
@@ -317,4 +317,4 @@ template <typename Owner> Owner &PathProps<Owner>::AsOwner() {
   return static_cast<Owner &>(*this);
 }
 
-} // namespace svg
+} // namespace graphics::svg

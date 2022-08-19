@@ -18,6 +18,8 @@
 #include "map_renderer.h"
 #include "request_handler.h"
 
+namespace io {
+
 /*!
  * \brief Responsible for reading JSON input
  *
@@ -38,18 +40,16 @@ public:
    * \param[in] req_handler requests that are not supposed to modify
    * TransportCatalogue are delegated here
    */
-  explicit JsonReader(std::istream &inputstream, TransportCatalogue &catalogue,
-                      RequestHandler &req_handler)
-      : inputstream_{inputstream}, catalogue_{catalogue}, req_handler_{
-                                                              req_handler} {};
+  explicit JsonReader(core::TransportCatalogue &catalogue,
+                      io::RequestHandler &req_handler)
+      : catalogue_{catalogue}, req_handler_{req_handler} {};
 
-  /*!
-   * Attempts to read entire JSON document from JsonReader::inputstream_,
-   * modifies JsonReader::catalogue_ if needed, then calls
-   * JsonReader::req_handler_ to output whatever was asked to print.
-   * \param[in] OutputFormat::Json specifies RequestHandler output format
-   */
-  void ProcessInput(OutputFormat::Json);
+  void ProcessInput(const json::Dict &doc_map,
+                    OutputFormat format = OutputFormat::Json);
+  void ProcessBaseReqs(const json::Dict &doc_map);
+  void EnqueueRenderSettingsUpdate(const json::Dict &doc_map);
+  void EnqueueRoutingSettingsUpdate(const json::Dict &doc_map);
+  void EnqueueStatReqs(const json::Dict &doc_map);
 
   //! Handles node that represents single known action defined in RequestTypes
   void ParseSingleCommand(const json::Node &node);
@@ -61,12 +61,10 @@ public:
   void InsertAllIntoCatalogue();
 
 private:
-  //! Stream from which JSON input will be read
-  std::istream &inputstream_;
   //! Database to be modified in place by insertion of new stops and routes
-  TransportCatalogue &catalogue_;
+  core::TransportCatalogue &catalogue_;
   //! any non-state-changing requests are delegated here
-  RequestHandler &req_handler_;
+  io::RequestHandler &req_handler_;
 
   /*!
    * Known types of database state-changing requests.
@@ -75,15 +73,15 @@ private:
   struct RequestTypes {
 
     struct StopInsert {
-      InputInfo::Stop *stop_ptr;
+      io::Stop *stop_ptr;
     };
 
     struct StopLinkInsert {
-      InputInfo::StopLink *stoplink_ptr;
+      io::StopLink *stoplink_ptr;
     };
 
     struct BusInsert {
-      InputInfo::Bus *bus_ptr;
+      io::Bus *bus_ptr;
     };
   };
 
@@ -117,14 +115,14 @@ private:
    */
   struct JsonPrintParse {
   public:
-    using RequestTypes = RequestHandler::RequestTypes;
-    explicit JsonPrintParse(RequestHandler &parent) : parent_{parent} {};
+    using RequestTypes = io::RequestHandler::RequestTypes;
+    explicit JsonPrintParse(io::RequestHandler &parent) : parent_{parent} {};
     void operator()(std::string_view type, const json::Node &node);
 
   private:
     using FunctionPtr = void (JsonPrintParse::*)(const json::Node &);
     static std::unordered_map<std::string_view, FunctionPtr> handlers_;
-    RequestHandler &parent_;
+    io::RequestHandler &parent_;
     void EnqueueBus(const json::Node &node);
     void EnqueueStop(const json::Node &node);
     void EnqueueMapDraw(const json::Node &node);
@@ -155,13 +153,13 @@ private:
    * does not invalidate previously received pointers, which is why this
    * container is used
    */
-  std::deque<InputInfo::Stop> stops_input_queue_;
+  std::deque<io::Stop> stops_input_queue_;
 
   //! Temporary storage of stop links related information
-  std::deque<InputInfo::StopLink> stoplinks_input_queue_;
+  std::deque<io::StopLink> stoplinks_input_queue_;
 
   //! Temporary storage of buses related information
-  std::deque<InputInfo::Bus> buses_input_queue_;
+  std::deque<io::Bus> buses_input_queue_;
 
   /*!
    * Clears all temporary JSON data, making JsonReader ready to accept new
@@ -169,3 +167,5 @@ private:
    */
   void Clear();
 };
+
+} // namespace io

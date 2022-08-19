@@ -47,7 +47,7 @@ template <typename Weight> struct Edge {
     weight = value;
     return *this;
   }
-  Edge &SetBus(const DataStorage::Bus *ptr) {
+  Edge &SetBus(const core::data::Bus *ptr) {
     bus = ptr;
     return *this;
   }
@@ -58,16 +58,15 @@ template <typename Weight> struct Edge {
   VertexId from;
   VertexId to;
   Weight weight;
-  const DataStorage::Bus *bus;
+  const core::data::Bus *bus;
   size_t stop_count;
 };
 
 template <typename Weight> class DirectedWeightedGraph {
-private:
+public:
   using IncidenceList = std::vector<EdgeId>;
   using IncidentEdgesRange = Range<typename IncidenceList::const_iterator>;
 
-public:
   DirectedWeightedGraph() = default;
   explicit DirectedWeightedGraph(size_t vertex_count);
   EdgeId AddEdge(const Edge<Weight> &edge);
@@ -76,6 +75,15 @@ public:
   size_t GetEdgeCount() const;
   const Edge<Weight> &GetEdge(EdgeId edge_id) const;
   IncidentEdgesRange GetIncidentEdges(VertexId vertex) const;
+
+  DirectedWeightedGraph &SetEdges(std::vector<Edge<Weight>> &&edges) {
+    edges_ = std::move(edges);
+    return *this;
+  }
+  DirectedWeightedGraph &SetIncidenceLists(std::vector<IncidenceList> &&lists) {
+    incidence_lists_ = std::move(lists);
+    return *this;
+  }
 
 private:
   std::vector<Edge<Weight>> edges_;

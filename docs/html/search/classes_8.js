@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['object_0',['Object',['../classsvg_1_1Object.html',1,'svg']]],
-  ['objectcontainer_1',['ObjectContainer',['../classsvg_1_1ObjectContainer.html',1,'svg']]],
-  ['outputformat_2',['OutputFormat',['../structOutputFormat.html',1,'']]]
+  ['object_0',['Object',['../classgraphics_1_1svg_1_1Object.html',1,'graphics::svg']]],
+  ['objectcontainer_1',['ObjectContainer',['../classgraphics_1_1svg_1_1ObjectContainer.html',1,'graphics::svg']]]
 ];

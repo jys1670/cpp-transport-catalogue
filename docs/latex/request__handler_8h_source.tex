@@ -18,81 +18,83 @@
 \DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{transport__catalogue_8h}{transport\_catalogue.h}}"{}}}
 \DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{transport__router_8h}{transport\_router.h}}"{}}}
 \DoxyCodeLine{20 }
-\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classRequestHandler}{RequestHandler}} \{}
-\DoxyCodeLine{30 \textcolor{keyword}{public}:}
-\DoxyCodeLine{35   \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes}{RequestTypes}} \{}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintBusStats}{PrintBusStats}} \{}
-\DoxyCodeLine{38       \textcolor{keywordtype}{int} id;}
-\DoxyCodeLine{39       std::string\_view bus\_name;}
-\DoxyCodeLine{40     \};}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintStopStats}{PrintStopStats}} \{}
-\DoxyCodeLine{43       \textcolor{keywordtype}{int} id;}
-\DoxyCodeLine{44       std::string\_view stop\_name;}
-\DoxyCodeLine{45     \};}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{UpdateMapRenderSettings}} \{}
-\DoxyCodeLine{48       \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} *settings;}
-\DoxyCodeLine{49     \};}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintMap}{PrintMap}} \{}
-\DoxyCodeLine{52       \textcolor{keywordtype}{int} id;}
-\DoxyCodeLine{53     \};}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings}{UpdateRoutingSettings}} \{}
-\DoxyCodeLine{56       \textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} *settings;}
-\DoxyCodeLine{57     \};}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59     \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1Route}{Route}} \{}
-\DoxyCodeLine{60       \textcolor{keywordtype}{int} id;}
-\DoxyCodeLine{61       std::string\_view from;}
-\DoxyCodeLine{62       std::string\_view to;}
-\DoxyCodeLine{63     \};}
-\DoxyCodeLine{64   \};}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{67   \textcolor{keyword}{using }\mbox{\hyperlink{classRequestHandler_ad802f64f992180a24fc894f9e38ba5e8}{ReqsQueue}} =}
-\DoxyCodeLine{68       std::variant<\mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintBusStats}{RequestTypes::PrintBusStats}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintStopStats}{RequestTypes::PrintStopStats}},}
-\DoxyCodeLine{69                    \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{RequestTypes::UpdateMapRenderSettings}},}
-\DoxyCodeLine{70                    \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintMap}{RequestTypes::PrintMap}}, \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings}{RequestTypes::UpdateRoutingSettings}},}
-\DoxyCodeLine{71                    \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1Route}{RequestTypes::Route}}>;}
-\DoxyCodeLine{72 }
-\DoxyCodeLine{79   \mbox{\hyperlink{classRequestHandler_ae76bfd0057daee6d494aee77388e624a}{RequestHandler}}(std::ostream \&output, \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&catalogue,}
-\DoxyCodeLine{80                  \mbox{\hyperlink{classMapRenderer}{MapRenderer}} \&renderer, \mbox{\hyperlink{classTransportRouter}{TransportRouter}} \&router)}
-\DoxyCodeLine{81       : \mbox{\hyperlink{classRequestHandler_ae3815cd07c9153505cf7921aa18dd654}{outstream\_}}\{output\},}
-\DoxyCodeLine{82         \mbox{\hyperlink{classRequestHandler_a985ca1af315578d4995288ad1e9c7428}{catalogue\_}}\{catalogue\}, \mbox{\hyperlink{classRequestHandler_ad1e73b0d7e811b36e749a8b0033a4c3c}{renderer\_}}\{renderer\}, \mbox{\hyperlink{classRequestHandler_a15f36d88a36bbaeeef9c7efc03f7a2dd}{trouter\_}}\{router\} \{\};}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{85   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRequestHandler_aca640031cffc03a8da79a315e4eae3c6}{InsertIntoQueue}}(\mbox{\hyperlink{classRequestHandler_ad802f64f992180a24fc894f9e38ba5e8}{ReqsQueue}} \&\&elem);}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{92   \mbox{\hyperlink{structDataStorage_1_1RoutesData}{DataStorage::RoutesData}} \mbox{\hyperlink{classRequestHandler_a2902041374c1e62b9dc9a3cc26b62c36}{GetCatalogueData}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{95   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRequestHandler_afabd16bd8434abbc624f0c37455ae844}{ProcessAllRequests}}(\mbox{\hyperlink{structOutputFormat_1_1Json}{OutputFormat::Json}});}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97 \textcolor{keyword}{private}:}
-\DoxyCodeLine{99   std::ostream \&\mbox{\hyperlink{classRequestHandler_ae3815cd07c9153505cf7921aa18dd654}{outstream\_}};}
-\DoxyCodeLine{101   \mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \&\mbox{\hyperlink{classRequestHandler_a985ca1af315578d4995288ad1e9c7428}{catalogue\_}};}
-\DoxyCodeLine{103   \mbox{\hyperlink{classMapRenderer}{MapRenderer}} \&\mbox{\hyperlink{classRequestHandler_ad1e73b0d7e811b36e749a8b0033a4c3c}{renderer\_}};}
-\DoxyCodeLine{105   \mbox{\hyperlink{classTransportRouter}{TransportRouter}} \&\mbox{\hyperlink{classRequestHandler_a15f36d88a36bbaeeef9c7efc03f7a2dd}{trouter\_}};}
-\DoxyCodeLine{106 }
-\DoxyCodeLine{109   \textcolor{keyword}{struct }\mbox{\hyperlink{structRequestHandler_1_1JsonPrint}{JsonPrint}} \{}
-\DoxyCodeLine{110   \textcolor{keyword}{public}:}
-\DoxyCodeLine{111     \textcolor{keyword}{explicit} \mbox{\hyperlink{structRequestHandler_1_1JsonPrint}{JsonPrint}}(\mbox{\hyperlink{classRequestHandler}{RequestHandler}} \&parent, json::Array \&arr)}
-\DoxyCodeLine{112         : parent\_\{parent\}, arr\_\{arr\} \{\};}
-\DoxyCodeLine{113     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintBusStats}{RequestTypes::PrintBusStats}} \&req);}
-\DoxyCodeLine{114     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintStopStats}{RequestTypes::PrintStopStats}} \&req);}
-\DoxyCodeLine{115     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{RequestTypes::UpdateMapRenderSettings}} \&req);}
-\DoxyCodeLine{116     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1PrintMap}{RequestTypes::PrintMap}} \&req);}
-\DoxyCodeLine{117     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings}{RequestTypes::UpdateRoutingSettings}} \&req);}
-\DoxyCodeLine{118     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structRequestHandler_1_1RequestTypes_1_1Route}{RequestTypes::Route}} \&req);}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{120   \textcolor{keyword}{private}:}
-\DoxyCodeLine{121     \mbox{\hyperlink{classRequestHandler}{RequestHandler}} \&parent\_;}
-\DoxyCodeLine{122     json::Array \&arr\_;}
-\DoxyCodeLine{123   \};}
-\DoxyCodeLine{124 }
-\DoxyCodeLine{126   std::vector<ReqsQueue> \mbox{\hyperlink{classRequestHandler_a678641ba0989a6ff6f90c7286a58924d}{reqs\_queue\_}};}
-\DoxyCodeLine{127 }
-\DoxyCodeLine{129   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRequestHandler_a4a99d3b8703657092bf7d57a7abbd4af}{Clear}}();}
-\DoxyCodeLine{130 \};}
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceio}{io}} \{}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classio_1_1RequestHandler}{RequestHandler}} \{}
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{36   \textcolor{keyword}{struct }\mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes}{RequestTypes}} \{}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{struct }\mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1PrintBusStats}{PrintBusStats}} \{}
+\DoxyCodeLine{39       \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{40       std::string\_view bus\_name;}
+\DoxyCodeLine{41     \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{struct }\mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1PrintStopStats}{PrintStopStats}} \{}
+\DoxyCodeLine{44       \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{45       std::string\_view stop\_name;}
+\DoxyCodeLine{46     \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{struct }\mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{UpdateMapRenderSettings}} \{}
+\DoxyCodeLine{49       \textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1json_1_1Node}{json::Node}} *settings;}
+\DoxyCodeLine{50     \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{struct }\mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1PrintMap}{PrintMap}} \{}
+\DoxyCodeLine{53       \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{54     \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{struct }\mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings}{UpdateRoutingSettings}} \{}
+\DoxyCodeLine{57       \textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1json_1_1Node}{json::Node}} *settings;}
+\DoxyCodeLine{58     \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keyword}{struct }\mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1Route}{Route}} \{}
+\DoxyCodeLine{61       \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{62       std::string\_view from;}
+\DoxyCodeLine{63       std::string\_view to;}
+\DoxyCodeLine{64     \};}
+\DoxyCodeLine{65   \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{68   \textcolor{keyword}{using }\mbox{\hyperlink{classio_1_1RequestHandler_a850af3f309e912489527dc823cf5fedc}{ReqsQueue}} =}
+\DoxyCodeLine{69       std::variant<\mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1PrintBusStats}{RequestTypes::PrintBusStats}}, \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1PrintStopStats}{RequestTypes::PrintStopStats}},}
+\DoxyCodeLine{70                    \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{RequestTypes::UpdateMapRenderSettings}},}
+\DoxyCodeLine{71                    \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1PrintMap}{RequestTypes::PrintMap}}, \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings}{RequestTypes::UpdateRoutingSettings}},}
+\DoxyCodeLine{72                    \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1Route}{RequestTypes::Route}}>;}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{80   \mbox{\hyperlink{classio_1_1RequestHandler_a0969eebf7991412ef700f4088d2541e0}{RequestHandler}}(std::ostream \&output, \mbox{\hyperlink{classcore_1_1TransportCatalogue}{core::TransportCatalogue}} \&catalogue,}
+\DoxyCodeLine{81                  \mbox{\hyperlink{classgraphics_1_1MapRenderer}{graphics::MapRenderer}} \&renderer, \mbox{\hyperlink{classcore_1_1TransportRouter}{core::TransportRouter}} \&router)}
+\DoxyCodeLine{82       : \mbox{\hyperlink{classio_1_1RequestHandler_a29b3eb7dd938e04db2f1ee928c6840bb}{outstream\_}}\{output\},}
+\DoxyCodeLine{83         \mbox{\hyperlink{classio_1_1RequestHandler_ad4d89514715f574958ce0a8de49dbbb8}{catalogue\_}}\{catalogue\}, \mbox{\hyperlink{classio_1_1RequestHandler_a4f2adf42f36807bb225e951d7cc0eeb6}{renderer\_}}\{renderer\}, \mbox{\hyperlink{classio_1_1RequestHandler_a6f261c87a7c1951404e2a75accd479dc}{trouter\_}}\{router\} \{\};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{86   \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1RequestHandler_ac586c2d7aa29006608be86f0816291a4}{InsertIntoQueue}}(\mbox{\hyperlink{classio_1_1RequestHandler_a850af3f309e912489527dc823cf5fedc}{ReqsQueue}} \&\&elem);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{93   \mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core::data::RoutesData}} \mbox{\hyperlink{classio_1_1RequestHandler_ac49b168c3e1e87c8e5f947f1fd9fc030}{GetCatalogueData}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{96   \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1RequestHandler_a1cdc8bf5f20d65d37fc8d6ad04ec2778}{ProcessAllRequests}}(\mbox{\hyperlink{namespaceio_a861a03ab529b37364d91fb4be59e15ed}{OutputFormat}} format = OutputFormat::Json);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{private}:}
+\DoxyCodeLine{100   std::ostream \&\mbox{\hyperlink{classio_1_1RequestHandler_a29b3eb7dd938e04db2f1ee928c6840bb}{outstream\_}};}
+\DoxyCodeLine{102   \mbox{\hyperlink{classcore_1_1TransportCatalogue}{core::TransportCatalogue}} \&\mbox{\hyperlink{classio_1_1RequestHandler_ad4d89514715f574958ce0a8de49dbbb8}{catalogue\_}};}
+\DoxyCodeLine{104   \mbox{\hyperlink{classgraphics_1_1MapRenderer}{graphics::MapRenderer}} \&\mbox{\hyperlink{classio_1_1RequestHandler_a4f2adf42f36807bb225e951d7cc0eeb6}{renderer\_}};}
+\DoxyCodeLine{106   \mbox{\hyperlink{classcore_1_1TransportRouter}{core::TransportRouter}} \&\mbox{\hyperlink{classio_1_1RequestHandler_a6f261c87a7c1951404e2a75accd479dc}{trouter\_}};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{110   \textcolor{keyword}{struct }\mbox{\hyperlink{structio_1_1RequestHandler_1_1JsonPrint}{JsonPrint}} \{}
+\DoxyCodeLine{111   \textcolor{keyword}{public}:}
+\DoxyCodeLine{112     \textcolor{keyword}{explicit} \mbox{\hyperlink{structio_1_1RequestHandler_1_1JsonPrint}{JsonPrint}}(\mbox{\hyperlink{classio_1_1RequestHandler}{RequestHandler}} \&parent, json::Array \&arr)}
+\DoxyCodeLine{113         : parent\_\{parent\}, arr\_\{arr\} \{\};}
+\DoxyCodeLine{114     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1PrintBusStats}{RequestTypes::PrintBusStats}} \&req);}
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1PrintStopStats}{RequestTypes::PrintStopStats}} \&req);}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings}{RequestTypes::UpdateMapRenderSettings}} \&req);}
+\DoxyCodeLine{117     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1PrintMap}{RequestTypes::PrintMap}} \&req);}
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings}{RequestTypes::UpdateRoutingSettings}} \&req);}
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes_1_1Route}{RequestTypes::Route}} \&req);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121   \textcolor{keyword}{private}:}
+\DoxyCodeLine{122     \mbox{\hyperlink{classio_1_1RequestHandler}{RequestHandler}} \&parent\_;}
+\DoxyCodeLine{123     json::Array \&arr\_;}
+\DoxyCodeLine{124   \};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{127   std::vector<ReqsQueue> \mbox{\hyperlink{classio_1_1RequestHandler_a6446529b977f94676d5e6b27351d0147}{reqs\_queue\_}};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{130   \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1RequestHandler_a2bb108c8e0860fb8d6119ddb693611cb}{Clear}}();}
+\DoxyCodeLine{131 \};}
+\DoxyCodeLine{132 \} \textcolor{comment}{// namespace io}}
 
 \end{DoxyCode}

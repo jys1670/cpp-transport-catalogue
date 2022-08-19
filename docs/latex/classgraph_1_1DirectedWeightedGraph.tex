@@ -1,5 +1,14 @@
 \hypertarget{classgraph_1_1DirectedWeightedGraph}{}\doxysection{graph\+::Directed\+Weighted\+Graph\texorpdfstring{$<$}{<} Weight \texorpdfstring{$>$}{>} Class Template Reference}
 \label{classgraph_1_1DirectedWeightedGraph}\index{graph::DirectedWeightedGraph$<$ Weight $>$@{graph::DirectedWeightedGraph$<$ Weight $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_ae497b76bad23ec65662cc4d52c4a56b6}\label{classgraph_1_1DirectedWeightedGraph_ae497b76bad23ec65662cc4d52c4a56b6}} 
+using {\bfseries Incidence\+List} = std\+::vector$<$ Edge\+Id $>$
+\item 
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_acff6b4c857f84d2f5b35951d8374d9a1}\label{classgraph_1_1DirectedWeightedGraph_acff6b4c857f84d2f5b35951d8374d9a1}} 
+using {\bfseries Incident\+Edges\+Range} = \mbox{\hyperlink{classgraph_1_1Range}{Range}}$<$ typename Incidence\+List\+::const\+\_\+iterator $>$
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -20,15 +29,12 @@ const \mbox{\hyperlink{structgraph_1_1Edge}{Edge}}$<$ Weight $>$ \& {\bfseries G
 \item 
 \mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_a0111274ce1393c844dadc0537c347e70}\label{classgraph_1_1DirectedWeightedGraph_a0111274ce1393c844dadc0537c347e70}} 
 \mbox{\hyperlink{classgraph_1_1Range}{Incident\+Edges\+Range}} {\bfseries Get\+Incident\+Edges} (Vertex\+Id vertex) const
-\end{DoxyCompactItemize}
-\doxysubsection*{Private Types}
-\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_ae497b76bad23ec65662cc4d52c4a56b6}\label{classgraph_1_1DirectedWeightedGraph_ae497b76bad23ec65662cc4d52c4a56b6}} 
-using {\bfseries Incidence\+List} = std\+::vector$<$ Edge\+Id $>$
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_a31ed70648fa51aee06edae36da62ab9d}\label{classgraph_1_1DirectedWeightedGraph_a31ed70648fa51aee06edae36da62ab9d}} 
+\mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Directed\+Weighted\+Graph}} \& {\bfseries Set\+Edges} (std\+::vector$<$ \mbox{\hyperlink{structgraph_1_1Edge}{Edge}}$<$ Weight $>$ $>$ \&\&edges)
 \item 
-\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_acff6b4c857f84d2f5b35951d8374d9a1}\label{classgraph_1_1DirectedWeightedGraph_acff6b4c857f84d2f5b35951d8374d9a1}} 
-using {\bfseries Incident\+Edges\+Range} = \mbox{\hyperlink{classgraph_1_1Range}{Range}}$<$ typename Incidence\+List\+::const\+\_\+iterator $>$
+\mbox{\Hypertarget{classgraph_1_1DirectedWeightedGraph_ab8c06cad2b57b2a99cb2297cabbeafe6}\label{classgraph_1_1DirectedWeightedGraph_ab8c06cad2b57b2a99cb2297cabbeafe6}} 
+\mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Directed\+Weighted\+Graph}} \& {\bfseries Set\+Incidence\+Lists} (std\+::vector$<$ Incidence\+List $>$ \&\&lists)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}

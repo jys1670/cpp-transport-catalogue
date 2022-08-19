@@ -1,0 +1,40 @@
+\hypertarget{classgraphics_1_1svg_1_1ObjectContainer}{}\doxysection{graphics\+::svg\+::Object\+Container Class Reference}
+\label{classgraphics_1_1svg_1_1ObjectContainer}\index{graphics::svg::ObjectContainer@{graphics::svg::ObjectContainer}}
+
+
+Abstract class, that is used as interface of objects container (not necessarily related to SVG)  
+
+
+
+
+{\ttfamily \#include $<$svg.\+h$>$}
+
+Inheritance diagram for graphics\+::svg\+::Object\+Container\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgraphics_1_1svg_1_1ObjectContainer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1ObjectContainer_a68d36278b158fc6109bf54b8c9250332}\label{classgraphics_1_1svg_1_1ObjectContainer_a68d36278b158fc6109bf54b8c9250332}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries Add} (T obj)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1ObjectContainer_a6f6e7466340f5913fda217c0d49dd875}\label{classgraphics_1_1svg_1_1ObjectContainer_a6f6e7466340f5913fda217c0d49dd875}} 
+virtual void {\bfseries Add\+Ptr} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classgraphics_1_1svg_1_1Object}{Object}} $>$ \&\&obj)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1ObjectContainer_acd5020eca22ef38a55ae78460918e6d4}\label{classgraphics_1_1svg_1_1ObjectContainer_acd5020eca22ef38a55ae78460918e6d4}} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classgraphics_1_1svg_1_1Object}{Object}} $>$ $>$ {\bfseries objects\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class, that is used as interface of objects container (not necessarily related to SVG) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{svg_8h}{svg.\+h}}\end{DoxyCompactItemize}

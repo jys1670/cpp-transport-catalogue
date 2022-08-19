@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wait_0',['Wait',['../structRouteAnswer_1_1Wait.html',1,'RouteAnswer']]],
-  ['width_1',['width',['../structMapRenderer_1_1RenderSettings.html#ac70991540b8d6c0623853bdf06bd4fb5',1,'MapRenderer::RenderSettings']]]
+  ['wait_0',['Wait',['../structcore_1_1RouteAnswer_1_1Wait.html',1,'core::RouteAnswer']]],
+  ['width_1',['width',['../structgraphics_1_1RenderSettings.html#a41d7fe02e0299fc3d432e63966b2528a',1,'graphics::RenderSettings']]]
 ];

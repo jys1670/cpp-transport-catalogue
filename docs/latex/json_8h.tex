@@ -15,63 +15,65 @@ JSON read/write library.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classjson_1_1ParsingError}{json\+::\+Parsing\+Error}}
+class \mbox{\hyperlink{classio_1_1json_1_1ParsingError}{io\+::json\+::\+Parsing\+Error}}
 \item 
-struct \mbox{\hyperlink{structjson_1_1PrintContext}{json\+::\+Print\+Context}}
+struct \mbox{\hyperlink{structio_1_1json_1_1PrintContext}{io\+::json\+::\+Print\+Context}}
 \begin{DoxyCompactList}\small\item\em Used to store and print indentation in recursive print calls. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}}
+class \mbox{\hyperlink{classio_1_1json_1_1Node}{io\+::json\+::\+Node}}
 \item 
-class \mbox{\hyperlink{classjson_1_1Document}{json\+::\+Document}}
-\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{classjson_1_1Node}{Node}}, which stores \mbox{\hyperlink{classjson_1_1Node}{Node}} containing entire input data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+class \mbox{\hyperlink{classio_1_1json_1_1Document}{io\+::json\+::\+Document}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{classio_1_1json_1_1Node}{Node}}, which stores \mbox{\hyperlink{classio_1_1json_1_1Node}{Node}} containing entire input data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
-namespace \mbox{\hyperlink{namespacejson}{json}}
+namespace \mbox{\hyperlink{namespaceio}{io}}
+\begin{DoxyCompactList}\small\item\em Cheap to copy objects used for information transfer to Transport\+Catalogue. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceio_1_1json}{io\+::json}}
 \begin{DoxyCompactList}\small\item\em The main and only JSON create/read/write library namespace. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{json\+::\+Dict}} = std\+::map$<$ std\+::string, Node $>$
+using \mbox{\hyperlink{namespaceio_1_1json_afef700639d081056b62d37f480e79f20}{io\+::json\+::\+Dict}} = std\+::map$<$ std\+::string, Node $>$
 \item 
-\mbox{\Hypertarget{namespacejson_a6c59938d3ef1f93389894312d5d89048}\label{namespacejson_a6c59938d3ef1f93389894312d5d89048}} 
-using {\bfseries json\+::\+Array} = std\+::vector$<$ Node $>$
+\mbox{\Hypertarget{namespaceio_1_1json_a48b7dc6b156bbd5e457333787c6bb338}\label{namespaceio_1_1json_a48b7dc6b156bbd5e457333787c6bb338}} 
+using {\bfseries io\+::json\+::\+Array} = std\+::vector$<$ Node $>$
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{namespacejson_a4ddabf729cf1f9fefa1351a3c5dd88c8}\label{namespacejson_a4ddabf729cf1f9fefa1351a3c5dd88c8}} 
-bool {\bfseries json\+::operator==} (const Node \&lhs, const Node \&rhs)
+\mbox{\Hypertarget{namespaceio_1_1json_a51d4a444280ad9756909c4f4f1e376cd}\label{namespaceio_1_1json_a51d4a444280ad9756909c4f4f1e376cd}} 
+bool {\bfseries io\+::json\+::operator==} (const Node \&lhs, const Node \&rhs)
 \item 
-\mbox{\Hypertarget{namespacejson_a029efd43b21c24249da1c60fc4a36144}\label{namespacejson_a029efd43b21c24249da1c60fc4a36144}} 
-bool {\bfseries json\+::operator!=} (const Node \&lhs, const Node \&rhs)
+\mbox{\Hypertarget{namespaceio_1_1json_a36d38faa667cbca5e58f916ffbb0dfa1}\label{namespaceio_1_1json_a36d38faa667cbca5e58f916ffbb0dfa1}} 
+bool {\bfseries io\+::json\+::operator!=} (const Node \&lhs, const Node \&rhs)
 \item 
-\mbox{\Hypertarget{namespacejson_a5b2f118e6166beaf0ffb216b55f9e615}\label{namespacejson_a5b2f118e6166beaf0ffb216b55f9e615}} 
-Document {\bfseries json\+::\+Load} (std\+::istream \&input)
+\mbox{\Hypertarget{namespaceio_1_1json_aa5804dbf3b1d4a57343ab95c57a8560e}\label{namespaceio_1_1json_aa5804dbf3b1d4a57343ab95c57a8560e}} 
+Document {\bfseries io\+::json\+::\+Load} (std\+::istream \&input)
 \item 
-{\footnotesize template$<$typename Value $>$ }\\void \mbox{\hyperlink{namespacejson_a4a28c99f359169d36504c2ad54326fbe}{json\+::\+Print\+Value}} (const Value \&value, const Print\+Context \&ctx)
+{\footnotesize template$<$typename Value $>$ }\\void \mbox{\hyperlink{namespaceio_1_1json_a746c9708661be80296726a675d762473}{io\+::json\+::\+Print\+Value}} (const Value \&value, const Print\+Context \&ctx)
 \item 
-void \mbox{\hyperlink{namespacejson_a48b99c1e9eac31bd6bdea2fc43784a72}{json\+::\+Print\+Value}} (std\+::nullptr\+\_\+t, const Print\+Context \&ctx)
+void \mbox{\hyperlink{namespaceio_1_1json_a100697f657a71773dd4627e2c753a856}{io\+::json\+::\+Print\+Value}} (std\+::nullptr\+\_\+t, const Print\+Context \&ctx)
 \item 
-void \mbox{\hyperlink{namespacejson_a7cd73ca59374031ff21de4b627681cfc}{json\+::\+Print\+Value}} (const Array \&arr, const Print\+Context \&ctx)
+void \mbox{\hyperlink{namespaceio_1_1json_abff0e715af97b4b606d13caf7300c5f0}{io\+::json\+::\+Print\+Value}} (const Array \&arr, const Print\+Context \&ctx)
 \item 
-void \mbox{\hyperlink{namespacejson_aa6d96f9c910a9df120d8b6a04a7d6d86}{json\+::\+Print\+Value}} (const Dict \&dict, const Print\+Context \&ctx)
+void \mbox{\hyperlink{namespaceio_1_1json_a3890ca601a806cee3ec533ec520c2302}{io\+::json\+::\+Print\+Value}} (const Dict \&dict, const Print\+Context \&ctx)
 \item 
-void \mbox{\hyperlink{namespacejson_a864be03ac2692ea95acac809b7de107f}{json\+::\+Print\+Value}} (const std\+::string \&str, const Print\+Context \&ctx)
+void \mbox{\hyperlink{namespaceio_1_1json_a14d38dffbb6b2e41df07739e889da693}{io\+::json\+::\+Print\+Value}} (const std\+::string \&str, const Print\+Context \&ctx)
 \item 
-void \mbox{\hyperlink{namespacejson_a873ad6f22ea31e87d0e86e34bc2a76d7}{json\+::\+Print\+Value}} (const bool \&bl, const Print\+Context \&ctx)
+void \mbox{\hyperlink{namespaceio_1_1json_a9dbcee9dcfc39deb7a9d6aa73f9ee868}{io\+::json\+::\+Print\+Value}} (const bool \&bl, const Print\+Context \&ctx)
 \item 
-void \mbox{\hyperlink{namespacejson_a70b9e7f4f2cae2a274020487a32f7a9e}{json\+::\+Print\+Node}} (const Node \&node, const Print\+Context \&ctx)
+void \mbox{\hyperlink{namespaceio_1_1json_a342a06ae389df88b8b2eb5fd9f242231}{io\+::json\+::\+Print\+Node}} (const Node \&node, const Print\+Context \&ctx)
 \item 
-\mbox{\Hypertarget{namespacejson_a6221e4636b39e358b3d05b3a29f206c8}\label{namespacejson_a6221e4636b39e358b3d05b3a29f206c8}} 
-void {\bfseries json\+::\+Print} (const Document \&doc, std\+::ostream \&output)
-\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{namespacejson_a70b9e7f4f2cae2a274020487a32f7a9e}{Print\+Node()}} that works with \mbox{\hyperlink{classjson_1_1Document}{Document}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{namespaceio_1_1json_a134e77dead3581e6d0eb1ed1621ed6fb}\label{namespaceio_1_1json_a134e77dead3581e6d0eb1ed1621ed6fb}} 
+void {\bfseries io\+::json\+::\+Print} (const Document \&doc, std\+::ostream \&output)
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{namespaceio_1_1json_a342a06ae389df88b8b2eb5fd9f242231}{Print\+Node()}} that works with \mbox{\hyperlink{classio_1_1json_1_1Document}{Document}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{namespacejson_a7dfa1293b4f94c01b01bb22e3933d3e4}\label{namespacejson_a7dfa1293b4f94c01b01bb22e3933d3e4}} 
-const std\+::unordered\+\_\+set$<$ char $>$ {\bfseries json\+::\+Delimiters} = \{\textquotesingle{} \textquotesingle{}, \textquotesingle{}\textbackslash{}n\textquotesingle{}, \textquotesingle{}\textbackslash{}t\textquotesingle{}, \textquotesingle{}\textbackslash{}r\textquotesingle{}\}
+\mbox{\Hypertarget{namespaceio_1_1json_adef080325e8f760d1cb287c7152fa18f}\label{namespaceio_1_1json_adef080325e8f760d1cb287c7152fa18f}} 
+const std\+::unordered\+\_\+set$<$ char $>$ {\bfseries io\+::json\+::\+Delimiters} = \{\textquotesingle{} \textquotesingle{}, \textquotesingle{}\textbackslash{}n\textquotesingle{}, \textquotesingle{}\textbackslash{}t\textquotesingle{}, \textquotesingle{}\textbackslash{}r\textquotesingle{}\}
 \begin{DoxyCompactList}\small\item\em Characters treated as delimiters when reading from input stream. \end{DoxyCompactList}\item 
-const std\+::unordered\+\_\+map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespacejson_aae71aa8a3e2998dcb82942a1ec5874e6}{json\+::\+Chars\+To\+Replace}}
+const std\+::unordered\+\_\+map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespaceio_1_1json_aee96511945d9e42f762bbe343b963659}{io\+::json\+::\+Chars\+To\+Replace}}
 \end{DoxyCompactItemize}
 
 

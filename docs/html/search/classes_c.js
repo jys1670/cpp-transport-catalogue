@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['text_0',['Text',['../classsvg_1_1Text.html',1,'svg']]],
-  ['transportcatalogue_1',['TransportCatalogue',['../classTransportCatalogue.html',1,'']]],
-  ['transportrouter_2',['TransportRouter',['../classTransportRouter.html',1,'']]]
+  ['text_0',['Text',['../classgraphics_1_1svg_1_1Text.html',1,'graphics::svg']]],
+  ['transportcatalogue_1',['TransportCatalogue',['../classcore_1_1TransportCatalogue.html',1,'core']]],
+  ['transportrouter_2',['TransportRouter',['../classcore_1_1TransportRouter.html',1,'core']]]
 ];

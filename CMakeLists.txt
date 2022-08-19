@@ -11,7 +11,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(ENABLE_TESTING "Whether to enable unit tests" OFF)
 
 # Debug build compilation options
-option(WARNINGS_AS_ERRORS "Warnings as errors in Debug builds" ON)
+option(WARNINGS_AS_ERRORS "Warnings as errors in Debug builds" OFF)
 option(SANITIZERS "Whether to enable sanitizers in Debug builds" OFF)
 option(SAVE_TEMP_FILES "Whether save compiler temp files in Debug builds" OFF)
 
@@ -24,11 +24,15 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/)
 include(CompileOptions)
 include(Docs)
 
-# build type check
+# checks
 if (NOT CMAKE_BUILD_TYPE)
         message(STATUS "No build type selected, default to Debug")
         set(CMAKE_BUILD_TYPE "Debug")
 endif()
+
+find_package(Protobuf REQUIRED)
+file(GLOB PROTO_FILES ./proto/*.proto)
+protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
 
 ### Subdirs
 add_subdirectory(transport-catalogue)

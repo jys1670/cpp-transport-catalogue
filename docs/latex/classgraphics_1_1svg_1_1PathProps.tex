@@ -1,0 +1,69 @@
+\hypertarget{classgraphics_1_1svg_1_1PathProps}{}\doxysection{graphics\+::svg\+::Path\+Props\texorpdfstring{$<$}{<} Owner \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classgraphics_1_1svg_1_1PathProps}\index{graphics::svg::PathProps$<$ Owner $>$@{graphics::svg::PathProps$<$ Owner $>$}}
+
+
+Used to set, store and print various fill \& stroke properties.  
+
+
+
+
+{\ttfamily \#include $<$svg.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_a9bfa1ba3114fb73bf26cc64a9d49254a}\label{classgraphics_1_1svg_1_1PathProps_a9bfa1ba3114fb73bf26cc64a9d49254a}} 
+Owner \& {\bfseries Set\+Fill\+Color} (Color color)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_ae8a87cfb20f223b93d71ac8065996737}\label{classgraphics_1_1svg_1_1PathProps_ae8a87cfb20f223b93d71ac8065996737}} 
+Owner \& {\bfseries Set\+Stroke\+Color} (Color color)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_aa878cf16b5adf33d6f07d8122666ef4b}\label{classgraphics_1_1svg_1_1PathProps_aa878cf16b5adf33d6f07d8122666ef4b}} 
+Owner \& {\bfseries Set\+Stroke\+Width} (double width)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_a1636c0507ef409cc62c74d8d0779e494}\label{classgraphics_1_1svg_1_1PathProps_a1636c0507ef409cc62c74d8d0779e494}} 
+Owner \& {\bfseries Set\+Stroke\+Line\+Cap} (\mbox{\hyperlink{namespacegraphics_1_1svg_aacdb9c77223a9f9ec9181485f05e58bc}{Stroke\+Line\+Cap}} line\+\_\+cap)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_affa5f1cd53a7f7736bd5ced5be9ad420}\label{classgraphics_1_1svg_1_1PathProps_affa5f1cd53a7f7736bd5ced5be9ad420}} 
+Owner \& {\bfseries Set\+Stroke\+Line\+Join} (\mbox{\hyperlink{namespacegraphics_1_1svg_ad2fad9c1ca169da3569ea4d36100d71a}{Stroke\+Line\+Join}} line\+\_\+join)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_acf03b2e0b17e6842ed88bcf7abd85e72}\label{classgraphics_1_1svg_1_1PathProps_acf03b2e0b17e6842ed88bcf7abd85e72}} 
+void {\bfseries Render\+Attrs} (std\+::ostream \&out) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_ac9265afaeeb5517ac2e49a28d1eab375}\label{classgraphics_1_1svg_1_1PathProps_ac9265afaeeb5517ac2e49a28d1eab375}} 
+Owner \& {\bfseries As\+Owner} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_a5785de34e9212dc1a62d679f77618c24}\label{classgraphics_1_1svg_1_1PathProps_a5785de34e9212dc1a62d679f77618c24}} 
+std\+::optional$<$ Color $>$ {\bfseries fill\+\_\+color\+\_\+} = std\+::nullopt
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_a3255ff5e1d1d19d02d978c6137e3219e}\label{classgraphics_1_1svg_1_1PathProps_a3255ff5e1d1d19d02d978c6137e3219e}} 
+std\+::optional$<$ Color $>$ {\bfseries stroke\+\_\+color\+\_\+} = std\+::nullopt
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_a8e9f2fc180e3f9158f943b3cd1644177}\label{classgraphics_1_1svg_1_1PathProps_a8e9f2fc180e3f9158f943b3cd1644177}} 
+std\+::optional$<$ double $>$ {\bfseries stroke\+\_\+width\+\_\+} = std\+::nullopt
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_ae91d4b4bbb318edc6fce91596289026b}\label{classgraphics_1_1svg_1_1PathProps_ae91d4b4bbb318edc6fce91596289026b}} 
+std\+::optional$<$ \mbox{\hyperlink{namespacegraphics_1_1svg_aacdb9c77223a9f9ec9181485f05e58bc}{Stroke\+Line\+Cap}} $>$ {\bfseries stroke\+\_\+linecap\+\_\+} = std\+::nullopt
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1PathProps_a2669a106111a38d472d5973177c89496}\label{classgraphics_1_1svg_1_1PathProps_a2669a106111a38d472d5973177c89496}} 
+std\+::optional$<$ \mbox{\hyperlink{namespacegraphics_1_1svg_ad2fad9c1ca169da3569ea4d36100d71a}{Stroke\+Line\+Join}} $>$ {\bfseries stroke\+\_\+linejoin\+\_\+} = std\+::nullopt
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Owner$>$\newline
+class graphics\+::svg\+::\+Path\+Props$<$ Owner $>$}
+Used to set, store and print various fill \& stroke properties. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{svg_8h}{svg.\+h}}\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['datastorage_0',['DataStorage',['../namespaceDataStorage.html',1,'']]]
+  ['data_0',['data',['../namespacecore_1_1data.html',1,'core']]]
 ];

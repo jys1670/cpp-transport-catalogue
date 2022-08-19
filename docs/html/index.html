@@ -65,7 +65,7 @@ $(function() {
   <div class="headertitle"><div class="title">Transport Catalogue </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md__home_user_Documents_cpp_transport_catalogue_README"></a><img src="https://img.shields.io/badge/C%2B%2B-17%2F20-blue" alt="C++ version" class="inline"/> <img src="https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/building_linux.yml/badge.svg" alt="Building on Linux" style="pointer-events: none;" class="inline"/> <img src="https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/building_windows.yml/badge.svg" alt="Building on Windows" style="pointer-events: none;" class="inline"/> <img src="https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/linux_ci_test.yml/badge.svg" alt="Linux CI" style="pointer-events: none;" class="inline"/></p>
+<div class="textblock"><p ><a class="anchor" id="md__home_user_Documents_cpp_transport_catalogue_README"></a><img src="https://img.shields.io/badge/C%2B%2B-17-blue" alt="C++ version" class="inline"/> <img src="https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/building_linux.yml/badge.svg" alt="Building on Linux" style="pointer-events: none;" class="inline"/> <img src="https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/building_windows.yml/badge.svg" alt="Building on Windows" style="pointer-events: none;" class="inline"/> <img src="https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/linux_ci_test.yml/badge.svg" alt="Linux CI" style="pointer-events: none;" class="inline"/></p>
 <p >This repository is a simple implementation of information storage, which can potentially be used in some kind of navigation process. As of now, there is only JSON interface capable of printing/visualizing stops and routes information as well as finding the fastest path between two stops.</p>
 <h2><a class="anchor" id="autotoc_md1"></a>
 Structure</h2>
@@ -79,6 +79,12 @@ Structure</h2>
 <div class="line">│   ├── latex</div>
 <div class="line">│   ├── Doxyfile</div>
 <div class="line">│   └── index.html</div>
+<div class="line">├── proto</div>
+<div class="line">│   ├── graph.proto</div>
+<div class="line">│   ├── map_renderer.proto</div>
+<div class="line">│   ├── svg.proto</div>
+<div class="line">│   ├── transport_catalogue.proto</div>
+<div class="line">│   └── transport_router.proto</div>
 <div class="line">├── tests</div>
 <div class="line">│   ├── CMakeLists.txt</div>
 <div class="line">│   ├── test.cpp</div>
@@ -103,6 +109,8 @@ Structure</h2>
 <div class="line">│   ├── request_handler.cpp</div>
 <div class="line">│   ├── request_handler.h</div>
 <div class="line">│   ├── router.h</div>
+<div class="line">│   ├── serialization.cpp</div>
+<div class="line">│   ├── serialization.h</div>
 <div class="line">│   ├── svg.cpp</div>
 <div class="line">│   ├── svg.h</div>
 <div class="line">│   ├── transport_catalogue.cpp</div>
@@ -119,7 +127,7 @@ Building:</h2>
 </div><!-- fragment --><p >Building and running main executable: </p><div class="fragment"><div class="line">cmake -DCMAKE_BUILD_TYPE=Release ..</div>
 <div class="line">cmake --build . --config Release --target main</div>
 <div class="line">cd bin</div>
-<div class="line">./main</div>
+<div class="line">./main [make_base|process_requests] ...</div>
 </div><!-- fragment --><p >Building and running unit tests (requires <a href="https://www.boost.org/">Boost</a>): </p><div class="fragment"><div class="line">cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTING=ON ..</div>
 <div class="line">cmake --build . --config Release --target unit_tests</div>
 <div class="line">cd bin</div>
@@ -139,7 +147,7 @@ Example usage:</h2>
 </ul>
 <h2><a class="anchor" id="autotoc_md4"></a>
 Documentation</h2>
-<p >You can check it out here: <a href="https://jys1670.github.io/cpp-transport-catalogue/html/index.html">Transport-Catalogue-Documentation</a>. </p>
+<p >You can check it out here: <a href="https://jys1670.github.io/cpp-transport-catalogue/html/index.html">Transport-Catalogue-Documentation (outdated)</a>. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

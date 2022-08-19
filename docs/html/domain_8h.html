@@ -69,7 +69,8 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">domain.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -82,61 +83,77 @@ $(function() {
 <code>#include &lt;unordered_set&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="geo_8h_source.html">geo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="svg_8h_source.html">svg.h</a>&quot;</code><br />
 </div>
 <p><a href="domain_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOutputFormat.html">OutputFormat</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dummy type used to specify program output format.  <a href="structOutputFormat.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structio_1_1Stop.html">io::Stop</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop name and position (transfer)  <a href="structio_1_1Stop.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOutputFormat_1_1Json.html">OutputFormat::Json</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structio_1_1StopLink.html">io::StopLink</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOutputFormat_1_1Xml.html">OutputFormat::Xml</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structio_1_1Bus.html">io::Bus</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Route name and stops (transfer)  <a href="structio_1_1Bus.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputInfo_1_1Stop.html">InputInfo::Stop</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop name and position (transfer)  <a href="structInputInfo_1_1Stop.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcore_1_1data_1_1Stop.html">core::data::Stop</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop name and position (storage)  <a href="structcore_1_1data_1_1Stop.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputInfo_1_1StopLink.html">InputInfo::StopLink</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcore_1_1data_1_1Bus.html">core::data::Bus</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Route name and stops (storage)  <a href="structcore_1_1data_1_1Bus.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputInfo_1_1Bus.html">InputInfo::Bus</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Route name and stops (transfer)  <a href="structInputInfo_1_1Bus.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcore_1_1data_1_1StopStats.html">core::data::StopStats</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="structcore_1_1data_1_1Stop.html" title="Stop name and position (storage)">Stop</a>, used to painlessly add extra information about stop.  <a href="structcore_1_1data_1_1StopStats.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDataStorage_1_1Stop.html">DataStorage::Stop</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop name and position (storage)  <a href="structDataStorage_1_1Stop.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcore_1_1data_1_1BusStats.html">core::data::BusStats</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="structcore_1_1data_1_1Bus.html" title="Route name and stops (storage)">Bus</a>, used to painlessly add extra information about route.  <a href="structcore_1_1data_1_1BusStats.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDataStorage_1_1Bus.html">DataStorage::Bus</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Route name and stops (storage)  <a href="structDataStorage_1_1Bus.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcore_1_1data_1_1StopCoordsIterator.html">core::data::StopCoordsIterator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDataStorage_1_1StopStats.html">DataStorage::StopStats</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="structDataStorage_1_1Stop.html" title="Stop name and position (storage)">Stop</a>, used to painlessly add extra information about stop.  <a href="structDataStorage_1_1StopStats.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcore_1_1data_1_1RoutesData.html">core::data::RoutesData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores somehow logically connected routes and stops (used in MapRenderer)  <a href="structcore_1_1data_1_1RoutesData.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDataStorage_1_1BusStats.html">DataStorage::BusStats</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="structDataStorage_1_1Bus.html" title="Route name and stops (storage)">Bus</a>, used to painlessly add extra information about route.  <a href="structDataStorage_1_1BusStats.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcore_1_1RouteAnswer.html">core::RouteAnswer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format independent description of the fastest path.  <a href="structcore_1_1RouteAnswer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStorage_1_1StopCoordsIterator.html">DataStorage::StopCoordsIterator</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcore_1_1RouteAnswer_1_1Wait.html">core::RouteAnswer::Wait</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDataStorage_1_1RoutesData.html">DataStorage::RoutesData</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores somehow logically connected routes and stops (used in <a class="el" href="classMapRenderer.html">MapRenderer</a>)  <a href="structDataStorage_1_1RoutesData.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcore_1_1RouteAnswer_1_1Bus.html">core::RouteAnswer::Bus</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcore_1_1Vertex.html">core::Vertex</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents real world entity DataStorage::Stop (and its properties) as graph vertex.  <a href="classcore_1_1Vertex.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcore_1_1VertexHasher.html">core::VertexHasher</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphics_1_1RenderSettings.html">graphics::RenderSettings</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:namespaceInputInfo"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceInputInfo.html">InputInfo</a></td></tr>
-<tr class="memdesc:namespaceInputInfo"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cheap to copy objects used for information transfer to <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a>. <br /></td></tr>
+<tr class="memitem:namespaceio"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceio.html">io</a></td></tr>
+<tr class="memdesc:namespaceio"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cheap to copy objects used for information transfer to TransportCatalogue. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceDataStorage"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDataStorage.html">DataStorage</a></td></tr>
-<tr class="memdesc:namespaceDataStorage"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objects solely used for information storage (mainly in <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a>) <br /></td></tr>
+<tr class="memitem:namespacecore_1_1data"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecore_1_1data.html">core::data</a></td></tr>
+<tr class="memdesc:namespacecore_1_1data"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objects solely used for information storage (mainly in <a class="el" href="classcore_1_1TransportCatalogue.html">TransportCatalogue</a>) <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a103a8bd2df9d3bba821c89056a8f3f22"><td class="memItemLeft" align="right" valign="top"><a id="a103a8bd2df9d3bba821c89056a8f3f22" name="a103a8bd2df9d3bba821c89056a8f3f22"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>DataStorage::BusStorage</b> = std::unordered_map&lt; std::string_view, BusStats &gt;</td></tr>
-<tr class="separator:a103a8bd2df9d3bba821c89056a8f3f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5903a75ff675e73238d6a188cd5bfc4f"><td class="memItemLeft" align="right" valign="top"><a id="a5903a75ff675e73238d6a188cd5bfc4f" name="a5903a75ff675e73238d6a188cd5bfc4f"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>DataStorage::StopStorage</b> = std::unordered_map&lt; std::string_view, StopStats &gt;</td></tr>
-<tr class="separator:a5903a75ff675e73238d6a188cd5bfc4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac97ad8102eeb871e441d7670b70d571b"><td class="memItemLeft" align="right" valign="top"><a id="ac97ad8102eeb871e441d7670b70d571b" name="ac97ad8102eeb871e441d7670b70d571b"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>core::data::BusStorage</b> = std::unordered_map&lt; std::string_view, BusStats &gt;</td></tr>
+<tr class="separator:ac97ad8102eeb871e441d7670b70d571b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac965199d7a641eda7eec7240134ae7ec"><td class="memItemLeft" align="right" valign="top"><a id="ac965199d7a641eda7eec7240134ae7ec" name="ac965199d7a641eda7eec7240134ae7ec"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>core::data::StopStorage</b> = std::unordered_map&lt; std::string_view, StopStats &gt;</td></tr>
+<tr class="separator:ac965199d7a641eda7eec7240134ae7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a861a03ab529b37364d91fb4be59e15ed"><td class="memItemLeft" align="right" valign="top"><a id="a861a03ab529b37364d91fb4be59e15ed" name="a861a03ab529b37364d91fb4be59e15ed"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceio.html#a861a03ab529b37364d91fb4be59e15ed">io::OutputFormat</a> { <b>Json</b>
+, <b>None</b>
+ }</td></tr>
+<tr class="memdesc:a861a03ab529b37364d91fb4be59e15ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dummy type used to specify program output format. <br /></td></tr>
+<tr class="separator:a861a03ab529b37364d91fb4be59e15ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Header file with widely used independent types. </p>

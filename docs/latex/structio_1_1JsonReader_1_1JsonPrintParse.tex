@@ -1,0 +1,82 @@
+\hypertarget{structio_1_1JsonReader_1_1JsonPrintParse}{}\doxysection{io\+::Json\+Reader\+::Json\+Print\+Parse Struct Reference}
+\label{structio_1_1JsonReader_1_1JsonPrintParse}\index{io::JsonReader::JsonPrintParse@{io::JsonReader::JsonPrintParse}}
+
+
+Functor used to parse and enqueue Transport\+Catalogue NON-\/state-\/changing requests.  
+
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_ab4b97f4f25f9a2639cb41e43b926f70a}\label{structio_1_1JsonReader_1_1JsonPrintParse_ab4b97f4f25f9a2639cb41e43b926f70a}} 
+using {\bfseries Request\+Types} = \mbox{\hyperlink{structio_1_1RequestHandler_1_1RequestTypes}{io\+::\+Request\+Handler\+::\+Request\+Types}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_ad84c3be49f66b9b2c6c335c1ee76978a}\label{structio_1_1JsonReader_1_1JsonPrintParse_ad84c3be49f66b9b2c6c335c1ee76978a}} 
+{\bfseries Json\+Print\+Parse} (\mbox{\hyperlink{classio_1_1RequestHandler}{io\+::\+Request\+Handler}} \&parent)
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_a961cbcaf648112741d18c9f4fcb5ca6d}\label{structio_1_1JsonReader_1_1JsonPrintParse_a961cbcaf648112741d18c9f4fcb5ca6d}} 
+void {\bfseries operator()} (std\+::string\+\_\+view type, const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_accf8aad92d0d5874a6e8539a73ac90d3}\label{structio_1_1JsonReader_1_1JsonPrintParse_accf8aad92d0d5874a6e8539a73ac90d3}} 
+using {\bfseries Function\+Ptr} = void(Json\+Print\+Parse\+::$\ast$)(const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_a9d75c610bc5dd22810232f193a0e1c8d}\label{structio_1_1JsonReader_1_1JsonPrintParse_a9d75c610bc5dd22810232f193a0e1c8d}} 
+void {\bfseries Enqueue\+Bus} (const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&node)
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_a98d7a4142491e69a46949906bd4cf148}\label{structio_1_1JsonReader_1_1JsonPrintParse_a98d7a4142491e69a46949906bd4cf148}} 
+void {\bfseries Enqueue\+Stop} (const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&node)
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_aec82b4fefa54fca56a18ab7e6bf966c8}\label{structio_1_1JsonReader_1_1JsonPrintParse_aec82b4fefa54fca56a18ab7e6bf966c8}} 
+void {\bfseries Enqueue\+Map\+Draw} (const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&node)
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_abcffe615c4c013d50eea494967c0a988}\label{structio_1_1JsonReader_1_1JsonPrintParse_abcffe615c4c013d50eea494967c0a988}} 
+void {\bfseries Enqueue\+Route} (const \mbox{\hyperlink{classio_1_1json_1_1Node}{json\+::\+Node}} \&node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_a53367e46fc5bc5b753b361ea16327f23}\label{structio_1_1JsonReader_1_1JsonPrintParse_a53367e46fc5bc5b753b361ea16327f23}} 
+\mbox{\hyperlink{classio_1_1RequestHandler}{io\+::\+Request\+Handler}} \& {\bfseries parent\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Function\+Ptr $>$ \mbox{\hyperlink{structio_1_1JsonReader_1_1JsonPrintParse_ad69ee1ff535e515402c66989602fb2b9}{handlers\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functor used to parse and enqueue Transport\+Catalogue NON-\/state-\/changing requests. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structio_1_1JsonReader_1_1JsonPrintParse_ad69ee1ff535e515402c66989602fb2b9}\label{structio_1_1JsonReader_1_1JsonPrintParse_ad69ee1ff535e515402c66989602fb2b9}} 
+\index{io::JsonReader::JsonPrintParse@{io::JsonReader::JsonPrintParse}!handlers\_@{handlers\_}}
+\index{handlers\_@{handlers\_}!io::JsonReader::JsonPrintParse@{io::JsonReader::JsonPrintParse}}
+\doxysubsubsection{\texorpdfstring{handlers\_}{handlers\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Json\+Reader\+::\+Json\+Print\+Parse\+::\+Function\+Ptr $>$ io\+::\+Json\+Reader\+::\+Json\+Print\+Parse\+::handlers\+\_\+\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{        \{\textcolor{stringliteral}{"{}Bus"{}}, \&JsonReader::JsonPrintParse::EnqueueBus\},}
+\DoxyCodeLine{        \{\textcolor{stringliteral}{"{}Stop"{}}, \&JsonReader::JsonPrintParse::EnqueueStop\},}
+\DoxyCodeLine{        \{\textcolor{stringliteral}{"{}Map"{}}, \&JsonReader::JsonPrintParse::EnqueueMapDraw\},}
+\DoxyCodeLine{        \{\textcolor{stringliteral}{"{}Route"{}}, \&JsonReader::JsonPrintParse::EnqueueRoute\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{json__reader_8h}{json\+\_\+reader.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/json\+\_\+reader.\+cpp\end{DoxyCompactItemize}

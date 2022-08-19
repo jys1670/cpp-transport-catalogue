@@ -11,49 +11,64 @@ Header file with widely used independent types.
 {\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include \char`\"{}geo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}svg.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structOutputFormat}{Output\+Format}}
-\begin{DoxyCompactList}\small\item\em Dummy type used to specify program output format. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structOutputFormat_1_1Json}{Output\+Format\+::\+Json}}
-\item 
-struct \mbox{\hyperlink{structOutputFormat_1_1Xml}{Output\+Format\+::\+Xml}}
-\item 
-struct \mbox{\hyperlink{structInputInfo_1_1Stop}{Input\+Info\+::\+Stop}}
+struct \mbox{\hyperlink{structio_1_1Stop}{io\+::\+Stop}}
 \begin{DoxyCompactList}\small\item\em Stop name and position (transfer) \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structInputInfo_1_1StopLink}{Input\+Info\+::\+Stop\+Link}}
+struct \mbox{\hyperlink{structio_1_1StopLink}{io\+::\+Stop\+Link}}
 \item 
-struct \mbox{\hyperlink{structInputInfo_1_1Bus}{Input\+Info\+::\+Bus}}
+struct \mbox{\hyperlink{structio_1_1Bus}{io\+::\+Bus}}
 \begin{DoxyCompactList}\small\item\em Route name and stops (transfer) \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structDataStorage_1_1Stop}{Data\+Storage\+::\+Stop}}
+struct \mbox{\hyperlink{structcore_1_1data_1_1Stop}{core\+::data\+::\+Stop}}
 \begin{DoxyCompactList}\small\item\em Stop name and position (storage) \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structDataStorage_1_1Bus}{Data\+Storage\+::\+Bus}}
+struct \mbox{\hyperlink{structcore_1_1data_1_1Bus}{core\+::data\+::\+Bus}}
 \begin{DoxyCompactList}\small\item\em Route name and stops (storage) \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structDataStorage_1_1StopStats}{Data\+Storage\+::\+Stop\+Stats}}
-\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structDataStorage_1_1Stop}{Stop}}, used to painlessly add extra information about stop. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structDataStorage_1_1BusStats}{Data\+Storage\+::\+Bus\+Stats}}
-\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structDataStorage_1_1Bus}{Bus}}, used to painlessly add extra information about route. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classDataStorage_1_1StopCoordsIterator}{Data\+Storage\+::\+Stop\+Coords\+Iterator}}
+struct \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{core\+::data\+::\+Stop\+Stats}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structcore_1_1data_1_1Stop}{Stop}}, used to painlessly add extra information about stop. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcore_1_1data_1_1BusStats}{core\+::data\+::\+Bus\+Stats}}
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{structcore_1_1data_1_1Bus}{Bus}}, used to painlessly add extra information about route. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcore_1_1data_1_1StopCoordsIterator}{core\+::data\+::\+Stop\+Coords\+Iterator}}
 \item 
-struct \mbox{\hyperlink{structDataStorage_1_1RoutesData}{Data\+Storage\+::\+Routes\+Data}}
-\begin{DoxyCompactList}\small\item\em Stores somehow logically connected routes and stops (used in \mbox{\hyperlink{classMapRenderer}{Map\+Renderer}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core\+::data\+::\+Routes\+Data}}
+\begin{DoxyCompactList}\small\item\em Stores somehow logically connected routes and stops (used in Map\+Renderer) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcore_1_1RouteAnswer}{core\+::\+Route\+Answer}}
+\begin{DoxyCompactList}\small\item\em Format independent description of the fastest path. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcore_1_1RouteAnswer_1_1Wait}{core\+::\+Route\+Answer\+::\+Wait}}
+\item 
+struct \mbox{\hyperlink{structcore_1_1RouteAnswer_1_1Bus}{core\+::\+Route\+Answer\+::\+Bus}}
+\item 
+class \mbox{\hyperlink{classcore_1_1Vertex}{core\+::\+Vertex}}
+\begin{DoxyCompactList}\small\item\em Represents real world entity Data\+Storage\+::\+Stop (and its properties) as graph vertex. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcore_1_1VertexHasher}{core\+::\+Vertex\+Hasher}}
+\item 
+struct \mbox{\hyperlink{structgraphics_1_1RenderSettings}{graphics\+::\+Render\+Settings}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
-namespace \mbox{\hyperlink{namespaceInputInfo}{Input\+Info}}
-\begin{DoxyCompactList}\small\item\em Cheap to copy objects used for information transfer to \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}}. \end{DoxyCompactList}\item 
-namespace \mbox{\hyperlink{namespaceDataStorage}{Data\+Storage}}
-\begin{DoxyCompactList}\small\item\em Objects solely used for information storage (mainly in \mbox{\hyperlink{classTransportCatalogue}{Transport\+Catalogue}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+namespace \mbox{\hyperlink{namespaceio}{io}}
+\begin{DoxyCompactList}\small\item\em Cheap to copy objects used for information transfer to Transport\+Catalogue. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecore_1_1data}{core\+::data}}
+\begin{DoxyCompactList}\small\item\em Objects solely used for information storage (mainly in \mbox{\hyperlink{classcore_1_1TransportCatalogue}{Transport\+Catalogue}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{namespaceDataStorage_a103a8bd2df9d3bba821c89056a8f3f22}\label{namespaceDataStorage_a103a8bd2df9d3bba821c89056a8f3f22}} 
-using {\bfseries Data\+Storage\+::\+Bus\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Bus\+Stats $>$
+\mbox{\Hypertarget{namespacecore_1_1data_ac97ad8102eeb871e441d7670b70d571b}\label{namespacecore_1_1data_ac97ad8102eeb871e441d7670b70d571b}} 
+using {\bfseries core\+::data\+::\+Bus\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Bus\+Stats $>$
 \item 
-\mbox{\Hypertarget{namespaceDataStorage_a5903a75ff675e73238d6a188cd5bfc4f}\label{namespaceDataStorage_a5903a75ff675e73238d6a188cd5bfc4f}} 
-using {\bfseries Data\+Storage\+::\+Stop\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Stop\+Stats $>$
+\mbox{\Hypertarget{namespacecore_1_1data_ac965199d7a641eda7eec7240134ae7ec}\label{namespacecore_1_1data_ac965199d7a641eda7eec7240134ae7ec}} 
+using {\bfseries core\+::data\+::\+Stop\+Storage} = std\+::unordered\+\_\+map$<$ std\+::string\+\_\+view, Stop\+Stats $>$
 \end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceio_a861a03ab529b37364d91fb4be59e15ed}\label{namespaceio_a861a03ab529b37364d91fb4be59e15ed}} 
+enum class \mbox{\hyperlink{namespaceio_a861a03ab529b37364d91fb4be59e15ed}{io\+::\+Output\+Format}} \{ {\bfseries Json}
+, {\bfseries None}
+ \}
+\begin{DoxyCompactList}\small\item\em Dummy type used to specify program output format. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

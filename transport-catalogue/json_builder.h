@@ -11,7 +11,7 @@
 
 #include "json.h"
 
-namespace json {
+namespace io::json {
 
 //! Handy type used to construct JSON via method chaining approach
 class Builder {
@@ -92,4 +92,4 @@ private:
   std::vector<Node *> nodes_stack_{};
 };
 
-} // namespace json
+} // namespace io::json

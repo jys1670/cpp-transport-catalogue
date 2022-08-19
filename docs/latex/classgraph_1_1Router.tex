@@ -7,6 +7,12 @@ struct \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInfo}{Route\+Info}}
 \item 
 struct \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{Route\+Internal\+Data}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_ac8f279c0d20a435b6926a7028d2b032e}\label{classgraph_1_1Router_ac8f279c0d20a435b6926a7028d2b032e}} 
+using {\bfseries Routes\+Internal\+Data} = std\+::vector$<$ std\+::vector$<$ std\+::optional$<$ \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{Route\+Internal\+Data}} $>$ $>$ $>$
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,15 +21,18 @@ struct \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{Route\+Inter
 \item 
 \mbox{\Hypertarget{classgraph_1_1Router_a5e4a24558fea283ef3e002eeaec0e57f}\label{classgraph_1_1Router_a5e4a24558fea283ef3e002eeaec0e57f}} 
 std\+::optional$<$ \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInfo}{Route\+Info}} $>$ {\bfseries Build\+Route} (Vertex\+Id from, Vertex\+Id to) const
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a992069878ba70e99d3789b377826f2c5}\label{classgraph_1_1Router_a992069878ba70e99d3789b377826f2c5}} 
+const Routes\+Internal\+Data \& {\bfseries Get\+Routes\+Internal\+Data} () const
+\item 
+\mbox{\Hypertarget{classgraph_1_1Router_a2f214590e212b819c5911f1f53483686}\label{classgraph_1_1Router_a2f214590e212b819c5911f1f53483686}} 
+\mbox{\hyperlink{classgraph_1_1Router}{Router}} \& {\bfseries Set\+Router\+Internal\+Data} (Routes\+Internal\+Data \&\&data)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Types}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classgraph_1_1Router_a83943e6f3833464b0dae1f41603827ec}\label{classgraph_1_1Router_a83943e6f3833464b0dae1f41603827ec}} 
 using {\bfseries Graph} = \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{Directed\+Weighted\+Graph}}$<$ Weight $>$
-\item 
-\mbox{\Hypertarget{classgraph_1_1Router_ac8f279c0d20a435b6926a7028d2b032e}\label{classgraph_1_1Router_ac8f279c0d20a435b6926a7028d2b032e}} 
-using {\bfseries Routes\+Internal\+Data} = std\+::vector$<$ std\+::vector$<$ std\+::optional$<$ \mbox{\hyperlink{structgraph_1_1Router_1_1RouteInternalData}{Route\+Internal\+Data}} $>$ $>$ $>$
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}

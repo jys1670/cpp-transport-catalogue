@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package serialization;
+
+message Edge {
+  uint32 from = 1;
+  uint32 to = 2;
+  double weight = 3;
+  string bus_name = 4;
+  uint32 stop_count = 5;
+}
+
+message Vertex {
+  string stop_name = 1;
+  bool must_wait = 2;
+}
+
+message IncidenceList {
+  repeated uint32 edge_id = 1;
+}
+
+message Graph {
+  repeated Edge edge = 1;
+  repeated IncidenceList incidence_lists = 2;
+}

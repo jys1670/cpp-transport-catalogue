@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['json_0',['Json',['../structOutputFormat_1_1Json.html',1,'OutputFormat']]],
-  ['jsoninputparse_1',['JsonInputParse',['../structJsonReader_1_1JsonInputParse.html',1,'JsonReader']]],
-  ['jsonprint_2',['JsonPrint',['../structRequestHandler_1_1JsonPrint.html',1,'RequestHandler']]],
-  ['jsonprintparse_3',['JsonPrintParse',['../structJsonReader_1_1JsonPrintParse.html',1,'JsonReader']]],
-  ['jsonreader_4',['JsonReader',['../classJsonReader.html',1,'']]]
+  ['jsoninputparse_0',['JsonInputParse',['../structio_1_1JsonReader_1_1JsonInputParse.html',1,'io::JsonReader']]],
+  ['jsonprint_1',['JsonPrint',['../structio_1_1RequestHandler_1_1JsonPrint.html',1,'io::RequestHandler']]],
+  ['jsonprintparse_2',['JsonPrintParse',['../structio_1_1JsonReader_1_1JsonPrintParse.html',1,'io::JsonReader']]],
+  ['jsonreader_3',['JsonReader',['../classio_1_1JsonReader.html',1,'io']]]
 ];

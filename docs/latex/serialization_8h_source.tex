@@ -1,0 +1,48 @@
+\hypertarget{serialization_8h_source}{}\doxysection{serialization.\+h}
+\label{serialization_8h_source}\index{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/serialization.h@{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/serialization.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{domain_8h}{domain.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{graph_8h}{graph.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{json_8h}{json.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{router_8h}{router.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <transport\_catalogue.pb.h>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }serialization \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classserialization_1_1Serializer}{Serializer}} \{}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17   \textcolor{keywordtype}{void} SerializeStops(\textcolor{keyword}{const} std::deque<core::data::Stop> \&stops);}
+\DoxyCodeLine{18   \textcolor{keywordtype}{void} SerializeBuses(\textcolor{keyword}{const} std::deque<core::data::Bus> \&buses);}
+\DoxyCodeLine{19   \textcolor{keywordtype}{void} SerializeStopStats(\textcolor{keyword}{const} core::data::StopStorage \&stop\_stats);}
+\DoxyCodeLine{20   \textcolor{keywordtype}{void} SerializeBusStats(\textcolor{keyword}{const} core::data::BusStorage \&bus\_stats);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22   \textcolor{keywordtype}{void} SerializeRenderSettings(\textcolor{keyword}{const} \mbox{\hyperlink{structgraphics_1_1RenderSettings}{graphics::RenderSettings}} \&settings);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   \textcolor{keywordtype}{void} SerializeVertexIds(\textcolor{keyword}{const} std::vector<core::Vertex> \&id\_to\_vertex);}
+\DoxyCodeLine{25   \textcolor{keywordtype}{void} SerializeGraphRouterInternals(}
+\DoxyCodeLine{26       \textcolor{keyword}{const} graph::Router<double>::RoutesInternalData \&routes\_data);}
+\DoxyCodeLine{27   \textcolor{keywordtype}{void} SerializeGraph(\textcolor{keyword}{const} \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{graph::DirectedWeightedGraph<double>}} \&graph);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \textcolor{keywordtype}{void} SerializeToOstream(std::ostream *out) \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{private}:}
+\DoxyCodeLine{32   TrCatalogue sr\_catalogue\_;}
+\DoxyCodeLine{33   std::unordered\_map<std::string\_view, size\_t> stop\_to\_index\_;}
+\DoxyCodeLine{34   std::unordered\_map<std::string\_view, size\_t> bus\_to\_index\_;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \textcolor{keyword}{static} Color SerializeColor(\textcolor{keyword}{const} graphics::svg::Color \&color);}
+\DoxyCodeLine{37   \textcolor{keyword}{static} Edge SerializeEdge(\textcolor{keyword}{const} \mbox{\hyperlink{structgraph_1_1Edge}{graph::Edge<double>}} \&edge);}
+\DoxyCodeLine{38   \textcolor{keyword}{static} IncidenceList SerializeIncidenceLists(}
+\DoxyCodeLine{39       \mbox{\hyperlink{classgraph_1_1Range}{graph::DirectedWeightedGraph<double>::IncidentEdgesRange}} range);}
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \} \textcolor{comment}{// namespace serialization}}
+
+\end{DoxyCode}

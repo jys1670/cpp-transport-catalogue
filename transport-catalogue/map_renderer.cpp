@@ -1,4 +1,5 @@
 #include "map_renderer.h"
+namespace graphics {
 
 bool IsZero(double value) { return std::abs(value) < EPSILON; }
 
@@ -7,14 +8,55 @@ svg::Point SphereProjector::operator()(geo::Coordinates coords) const {
           (max_lat_ - coords.lat) * zoom_coeff_ + padding_};
 }
 
-std::string MapRenderer::RenderMap(DataStorage::RoutesData data) {
-  using namespace DataStorage;
-  using namespace svg;
-  SphereProjector projector{StopCoordsIterator{data.routes_stops.cbegin()},
-                            StopCoordsIterator{data.routes_stops.cend()},
-                            settings_.width, settings_.height,
-                            settings_.padding};
-  Document doc;
+void MapRenderer::ImportRenderSettings(
+    const serialization::TrCatalogue &sr_catalogue) {
+  auto &settings = sr_catalogue.render_settings();
+  settings_.width = settings.width();
+  settings_.height = settings.height();
+  settings_.padding = settings.padding();
+  settings_.line_width = settings.line_width();
+  settings_.stop_radius = settings.stop_radius();
+  settings_.bus_label_font_size = settings.bus_label_font_size();
+  settings_.stop_label_font_size = settings.stop_label_font_size();
+  settings_.underlayer_width = settings.underlayer_width();
+
+  settings_.bus_label_offset = {settings.bus_label_offset().x(),
+                                settings.bus_label_offset().y()};
+  settings_.stop_label_offset = {settings.stop_label_offset().x(),
+                                 settings.stop_label_offset().y()};
+
+  settings_.underlayer_color = DeserializeColor(settings.underlayer_color());
+
+  settings_.color_palette.clear();
+  for (int i = 0; i < settings.color_palette_size(); ++i) {
+    settings_.color_palette.push_back(
+        DeserializeColor(settings.color_palette(i)));
+  }
+}
+
+void MapRenderer::ExportRenderSettings(serialization::Serializer &sr) {
+  sr.SerializeRenderSettings(settings_);
+}
+
+svg::Color MapRenderer::DeserializeColor(const serialization::Color &color) {
+  if (color.has_color_string()) {
+    return color.color_string();
+  }
+  if (color.has_rgb()) {
+    auto &col = color.rgb();
+    return svg::Rgb(col.red(), col.green(), col.blue());
+  }
+  auto &col = color.rgba();
+  return svg::Rgba(col.red(), col.green(), col.blue(), col.opacity());
+}
+
+std::string MapRenderer::RenderMap(core::data::RoutesData data) {
+
+  SphereProjector projector{
+      core::data::StopCoordsIterator{data.routes_stops.cbegin()},
+      core::data::StopCoordsIterator{data.routes_stops.cend()}, settings_.width,
+      settings_.height, settings_.padding};
+  svg::Document doc;
   std::sort(data.bus_stats.begin(), data.bus_stats.end(),
             [](const auto *lhs, const auto *rhs) {
               return lhs->bus_ptr->name < rhs->bus_ptr->name;
@@ -32,7 +74,7 @@ std::string MapRenderer::RenderMap(DataStorage::RoutesData data) {
   return tmp.str();
 }
 
-void MapRenderer::LoadSettings(const json::Node &node) {
+void MapRenderer::LoadSettings(const io::json::Node &node) {
   const auto &render_map = node.AsMap();
   settings_.width = render_map.at("width").AsDouble();
   settings_.height = render_map.at("height").AsDouble();
@@ -56,7 +98,7 @@ void MapRenderer::LoadSettings(const json::Node &node) {
   }
 }
 
-svg::Color MapRenderer::ParseColor(const json::Node &node) {
+svg::Color MapRenderer::ParseColor(const io::json::Node &node) {
   if (node.IsString())
     return {node.AsString()};
   const auto &carr = node.AsArray();
@@ -71,10 +113,8 @@ svg::Color MapRenderer::ParseColor(const json::Node &node) {
                    carr.at(3).AsDouble()};
 }
 
-void MapRenderer::DrawRoutes(DataStorage::RoutesData &data,
+void MapRenderer::DrawRoutes(core::data::RoutesData &data,
                              SphereProjector &projector, svg::Document &doc) {
-  using namespace DataStorage;
-  using namespace svg;
   size_t counter{0}, palsize{settings_.color_palette.size()};
   for (const auto bus : data.bus_stats) {
     if (!bus->unique_stops.empty()) {
@@ -82,10 +122,10 @@ void MapRenderer::DrawRoutes(DataStorage::RoutesData &data,
 
       svg::Polyline route;
       route.SetStrokeColor(settings_.color_palette.at(counter % palsize))
-          .SetFillColor(NoneColor)
+          .SetFillColor(svg::NoneColor)
           .SetStrokeWidth(settings_.line_width)
-          .SetStrokeLineCap(StrokeLineCap::ROUND)
-          .SetStrokeLineJoin(StrokeLineJoin::ROUND);
+          .SetStrokeLineCap(svg::StrokeLineCap::ROUND)
+          .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND);
       for (auto stop : bus->bus_ptr->stops) {
         route.AddPoint(projector(stop->pos));
       }
@@ -103,11 +143,9 @@ void MapRenderer::DrawRoutes(DataStorage::RoutesData &data,
   }
 }
 
-void MapRenderer::DrawRouteNames(DataStorage::RoutesData &data,
+void MapRenderer::DrawRouteNames(core::data::RoutesData &data,
                                  SphereProjector &projector,
                                  svg::Document &doc) {
-  using namespace DataStorage;
-  using namespace svg;
   svg::Text name, substrate;
   substrate.SetOffset(settings_.bus_label_offset)
       .SetFontSize(static_cast<uint32_t>(settings_.bus_label_font_size))
@@ -116,8 +154,8 @@ void MapRenderer::DrawRouteNames(DataStorage::RoutesData &data,
       .SetFillColor(settings_.underlayer_color)
       .SetStrokeColor(settings_.underlayer_color)
       .SetStrokeWidth(settings_.underlayer_width)
-      .SetStrokeLineJoin(StrokeLineJoin::ROUND)
-      .SetStrokeLineCap(StrokeLineCap::ROUND);
+      .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND)
+      .SetStrokeLineCap(svg::StrokeLineCap::ROUND);
   name.SetOffset(settings_.bus_label_offset)
       .SetFontSize(static_cast<uint32_t>(settings_.bus_label_font_size))
       .SetFontFamily("Verdana")
@@ -148,11 +186,9 @@ void MapRenderer::DrawRouteNames(DataStorage::RoutesData &data,
   }
 }
 
-void MapRenderer::DrawStopSymbols(DataStorage::RoutesData &data,
+void MapRenderer::DrawStopSymbols(core::data::RoutesData &data,
                                   SphereProjector &projector,
                                   svg::Document &doc) {
-  using namespace DataStorage;
-  using namespace svg;
   svg::Circle circ;
   circ.SetRadius(settings_.stop_radius).SetFillColor("white");
   for (const auto stop : data.routes_stops) {
@@ -160,11 +196,9 @@ void MapRenderer::DrawStopSymbols(DataStorage::RoutesData &data,
   }
 }
 
-void MapRenderer::DrawStopNames(DataStorage::RoutesData &data,
+void MapRenderer::DrawStopNames(core::data::RoutesData &data,
                                 SphereProjector &projector,
                                 svg::Document &doc) {
-  using namespace DataStorage;
-  using namespace svg;
   svg::Text name, substrate;
   substrate.SetOffset(settings_.stop_label_offset)
       .SetFontSize(static_cast<uint32_t>(settings_.stop_label_font_size))
@@ -172,8 +206,8 @@ void MapRenderer::DrawStopNames(DataStorage::RoutesData &data,
       .SetFillColor(settings_.underlayer_color)
       .SetStrokeColor(settings_.underlayer_color)
       .SetStrokeWidth(settings_.underlayer_width)
-      .SetStrokeLineJoin(StrokeLineJoin::ROUND)
-      .SetStrokeLineCap(StrokeLineCap::ROUND);
+      .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND)
+      .SetStrokeLineCap(svg::StrokeLineCap::ROUND);
   name.SetOffset(settings_.stop_label_offset)
       .SetFontSize(static_cast<uint32_t>(settings_.stop_label_font_size))
       .SetFontFamily("Verdana")
@@ -185,3 +219,4 @@ void MapRenderer::DrawStopNames(DataStorage::RoutesData &data,
     doc.Add(name);
   }
 }
+} // namespace graphics

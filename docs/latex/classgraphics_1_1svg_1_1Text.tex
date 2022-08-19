@@ -1,0 +1,87 @@
+\hypertarget{classgraphics_1_1svg_1_1Text}{}\doxysection{graphics\+::svg\+::Text Class Reference}
+\label{classgraphics_1_1svg_1_1Text}\index{graphics::svg::Text@{graphics::svg::Text}}
+
+
+Represents \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text}{\texttt{ text}}  
+
+
+
+
+{\ttfamily \#include $<$svg.\+h$>$}
+
+Inheritance diagram for graphics\+::svg\+::Text\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgraphics_1_1svg_1_1Text}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_aaeda33456606cfa90874c582e718a3aa}\label{classgraphics_1_1svg_1_1Text_aaeda33456606cfa90874c582e718a3aa}} 
+\mbox{\hyperlink{classgraphics_1_1svg_1_1Text}{Text}} \& {\bfseries Set\+Position} (\mbox{\hyperlink{structgraphics_1_1svg_1_1Point}{Point}} pos)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a85444438b7b95cab349cb785a273d2ee}\label{classgraphics_1_1svg_1_1Text_a85444438b7b95cab349cb785a273d2ee}} 
+\mbox{\hyperlink{classgraphics_1_1svg_1_1Text}{Text}} \& {\bfseries Set\+Offset} (\mbox{\hyperlink{structgraphics_1_1svg_1_1Point}{Point}} offset)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a8f99e7dcaf8bc76ffbf2188a13dd4601}\label{classgraphics_1_1svg_1_1Text_a8f99e7dcaf8bc76ffbf2188a13dd4601}} 
+\mbox{\hyperlink{classgraphics_1_1svg_1_1Text}{Text}} \& {\bfseries Set\+Font\+Size} (uint32\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a3682c56eef0f39f5ecf747ff3cd6af98}\label{classgraphics_1_1svg_1_1Text_a3682c56eef0f39f5ecf747ff3cd6af98}} 
+\mbox{\hyperlink{classgraphics_1_1svg_1_1Text}{Text}} \& {\bfseries Set\+Font\+Family} (std\+::string font\+\_\+family)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a330e9c824660c5dda4940e636ae967a9}\label{classgraphics_1_1svg_1_1Text_a330e9c824660c5dda4940e636ae967a9}} 
+\mbox{\hyperlink{classgraphics_1_1svg_1_1Text}{Text}} \& {\bfseries Set\+Font\+Weight} (std\+::string font\+\_\+weight)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a611b2deda5c41e55be4be309193f357b}\label{classgraphics_1_1svg_1_1Text_a611b2deda5c41e55be4be309193f357b}} 
+\mbox{\hyperlink{classgraphics_1_1svg_1_1Text}{Text}} \& {\bfseries Set\+Data} (std\+::string data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgraphics_1_1svg_1_1Text_a5e4ee45070f8ca13a37583f3e8c247d5}{Render\+Object}} (const \mbox{\hyperlink{structgraphics_1_1svg_1_1RenderContext}{Render\+Context}} \&context) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a8814fcb450cb369c882e8bc9a45c2541}\label{classgraphics_1_1svg_1_1Text_a8814fcb450cb369c882e8bc9a45c2541}} 
+\mbox{\hyperlink{structgraphics_1_1svg_1_1Point}{Point}} {\bfseries position\+\_\+} \{0, 0\}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a31631afc185423eb0d586cc73b4d3e12}\label{classgraphics_1_1svg_1_1Text_a31631afc185423eb0d586cc73b4d3e12}} 
+\mbox{\hyperlink{structgraphics_1_1svg_1_1Point}{Point}} {\bfseries displacement\+\_\+} \{0, 0\}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_af80f4de387b1b0774c27def3b38cc9fb}\label{classgraphics_1_1svg_1_1Text_af80f4de387b1b0774c27def3b38cc9fb}} 
+uint32\+\_\+t {\bfseries font\+\_\+size\+\_\+} \{1\}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a0af89a4a75e0c55104175a655308b44e}\label{classgraphics_1_1svg_1_1Text_a0af89a4a75e0c55104175a655308b44e}} 
+std\+::optional$<$ std\+::string $>$ {\bfseries font\+\_\+family\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a0dd516bf14773c1ec03dfdc4210dbad6}\label{classgraphics_1_1svg_1_1Text_a0dd516bf14773c1ec03dfdc4210dbad6}} 
+std\+::optional$<$ std\+::string $>$ {\bfseries font\+\_\+weight\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a87fada3d1622d2ff69d47d23440d69c5}\label{classgraphics_1_1svg_1_1Text_a87fada3d1622d2ff69d47d23440d69c5}} 
+std\+::string {\bfseries data\+\_\+} \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents \href{https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text}{\texttt{ text}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgraphics_1_1svg_1_1Text_a5e4ee45070f8ca13a37583f3e8c247d5}\label{classgraphics_1_1svg_1_1Text_a5e4ee45070f8ca13a37583f3e8c247d5}} 
+\index{graphics::svg::Text@{graphics::svg::Text}!RenderObject@{RenderObject}}
+\index{RenderObject@{RenderObject}!graphics::svg::Text@{graphics::svg::Text}}
+\doxysubsubsection{\texorpdfstring{RenderObject()}{RenderObject()}}
+{\footnotesize\ttfamily void graphics\+::svg\+::\+Text\+::\+Render\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structgraphics_1_1svg_1_1RenderContext}{Render\+Context}} \&}]{context }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgraphics_1_1svg_1_1Object}{graphics\+::svg\+::\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{svg_8h}{svg.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/svg.\+cpp\end{DoxyCompactItemize}

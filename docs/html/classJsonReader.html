@@ -151,15 +151,15 @@ struct <a class="el" href="structJsonReader_1_1CatalogueInserter.html">JsonReade
 std::vector&lt; <a class="el" href="classJsonReader.html#af3391d88f15387e0cd6f5109aeccd26c">InputQueue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>input_queue_</b></td></tr>
 <tr class="memdesc:a4128cb3e724a1d295b64da9e4824d3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue with all <a class="el" href="classTransportCatalogue.html">TransportCatalogue</a> state-changing requests, should be sorted to satisfy <a class="el" href="structJsonReader_1_1RequestTypes.html" title="Known types of database state-changing requests.">RequestTypes</a> processing requirements. <br /></td></tr>
 <tr class="separator:a4128cb3e724a1d295b64da9e4824d3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c4ff8f1c0544ccd12947e985063faa7"><td class="memItemLeft" align="right" valign="top">std::deque&lt; <a class="el" href="structInputInfo_1_1Stop.html">InputInfo::Stop</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJsonReader.html#a6c4ff8f1c0544ccd12947e985063faa7">stops_input_queue_</a></td></tr>
+<tr class="memitem:a6c4ff8f1c0544ccd12947e985063faa7"><td class="memItemLeft" align="right" valign="top">std::deque&lt; <a class="el" href="structInputInfo_1_1Stop.html">io::Stop</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJsonReader.html#a6c4ff8f1c0544ccd12947e985063faa7">stops_input_queue_</a></td></tr>
 <tr class="memdesc:a6c4ff8f1c0544ccd12947e985063faa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage of stops related information.  <a href="classJsonReader.html#a6c4ff8f1c0544ccd12947e985063faa7">More...</a><br /></td></tr>
 <tr class="separator:a6c4ff8f1c0544ccd12947e985063faa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76c5731bf436f81703b3e8f9395124a0"><td class="memItemLeft" align="right" valign="top"><a id="a76c5731bf436f81703b3e8f9395124a0" name="a76c5731bf436f81703b3e8f9395124a0"></a>
-std::deque&lt; <a class="el" href="structInputInfo_1_1StopLink.html">InputInfo::StopLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>stoplinks_input_queue_</b></td></tr>
+std::deque&lt; <a class="el" href="structInputInfo_1_1StopLink.html">io::StopLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>stoplinks_input_queue_</b></td></tr>
 <tr class="memdesc:a76c5731bf436f81703b3e8f9395124a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage of stop links related information. <br /></td></tr>
 <tr class="separator:a76c5731bf436f81703b3e8f9395124a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac60eb31813cdfc95cdac717e50621609"><td class="memItemLeft" align="right" valign="top"><a id="ac60eb31813cdfc95cdac717e50621609" name="ac60eb31813cdfc95cdac717e50621609"></a>
-std::deque&lt; <a class="el" href="structInputInfo_1_1Bus.html">InputInfo::Bus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buses_input_queue_</b></td></tr>
+std::deque&lt; <a class="el" href="structInputInfo_1_1Bus.html">io::Bus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buses_input_queue_</b></td></tr>
 <tr class="memdesc:ac60eb31813cdfc95cdac717e50621609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage of buses related information. <br /></td></tr>
 <tr class="separator:ac60eb31813cdfc95cdac717e50621609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -257,7 +257,7 @@ std::deque&lt; <a class="el" href="structInputInfo_1_1Bus.html">InputInfo::Bus</
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::deque&lt;<a class="el" href="structInputInfo_1_1Stop.html">InputInfo::Stop</a>&gt; JsonReader::stops_input_queue_</td>
+          <td class="memname">std::deque&lt;<a class="el" href="structInputInfo_1_1Stop.html">io::Stop</a>&gt; JsonReader::stops_input_queue_</td>
         </tr>
       </table>
   </td>

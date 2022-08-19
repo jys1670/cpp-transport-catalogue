@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['underlayer_5fcolor_0',['underlayer_color',['../structMapRenderer_1_1RenderSettings.html#a2a660722f549c38035bfeae3c65ee77b',1,'MapRenderer::RenderSettings']]],
-  ['underlayer_5fwidth_1',['underlayer_width',['../structMapRenderer_1_1RenderSettings.html#a8215ec7e392afa90ab50896c11b9a812',1,'MapRenderer::RenderSettings']]],
-  ['updatemaprendersettings_2',['UpdateMapRenderSettings',['../structRequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings.html',1,'RequestHandler::RequestTypes']]],
-  ['updateroutingsettings_3',['UpdateRoutingSettings',['../structRequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings.html',1,'RequestHandler::RequestTypes']]]
+  ['underlayer_5fcolor_0',['underlayer_color',['../structgraphics_1_1RenderSettings.html#a22625f82f753c86b855feeaa445e5ca0',1,'graphics::RenderSettings']]],
+  ['underlayer_5fwidth_1',['underlayer_width',['../structgraphics_1_1RenderSettings.html#a7b4dd22f468c93cf272e9c63db2edebd',1,'graphics::RenderSettings']]],
+  ['updatemaprendersettings_2',['UpdateMapRenderSettings',['../structio_1_1RequestHandler_1_1RequestTypes_1_1UpdateMapRenderSettings.html',1,'io::RequestHandler::RequestTypes']]],
+  ['updateroutingsettings_3',['UpdateRoutingSettings',['../structio_1_1RequestHandler_1_1RequestTypes_1_1UpdateRoutingSettings.html',1,'io::RequestHandler::RequestTypes']]]
 ];

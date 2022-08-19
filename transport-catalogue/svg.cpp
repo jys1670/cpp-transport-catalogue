@@ -1,6 +1,6 @@
 #include "svg.h"
 
-namespace svg {
+namespace graphics::svg {
 
 using namespace std::literals;
 
@@ -153,4 +153,4 @@ void RenderContext::RenderIndent() const {
 RenderContext RenderContext::Indented() const {
   return {out, indent_step, indent + indent_step};
 }
-} // namespace svg
+} // namespace graphics::svg

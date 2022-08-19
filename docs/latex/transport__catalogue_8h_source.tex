@@ -15,42 +15,49 @@
 \DoxyCodeLine{15 }
 \DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{domain_8h}{domain.h}}"{}}}
 \DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{geo_8h}{geo.h}}"{}}}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classTransportCatalogue}{TransportCatalogue}} \{}
-\DoxyCodeLine{20 \textcolor{keyword}{public}:}
-\DoxyCodeLine{21   \textcolor{keywordtype}{void} AddStop(\textcolor{keyword}{const} \mbox{\hyperlink{structInputInfo_1_1Stop}{InputInfo::Stop}} \&new\_stop);}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23   \textcolor{keywordtype}{void} AddStopLinks(\textcolor{keyword}{const} \mbox{\hyperlink{structInputInfo_1_1StopLink}{InputInfo::StopLink}} \&new\_links);}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}serialization.h"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }core \{}
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classcore_1_1TransportCatalogue}{TransportCatalogue}} \{}
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23   \mbox{\hyperlink{classcore_1_1TransportCatalogue}{TransportCatalogue}}() = \textcolor{keywordflow}{default};}
 \DoxyCodeLine{24 }
-\DoxyCodeLine{25   \textcolor{keywordtype}{void} AddBus(\textcolor{keyword}{const} \mbox{\hyperlink{structInputInfo_1_1Bus}{InputInfo::Bus}} \&new\_bus);}
+\DoxyCodeLine{25   \textcolor{keywordtype}{void} ImportDataBase(\textcolor{keyword}{const} serialization::TrCatalogue \&sr\_catalogue);}
 \DoxyCodeLine{26 }
-\DoxyCodeLine{27   \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1BusStats}{DataStorage::BusStats}} *GetBusInfo(std::string\_view bus\_name) \textcolor{keyword}{const};}
+\DoxyCodeLine{27   \textcolor{keywordtype}{void} ExportDataBase(\mbox{\hyperlink{classserialization_1_1Serializer}{serialization::Serializer}} \&sr);}
 \DoxyCodeLine{28 }
-\DoxyCodeLine{29   \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} *GetStopInfo(std::string\_view stop\_name) \textcolor{keyword}{const};}
+\DoxyCodeLine{29   \textcolor{keywordtype}{void} AddStop(\textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1Stop}{io::Stop}} \&new\_stop);}
 \DoxyCodeLine{30 }
-\DoxyCodeLine{31   \textcolor{keyword}{const} DataStorage::StopStorage \&GetStopStatsMap() \textcolor{keyword}{const};}
+\DoxyCodeLine{31   \textcolor{keywordtype}{void} AddStopLinks(\textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1StopLink}{io::StopLink}} \&new\_links);}
 \DoxyCodeLine{32 }
-\DoxyCodeLine{33   \textcolor{keyword}{const} DataStorage::BusStorage \&GetBusStatsMap() \textcolor{keyword}{const};}
+\DoxyCodeLine{33   \textcolor{keywordtype}{void} AddBus(\textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1Bus}{io::Bus}} \&new\_bus);}
 \DoxyCodeLine{34 }
-\DoxyCodeLine{35   std::vector<const DataStorage::Stop *> GetAllStops() \textcolor{keyword}{const};}
+\DoxyCodeLine{35   \textcolor{keyword}{const} \mbox{\hyperlink{structcore_1_1data_1_1BusStats}{data::BusStats}} *GetBusInfo(std::string\_view bus\_name) \textcolor{keyword}{const};}
 \DoxyCodeLine{36 }
-\DoxyCodeLine{37   std::optional<double> GetStopsRealDist(std::string\_view from,}
-\DoxyCodeLine{38                                          std::string\_view to) \textcolor{keyword}{const};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40 \textcolor{keyword}{private}:}
-\DoxyCodeLine{41   std::deque<DataStorage::Stop> stops\_;}
-\DoxyCodeLine{42   std::deque<DataStorage::Bus> buses\_;}
-\DoxyCodeLine{43   DataStorage::BusStorage busname\_to\_bus\_stats\_;}
-\DoxyCodeLine{44   DataStorage::StopStorage stopname\_to\_stop\_stats\_;}
+\DoxyCodeLine{37   \textcolor{keyword}{const} \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data::StopStats}} *GetStopInfo(std::string\_view stop\_name) \textcolor{keyword}{const};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39   \textcolor{keyword}{const} data::BusStorage \&GetBusStatsMap() \textcolor{keyword}{const};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41   std::vector<const data::Stop *> GetAllStops() \textcolor{keyword}{const};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43   std::optional<double> GetStopsRealDist(std::string\_view from,}
+\DoxyCodeLine{44                                          std::string\_view to) \textcolor{keyword}{const};}
 \DoxyCodeLine{45 }
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47   \textcolor{keyword}{static} \textcolor{keywordtype}{double} ComputeStopsDirectDist(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&from,}
-\DoxyCodeLine{48                                        \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&to);}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50   \textcolor{keyword}{static} \textcolor{keywordtype}{double} GetStopsRealDist(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&from,}
-\DoxyCodeLine{51                                  \textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1StopStats}{DataStorage::StopStats}} \&to);}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53   \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} GetBusTotalStopsAmount(\textcolor{keyword}{const} \mbox{\hyperlink{structDataStorage_1_1Bus}{DataStorage::Bus}} \&bus);}
-\DoxyCodeLine{54 \};}
+\DoxyCodeLine{46 \textcolor{keyword}{private}:}
+\DoxyCodeLine{47   std::deque<data::Stop> stops\_;}
+\DoxyCodeLine{48   std::deque<data::Bus> buses\_;}
+\DoxyCodeLine{49   data::BusStorage busname\_to\_bus\_stats\_;}
+\DoxyCodeLine{50   data::StopStorage stopname\_to\_stop\_stats\_;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52   \textcolor{keyword}{static} \textcolor{keywordtype}{double} ComputeStopsDirectDist(\textcolor{keyword}{const} \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data::StopStats}} \&from,}
+\DoxyCodeLine{53                                        \textcolor{keyword}{const} \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data::StopStats}} \&to);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55   \textcolor{keyword}{static} \textcolor{keywordtype}{double} GetStopsRealDist(\textcolor{keyword}{const} \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data::StopStats}} \&from,}
+\DoxyCodeLine{56                                  \textcolor{keyword}{const} \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data::StopStats}} \&to);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58   \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} GetBusTotalStopsAmount(\textcolor{keyword}{const} \mbox{\hyperlink{structcore_1_1data_1_1Bus}{data::Bus}} \&bus);}
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \} \textcolor{comment}{// namespace core}}
 
 \end{DoxyCode}
