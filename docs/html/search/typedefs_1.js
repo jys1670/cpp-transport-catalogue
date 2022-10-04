@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputqueue_0',['InputQueue',['../classio_1_1JsonReader.html#a989e2dcfb1fe053abef309a91eb405d1',1,'io::JsonReader']]]
+  ['inputqueue_0',['InputQueue',['../classjson_1_1JsonReader.html#a9133bfe72e1c7a6f7bc8002fca3234d5',1,'json::JsonReader']]]
 ];

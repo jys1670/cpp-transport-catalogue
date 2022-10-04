@@ -18,7 +18,7 @@
 #include "map_renderer.h"
 #include "request_handler.h"
 
-namespace io {
+namespace json {
 
 /*!
  * \brief Responsible for reading JSON input
@@ -41,11 +41,12 @@ public:
    * TransportCatalogue are delegated here
    */
   explicit JsonReader(core::TransportCatalogue &catalogue,
-                      io::RequestHandler &req_handler)
+                      core::RequestHandler &req_handler)
       : catalogue_{catalogue}, req_handler_{req_handler} {};
 
-  void ProcessInput(const json::Dict &doc_map,
-                    OutputFormat format = OutputFormat::Json);
+  void ProcessInput(
+      const json::Dict &doc_map,
+      input_info::OutputFormat format = input_info::OutputFormat::Json);
   void ProcessBaseReqs(const json::Dict &doc_map);
   void EnqueueRenderSettingsUpdate(const json::Dict &doc_map);
   void EnqueueRoutingSettingsUpdate(const json::Dict &doc_map);
@@ -61,10 +62,10 @@ public:
   void InsertAllIntoCatalogue();
 
 private:
-  //! Database to be modified in place by insertion of new stops and routes
+  //! Database to be modified in place with insertion of new stops and routes
   core::TransportCatalogue &catalogue_;
   //! any non-state-changing requests are delegated here
-  io::RequestHandler &req_handler_;
+  core::RequestHandler &req_handler_;
 
   /*!
    * Known types of database state-changing requests.
@@ -73,15 +74,15 @@ private:
   struct RequestTypes {
 
     struct StopInsert {
-      io::Stop *stop_ptr;
+      input_info::Stop *stop_ptr;
     };
 
     struct StopLinkInsert {
-      io::StopLink *stoplink_ptr;
+      input_info::StopLink *stoplink_ptr;
     };
 
     struct BusInsert {
-      io::Bus *bus_ptr;
+      input_info::Bus *bus_ptr;
     };
   };
 
@@ -115,14 +116,14 @@ private:
    */
   struct JsonPrintParse {
   public:
-    using RequestTypes = io::RequestHandler::RequestTypes;
-    explicit JsonPrintParse(io::RequestHandler &parent) : parent_{parent} {};
+    using RequestTypes = core::RequestHandler::RequestTypes;
+    explicit JsonPrintParse(core::RequestHandler &parent) : parent_{parent} {};
     void operator()(std::string_view type, const json::Node &node);
 
   private:
     using FunctionPtr = void (JsonPrintParse::*)(const json::Node &);
     static std::unordered_map<std::string_view, FunctionPtr> handlers_;
-    io::RequestHandler &parent_;
+    core::RequestHandler &parent_;
     void EnqueueBus(const json::Node &node);
     void EnqueueStop(const json::Node &node);
     void EnqueueMapDraw(const json::Node &node);
@@ -153,13 +154,13 @@ private:
    * does not invalidate previously received pointers, which is why this
    * container is used
    */
-  std::deque<io::Stop> stops_input_queue_;
+  std::deque<input_info::Stop> stops_input_queue_;
 
   //! Temporary storage of stop links related information
-  std::deque<io::StopLink> stoplinks_input_queue_;
+  std::deque<input_info::StopLink> stoplinks_input_queue_;
 
   //! Temporary storage of buses related information
-  std::deque<io::Bus> buses_input_queue_;
+  std::deque<input_info::Bus> buses_input_queue_;
 
   /*!
    * Clears all temporary JSON data, making JsonReader ready to accept new
@@ -168,4 +169,4 @@ private:
   void Clear();
 };
 
-} // namespace io
+} // namespace json

@@ -4,13 +4,25 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
 
 add_executable(${EXECUTABLE_NAME} ${PROTO_SRCS} ${PROTO_HDRS} ${APP_SOURCES})
 
-target_include_directories(${EXECUTABLE_NAME}
-        PUBLIC ${Protobuf_INCLUDE_DIRS}
-        PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
-        )
-target_link_libraries(${EXECUTABLE_NAME}
-        PUBLIC "$<IF:$<CONFIG:Debug>,${Protobuf_LIBRARY_DEBUG},${Protobuf_LIBRARY}>"
-        )
+target_include_directories(
+        ${EXECUTABLE_NAME}
+        PRIVATE ${Protobuf_INCLUDE_DIRS}
+        PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
+)
+
+
+if (STATIC_LINKING)
+    if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+        target_compile_options(${EXECUTABLE_NAME} PRIVATE /MT)
+    else ()
+        target_link_options(${EXECUTABLE_NAME} PRIVATE -static)
+    endif ()
+endif ()
+
+target_link_libraries(
+        ${EXECUTABLE_NAME}
+        PRIVATE "$<IF:$<CONFIG:Debug>,${Protobuf_LIBRARY_DEBUG},${Protobuf_LIBRARY}>"
+)
 
 add_debug_compiler_options(
         TARGET ${EXECUTABLE_NAME}
@@ -28,7 +40,7 @@ set_target_properties(
 )
 
 
-if ( CMAKE_CXX_COMPILER_ID MATCHES "MSVC" )
+if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     set_target_properties(
             ${EXECUTABLE_NAME}
             PROPERTIES

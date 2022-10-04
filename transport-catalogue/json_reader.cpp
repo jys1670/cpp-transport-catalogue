@@ -1,6 +1,8 @@
 #include "json_reader.h"
-namespace io {
-void JsonReader::ProcessInput(const json::Dict &doc_map, OutputFormat format) {
+#include "domain.h"
+namespace json {
+void JsonReader::ProcessInput(const json::Dict &doc_map,
+                              input_info::OutputFormat format) {
   if (doc_map.count("base_requests")) {
     ProcessBaseReqs(doc_map);
   }
@@ -25,13 +27,13 @@ void JsonReader::ProcessBaseReqs(const json::Dict &doc_map) {
 
 void JsonReader::EnqueueRenderSettingsUpdate(const json::Dict &doc_map) {
   req_handler_.InsertIntoQueue(
-      io::RequestHandler::RequestTypes::UpdateMapRenderSettings{
+      core::RequestHandler::RequestTypes::UpdateMapRenderSettings{
           &doc_map.at("render_settings")});
 }
 
 void JsonReader::EnqueueRoutingSettingsUpdate(const json::Dict &doc_map) {
   req_handler_.InsertIntoQueue(
-      io::RequestHandler::RequestTypes::UpdateRoutingSettings{
+      core::RequestHandler::RequestTypes::UpdateRoutingSettings{
           &doc_map.at("routing_settings")});
 }
 
@@ -54,7 +56,7 @@ void JsonReader::JsonInputParse::operator()(std::string_view type,
 void JsonReader::JsonInputParse::EnqueueBus(const json::Node &node) {
   const auto &bus_map = node.AsMap();
   std::string_view bus_name = bus_map.at("name").AsString();
-  io::Bus new_bus{bus_name, {}, bus_map.at("is_roundtrip").AsBool()};
+  input_info::Bus new_bus{bus_name, {}, bus_map.at("is_roundtrip").AsBool()};
   for (const auto &name : bus_map.at("stops").AsArray()) {
     new_bus.stops.emplace_back(name.AsString());
   }
@@ -65,10 +67,10 @@ void JsonReader::JsonInputParse::EnqueueBus(const json::Node &node) {
 void JsonReader::JsonInputParse::EnqueueStop(const json::Node &node) {
   const auto &stop_map = node.AsMap();
   std::string_view stop_name = stop_map.at("name").AsString();
-  io::Stop new_stop = {stop_name,
-                       {stop_map.at("latitude").AsDouble(),
-                        stop_map.at("longitude").AsDouble()}};
-  io::StopLink new_stoplink = {stop_name, {}};
+  input_info::Stop new_stop = {stop_name,
+                               {stop_map.at("latitude").AsDouble(),
+                                stop_map.at("longitude").AsDouble()}};
+  input_info::StopLink new_stoplink = {stop_name, {}};
   for (const auto &[name, dist] : stop_map.at("road_distances").AsMap()) {
     new_stoplink.neighbours.emplace_back(name, dist.AsDouble());
   }
@@ -155,4 +157,4 @@ void JsonReader::Clear() {
   stoplinks_input_queue_.clear();
   buses_input_queue_.clear();
 }
-} // namespace io
+} // namespace json

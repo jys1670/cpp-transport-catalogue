@@ -109,6 +109,9 @@
       "is_roundtrip": true
     }
   ],
+  "serialization_settings": {
+    "file": "map_example.db"
+  },
   "stat_requests": [
     {
       "id": 2,

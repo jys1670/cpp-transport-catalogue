@@ -4,9 +4,8 @@
 ![Building on Windows](https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/building_windows.yml/badge.svg)
 ![Linux CI](https://github.com/jys1670/cpp-transport-catalogue/actions/workflows/linux_ci_test.yml/badge.svg)
 
-This repository is a simple implementation of information storage, which can potentially be used in some kind of navigation process.
-As of now, there is only JSON interface capable of printing/visualizing stops and routes information as well as finding the fastest path
-between two stops.
+This repository is an implementation of simplistic public transport navigator.
+As of now, there is only JSON input/output interface which is [briefly described here](https://github.com/jys1670/cpp-transport-catalogue/blob/main/docs/json.md).
 
 
 ### Structure
@@ -20,7 +19,8 @@ between two stops.
 │   ├── html
 │   ├── latex
 │   ├── Doxyfile
-│   └── index.html
+│   ├── index.html
+│   └── json.md
 ├── proto
 │   ├── graph.proto
 │   ├── map_renderer.proto
@@ -98,7 +98,14 @@ cmake --build . --config Release --target doxygen
  - [Input request (1)](https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/map_input.json), which adds some objects to database and asks to print corresponding map
 
  - [Answer (1)](https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/map_output.json), containing SVG map as string
-
+```sh
+# parse input, generate database and save it as file
+# (to avoid regeneration of database stat_requests 
+# are processed separately in "process_requests" mode)
+./main make_base < map_input.json
+# use existing database and process stat_requests
+./main process_requests < map_input.json > map_output.json
+```
 <img src="https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/example_map.svg" width="650" height="600" alt="example-map">
 
 - [Input request (2)](https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_input.json), which asks to find fastest path between stops
@@ -107,4 +114,4 @@ cmake --build . --config Release --target doxygen
 
 ### Documentation
 
-You can check it out here: [Transport-Catalogue-Documentation (outdated)](https://jys1670.github.io/cpp-transport-catalogue/html/index.html).
+You can check it out here (incomplete): [Transport-Catalogue-Documentation](https://jys1670.github.io/cpp-transport-catalogue/html/index.html).

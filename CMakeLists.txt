@@ -15,9 +15,11 @@ option(WARNINGS_AS_ERRORS "Warnings as errors in Debug builds" OFF)
 option(SANITIZERS "Whether to enable sanitizers in Debug builds" OFF)
 option(SAVE_TEMP_FILES "Whether save compiler temp files in Debug builds" OFF)
 
+# Linking
+option(STATIC_LINKING "Prefer static linking over dynamic" ON)
+
 ### Project Name
 set(EXECUTABLE_NAME "main")
-
 
 ### Cmake modules
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/)
@@ -28,6 +30,12 @@ include(Docs)
 if (NOT CMAKE_BUILD_TYPE)
         message(STATUS "No build type selected, default to Debug")
         set(CMAKE_BUILD_TYPE "Debug")
+endif()
+
+if(STATIC_LINKING)
+        set(CMAKE_FIND_LIBRARY_SUFFIXES ".a" ".lib")
+else()
+        set(CMAKE_FIND_LIBRARY_SUFFIXES ".so" ".dll")
 endif()
 
 find_package(Protobuf REQUIRED)

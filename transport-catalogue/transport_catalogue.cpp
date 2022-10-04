@@ -1,4 +1,5 @@
 #include "transport_catalogue.h"
+#include "domain.h"
 
 namespace core {
 void TransportCatalogue::ImportDataBase(
@@ -80,7 +81,7 @@ void TransportCatalogue::ExportDataBase(serialization::Serializer &sr) {
   sr.SerializeBusStats(busname_to_bus_stats_);
 }
 
-void TransportCatalogue::AddStop(const io::Stop &new_stop) {
+void TransportCatalogue::AddStop(const input_info::Stop &new_stop) {
   auto &stop = stops_.emplace_back(
       data::Stop().SetStopName(new_stop.name).SetCoordinates(new_stop.pos));
   /* Linked buses and stops are initialized empty, since not every stop
@@ -90,7 +91,7 @@ void TransportCatalogue::AddStop(const io::Stop &new_stop) {
   stopname_to_stop_stats_[stop.name] = data::StopStats().SetStop(&stop);
 }
 
-void TransportCatalogue::AddBus(const io::Bus &new_bus) {
+void TransportCatalogue::AddBus(const input_info::Bus &new_bus) {
   double total_dir_dist{}, total_real_dist{};
   std::unordered_set<data::Stop *> uniq_stops{};
 
@@ -135,7 +136,7 @@ void TransportCatalogue::AddBus(const io::Bus &new_bus) {
           .SetRealLength(total_real_dist);
 }
 
-void TransportCatalogue::AddStopLinks(const io::StopLink &new_links) {
+void TransportCatalogue::AddStopLinks(const input_info::StopLink &new_links) {
   auto &from_stop = stopname_to_stop_stats_.at(new_links.stop_name);
   for (auto [stop_name, dist] : new_links.neighbours) {
     data::Stop *to_stop = stopname_to_stop_stats_.at(stop_name).stop_ptr;

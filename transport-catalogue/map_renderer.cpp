@@ -1,4 +1,5 @@
 #include "map_renderer.h"
+#include "domain.h"
 namespace graphics {
 
 bool IsZero(double value) { return std::abs(value) < EPSILON; }
@@ -50,11 +51,11 @@ svg::Color MapRenderer::DeserializeColor(const serialization::Color &color) {
   return svg::Rgba(col.red(), col.green(), col.blue(), col.opacity());
 }
 
-std::string MapRenderer::RenderMap(core::data::RoutesData data) {
+std::string MapRenderer::RenderMap(data::RoutesData data) {
 
   SphereProjector projector{
-      core::data::StopCoordsIterator{data.routes_stops.cbegin()},
-      core::data::StopCoordsIterator{data.routes_stops.cend()}, settings_.width,
+      data::StopCoordsIterator(data.routes_stops.cbegin()),
+      data::StopCoordsIterator(data.routes_stops.cend()), settings_.width,
       settings_.height, settings_.padding};
   svg::Document doc;
   std::sort(data.bus_stats.begin(), data.bus_stats.end(),
@@ -74,7 +75,7 @@ std::string MapRenderer::RenderMap(core::data::RoutesData data) {
   return tmp.str();
 }
 
-void MapRenderer::LoadSettings(const io::json::Node &node) {
+void MapRenderer::LoadSettings(const json::Node &node) {
   const auto &render_map = node.AsMap();
   settings_.width = render_map.at("width").AsDouble();
   settings_.height = render_map.at("height").AsDouble();
@@ -98,7 +99,7 @@ void MapRenderer::LoadSettings(const io::json::Node &node) {
   }
 }
 
-svg::Color MapRenderer::ParseColor(const io::json::Node &node) {
+svg::Color MapRenderer::ParseColor(const json::Node &node) {
   if (node.IsString())
     return {node.AsString()};
   const auto &carr = node.AsArray();
@@ -113,8 +114,8 @@ svg::Color MapRenderer::ParseColor(const io::json::Node &node) {
                    carr.at(3).AsDouble()};
 }
 
-void MapRenderer::DrawRoutes(core::data::RoutesData &data,
-                             SphereProjector &projector, svg::Document &doc) {
+void MapRenderer::DrawRoutes(data::RoutesData &data, SphereProjector &projector,
+                             svg::Document &doc) {
   size_t counter{0}, palsize{settings_.color_palette.size()};
   for (const auto bus : data.bus_stats) {
     if (!bus->unique_stops.empty()) {
@@ -143,7 +144,7 @@ void MapRenderer::DrawRoutes(core::data::RoutesData &data,
   }
 }
 
-void MapRenderer::DrawRouteNames(core::data::RoutesData &data,
+void MapRenderer::DrawRouteNames(data::RoutesData &data,
                                  SphereProjector &projector,
                                  svg::Document &doc) {
   svg::Text name, substrate;
@@ -186,7 +187,7 @@ void MapRenderer::DrawRouteNames(core::data::RoutesData &data,
   }
 }
 
-void MapRenderer::DrawStopSymbols(core::data::RoutesData &data,
+void MapRenderer::DrawStopSymbols(data::RoutesData &data,
                                   SphereProjector &projector,
                                   svg::Document &doc) {
   svg::Circle circ;
@@ -196,7 +197,7 @@ void MapRenderer::DrawStopSymbols(core::data::RoutesData &data,
   }
 }
 
-void MapRenderer::DrawStopNames(core::data::RoutesData &data,
+void MapRenderer::DrawStopNames(data::RoutesData &data,
                                 SphereProjector &projector,
                                 svg::Document &doc) {
   svg::Text name, substrate;

@@ -1,10 +1,11 @@
 /*!
  * \file graph.h
- * \brief Directed weighted graphs declarations and definitions
+ * \brief Directed weighted graph declarations and definitions
  */
 
 #pragma once
 
+#include "domain.h"
 #include <cstdlib>
 #include <iterator>
 #include <string_view>
@@ -34,6 +35,7 @@ template <typename C> auto AsRange(const C &container) {
 using VertexId = size_t;
 using EdgeId = size_t;
 
+//! Model of a road between two stops within the same route (bus)
 template <typename Weight> struct Edge {
   Edge &SetFromVertex(VertexId vert) {
     from = vert;
@@ -47,7 +49,7 @@ template <typename Weight> struct Edge {
     weight = value;
     return *this;
   }
-  Edge &SetBus(const core::data::Bus *ptr) {
+  Edge &SetBus(const data::Bus *ptr) {
     bus = ptr;
     return *this;
   }
@@ -58,10 +60,12 @@ template <typename Weight> struct Edge {
   VertexId from;
   VertexId to;
   Weight weight;
-  const core::data::Bus *bus;
+
+  const data::Bus *bus;
   size_t stop_count;
 };
 
+//! Can be treated as map containing multiple buses (roads) and their stops
 template <typename Weight> class DirectedWeightedGraph {
 public:
   using IncidenceList = std::vector<EdgeId>;

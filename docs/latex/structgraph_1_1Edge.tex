@@ -1,5 +1,14 @@
 \hypertarget{structgraph_1_1Edge}{}\doxysection{graph\+::Edge\texorpdfstring{$<$}{<} Weight \texorpdfstring{$>$}{>} Struct Template Reference}
 \label{structgraph_1_1Edge}\index{graph::Edge$<$ Weight $>$@{graph::Edge$<$ Weight $>$}}
+
+
+Model of a road between two stops within the same route (bus)  
+
+
+
+
+{\ttfamily \#include $<$graph.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -12,8 +21,8 @@
 \mbox{\Hypertarget{structgraph_1_1Edge_a24fbdfc318b7a52d9fdc3c00de9e7d68}\label{structgraph_1_1Edge_a24fbdfc318b7a52d9fdc3c00de9e7d68}} 
 \mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \& {\bfseries Set\+Weight} (Weight value)
 \item 
-\mbox{\Hypertarget{structgraph_1_1Edge_a0265c15085501d11c000874bc24e58a2}\label{structgraph_1_1Edge_a0265c15085501d11c000874bc24e58a2}} 
-\mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \& {\bfseries Set\+Bus} (const \mbox{\hyperlink{structcore_1_1data_1_1Bus}{core\+::data\+::\+Bus}} $\ast$ptr)
+\mbox{\Hypertarget{structgraph_1_1Edge_a67f5219528edb854666a12025b99380d}\label{structgraph_1_1Edge_a67f5219528edb854666a12025b99380d}} 
+\mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \& {\bfseries Set\+Bus} (const \mbox{\hyperlink{structdata_1_1Bus}{data\+::\+Bus}} $\ast$ptr)
 \item 
 \mbox{\Hypertarget{structgraph_1_1Edge_ae9007fde8521c1e30be423852821f603}\label{structgraph_1_1Edge_ae9007fde8521c1e30be423852821f603}} 
 \mbox{\hyperlink{structgraph_1_1Edge}{Edge}} \& {\bfseries Set\+Stop\+Count} (size\+\_\+t count)
@@ -30,14 +39,19 @@ Vertex\+Id {\bfseries to}
 \mbox{\Hypertarget{structgraph_1_1Edge_a6ee86558c8e527a87ae914dcaf10753a}\label{structgraph_1_1Edge_a6ee86558c8e527a87ae914dcaf10753a}} 
 Weight {\bfseries weight}
 \item 
-\mbox{\Hypertarget{structgraph_1_1Edge_aa06f260f4972a74002e11927dfb66139}\label{structgraph_1_1Edge_aa06f260f4972a74002e11927dfb66139}} 
-const \mbox{\hyperlink{structcore_1_1data_1_1Bus}{core\+::data\+::\+Bus}} $\ast$ {\bfseries bus}
+\mbox{\Hypertarget{structgraph_1_1Edge_aa27c78c96d4acde33652b22e051a4051}\label{structgraph_1_1Edge_aa27c78c96d4acde33652b22e051a4051}} 
+const \mbox{\hyperlink{structdata_1_1Bus}{data\+::\+Bus}} $\ast$ {\bfseries bus}
 \item 
 \mbox{\Hypertarget{structgraph_1_1Edge_ac80d0c3070612e2ab17facee84ad5e56}\label{structgraph_1_1Edge_ac80d0c3070612e2ab17facee84ad5e56}} 
 size\+\_\+t {\bfseries stop\+\_\+count}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Weight$>$\newline
+struct graph\+::\+Edge$<$ Weight $>$}
+Model of a road between two stops within the same route (bus) 
+
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{graph_8h}{graph.\+h}}\end{DoxyCompactItemize}
+transport-\/catalogue/\mbox{\hyperlink{graph_8h}{graph.\+h}}\end{DoxyCompactItemize}

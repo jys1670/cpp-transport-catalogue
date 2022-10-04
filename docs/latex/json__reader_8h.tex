@@ -1,5 +1,5 @@
-\hypertarget{json__reader_8h}{}\doxysection{/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/json\+\_\+reader.h File Reference}
-\label{json__reader_8h}\index{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/json\_reader.h@{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/json\_reader.h}}
+\hypertarget{json__reader_8h}{}\doxysection{transport-\/catalogue/json\+\_\+reader.h File Reference}
+\label{json__reader_8h}\index{transport-\/catalogue/json\_reader.h@{transport-\/catalogue/json\_reader.h}}
 
 
 Stuff to parse, save and delegate processing of JSON routes \& stops input data.  
@@ -18,27 +18,27 @@ Stuff to parse, save and delegate processing of JSON routes \& stops input data.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classio_1_1JsonReader}{io\+::\+Json\+Reader}}
+class \mbox{\hyperlink{classjson_1_1JsonReader}{json\+::\+Json\+Reader}}
 \begin{DoxyCompactList}\small\item\em Responsible for reading JSON input. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structio_1_1JsonReader_1_1RequestTypes}{io\+::\+Json\+Reader\+::\+Request\+Types}}
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes}{json\+::\+Json\+Reader\+::\+Request\+Types}}
 \begin{DoxyCompactList}\small\item\em Known types of database state-\/changing requests. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structio_1_1JsonReader_1_1RequestTypes_1_1StopInsert}{io\+::\+Json\+Reader\+::\+Request\+Types\+::\+Stop\+Insert}}
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes_1_1StopInsert}{json\+::\+Json\+Reader\+::\+Request\+Types\+::\+Stop\+Insert}}
 \item 
-struct \mbox{\hyperlink{structio_1_1JsonReader_1_1RequestTypes_1_1StopLinkInsert}{io\+::\+Json\+Reader\+::\+Request\+Types\+::\+Stop\+Link\+Insert}}
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes_1_1StopLinkInsert}{json\+::\+Json\+Reader\+::\+Request\+Types\+::\+Stop\+Link\+Insert}}
 \item 
-struct \mbox{\hyperlink{structio_1_1JsonReader_1_1RequestTypes_1_1BusInsert}{io\+::\+Json\+Reader\+::\+Request\+Types\+::\+Bus\+Insert}}
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes_1_1BusInsert}{json\+::\+Json\+Reader\+::\+Request\+Types\+::\+Bus\+Insert}}
 \item 
-struct \mbox{\hyperlink{structio_1_1JsonReader_1_1JsonInputParse}{io\+::\+Json\+Reader\+::\+Json\+Input\+Parse}}
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1JsonInputParse}{json\+::\+Json\+Reader\+::\+Json\+Input\+Parse}}
 \begin{DoxyCompactList}\small\item\em Functor used to parse and enqueue Transport\+Catalogue state-\/changing requests. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structio_1_1JsonReader_1_1JsonPrintParse}{io\+::\+Json\+Reader\+::\+Json\+Print\+Parse}}
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1JsonPrintParse}{json\+::\+Json\+Reader\+::\+Json\+Print\+Parse}}
 \begin{DoxyCompactList}\small\item\em Functor used to parse and enqueue Transport\+Catalogue NON-\/state-\/changing requests. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structio_1_1JsonReader_1_1CatalogueInserter}{io\+::\+Json\+Reader\+::\+Catalogue\+Inserter}}
-\begin{DoxyCompactList}\small\item\em Functor used to process elements of \mbox{\hyperlink{classio_1_1JsonReader_a624290e3c4e5085f5d20f75ab770bcfb}{Json\+Reader\+::input\+\_\+queue\+\_\+}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1CatalogueInserter}{json\+::\+Json\+Reader\+::\+Catalogue\+Inserter}}
+\begin{DoxyCompactList}\small\item\em Functor used to process elements of \mbox{\hyperlink{classjson_1_1JsonReader_a4adb8145f324953004212c2d52dfc12f}{Json\+Reader\+::input\+\_\+queue\+\_\+}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
-namespace \mbox{\hyperlink{namespaceio}{io}}
-\begin{DoxyCompactList}\small\item\em Cheap to copy objects used for information transfer to Transport\+Catalogue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+namespace \mbox{\hyperlink{namespacejson}{json}}
+\begin{DoxyCompactList}\small\item\em JSON processing features. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

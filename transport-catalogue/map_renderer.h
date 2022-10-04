@@ -59,29 +59,29 @@ public:
    * \param[in] data routes to be drawn and all their stops
    * \return Actual SVG stored as string
    */
-  std::string RenderMap(core::data::RoutesData data);
+  std::string RenderMap(data::RoutesData data);
   /*!
    * Updates image generation settings
    * \param[in] node json::Dict that defines all fields of RenderSettings
    */
-  void LoadSettings(const io::json::Node &node);
+  void LoadSettings(const json::Node &node);
 
 private:
   //! MapRenderer settings storage
-  RenderSettings settings_;
+  input_info::RenderSettings settings_;
 
-  static svg::Color ParseColor(const io::json::Node &node);
+  static svg::Color ParseColor(const json::Node &node);
 
-  void DrawRoutes(core::data::RoutesData &data, SphereProjector &projector,
+  void DrawRoutes(data::RoutesData &data, SphereProjector &projector,
                   svg::Document &doc);
 
-  void DrawRouteNames(core::data::RoutesData &data, SphereProjector &projector,
+  void DrawRouteNames(data::RoutesData &data, SphereProjector &projector,
                       svg::Document &doc);
 
-  void DrawStopSymbols(core::data::RoutesData &data, SphereProjector &projector,
+  void DrawStopSymbols(data::RoutesData &data, SphereProjector &projector,
                        svg::Document &doc);
 
-  void DrawStopNames(core::data::RoutesData &data, SphereProjector &projector,
+  void DrawStopNames(data::RoutesData &data, SphereProjector &projector,
                      svg::Document &doc);
 
   static svg::Color DeserializeColor(const serialization::Color &color);

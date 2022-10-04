@@ -1,5 +1,5 @@
 \hypertarget{map__renderer_8h_source}{}\doxysection{map\+\_\+renderer.\+h}
-\label{map__renderer_8h_source}\index{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/map\_renderer.h@{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/map\_renderer.h}}
+\label{map__renderer_8h_source}\index{transport-\/catalogue/map\_renderer.h@{transport-\/catalogue/map\_renderer.h}}
 \mbox{\hyperlink{map__renderer_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
@@ -26,7 +26,7 @@
 \DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}} \{}
 \DoxyCodeLine{27 \textcolor{keyword}{public}:}
 \DoxyCodeLine{38   \textcolor{keyword}{template} <\textcolor{keyword}{typename} Po\textcolor{keywordtype}{int}InputIt>}
-\DoxyCodeLine{39   \mbox{\hyperlink{classgraphics_1_1SphereProjector_a3bcf4c098f5aa6718a180eafd0df2614}{SphereProjector}}(PointInputIt points\_begin, PointInputIt points\_end,}
+\DoxyCodeLine{39   \mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}}(PointInputIt points\_begin, PointInputIt points\_end,}
 \DoxyCodeLine{40                   \textcolor{keywordtype}{double} max\_width, \textcolor{keywordtype}{double} max\_height, \textcolor{keywordtype}{double} padding);}
 \DoxyCodeLine{41 }
 \DoxyCodeLine{42   \mbox{\hyperlink{structgraphics_1_1svg_1_1Point}{svg::Point}} operator()(\mbox{\hyperlink{structgeo_1_1Coordinates}{geo::Coordinates}} coords) \textcolor{keyword}{const};}
@@ -44,27 +44,27 @@
 \DoxyCodeLine{54 }
 \DoxyCodeLine{55   \textcolor{keywordtype}{void} ImportRenderSettings(\textcolor{keyword}{const} serialization::TrCatalogue \&sr\_catalogue);}
 \DoxyCodeLine{56   \textcolor{keywordtype}{void} ExportRenderSettings(\mbox{\hyperlink{classserialization_1_1Serializer}{serialization::Serializer}} \&sr);}
-\DoxyCodeLine{62   std::string \mbox{\hyperlink{classgraphics_1_1MapRenderer_a6dbd1648432a4eb2646e94a2c6cebe06}{RenderMap}}(\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core::data::RoutesData}} data);}
-\DoxyCodeLine{67   \textcolor{keywordtype}{void} \mbox{\hyperlink{classgraphics_1_1MapRenderer_a77ffbeb6d2ec35a5c70b9e5255c27241}{LoadSettings}}(\textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1json_1_1Node}{io::json::Node}} \&node);}
+\DoxyCodeLine{62   std::string \mbox{\hyperlink{classgraphics_1_1MapRenderer_aff8575d17b1340703094b5bf7b119bfd}{RenderMap}}(\mbox{\hyperlink{structdata_1_1RoutesData}{data::RoutesData}} \mbox{\hyperlink{namespacedata}{data}});}
+\DoxyCodeLine{67   \textcolor{keywordtype}{void} \mbox{\hyperlink{classgraphics_1_1MapRenderer_a2aa3c91c8b6d0913eaf06de768cfb2f6}{LoadSettings}}(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
 \DoxyCodeLine{68 }
 \DoxyCodeLine{69 \textcolor{keyword}{private}:}
-\DoxyCodeLine{71   \mbox{\hyperlink{structgraphics_1_1RenderSettings}{RenderSettings}} \mbox{\hyperlink{classgraphics_1_1MapRenderer_a5449dd810215a65dc3be27502528d394}{settings\_}};}
+\DoxyCodeLine{71   \mbox{\hyperlink{structinput__info_1_1RenderSettings}{input\_info::RenderSettings}} \mbox{\hyperlink{classgraphics_1_1MapRenderer_aca9c43a4e89c049b55f892d314fd37ea}{settings\_}};}
 \DoxyCodeLine{72 }
-\DoxyCodeLine{73   \textcolor{keyword}{static} svg::Color ParseColor(\textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1json_1_1Node}{io::json::Node}} \&node);}
+\DoxyCodeLine{73   \textcolor{keyword}{static} svg::Color ParseColor(\textcolor{keyword}{const} \mbox{\hyperlink{classjson_1_1Node}{json::Node}} \&node);}
 \DoxyCodeLine{74 }
-\DoxyCodeLine{75   \textcolor{keywordtype}{void} DrawRoutes(\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core::data::RoutesData}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}} \&projector,}
+\DoxyCodeLine{75   \textcolor{keywordtype}{void} DrawRoutes(\mbox{\hyperlink{structdata_1_1RoutesData}{data::RoutesData}} \&\mbox{\hyperlink{namespacedata}{data}}, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}} \&projector,}
 \DoxyCodeLine{76                   \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg::Document}} \&doc);}
 \DoxyCodeLine{77 }
-\DoxyCodeLine{78   \textcolor{keywordtype}{void} DrawRouteNames(\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core::data::RoutesData}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}} \&projector,}
+\DoxyCodeLine{78   \textcolor{keywordtype}{void} DrawRouteNames(\mbox{\hyperlink{structdata_1_1RoutesData}{data::RoutesData}} \&\mbox{\hyperlink{namespacedata}{data}}, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}} \&projector,}
 \DoxyCodeLine{79                       \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg::Document}} \&doc);}
 \DoxyCodeLine{80 }
-\DoxyCodeLine{81   \textcolor{keywordtype}{void} DrawStopSymbols(\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core::data::RoutesData}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}} \&projector,}
+\DoxyCodeLine{81   \textcolor{keywordtype}{void} DrawStopSymbols(\mbox{\hyperlink{structdata_1_1RoutesData}{data::RoutesData}} \&\mbox{\hyperlink{namespacedata}{data}}, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}} \&projector,}
 \DoxyCodeLine{82                        \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg::Document}} \&doc);}
 \DoxyCodeLine{83 }
-\DoxyCodeLine{84   \textcolor{keywordtype}{void} DrawStopNames(\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core::data::RoutesData}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}} \&projector,}
+\DoxyCodeLine{84   \textcolor{keywordtype}{void} DrawStopNames(\mbox{\hyperlink{structdata_1_1RoutesData}{data::RoutesData}} \&\mbox{\hyperlink{namespacedata}{data}}, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{SphereProjector}} \&projector,}
 \DoxyCodeLine{85                      \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg::Document}} \&doc);}
 \DoxyCodeLine{86 }
-\DoxyCodeLine{87   svg::Color DeserializeColor(\textcolor{keyword}{const} serialization::Color \&color);}
+\DoxyCodeLine{87   \textcolor{keyword}{static} svg::Color DeserializeColor(\textcolor{keyword}{const} serialization::Color \&color);}
 \DoxyCodeLine{88 \};}
 \DoxyCodeLine{89 }
 \DoxyCodeLine{90 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Po\textcolor{keywordtype}{int}InputIt>}

@@ -1,5 +1,6 @@
 #include <algorithm>
 
+#include "domain.h"
 #include "transport_router.h"
 namespace core {
 TransportRouter::TransportRouter(const core::TransportCatalogue &catalogue)
@@ -19,18 +20,18 @@ void TransportRouter::ImportState(
   ImportVertexIds(sr_catalogue);
 }
 
-std::optional<RouteAnswer>
+std::optional<data::RouteAnswer>
 TransportRouter::FindFastestRoute(std::string_view from, std::string_view to) {
   if (!graph_finished_) {
     GenerateGraph();
   }
 
-  Vertex vfrom = Vertex()
-                     .SetStop(catalogue_.GetStopInfo(from)->stop_ptr)
-                     .SetWait(true),
-         vto = Vertex()
-                   .SetStop(catalogue_.GetStopInfo(to)->stop_ptr)
-                   .SetWait(true);
+  data::Vertex vfrom = data::Vertex()
+                           .SetStop(catalogue_.GetStopInfo(from)->stop_ptr)
+                           .SetWait(true),
+               vto = data::Vertex()
+                         .SetStop(catalogue_.GetStopInfo(to)->stop_ptr)
+                         .SetWait(true);
   auto fastest_path =
       router_->BuildRoute(vertex_to_id_.at(vfrom), vertex_to_id_.at(vto));
   if (fastest_path) {
@@ -60,8 +61,8 @@ void TransportRouter::GenerateGraph() {
 void TransportRouter::GenerateVertexes(std::vector<const data::Stop *> &stops) {
 
   for (auto stop : stops) {
-    auto wait = Vertex().SetStop(stop).SetWait(true);
-    auto normal = Vertex().SetStop(stop).SetWait(false);
+    auto wait = data::Vertex().SetStop(stop).SetWait(true);
+    auto normal = data::Vertex().SetStop(stop).SetWait(false);
     vertex_to_id_[wait] = id_to_vertex_.size();
     id_to_vertex_.push_back(wait);
     vertex_to_id_[normal] = id_to_vertex_.size();
@@ -72,8 +73,9 @@ void TransportRouter::GenerateVertexes(std::vector<const data::Stop *> &stops) {
 void TransportRouter::InsertAllEdgesIntoGraph(const data::Bus *bus) {
 
   for (auto stop : bus->stops) {
-    auto wait_id = vertex_to_id_.at(Vertex().SetStop(stop).SetWait(true));
-    auto norm_id = vertex_to_id_.at(Vertex().SetStop(stop).SetWait(false));
+    auto wait_id = vertex_to_id_.at(data::Vertex().SetStop(stop).SetWait(true));
+    auto norm_id =
+        vertex_to_id_.at(data::Vertex().SetStop(stop).SetWait(false));
     graph_.AddEdge(Edge()
                        .SetFromVertex(wait_id)
                        .SetToVertex(norm_id)
@@ -89,20 +91,20 @@ void TransportRouter::InsertAllEdgesIntoGraph(const data::Bus *bus) {
   }
 }
 
-RouteAnswer
+data::RouteAnswer
 TransportRouter::GenerateAnswer(const graph::Router<double>::RouteInfo &path) {
 
-  RouteAnswer result;
+  data::RouteAnswer result;
   for (auto edge_id : path.edges) {
     auto curr_edge = graph_.GetEdge(edge_id);
     if (curr_edge.stop_count) {
-      result.items.emplace_back(RouteAnswer::Bus()
+      result.items.emplace_back(data::RouteAnswer::Bus()
                                     .SetBus(curr_edge.bus)
                                     .SetSpanCount(curr_edge.stop_count)
                                     .SetTime(curr_edge.weight));
     } else {
       result.items.emplace_back(
-          RouteAnswer::Wait()
+          data::RouteAnswer::Wait()
               .SetStop(id_to_vertex_.at(curr_edge.from).GetStop())
               .SetTime(curr_edge.weight));
     }
@@ -172,7 +174,7 @@ void TransportRouter::ImportVertexIds(
   id_to_vertex_.clear();
   for (int i = 0; i < sr_catalogue.id_to_vertex_size(); ++i) {
     id_to_vertex_.emplace_back(
-        Vertex{}
+        data::Vertex{}
             .SetStop(catalogue_
                          .GetStopInfo(sr_catalogue.id_to_vertex(i).stop_name())
                          ->stop_ptr)

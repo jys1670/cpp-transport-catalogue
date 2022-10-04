@@ -1,5 +1,5 @@
 \hypertarget{geo_8h_source}{}\doxysection{geo.\+h}
-\label{geo_8h_source}\index{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/geo.h@{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/geo.h}}
+\label{geo_8h_source}\index{transport-\/catalogue/geo.h@{transport-\/catalogue/geo.h}}
 \mbox{\hyperlink{geo_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
@@ -21,12 +21,13 @@
 \DoxyCodeLine{23     \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{24   \}}
 \DoxyCodeLine{25   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} dr = 3.1415926535 / 180.;}
-\DoxyCodeLine{26   \textcolor{keywordflow}{return} acos(sin(from.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) * sin(to.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) +}
-\DoxyCodeLine{27               cos(from.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) * cos(to.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) *}
-\DoxyCodeLine{28                   cos(std::abs(from.\mbox{\hyperlink{structgeo_1_1Coordinates_a17ff395a0366cf612809c2eea18308c6}{lng}} -\/ to.\mbox{\hyperlink{structgeo_1_1Coordinates_a17ff395a0366cf612809c2eea18308c6}{lng}}) * dr)) *}
-\DoxyCodeLine{29          6371000;}
-\DoxyCodeLine{30 \}}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32 \} \textcolor{comment}{// namespace geo}}
+\DoxyCodeLine{26   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} earth\_radius = 6371000;}
+\DoxyCodeLine{27   \textcolor{keywordflow}{return} acos(sin(from.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) * sin(to.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) +}
+\DoxyCodeLine{28               cos(from.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) * cos(to.\mbox{\hyperlink{structgeo_1_1Coordinates_a9b3365c0777c6e8a4eafc0e2c00e678e}{lat}} * dr) *}
+\DoxyCodeLine{29                   cos(std::abs(from.\mbox{\hyperlink{structgeo_1_1Coordinates_a17ff395a0366cf612809c2eea18308c6}{lng}} -\/ to.\mbox{\hyperlink{structgeo_1_1Coordinates_a17ff395a0366cf612809c2eea18308c6}{lng}}) * dr)) *}
+\DoxyCodeLine{30          earth\_radius;}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \} \textcolor{comment}{// namespace geo}}
 
 \end{DoxyCode}

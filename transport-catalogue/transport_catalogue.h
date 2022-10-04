@@ -18,6 +18,7 @@
 #include "serialization.h"
 
 namespace core {
+//! Objects of this type act as stops and routes database
 class TransportCatalogue {
 public:
   TransportCatalogue() = default;
@@ -26,11 +27,11 @@ public:
 
   void ExportDataBase(serialization::Serializer &sr);
 
-  void AddStop(const io::Stop &new_stop);
+  void AddStop(const input_info::Stop &new_stop);
 
-  void AddStopLinks(const io::StopLink &new_links);
+  void AddStopLinks(const input_info::StopLink &new_links);
 
-  void AddBus(const io::Bus &new_bus);
+  void AddBus(const input_info::Bus &new_bus);
 
   const data::BusStats *GetBusInfo(std::string_view bus_name) const;
 

@@ -1,8 +1,8 @@
-\label{index_md__home_user_Documents_cpp_transport_catalogue_README}%
-\Hypertarget{index_md__home_user_Documents_cpp_transport_catalogue_README}%
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
    
 
-This repository is a simple implementation of information storage, which can potentially be used in some kind of navigation process. As of now, there is only JSON interface capable of printing/visualizing stops and routes information as well as finding the fastest path between two stops.\hypertarget{index_autotoc_md1}{}\doxysubsection{Structure}\label{index_autotoc_md1}
+This repository is an implementation of simplistic public transport navigator. As of now, there is only JSON input/output interface which is \href{https://github.com/jys1670/cpp-transport-catalogue/blob/main/docs/json.md}{\texttt{ briefly described here}}.\hypertarget{index_autotoc_md1}{}\doxysubsection{Structure}\label{index_autotoc_md1}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{.}
@@ -14,7 +14,8 @@ This repository is a simple implementation of information storage, which can pot
 \DoxyCodeLine{│   ├── html}
 \DoxyCodeLine{│   ├── latex}
 \DoxyCodeLine{│   ├── Doxyfile}
-\DoxyCodeLine{│   └── index.html}
+\DoxyCodeLine{│   ├── index.html}
+\DoxyCodeLine{│   └── json.md}
 \DoxyCodeLine{├── proto}
 \DoxyCodeLine{│   ├── graph.proto}
 \DoxyCodeLine{│   ├── map\_renderer.proto}
@@ -97,14 +98,23 @@ Updating documentation\+:
 
 \begin{DoxyItemize}
 \item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/map_input.json}{\texttt{ Input request (1)}}, which adds some objects to database and asks to print corresponding map
-\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/map_output.json}{\texttt{ Answer (1)}}, containing SVG map as string
+\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/map_output.json}{\texttt{ Answer (1)}}, containing SVG map as string 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# parse input, generate database and save it as file}
+\DoxyCodeLine{\# (to avoid regeneration of database stat\_requests }
+\DoxyCodeLine{\# are processed separately in "{}process\_requests"{} mode)}
+\DoxyCodeLine{./main make\_base < map\_input.json}
+\DoxyCodeLine{\# use existing database and process stat\_requests}
+\DoxyCodeLine{./main process\_requests < map\_input.json > map\_output.json}
+
+\end{DoxyCode}
+ 
 \end{DoxyItemize}
 
-
+\href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_input.json}{\texttt{ Input request (2)}}, which asks to find fastest path between stops
 
 
 \begin{DoxyItemize}
-\item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_input.json}{\texttt{ Input request (2)}}, which asks to find fastest path between stops
 \item \href{https://raw.githubusercontent.com/jys1670/cpp-transport-catalogue/main/docs/examples/route_output.json}{\texttt{ Answer (2)}}, contains travel time and path description in {\ttfamily items} keys
 \end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{Documentation}\label{index_autotoc_md4}
-You can check it out here\+: \href{https://jys1670.github.io/cpp-transport-catalogue/html/index.html}{\texttt{ Transport-\/\+Catalogue-\/\+Documentation (outdated)}}. 
+You can check it out here (incomplete)\+: \href{https://jys1670.github.io/cpp-transport-catalogue/html/index.html}{\texttt{ Transport-\/\+Catalogue-\/\+Documentation}}. 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getcataloguedata_0',['GetCatalogueData',['../classio_1_1RequestHandler.html#ac49b168c3e1e87c8e5f947f1fd9fc030',1,'io::RequestHandler']]]
+  ['getcataloguedata_0',['GetCatalogueData',['../classcore_1_1RequestHandler.html#adb1e3b7c5489afa746d7edadca952e6f',1,'core::RequestHandler']]]
 ];

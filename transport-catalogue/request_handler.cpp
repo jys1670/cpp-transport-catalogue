@@ -1,6 +1,7 @@
 #include "request_handler.h"
+#include "domain.h"
 #include "json_builder.h"
-namespace io {
+namespace core {
 void RequestHandler::InsertIntoQueue(ReqsQueue &&elem) {
   reqs_queue_.emplace_back(elem);
 }
@@ -51,8 +52,8 @@ void RequestHandler::JsonPrint::operator()(
                             .EndDict()
                             .Build());
     } else {
-      std::vector<core::data::Bus *> pbus_vec(stop_info->linked_buses.begin(),
-                                              stop_info->linked_buses.end());
+      std::vector<data::Bus *> pbus_vec(stop_info->linked_buses.begin(),
+                                        stop_info->linked_buses.end());
       std::sort(pbus_vec.begin(), pbus_vec.end(),
                 [](auto lhs, auto rhs) { return lhs->name < rhs->name; });
       json::Array buses;
@@ -107,8 +108,8 @@ void RequestHandler::JsonPrint::operator()(const RequestTypes::Route &req) {
   auto answer = parent_.trouter_.FindFastestRoute(req.from, req.to);
   json::Array items{};
   if (answer) {
-    for (core::RouteAnswer::Item &item : answer->items) {
-      if (auto b_ptr = std::get_if<core::RouteAnswer::Bus>(&item)) {
+    for (data::RouteAnswer::Item &item : answer->items) {
+      if (auto b_ptr = std::get_if<data::RouteAnswer::Bus>(&item)) {
         items.emplace_back(json::Builder()
                                .StartDict()
                                .Key("bus")
@@ -121,7 +122,7 @@ void RequestHandler::JsonPrint::operator()(const RequestTypes::Route &req) {
                                .Value("Bus")
                                .EndDict()
                                .Build());
-      } else if (auto w_ptr = std::get_if<core::RouteAnswer::Wait>(&item)) {
+      } else if (auto w_ptr = std::get_if<data::RouteAnswer::Wait>(&item)) {
         items.emplace_back(json::Builder()
                                .StartDict()
                                .Key("stop_name")
@@ -156,28 +157,27 @@ void RequestHandler::JsonPrint::operator()(const RequestTypes::Route &req) {
   }
 }
 
-void RequestHandler::ProcessAllRequests(OutputFormat format) {
+void RequestHandler::ProcessAllRequests(input_info::OutputFormat format) {
   json::Array result;
   JsonPrint visitor{*this, result};
   for (const auto &elem : reqs_queue_) {
     std::visit(visitor, elem);
   }
-  if (format != OutputFormat::None)
+  if (format != input_info::OutputFormat::None)
     json::Print(json::Document{result}, outstream_);
   Clear();
 }
 
 void RequestHandler::Clear() { reqs_queue_.clear(); }
 
-core::data::RoutesData RequestHandler::GetCatalogueData() const {
-  std::unordered_set<const core::data::Stop *> stops_set;
-  std::vector<const core::data::BusStats *> buses;
+data::RoutesData RequestHandler::GetCatalogueData() const {
+  std::unordered_set<const data::Stop *> stops_set;
+  std::vector<const data::BusStats *> buses;
   for (const auto &[_, stats] : catalogue_.GetBusStatsMap()) {
     stops_set.insert(stats.unique_stops.begin(), stats.unique_stops.end());
     buses.push_back(&stats);
   }
-  std::vector<const core::data::Stop *> stops{stops_set.begin(),
-                                              stops_set.end()};
+  std::vector<const data::Stop *> stops{stops_set.begin(), stops_set.end()};
   return {std::move(stops), std::move(buses)};
 }
-} // namespace io
+} // namespace core

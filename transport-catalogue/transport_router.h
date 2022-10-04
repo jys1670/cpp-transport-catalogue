@@ -19,7 +19,6 @@
 
 namespace core {
 
-//!
 class TransportRouter {
 public:
   using Edge = graph::Edge<double>;
@@ -37,7 +36,7 @@ public:
    * Updates routing parameters such as velocity, wait time, etc
    * \param[in] node json::Dict that defines all parameters
    */
-  void LoadSettings(const io::json::Node &node) {
+  void LoadSettings(const json::Node &node) {
     const auto &settings = node.AsMap();
     settings_.bus_wait_time = settings.at("bus_wait_time").AsDouble();
     settings_.bus_velocity =
@@ -50,8 +49,8 @@ public:
    * \param[in] to Destination stop name
    * \return Path description
    */
-  std::optional<RouteAnswer> FindFastestRoute(std::string_view from,
-                                              std::string_view to);
+  std::optional<data::RouteAnswer> FindFastestRoute(std::string_view from,
+                                                    std::string_view to);
 
 private:
   const TransportCatalogue &catalogue_;
@@ -66,8 +65,8 @@ private:
   // router needs finished graph as constructor, thus pointer is used
   std::unique_ptr<graph::Router<double>> router_{};
 
-  std::unordered_map<Vertex, size_t, VertexHasher> vertex_to_id_{};
-  std::vector<Vertex> id_to_vertex_{};
+  std::unordered_map<data::Vertex, size_t, data::VertexHasher> vertex_to_id_{};
+  std::vector<data::Vertex> id_to_vertex_{};
 
   void GenerateGraph();
 
@@ -79,7 +78,8 @@ private:
   void InsertEdgesBetweenStops(InputIt begin, InputIt end,
                                const data::Bus *bus);
 
-  RouteAnswer GenerateAnswer(const graph::Router<double>::RouteInfo &path);
+  data::RouteAnswer
+  GenerateAnswer(const graph::Router<double>::RouteInfo &path);
 
   void ImportGraph(const serialization::Graph &sr_graph);
 
@@ -94,8 +94,10 @@ void TransportRouter::InsertEdgesBetweenStops(InputIt begin, InputIt end,
   for (auto it1 = begin; it1 != end; ++it1) {
     double tot_dist{0};
     for (auto it2 = next(it1); it2 != end; ++it2) {
-      auto norm_id = vertex_to_id_.at(Vertex().SetStop(*it1).SetWait(false));
-      auto wait_id = vertex_to_id_.at(Vertex().SetStop(*it2).SetWait(true));
+      auto norm_id =
+          vertex_to_id_.at(data::Vertex().SetStop(*it1).SetWait(false));
+      auto wait_id =
+          vertex_to_id_.at(data::Vertex().SetStop(*it2).SetWait(true));
       auto stops_between = static_cast<size_t>(std::distance(it1, it2));
       auto curr_dist =
           catalogue_.GetStopsRealDist((*prev(it2))->name, (*it2)->name).value();
