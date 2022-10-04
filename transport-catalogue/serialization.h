@@ -14,14 +14,14 @@ namespace serialization {
 
 class Serializer {
 public:
-  void SerializeStops(const std::deque<core::data::Stop> &stops);
-  void SerializeBuses(const std::deque<core::data::Bus> &buses);
-  void SerializeStopStats(const core::data::StopStorage &stop_stats);
-  void SerializeBusStats(const core::data::BusStorage &bus_stats);
+  void SerializeStops(const std::deque<data::Stop> &stops);
+  void SerializeBuses(const std::deque<data::Bus> &buses);
+  void SerializeStopStats(const data::StopStorage &stop_stats);
+  void SerializeBusStats(const data::BusStorage &bus_stats);
 
-  void SerializeRenderSettings(const graphics::RenderSettings &settings);
+  void SerializeRenderSettings(const input_info::RenderSettings &settings);
 
-  void SerializeVertexIds(const std::vector<core::Vertex> &id_to_vertex);
+  void SerializeVertexIds(const std::vector<data::Vertex> &id_to_vertex);
   void SerializeGraphRouterInternals(
       const graph::Router<double>::RoutesInternalData &routes_data);
   void SerializeGraph(const graph::DirectedWeightedGraph<double> &graph);

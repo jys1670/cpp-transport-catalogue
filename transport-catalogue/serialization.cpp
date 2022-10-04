@@ -1,8 +1,9 @@
 #include "serialization.h"
+#include "domain.h"
 
 namespace serialization {
 
-void Serializer::SerializeStops(const std::deque<core::data::Stop> &stops) {
+void Serializer::SerializeStops(const std::deque<data::Stop> &stops) {
   size_t counter{0};
   for (const auto &stop : stops) {
     Coordinates sr_coords;
@@ -18,7 +19,7 @@ void Serializer::SerializeStops(const std::deque<core::data::Stop> &stops) {
   }
 }
 
-void Serializer::SerializeBuses(const std::deque<core::data::Bus> &buses) {
+void Serializer::SerializeBuses(const std::deque<data::Bus> &buses) {
   size_t counter{0};
   for (const auto &bus : buses) {
     Bus sr_bus;
@@ -33,7 +34,7 @@ void Serializer::SerializeBuses(const std::deque<core::data::Bus> &buses) {
   }
 }
 
-void Serializer::SerializeStopStats(const core::data::StopStorage &stop_stats) {
+void Serializer::SerializeStopStats(const data::StopStorage &stop_stats) {
   for (const auto &[key, val] : stop_stats) {
     StopStats sr_stop_stats;
     sr_stop_stats.set_stop_index(stop_to_index_.at(key));
@@ -49,7 +50,7 @@ void Serializer::SerializeStopStats(const core::data::StopStorage &stop_stats) {
   }
 }
 
-void Serializer::SerializeBusStats(const core::data::BusStorage &bus_stats) {
+void Serializer::SerializeBusStats(const data::BusStorage &bus_stats) {
   for (const auto &[key, val] : bus_stats) {
     BusStats sr_bus_stats;
     sr_bus_stats.set_bus_index(bus_to_index_.at(key));
@@ -65,7 +66,7 @@ void Serializer::SerializeBusStats(const core::data::BusStorage &bus_stats) {
 }
 
 void Serializer::SerializeRenderSettings(
-    const graphics::RenderSettings &settings) {
+    const input_info::RenderSettings &settings) {
   RenderSettings sr_settings;
   sr_settings.set_width(settings.width);
   sr_settings.set_height(settings.height);
@@ -92,7 +93,7 @@ void Serializer::SerializeRenderSettings(
 }
 
 void Serializer::SerializeVertexIds(
-    const std::vector<core::Vertex> &id_to_vertex) {
+    const std::vector<data::Vertex> &id_to_vertex) {
   for (const auto &vertex : id_to_vertex) {
     Vertex sr_vertex;
     sr_vertex.set_stop_name(vertex.GetStop()->name);

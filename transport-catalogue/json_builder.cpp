@@ -3,7 +3,7 @@
 #include <iostream>
 #include <utility>
 
-namespace io::json {
+namespace json {
 
 /* Builder */
 Builder::ValueContext Builder::Value(Node::Value val) {

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width_0',['width',['../structgraphics_1_1RenderSettings.html#a41d7fe02e0299fc3d432e63966b2528a',1,'graphics::RenderSettings']]]
+  ['width_0',['width',['../structinput__info_1_1RenderSettings.html#a901821e4bd0d1d6e7a11d4a569d10d4b',1,'input_info::RenderSettings']]]
 ];

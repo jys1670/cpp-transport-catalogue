@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['neighbours_0',['neighbours',['../structio_1_1StopLink.html#a98617d100eded6760ae252ab384b5dca',1,'io::StopLink']]]
+  ['neighbours_0',['neighbours',['../structinput__info_1_1StopLink.html#a8802692d17944d18281f42531a12f21d',1,'input_info::StopLink']]]
 ];

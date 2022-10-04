@@ -13,8 +13,9 @@
 #include <variant>
 #include <vector>
 
-//! The main and only JSON create/read/write library namespace
-namespace io::json {
+
+//! JSON processing features
+namespace json {
 
 class Node;
 class Document;
@@ -113,6 +114,7 @@ class Node final : private std::variant<std::nullptr_t, Array, Dict, bool, int,
 public:
   using Value =
       std::variant<std::nullptr_t, Array, Dict, bool, int, double, std::string>;
+  // Let's inherit all constructors of variant
   using variant::variant;
 
   Node(Node::Value &&val);

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reqsqueue_0',['ReqsQueue',['../classio_1_1RequestHandler.html#a850af3f309e912489527dc823cf5fedc',1,'io::RequestHandler']]]
+  ['reqsqueue_0',['ReqsQueue',['../classcore_1_1RequestHandler.html#a093ccb427f5bb9311a09f0cb640af577',1,'core::RequestHandler']]]
 ];

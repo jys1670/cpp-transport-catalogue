@@ -1,0 +1,66 @@
+\hypertarget{classdata_1_1StopCoordsIterator}{}\doxysection{data\+::Stop\+Coords\+Iterator Class Reference}
+\label{classdata_1_1StopCoordsIterator}\index{data::StopCoordsIterator@{data::StopCoordsIterator}}
+
+
+{\ttfamily \#include $<$domain.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_ac42c3ade52bd7cd200e16c30ead23dea}\label{classdata_1_1StopCoordsIterator_ac42c3ade52bd7cd200e16c30ead23dea}} 
+using {\bfseries iterator\+\_\+category} = std\+::forward\+\_\+iterator\+\_\+tag
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_a1426d72007796ea3c3a2422e690538f2}\label{classdata_1_1StopCoordsIterator_a1426d72007796ea3c3a2422e690538f2}} 
+using {\bfseries difference\+\_\+type} = std\+::ptrdiff\+\_\+t
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_aa72cfbbf7c99d095fdbd17dbdeea82e2}\label{classdata_1_1StopCoordsIterator_aa72cfbbf7c99d095fdbd17dbdeea82e2}} 
+using {\bfseries value\+\_\+type} = \mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}}
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_ac6b79f703ecc7da27becd75743567c81}\label{classdata_1_1StopCoordsIterator_ac6b79f703ecc7da27becd75743567c81}} 
+using {\bfseries pointer} = const \mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} $\ast$
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_ab115cb8723b54be8fdea268f3b6743d4}\label{classdata_1_1StopCoordsIterator_ab115cb8723b54be8fdea268f3b6743d4}} 
+using {\bfseries reference} = const \mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} \&
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_a08f7222ab316eecbdaee4fac4fa8dc02}\label{classdata_1_1StopCoordsIterator_a08f7222ab316eecbdaee4fac4fa8dc02}} 
+using {\bfseries wrapped\+\_\+iterator} = std\+::vector$<$ const \mbox{\hyperlink{structdata_1_1Stop}{Stop}} $\ast$ $>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_a14849f28b7e95f4715fcab746e23c5f6}\label{classdata_1_1StopCoordsIterator_a14849f28b7e95f4715fcab746e23c5f6}} 
+{\bfseries Stop\+Coords\+Iterator} (wrapped\+\_\+iterator wrapped)
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_a83e5aa667e5595c5289e1afa3e2d4960}\label{classdata_1_1StopCoordsIterator_a83e5aa667e5595c5289e1afa3e2d4960}} 
+\mbox{\hyperlink{structgeo_1_1Coordinates}{reference}} {\bfseries operator$\ast$} () const
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_a42af3f956864b609695aabc7fff86bf7}\label{classdata_1_1StopCoordsIterator_a42af3f956864b609695aabc7fff86bf7}} 
+\mbox{\hyperlink{structgeo_1_1Coordinates}{pointer}} {\bfseries operator-\/$>$} () const
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_a800ada3f1874da1daa1b39dd2f706307}\label{classdata_1_1StopCoordsIterator_a800ada3f1874da1daa1b39dd2f706307}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classdata_1_1StopCoordsIterator}{Stop\+Coords\+Iterator}} \&other) const
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_aae022cd86fa3e5d4270011c0093d8f35}\label{classdata_1_1StopCoordsIterator_aae022cd86fa3e5d4270011c0093d8f35}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classdata_1_1StopCoordsIterator}{Stop\+Coords\+Iterator}} \&other) const
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_a02a8b93fec2b927eb9dcdfc60b465f83}\label{classdata_1_1StopCoordsIterator_a02a8b93fec2b927eb9dcdfc60b465f83}} 
+\mbox{\hyperlink{classdata_1_1StopCoordsIterator}{Stop\+Coords\+Iterator}} {\bfseries operator++} (int)
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_a178d88a5f56ccaf05271ecf712b1bef8}\label{classdata_1_1StopCoordsIterator_a178d88a5f56ccaf05271ecf712b1bef8}} 
+\mbox{\hyperlink{classdata_1_1StopCoordsIterator}{Stop\+Coords\+Iterator}} \& {\bfseries operator++} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdata_1_1StopCoordsIterator_af2efd5a00123b578aeacad4b3f20b792}\label{classdata_1_1StopCoordsIterator_af2efd5a00123b578aeacad4b3f20b792}} 
+wrapped\+\_\+iterator {\bfseries wrapped\+\_\+} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Iterator over \mbox{\hyperlink{structgeo_1_1Coordinates}{geo\+::\+Coordinates}} extracted from Data\+Storage\+::\+Stop pointers container 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{domain_8h}{domain.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/domain.\+cpp\end{DoxyCompactItemize}

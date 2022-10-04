@@ -21,16 +21,16 @@ int main(int argc, char *argv[]) {
   core::TransportCatalogue database{};
   core::TransportRouter router{database};
   graphics::MapRenderer renderer{};
-  io::RequestHandler req_handler{std::cout, database, renderer, router};
-  io::JsonReader json_reader{database, req_handler};
+  core::RequestHandler req_handler{std::cout, database, renderer, router};
+  json::JsonReader json_reader{database, req_handler};
 
-  const io::json::Document doc = io::json::Load(std::cin);
+  const json::Document doc = json::Load(std::cin);
   const auto &doc_map = doc.GetRoot().AsMap();
 
   if (mode == "make_base") {
     serialization::Serializer serializer{};
 
-    json_reader.ProcessInput(doc_map, io::OutputFormat::None);
+    json_reader.ProcessInput(doc_map, input_info::OutputFormat::None);
     database.ExportDataBase(serializer);
     renderer.ExportRenderSettings(serializer);
     router.ExportState(serializer);

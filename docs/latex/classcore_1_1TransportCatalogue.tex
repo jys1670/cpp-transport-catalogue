@@ -1,5 +1,14 @@
 \hypertarget{classcore_1_1TransportCatalogue}{}\doxysection{core\+::Transport\+Catalogue Class Reference}
 \label{classcore_1_1TransportCatalogue}\index{core::TransportCatalogue@{core::TransportCatalogue}}
+
+
+Objects of this type act as stops and routes database.  
+
+
+
+
+{\ttfamily \#include $<$transport\+\_\+catalogue.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -9,26 +18,26 @@ void {\bfseries Import\+Data\+Base} (const serialization\+::\+Tr\+Catalogue \&sr
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_a7eb64a3952f5572f311500f3d76dc7ef}\label{classcore_1_1TransportCatalogue_a7eb64a3952f5572f311500f3d76dc7ef}} 
 void {\bfseries Export\+Data\+Base} (\mbox{\hyperlink{classserialization_1_1Serializer}{serialization\+::\+Serializer}} \&sr)
 \item 
-\mbox{\Hypertarget{classcore_1_1TransportCatalogue_a743d324f421af6eba195c2bf400f8f04}\label{classcore_1_1TransportCatalogue_a743d324f421af6eba195c2bf400f8f04}} 
-void {\bfseries Add\+Stop} (const \mbox{\hyperlink{structio_1_1Stop}{io\+::\+Stop}} \&new\+\_\+stop)
+\mbox{\Hypertarget{classcore_1_1TransportCatalogue_ab559c56084363dfd76fbdf197c9cad07}\label{classcore_1_1TransportCatalogue_ab559c56084363dfd76fbdf197c9cad07}} 
+void {\bfseries Add\+Stop} (const \mbox{\hyperlink{structinput__info_1_1Stop}{input\+\_\+info\+::\+Stop}} \&new\+\_\+stop)
 \item 
-\mbox{\Hypertarget{classcore_1_1TransportCatalogue_a3b52d3f7605dea318cd4f73cb59b5b82}\label{classcore_1_1TransportCatalogue_a3b52d3f7605dea318cd4f73cb59b5b82}} 
-void {\bfseries Add\+Stop\+Links} (const \mbox{\hyperlink{structio_1_1StopLink}{io\+::\+Stop\+Link}} \&new\+\_\+links)
+\mbox{\Hypertarget{classcore_1_1TransportCatalogue_adfe7ef7f8379ca28ffd312c6690341a0}\label{classcore_1_1TransportCatalogue_adfe7ef7f8379ca28ffd312c6690341a0}} 
+void {\bfseries Add\+Stop\+Links} (const \mbox{\hyperlink{structinput__info_1_1StopLink}{input\+\_\+info\+::\+Stop\+Link}} \&new\+\_\+links)
 \item 
-\mbox{\Hypertarget{classcore_1_1TransportCatalogue_a43882a69a35df75b2f755160e57e3504}\label{classcore_1_1TransportCatalogue_a43882a69a35df75b2f755160e57e3504}} 
-void {\bfseries Add\+Bus} (const \mbox{\hyperlink{structio_1_1Bus}{io\+::\+Bus}} \&new\+\_\+bus)
+\mbox{\Hypertarget{classcore_1_1TransportCatalogue_aeca427ac4226de6067b83ec4f37bc906}\label{classcore_1_1TransportCatalogue_aeca427ac4226de6067b83ec4f37bc906}} 
+void {\bfseries Add\+Bus} (const \mbox{\hyperlink{structinput__info_1_1Bus}{input\+\_\+info\+::\+Bus}} \&new\+\_\+bus)
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_acfabb378ccbf66b8579f73a26a88077d}\label{classcore_1_1TransportCatalogue_acfabb378ccbf66b8579f73a26a88077d}} 
-const \mbox{\hyperlink{structcore_1_1data_1_1BusStats}{data\+::\+Bus\+Stats}} $\ast$ {\bfseries Get\+Bus\+Info} (std\+::string\+\_\+view bus\+\_\+name) const
+const \mbox{\hyperlink{structdata_1_1BusStats}{data\+::\+Bus\+Stats}} $\ast$ {\bfseries Get\+Bus\+Info} (std\+::string\+\_\+view bus\+\_\+name) const
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_aa02448d120972aa1f62a2708caf1bb59}\label{classcore_1_1TransportCatalogue_aa02448d120972aa1f62a2708caf1bb59}} 
-const \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data\+::\+Stop\+Stats}} $\ast$ {\bfseries Get\+Stop\+Info} (std\+::string\+\_\+view stop\+\_\+name) const
+const \mbox{\hyperlink{structdata_1_1StopStats}{data\+::\+Stop\+Stats}} $\ast$ {\bfseries Get\+Stop\+Info} (std\+::string\+\_\+view stop\+\_\+name) const
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_aedc6ac757c6a827e59953b4c53528429}\label{classcore_1_1TransportCatalogue_aedc6ac757c6a827e59953b4c53528429}} 
 const data\+::\+Bus\+Storage \& {\bfseries Get\+Bus\+Stats\+Map} () const
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_ac521f01fa3ca41bb6df2a94f0c038954}\label{classcore_1_1TransportCatalogue_ac521f01fa3ca41bb6df2a94f0c038954}} 
-std\+::vector$<$ const \mbox{\hyperlink{structcore_1_1data_1_1Stop}{data\+::\+Stop}} $\ast$ $>$ {\bfseries Get\+All\+Stops} () const
+std\+::vector$<$ const \mbox{\hyperlink{structdata_1_1Stop}{data\+::\+Stop}} $\ast$ $>$ {\bfseries Get\+All\+Stops} () const
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_abd7a4ae3a79d9b1453ecb20b0d50caeb}\label{classcore_1_1TransportCatalogue_abd7a4ae3a79d9b1453ecb20b0d50caeb}} 
 std\+::optional$<$ double $>$ {\bfseries Get\+Stops\+Real\+Dist} (std\+::string\+\_\+view from, std\+::string\+\_\+view to) const
@@ -37,22 +46,22 @@ std\+::optional$<$ double $>$ {\bfseries Get\+Stops\+Real\+Dist} (std\+::string\
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_aac3d587cdae2c86190719d0e441bb44a}\label{classcore_1_1TransportCatalogue_aac3d587cdae2c86190719d0e441bb44a}} 
-static double {\bfseries Compute\+Stops\+Direct\+Dist} (const \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data\+::\+Stop\+Stats}} \&from, const \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data\+::\+Stop\+Stats}} \&to)
+static double {\bfseries Compute\+Stops\+Direct\+Dist} (const \mbox{\hyperlink{structdata_1_1StopStats}{data\+::\+Stop\+Stats}} \&from, const \mbox{\hyperlink{structdata_1_1StopStats}{data\+::\+Stop\+Stats}} \&to)
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_ab5b4b949d3768e564ce49313a0e82735}\label{classcore_1_1TransportCatalogue_ab5b4b949d3768e564ce49313a0e82735}} 
-static double {\bfseries Get\+Stops\+Real\+Dist} (const \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data\+::\+Stop\+Stats}} \&from, const \mbox{\hyperlink{structcore_1_1data_1_1StopStats}{data\+::\+Stop\+Stats}} \&to)
+static double {\bfseries Get\+Stops\+Real\+Dist} (const \mbox{\hyperlink{structdata_1_1StopStats}{data\+::\+Stop\+Stats}} \&from, const \mbox{\hyperlink{structdata_1_1StopStats}{data\+::\+Stop\+Stats}} \&to)
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_ae63396b3b4602605355210e61725fc6f}\label{classcore_1_1TransportCatalogue_ae63396b3b4602605355210e61725fc6f}} 
-static size\+\_\+t {\bfseries Get\+Bus\+Total\+Stops\+Amount} (const \mbox{\hyperlink{structcore_1_1data_1_1Bus}{data\+::\+Bus}} \&bus)
+static size\+\_\+t {\bfseries Get\+Bus\+Total\+Stops\+Amount} (const \mbox{\hyperlink{structdata_1_1Bus}{data\+::\+Bus}} \&bus)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_a1b0db8c83e73fd04764fe4a1a27e43e0}\label{classcore_1_1TransportCatalogue_a1b0db8c83e73fd04764fe4a1a27e43e0}} 
-std\+::deque$<$ \mbox{\hyperlink{structcore_1_1data_1_1Stop}{data\+::\+Stop}} $>$ {\bfseries stops\+\_\+}
+std\+::deque$<$ \mbox{\hyperlink{structdata_1_1Stop}{data\+::\+Stop}} $>$ {\bfseries stops\+\_\+}
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_a0ba63b50824263cf63b04ca999b3f904}\label{classcore_1_1TransportCatalogue_a0ba63b50824263cf63b04ca999b3f904}} 
-std\+::deque$<$ \mbox{\hyperlink{structcore_1_1data_1_1Bus}{data\+::\+Bus}} $>$ {\bfseries buses\+\_\+}
+std\+::deque$<$ \mbox{\hyperlink{structdata_1_1Bus}{data\+::\+Bus}} $>$ {\bfseries buses\+\_\+}
 \item 
 \mbox{\Hypertarget{classcore_1_1TransportCatalogue_a78a73002bd9871fbaba96db1079da95b}\label{classcore_1_1TransportCatalogue_a78a73002bd9871fbaba96db1079da95b}} 
 data\+::\+Bus\+Storage {\bfseries busname\+\_\+to\+\_\+bus\+\_\+stats\+\_\+}
@@ -61,6 +70,9 @@ data\+::\+Bus\+Storage {\bfseries busname\+\_\+to\+\_\+bus\+\_\+stats\+\_\+}
 data\+::\+Stop\+Storage {\bfseries stopname\+\_\+to\+\_\+stop\+\_\+stats\+\_\+}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Objects of this type act as stops and routes database. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

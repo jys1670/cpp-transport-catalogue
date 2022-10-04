@@ -99,7 +99,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ReqsQueue</b> = std:
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0969eebf7991412ef700f4088d2541e0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classio_1_1RequestHandler.html#a0969eebf7991412ef700f4088d2541e0">RequestHandler</a> (std::ostream &amp;output, <a class="el" href="classcore_1_1TransportCatalogue.html">core::TransportCatalogue</a> &amp;catalogue, <a class="el" href="classgraphics_1_1MapRenderer.html">graphics::MapRenderer</a> &amp;renderer, <a class="el" href="classcore_1_1TransportRouter.html">core::TransportRouter</a> &amp;router)</td></tr>
+<tr class="memitem:a0969eebf7991412ef700f4088d2541e0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classio_1_1RequestHandler.html#a0969eebf7991412ef700f4088d2541e0">RequestHandler</a> (std::ostream &amp;output, <a class="el" href="classcore_1_1TransportCatalogue.html">data::TransportCatalogue</a> &amp;catalogue, <a class="el" href="classgraphics_1_1MapRenderer.html">graphics::MapRenderer</a> &amp;renderer, <a class="el" href="classcore_1_1TransportRouter.html">data::TransportRouter</a> &amp;router)</td></tr>
 <tr class="memdesc:a0969eebf7991412ef700f4088d2541e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="classio_1_1RequestHandler.html#a0969eebf7991412ef700f4088d2541e0">More...</a><br /></td></tr>
 <tr class="separator:a0969eebf7991412ef700f4088d2541e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac586c2d7aa29006608be86f0816291a4"><td class="memItemLeft" align="right" valign="top"><a id="ac586c2d7aa29006608be86f0816291a4" name="ac586c2d7aa29006608be86f0816291a4"></a>
@@ -107,7 +107,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>InsertIntoQueue</b> (
 <tr class="memdesc:ac586c2d7aa29006608be86f0816291a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts new element into <a class="el" href="classio_1_1RequestHandler.html#a6446529b977f94676d5e6b27351d0147" title="Queue with all TransportCatalogue NON-state-changing requests.">RequestHandler::reqs_queue_</a>. <br /></td></tr>
 <tr class="separator:ac586c2d7aa29006608be86f0816291a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac49b168c3e1e87c8e5f947f1fd9fc030"><td class="memItemLeft" align="right" valign="top"><a id="ac49b168c3e1e87c8e5f947f1fd9fc030" name="ac49b168c3e1e87c8e5f947f1fd9fc030"></a>
-<a class="el" href="structcore_1_1data_1_1RoutesData.html">core::data::RoutesData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetCatalogueData</b> () const</td></tr>
+<a class="el" href="structcore_1_1data_1_1RoutesData.html">data::data::RoutesData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetCatalogueData</b> () const</td></tr>
 <tr class="memdesc:ac49b168c3e1e87c8e5f947f1fd9fc030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts ALL routes and THEIR stops (not all stops, just those used in routes, with no repetitions) from <a class="el" href="classio_1_1RequestHandler.html#ad4d89514715f574958ce0a8de49dbbb8" title="Database that processes requests for information.">RequestHandler::catalogue_</a>. <br /></td></tr>
 <tr class="separator:ac49b168c3e1e87c8e5f947f1fd9fc030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cdc8bf5f20d65d37fc8d6ad04ec2778"><td class="memItemLeft" align="right" valign="top"><a id="a1cdc8bf5f20d65d37fc8d6ad04ec2778" name="a1cdc8bf5f20d65d37fc8d6ad04ec2778"></a>
@@ -129,7 +129,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>outstre
 <tr class="memdesc:a29b3eb7dd938e04db2f1ee928c6840bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream to which information will be output. <br /></td></tr>
 <tr class="separator:a29b3eb7dd938e04db2f1ee928c6840bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4d89514715f574958ce0a8de49dbbb8"><td class="memItemLeft" align="right" valign="top"><a id="ad4d89514715f574958ce0a8de49dbbb8" name="ad4d89514715f574958ce0a8de49dbbb8"></a>
-<a class="el" href="classcore_1_1TransportCatalogue.html">core::TransportCatalogue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>catalogue_</b></td></tr>
+<a class="el" href="classcore_1_1TransportCatalogue.html">data::TransportCatalogue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>catalogue_</b></td></tr>
 <tr class="memdesc:ad4d89514715f574958ce0a8de49dbbb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Database that processes requests for information. <br /></td></tr>
 <tr class="separator:ad4d89514715f574958ce0a8de49dbbb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f2adf42f36807bb225e951d7cc0eeb6"><td class="memItemLeft" align="right" valign="top"><a id="a4f2adf42f36807bb225e951d7cc0eeb6" name="a4f2adf42f36807bb225e951d7cc0eeb6"></a>
@@ -137,7 +137,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>outstre
 <tr class="memdesc:a4f2adf42f36807bb225e951d7cc0eeb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderer to handle map visualize requests when needed. <br /></td></tr>
 <tr class="separator:a4f2adf42f36807bb225e951d7cc0eeb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f261c87a7c1951404e2a75accd479dc"><td class="memItemLeft" align="right" valign="top"><a id="a6f261c87a7c1951404e2a75accd479dc" name="a6f261c87a7c1951404e2a75accd479dc"></a>
-<a class="el" href="classcore_1_1TransportRouter.html">core::TransportRouter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>trouter_</b></td></tr>
+<a class="el" href="classcore_1_1TransportRouter.html">data::TransportRouter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>trouter_</b></td></tr>
 <tr class="memdesc:a6f261c87a7c1951404e2a75accd479dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transport router to handle fastest path requests when needed. <br /></td></tr>
 <tr class="separator:a6f261c87a7c1951404e2a75accd479dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6446529b977f94676d5e6b27351d0147"><td class="memItemLeft" align="right" valign="top"><a id="a6446529b977f94676d5e6b27351d0147" name="a6446529b977f94676d5e6b27351d0147"></a>
@@ -167,7 +167,7 @@ std::vector&lt; <a class="el" href="classio_1_1RequestHandler.html#a850af3f309e9
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classcore_1_1TransportCatalogue.html">core::TransportCatalogue</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classcore_1_1TransportCatalogue.html">data::TransportCatalogue</a> &amp;&#160;</td>
           <td class="paramname"><em>catalogue</em>, </td>
         </tr>
         <tr>
@@ -179,7 +179,7 @@ std::vector&lt; <a class="el" href="classio_1_1RequestHandler.html#a850af3f309e9
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classcore_1_1TransportRouter.html">core::TransportRouter</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classcore_1_1TransportRouter.html">data::TransportRouter</a> &amp;&#160;</td>
           <td class="paramname"><em>router</em>&#160;</td>
         </tr>
         <tr>

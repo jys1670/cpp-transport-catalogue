@@ -18,13 +18,13 @@
 #include "transport_catalogue.h"
 #include "transport_router.h"
 
-namespace io {
+namespace core {
 /*!
  * \brief Responsible for querying database (TransportCatalogue) and
  * outputting information in various formats.
  *
  * This class is NOT meant to modify TransportCatalogue. It is used as passive
- * database query and information print tool, capable of working with multiple
+ * database query and print tool capable of working with multiple
  * output formats.
  */
 class RequestHandler {
@@ -90,10 +90,11 @@ public:
    * just those used in routes, with no repetitions) from
    * RequestHandler::catalogue_
    */
-  core::data::RoutesData GetCatalogueData() const;
+  data::RoutesData GetCatalogueData() const;
 
   //! Processes each element from RequestHandler::reqs_queue_
-  void ProcessAllRequests(OutputFormat format = OutputFormat::Json);
+  void ProcessAllRequests(
+      input_info::OutputFormat format = input_info::OutputFormat::Json);
 
 private:
   //! Stream to which information will be output

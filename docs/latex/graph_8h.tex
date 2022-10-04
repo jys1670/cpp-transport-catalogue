@@ -2,9 +2,10 @@
 \label{graph_8h}\index{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/graph.h@{/home/user/Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/graph.h}}
 
 
-Directed weighted graphs declarations and definitions.  
+Directed weighted graph declarations and definitions.  
 
 
+{\ttfamily \#include \char`\"{}domain.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$cstdlib$>$}\newline
 {\ttfamily \#include $<$iterator$>$}\newline
 {\ttfamily \#include $<$string\+\_\+view$>$}\newline
@@ -17,9 +18,9 @@ Directed weighted graphs declarations and definitions.
 class \mbox{\hyperlink{classgraph_1_1Range}{graph\+::\+Range$<$ It $>$}}
 \item 
 struct \mbox{\hyperlink{structgraph_1_1Edge}{graph\+::\+Edge$<$ Weight $>$}}
-\item 
+\begin{DoxyCompactList}\small\item\em Model of a road between two stops within the same route (bus) \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgraph_1_1DirectedWeightedGraph}{graph\+::\+Directed\+Weighted\+Graph$<$ Weight $>$}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Can be treated as map containing multiple buses (roads) and their stops. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,5 +39,5 @@ using {\bfseries graph\+::\+Edge\+Id} = size\+\_\+t
 
 
 \doxysubsection{Detailed Description}
-Directed weighted graphs declarations and definitions. 
+Directed weighted graph declarations and definitions. 
 

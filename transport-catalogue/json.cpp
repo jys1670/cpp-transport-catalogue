@@ -3,7 +3,7 @@
 
 #include "json.h"
 
-namespace io::json {
+namespace json {
 
 bool operator==(const Node &lhs, const Node &rhs) {
   if (lhs.IsNull() && rhs.IsNull()) {

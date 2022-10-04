@@ -9,48 +9,48 @@ void {\bfseries Import\+Render\+Settings} (const serialization\+::\+Tr\+Catalogu
 \mbox{\Hypertarget{classgraphics_1_1MapRenderer_af00961fd3f91ff32854ac17e5623b87e}\label{classgraphics_1_1MapRenderer_af00961fd3f91ff32854ac17e5623b87e}} 
 void {\bfseries Export\+Render\+Settings} (\mbox{\hyperlink{classserialization_1_1Serializer}{serialization\+::\+Serializer}} \&sr)
 \item 
-std\+::string \mbox{\hyperlink{classgraphics_1_1MapRenderer_a6dbd1648432a4eb2646e94a2c6cebe06}{Render\+Map}} (\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core\+::data\+::\+Routes\+Data}} data)
+std\+::string \mbox{\hyperlink{classgraphics_1_1MapRenderer_aff8575d17b1340703094b5bf7b119bfd}{Render\+Map}} (\mbox{\hyperlink{structdata_1_1RoutesData}{data\+::\+Routes\+Data}} data)
 \begin{DoxyCompactList}\small\item\em Constructs map image. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classgraphics_1_1MapRenderer_a77ffbeb6d2ec35a5c70b9e5255c27241}{Load\+Settings}} (const \mbox{\hyperlink{classio_1_1json_1_1Node}{io\+::json\+::\+Node}} \&node)
+void \mbox{\hyperlink{classgraphics_1_1MapRenderer_a2aa3c91c8b6d0913eaf06de768cfb2f6}{Load\+Settings}} (const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&node)
 \begin{DoxyCompactList}\small\item\em Updates image generation settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classgraphics_1_1MapRenderer_aa0314484d32eb328f4587e49707cd3a2}\label{classgraphics_1_1MapRenderer_aa0314484d32eb328f4587e49707cd3a2}} 
-void {\bfseries Draw\+Routes} (\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core\+::data\+::\+Routes\+Data}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{Sphere\+Projector}} \&projector, \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg\+::\+Document}} \&doc)
+\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a68d3f1ee0e92fd025894c7e5fa234b59}\label{classgraphics_1_1MapRenderer_a68d3f1ee0e92fd025894c7e5fa234b59}} 
+void {\bfseries Draw\+Routes} (\mbox{\hyperlink{structdata_1_1RoutesData}{data\+::\+Routes\+Data}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{Sphere\+Projector}} \&projector, \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg\+::\+Document}} \&doc)
 \item 
-\mbox{\Hypertarget{classgraphics_1_1MapRenderer_ad2179dce5fa350e2e33b0398124dded8}\label{classgraphics_1_1MapRenderer_ad2179dce5fa350e2e33b0398124dded8}} 
-void {\bfseries Draw\+Route\+Names} (\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core\+::data\+::\+Routes\+Data}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{Sphere\+Projector}} \&projector, \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg\+::\+Document}} \&doc)
+\mbox{\Hypertarget{classgraphics_1_1MapRenderer_ad768903e275433bf9065c03d648143fb}\label{classgraphics_1_1MapRenderer_ad768903e275433bf9065c03d648143fb}} 
+void {\bfseries Draw\+Route\+Names} (\mbox{\hyperlink{structdata_1_1RoutesData}{data\+::\+Routes\+Data}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{Sphere\+Projector}} \&projector, \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg\+::\+Document}} \&doc)
 \item 
-\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a560c2204fe63051a2353d3a8054ab867}\label{classgraphics_1_1MapRenderer_a560c2204fe63051a2353d3a8054ab867}} 
-void {\bfseries Draw\+Stop\+Symbols} (\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core\+::data\+::\+Routes\+Data}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{Sphere\+Projector}} \&projector, \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg\+::\+Document}} \&doc)
+\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a6fb6e5f4c5353b358b5b9cc0722e05d7}\label{classgraphics_1_1MapRenderer_a6fb6e5f4c5353b358b5b9cc0722e05d7}} 
+void {\bfseries Draw\+Stop\+Symbols} (\mbox{\hyperlink{structdata_1_1RoutesData}{data\+::\+Routes\+Data}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{Sphere\+Projector}} \&projector, \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg\+::\+Document}} \&doc)
 \item 
-\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a9da060faa54ce82eaabbc56711d0dd11}\label{classgraphics_1_1MapRenderer_a9da060faa54ce82eaabbc56711d0dd11}} 
-void {\bfseries Draw\+Stop\+Names} (\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core\+::data\+::\+Routes\+Data}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{Sphere\+Projector}} \&projector, \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg\+::\+Document}} \&doc)
-\item 
-\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a7fe09ec15f0561667cd91c1792e367f9}\label{classgraphics_1_1MapRenderer_a7fe09ec15f0561667cd91c1792e367f9}} 
-svg\+::\+Color {\bfseries Deserialize\+Color} (const serialization\+::\+Color \&color)
+\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a4fbd9e9244f0a5f4cd701a2ab3d7d907}\label{classgraphics_1_1MapRenderer_a4fbd9e9244f0a5f4cd701a2ab3d7d907}} 
+void {\bfseries Draw\+Stop\+Names} (\mbox{\hyperlink{structdata_1_1RoutesData}{data\+::\+Routes\+Data}} \&data, \mbox{\hyperlink{classgraphics_1_1SphereProjector}{Sphere\+Projector}} \&projector, \mbox{\hyperlink{classgraphics_1_1svg_1_1Document}{svg\+::\+Document}} \&doc)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a075ee56d1d8a735ec6fcd55f1d6b5c12}\label{classgraphics_1_1MapRenderer_a075ee56d1d8a735ec6fcd55f1d6b5c12}} 
-static svg\+::\+Color {\bfseries Parse\+Color} (const \mbox{\hyperlink{classio_1_1json_1_1Node}{io\+::json\+::\+Node}} \&node)
+\mbox{\Hypertarget{classgraphics_1_1MapRenderer_ae12bc312158e6735f62a9dff90e5f869}\label{classgraphics_1_1MapRenderer_ae12bc312158e6735f62a9dff90e5f869}} 
+static svg\+::\+Color {\bfseries Parse\+Color} (const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&node)
+\item 
+\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a7fe09ec15f0561667cd91c1792e367f9}\label{classgraphics_1_1MapRenderer_a7fe09ec15f0561667cd91c1792e367f9}} 
+static svg\+::\+Color {\bfseries Deserialize\+Color} (const serialization\+::\+Color \&color)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a5449dd810215a65dc3be27502528d394}\label{classgraphics_1_1MapRenderer_a5449dd810215a65dc3be27502528d394}} 
-\mbox{\hyperlink{structgraphics_1_1RenderSettings}{Render\+Settings}} {\bfseries settings\+\_\+}
+\mbox{\Hypertarget{classgraphics_1_1MapRenderer_aca9c43a4e89c049b55f892d314fd37ea}\label{classgraphics_1_1MapRenderer_aca9c43a4e89c049b55f892d314fd37ea}} 
+\mbox{\hyperlink{structinput__info_1_1RenderSettings}{input\+\_\+info\+::\+Render\+Settings}} {\bfseries settings\+\_\+}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classgraphics_1_1MapRenderer}{Map\+Renderer}} settings storage. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a77ffbeb6d2ec35a5c70b9e5255c27241}\label{classgraphics_1_1MapRenderer_a77ffbeb6d2ec35a5c70b9e5255c27241}} 
+\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a2aa3c91c8b6d0913eaf06de768cfb2f6}\label{classgraphics_1_1MapRenderer_a2aa3c91c8b6d0913eaf06de768cfb2f6}} 
 \index{graphics::MapRenderer@{graphics::MapRenderer}!LoadSettings@{LoadSettings}}
 \index{LoadSettings@{LoadSettings}!graphics::MapRenderer@{graphics::MapRenderer}}
 \doxysubsubsection{\texorpdfstring{LoadSettings()}{LoadSettings()}}
-{\footnotesize\ttfamily void graphics\+::\+Map\+Renderer\+::\+Load\+Settings (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classio_1_1json_1_1Node}{io\+::json\+::\+Node}} \&}]{node }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void graphics\+::\+Map\+Renderer\+::\+Load\+Settings (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&}]{node }\end{DoxyParamCaption})}
 
 
 
@@ -58,14 +58,14 @@ Updates image generation settings.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em node} & json\+::\+Dict that defines all fields of \mbox{\hyperlink{structgraphics_1_1RenderSettings}{Render\+Settings}} \\
+\mbox{\texttt{ in}}  & {\em node} & \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{json\+::\+Dict}} that defines all fields of Render\+Settings \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classgraphics_1_1MapRenderer_a6dbd1648432a4eb2646e94a2c6cebe06}\label{classgraphics_1_1MapRenderer_a6dbd1648432a4eb2646e94a2c6cebe06}} 
+\mbox{\Hypertarget{classgraphics_1_1MapRenderer_aff8575d17b1340703094b5bf7b119bfd}\label{classgraphics_1_1MapRenderer_aff8575d17b1340703094b5bf7b119bfd}} 
 \index{graphics::MapRenderer@{graphics::MapRenderer}!RenderMap@{RenderMap}}
 \index{RenderMap@{RenderMap}!graphics::MapRenderer@{graphics::MapRenderer}}
 \doxysubsubsection{\texorpdfstring{RenderMap()}{RenderMap()}}
-{\footnotesize\ttfamily std\+::string graphics\+::\+Map\+Renderer\+::\+Render\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcore_1_1data_1_1RoutesData}{core\+::data\+::\+Routes\+Data}}}]{data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::string graphics\+::\+Map\+Renderer\+::\+Render\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdata_1_1RoutesData}{data\+::\+Routes\+Data}}}]{data }\end{DoxyParamCaption})}
 
 
 

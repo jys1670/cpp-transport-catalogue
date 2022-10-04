@@ -1,0 +1,135 @@
+\hypertarget{classjson_1_1JsonReader}{}\doxysection{json\+::Json\+Reader Class Reference}
+\label{classjson_1_1JsonReader}\index{json::JsonReader@{json::JsonReader}}
+
+
+Responsible for reading JSON input.  
+
+
+
+
+{\ttfamily \#include $<$json\+\_\+reader.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1CatalogueInserter}{Catalogue\+Inserter}}
+\begin{DoxyCompactList}\small\item\em Functor used to process elements of \mbox{\hyperlink{classjson_1_1JsonReader_a4adb8145f324953004212c2d52dfc12f}{Json\+Reader\+::input\+\_\+queue\+\_\+}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1JsonInputParse}{Json\+Input\+Parse}}
+\begin{DoxyCompactList}\small\item\em Functor used to parse and enqueue Transport\+Catalogue state-\/changing requests. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1JsonPrintParse}{Json\+Print\+Parse}}
+\begin{DoxyCompactList}\small\item\em Functor used to parse and enqueue Transport\+Catalogue NON-\/state-\/changing requests. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes}{Request\+Types}}
+\begin{DoxyCompactList}\small\item\em Known types of database state-\/changing requests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classjson_1_1JsonReader_a49fbeaaef8d3698cae1d6e65bcd1b7a5}{Json\+Reader}} (\mbox{\hyperlink{classcore_1_1TransportCatalogue}{core\+::\+Transport\+Catalogue}} \&catalogue, \mbox{\hyperlink{classcore_1_1RequestHandler}{core\+::\+Request\+Handler}} \&req\+\_\+handler)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_ac36705122a9fae064da0c4f36d7a5b01}\label{classjson_1_1JsonReader_ac36705122a9fae064da0c4f36d7a5b01}} 
+void {\bfseries Process\+Input} (const \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{json\+::\+Dict}} \&doc\+\_\+map, \mbox{\hyperlink{namespaceinput__info_a3ecc5b6b1fd2d6e7aecf01c04dc54f00}{input\+\_\+info\+::\+Output\+Format}} format=input\+\_\+info\+::\+Output\+Format\+::\+Json)
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a60d70319ce4e71e0b14d5999c72e28ea}\label{classjson_1_1JsonReader_a60d70319ce4e71e0b14d5999c72e28ea}} 
+void {\bfseries Process\+Base\+Reqs} (const \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{json\+::\+Dict}} \&doc\+\_\+map)
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a0b184f6ce0432718c91600cb1bd50023}\label{classjson_1_1JsonReader_a0b184f6ce0432718c91600cb1bd50023}} 
+void {\bfseries Enqueue\+Render\+Settings\+Update} (const \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{json\+::\+Dict}} \&doc\+\_\+map)
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a8f2bc6b087ac6f211b66ae22f67bf1e2}\label{classjson_1_1JsonReader_a8f2bc6b087ac6f211b66ae22f67bf1e2}} 
+void {\bfseries Enqueue\+Routing\+Settings\+Update} (const \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{json\+::\+Dict}} \&doc\+\_\+map)
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a1bf915e0550131b784e8ca4561cecf0a}\label{classjson_1_1JsonReader_a1bf915e0550131b784e8ca4561cecf0a}} 
+void {\bfseries Enqueue\+Stat\+Reqs} (const \mbox{\hyperlink{namespacejson_a14165bfd985e982794b3697b71cc4a01}{json\+::\+Dict}} \&doc\+\_\+map)
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_ad8d5cad8c8473d9a9eb3191648d60e06}\label{classjson_1_1JsonReader_ad8d5cad8c8473d9a9eb3191648d60e06}} 
+void {\bfseries Parse\+Single\+Command} (const \mbox{\hyperlink{classjson_1_1Node}{json\+::\+Node}} \&node)
+\begin{DoxyCompactList}\small\item\em Handles node that represents single known action defined in \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes}{Request\+Types}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_aa522cb4e7785b59b59d5a49c020475bb}\label{classjson_1_1JsonReader_aa522cb4e7785b59b59d5a49c020475bb}} 
+void {\bfseries Insert\+All\+Into\+Catalogue} ()
+\begin{DoxyCompactList}\small\item\em Inserts all of new routes and stops parsed so far into \mbox{\hyperlink{classjson_1_1JsonReader_a0ae996e195f14f7542c53414497c2fa2}{Json\+Reader\+::catalogue\+\_\+}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a9133bfe72e1c7a6f7bc8002fca3234d5}\label{classjson_1_1JsonReader_a9133bfe72e1c7a6f7bc8002fca3234d5}} 
+using {\bfseries Input\+Queue} = std\+::variant$<$ \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes_1_1StopInsert}{Request\+Types\+::\+Stop\+Insert}}, \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes_1_1StopLinkInsert}{Request\+Types\+::\+Stop\+Link\+Insert}}, \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes_1_1BusInsert}{Request\+Types\+::\+Bus\+Insert}} $>$
+\begin{DoxyCompactList}\small\item\em Runtime polymorphic type capable of storing all kinds of \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes}{Request\+Types}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a98ae55d9c072d5ac31b7585029ddb5eb}\label{classjson_1_1JsonReader_a98ae55d9c072d5ac31b7585029ddb5eb}} 
+void {\bfseries Clear} ()
+\begin{DoxyCompactList}\small\item\em Clears all temporary JSON data, making \mbox{\hyperlink{classjson_1_1JsonReader}{Json\+Reader}} ready to accept new document. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a0ae996e195f14f7542c53414497c2fa2}\label{classjson_1_1JsonReader_a0ae996e195f14f7542c53414497c2fa2}} 
+\mbox{\hyperlink{classcore_1_1TransportCatalogue}{core\+::\+Transport\+Catalogue}} \& {\bfseries catalogue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Database to be modified in place with insertion of new stops and routes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a8321a0cc06e0e2e04e73c6622471e1ba}\label{classjson_1_1JsonReader_a8321a0cc06e0e2e04e73c6622471e1ba}} 
+\mbox{\hyperlink{classcore_1_1RequestHandler}{core\+::\+Request\+Handler}} \& {\bfseries req\+\_\+handler\+\_\+}
+\begin{DoxyCompactList}\small\item\em any non-\/state-\/changing requests are delegated here \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_ad0f05b6100eea80b115710e9d53c9d72}\label{classjson_1_1JsonReader_ad0f05b6100eea80b115710e9d53c9d72}} 
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1JsonInputParse}{json\+::\+Json\+Reader\+::\+Json\+Input\+Parse}} $\ast$ {\bfseries this}
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_ab6cff8d13252049e399bc81f7ec61f5f}\label{classjson_1_1JsonReader_ab6cff8d13252049e399bc81f7ec61f5f}} 
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1JsonPrintParse}{json\+::\+Json\+Reader\+::\+Json\+Print\+Parse}} {\bfseries req\+\_\+handler\+\_\+}
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a9402857104f522e9b6115b31ec137175}\label{classjson_1_1JsonReader_a9402857104f522e9b6115b31ec137175}} 
+struct \mbox{\hyperlink{structjson_1_1JsonReader_1_1CatalogueInserter}{json\+::\+Json\+Reader\+::\+Catalogue\+Inserter}} $\ast$ {\bfseries this}
+\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a4adb8145f324953004212c2d52dfc12f}\label{classjson_1_1JsonReader_a4adb8145f324953004212c2d52dfc12f}} 
+std\+::vector$<$ \mbox{\hyperlink{classjson_1_1JsonReader_a9133bfe72e1c7a6f7bc8002fca3234d5}{Input\+Queue}} $>$ {\bfseries input\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Queue with all Transport\+Catalogue state-\/changing requests, should be sorted to satisfy \mbox{\hyperlink{structjson_1_1JsonReader_1_1RequestTypes}{Request\+Types}} processing requirements. \end{DoxyCompactList}\item 
+std\+::deque$<$ \mbox{\hyperlink{structinput__info_1_1Stop}{input\+\_\+info\+::\+Stop}} $>$ \mbox{\hyperlink{classjson_1_1JsonReader_a77c396487f2cec76b8e32a463a1c9e79}{stops\+\_\+input\+\_\+queue\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Temporary storage of stops related information. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a79662e90cc941bcc23ef4f59da11b674}\label{classjson_1_1JsonReader_a79662e90cc941bcc23ef4f59da11b674}} 
+std\+::deque$<$ \mbox{\hyperlink{structinput__info_1_1StopLink}{input\+\_\+info\+::\+Stop\+Link}} $>$ {\bfseries stoplinks\+\_\+input\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Temporary storage of stop links related information. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classjson_1_1JsonReader_a18c6fcb6deaaab63f3a7c565b2c42650}\label{classjson_1_1JsonReader_a18c6fcb6deaaab63f3a7c565b2c42650}} 
+std\+::deque$<$ \mbox{\hyperlink{structinput__info_1_1Bus}{input\+\_\+info\+::\+Bus}} $>$ {\bfseries buses\+\_\+input\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Temporary storage of buses related information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Responsible for reading JSON input. 
+
+This class is NOT meant to output anything, its main task is input information reading. If input is supposed to modify database, it is handled in place (new routes/stops directly inserted into Transport\+Catalogue). Other requests are delegated to Requests\+Handler (in uniform, JSON independent format), which will process everything once there is nothing left to insert into Transport\+Catalogue. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classjson_1_1JsonReader_a49fbeaaef8d3698cae1d6e65bcd1b7a5}\label{classjson_1_1JsonReader_a49fbeaaef8d3698cae1d6e65bcd1b7a5}} 
+\index{json::JsonReader@{json::JsonReader}!JsonReader@{JsonReader}}
+\index{JsonReader@{JsonReader}!json::JsonReader@{json::JsonReader}}
+\doxysubsubsection{\texorpdfstring{JsonReader()}{JsonReader()}}
+{\footnotesize\ttfamily json\+::\+Json\+Reader\+::\+Json\+Reader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcore_1_1TransportCatalogue}{core\+::\+Transport\+Catalogue}} \&}]{catalogue,  }\item[{\mbox{\hyperlink{classcore_1_1RequestHandler}{core\+::\+Request\+Handler}} \&}]{req\+\_\+handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em inputstream} & stream from which JSON input will be read \\
+\hline
+\mbox{\texttt{ in}}  & {\em catalogue} & database to be modified in place by insertion of new stops and routes \\
+\hline
+\mbox{\texttt{ in}}  & {\em req\+\_\+handler} & requests that are not supposed to modify Transport\+Catalogue are delegated here \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classjson_1_1JsonReader_a77c396487f2cec76b8e32a463a1c9e79}\label{classjson_1_1JsonReader_a77c396487f2cec76b8e32a463a1c9e79}} 
+\index{json::JsonReader@{json::JsonReader}!stops\_input\_queue\_@{stops\_input\_queue\_}}
+\index{stops\_input\_queue\_@{stops\_input\_queue\_}!json::JsonReader@{json::JsonReader}}
+\doxysubsubsection{\texorpdfstring{stops\_input\_queue\_}{stops\_input\_queue\_}}
+{\footnotesize\ttfamily std\+::deque$<$\mbox{\hyperlink{structinput__info_1_1Stop}{input\+\_\+info\+::\+Stop}}$>$ json\+::\+Json\+Reader\+::stops\+\_\+input\+\_\+queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Temporary storage of stops related information. 
+
+Adding new objects to the end/beginning of deque does not invalidate previously received pointers, which is why this container is used 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/\mbox{\hyperlink{json__reader_8h}{json\+\_\+reader.\+h}}\item 
+/home/user/\+Documents/cpp-\/transport-\/catalogue/transport-\/catalogue/json\+\_\+reader.\+cpp\end{DoxyCompactItemize}

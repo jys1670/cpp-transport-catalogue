@@ -95,6 +95,9 @@
     "bus_velocity": 40,
     "bus_wait_time": 6
   },
+  "serialization_settings": {
+    "file": "route_example.db"
+  },
   "stat_requests": [
     {
       "id": 1,
