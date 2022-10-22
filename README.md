@@ -64,7 +64,15 @@ As of now, there is only JSON input/output interface which is [briefly described
 ```
 ### Building:
 
-Preparation:
+Requirements:
+* GCC or alternative (supporting C++17 or later)
+* Cmake (tested with 3.21)
+* Protobuf (static version by default) (tested with 3.21.7)
+* [optional] Boost (tested with 1.80.0)
+* [optional] Doxygen (tested with 1.9.5)
+
+
+Preparations:
 ```sh
 git clone https://github.com/jys1670/cpp-transport-catalogue.git
 cd cpp-transport-catalogue
@@ -89,7 +97,6 @@ cd bin
 
 Updating documentation:
 ```sh
-cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build . --config Release --target doxygen
 ```
 
